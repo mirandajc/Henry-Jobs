@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import fetchDataReducer from './fetchDataReducer';
+import fetchDataReducer from './fetchDataReducer'
 
 const RootReducer= combineReducers({
     fetchDataReducer
