@@ -1,11 +1,12 @@
 import React from "react";
-import { Route , Routes } from 'react-router-dom'
-import Landing from "./Components/Lading/Lading";
+import {Route,Routes} from 'react-router-dom'; 
+import Landing from "./Components/Lading/Landing";
+
 function App() {
   return (
     <div >
     <Routes>
-      <Route path="/" element={Landing}/>
+      <Route path="/" element={<Landing/>}/>
     </Routes>
     </div>
   );
