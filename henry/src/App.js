@@ -3,11 +3,11 @@ import { Route , Routes } from 'react-router-dom'
 import Landing from "./Components/Lading/Lading";
 function App() {
   return (
-    <>
+    <div >
     <Routes>
       <Route path="/" element={Landing}/>
     </Routes>
-    </>
+    </div>
   );
 }
 
