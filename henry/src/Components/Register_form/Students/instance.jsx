@@ -11,12 +11,12 @@ export default function Instance() {
 
       <div>
         <label>Proyecto Final</label>
-        <input value={"proyectoFinal"} type="checkbox" onClick={(e) => setwhoIam(e.target.value)} />
+        <input name="instance" value={"proyectoFinal"} type="radio" onClick={(e) => setInstance(e.target.value)} />
       </div>
 
       <div>
         <label>Alumno Egresado</label>
-        <input value={"egresado"} type="checkbox" onClick={(e) => setwhoIam(e.target.value)} />
+        <input name="instance" value={"egresado"} type="radio" onClick={(e) => setInstance(e.target.value)} />
       </div>
 
     </div>

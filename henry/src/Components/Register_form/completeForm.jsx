@@ -5,6 +5,7 @@ export default function StudentForm() {
 
   const handleSubmit = () => {
     // /register  =>  /register/:whoIam
+    // hacer rutas de registro dependiendo el tipo de usuario register/alumno, register/empresa, register/reclutador
   };
 
   return (
@@ -15,17 +16,17 @@ export default function StudentForm() {
 
       <div>
         <label>Alumno</label>
-        <input value={"alumno"} type="checkbox" onClick={(e) => setwhoIam(e.target.value)} />
+        <input name="userType" value={"alumno"} type="radio" onClick={(e) => setwhoIam(e.target.value)} />
       </div>
 
       <div>
         <label>Empresa</label>
-        <input value={"empresa"} type="checkbox" onClick={(e) => setwhoIam(e.target.value)} />
+        <input name="userType" value={"empresa"} type="radio" onClick={(e) => setwhoIam(e.target.value)} />
       </div>
 
       <div>
         <label>Reclutador</label>
-        <input value={"reclutador"} type="checkbox" onClick={(e) => setwhoIam(e.target.value)} />
+        <input name="userType" value={"reclutador"} type="radio" onClick={(e) => setwhoIam(e.target.value)} />
       </div>
 
       <button type="submit" value={"siguiente"} onClick={handleSubmit} />
