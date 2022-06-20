@@ -14,18 +14,23 @@ export const NavButton= styled.div`
 display: flex;
 justify-content: space-between;
 
-width: 20%;
+
+button{
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    background-color:transparent;
+    color:white;
+    border:1px solid transparent;
+}
 
 `
 export const NavLogo= styled.div`
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 font-family: 'Roboto', sans-serif;
 display: flex;
-
 align-items:baseline;
-
 width: 100%;
-
 img{
     width:50%;
 }

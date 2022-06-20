@@ -12,8 +12,8 @@ export default function Navbar(){
             <Logo/>
             </div>
             <NavButton>
-            <ButtonContact/>
-            <ButtonAbout/>
+            {/* <ButtonContact/>
+            <ButtonAbout/> */}
             <ButtonLogin/>
             </NavButton>
         </NavbarS>
