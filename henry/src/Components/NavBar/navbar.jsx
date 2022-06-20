@@ -3,6 +3,7 @@ import ButtonContact from "./buttons/buttonContact";
 import Logo from "./Logo/logo";
 import ButtonLogin from "./buttons/buttonLogin";
 import ButtonAbout from "./buttons/buttonAbout";
+import LoginApi from "./buttons/LoginApi";
 import { NavbarS,NavButton} from "./NavStyles/navbar";
 
 export default function Navbar(){
@@ -15,6 +16,7 @@ export default function Navbar(){
             {/* <ButtonContact/>
             <ButtonAbout/> */}
             <ButtonLogin/>
+            <LoginApi/>
             </NavButton>
         </NavbarS>
     )
