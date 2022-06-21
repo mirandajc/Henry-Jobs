@@ -1,3 +1,6 @@
+import React from "react"
+import DevType from "../Register_form/Students/devType"
+
 export default function Landing(){
     return(
         <>
@@ -6,6 +9,8 @@ export default function Landing(){
         <h1>hola3</h1>
         <h3>soy un h3</h3>
         <h4>Quiero ser un p y no me dejan</h4>
+
+        <DevType />
         </>
 
     )

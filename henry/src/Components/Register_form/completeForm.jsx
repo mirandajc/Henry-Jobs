@@ -29,7 +29,7 @@ export default function StudentForm() {
         <input name="userType" value={"reclutador"} type="radio" onClick={(e) => setwhoIam(e.target.value)} />
       </div>
 
-      <button type="submit" value={"siguiente"} onClick={handleSubmit} />
+      <button type="submit" value={"siguiente"} />
     </div>
   );
 };

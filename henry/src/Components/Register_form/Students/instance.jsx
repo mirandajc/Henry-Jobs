@@ -19,6 +19,7 @@ export default function Instance() {
         <input name="instance" value={"egresado"} type="radio" onClick={(e) => setInstance(e.target.value)} />
       </div>
 
+      <button type="submit" value={"siguiente"} />
     </div>
   );
 };
