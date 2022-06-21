@@ -24,8 +24,16 @@ export default function DevType() {
     backend:[]     
   });
 
+  const [ error, setError ] = useState({
+    devType: "",
+    languages:"",
+    frontend:"",
+    backend:""
+  }); 
+
   // esta funcion setea el estado de tech
-  // como saber si los inputs type checkbox estan seleccionados o no ? => con e.target.checked, esto devuelve true o false 
+  // como saber si los inputs type checkbox estan seleccionados o no ? => con e.target.checked, 
+  // esto devuelve true o false 
   const handleProgLangs = (e) => {  // aplicar esta funcion a todos los inputs que tengan checkbox
     if(e.target.checked === true){ // si el checkbox esta seleccionado
       if(tech[e.target.name].includes(e.target.value)){
@@ -37,7 +45,11 @@ export default function DevType() {
     else{  // si el checkbox fue desmarcado, quita ese valor del arreglo de tecnologias
       return setTech({...tech, [e.target.name]: tech[e.target.name].filter(el => el !== e.target.value)});
     }                          
-  };                           
+  };
+  
+  const handleSubmit = (e) => {
+    
+  }
 
   return (
     <div>
@@ -145,7 +157,7 @@ export default function DevType() {
 
       </div>
 
-      <button type="submit">Siguiente</button>
+      <button type="submit" onClick={(e) => handleSubmit(e)}>Siguiente</button>
     </div>
   );
 };

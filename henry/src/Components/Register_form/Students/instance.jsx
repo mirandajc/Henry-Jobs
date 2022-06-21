@@ -1,7 +1,19 @@
 import React, { useState } from "react";
 
 export default function Instance() {
-  const [instance, setInstance] = useState("");
+  const [ instance, setInstance ] = useState("");
+  const [ error, setError ] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(!instance){
+      setError("Selecciona una instancia");
+    }
+    else{
+      setError("");
+      //manejar info y avanzar en el form
+    }
+  };
 
   return (
     <div>
@@ -19,7 +31,9 @@ export default function Instance() {
         <input name="instance" value={"egresado"} type="radio" onClick={(e) => setInstance(e.target.value)} />
       </div>
 
-      <button type="submit" value={"siguiente"} />
+      <span>{error & <p>{error}</p>}</span>
+
+      <button type="submit" value={"siguiente"} onClick={(e) => handleSubmit(e)} />
     </div>
   );
 };
