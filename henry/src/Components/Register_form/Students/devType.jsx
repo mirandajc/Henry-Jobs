@@ -1,20 +1,28 @@
 import React, { useState } from "react";
 
 export default function DevType() {
-  const [ devType, setDevType ] = useState(""); // tipo de desarrollador front, back o fullstack
+  const [ devType, setDevType ] = useState("");
   const [ tech, setTech ] = useState({
-    languages:[],  // dentro de estos arreglos se guardan strings de las tecnologias seleccionadas
-    frontend:[],   // hacer funcion que las agregue cuando sean seleccionadas y las saque cuando se deseleccionen (esa palabra existe?)
-    backend:[]     // mas abajo esta mejor explicado, son los inputs checkbox
+    languages:[],  
+    frontend:[],   
+    backend:[]     
   });
 
-  const handleProgLangs = (e) => {
+  const handleProgLangs = (e) => {  // aplicar esta funcion a todos los inputs que tengan checkbox
+    if(e.target.checked === true){
+      if(tech.languages.includes(e.target.value)){
+        return;
+      }else{
+        return setTech({...tech, [e.target.name]: [...tech.languages, e.target.value]});
+      }
+    }
+    else{
+      return setTech({...tech, languages: tech.languages.filter(el => el !== e.target.value)});
+    }
+  };
 
-  }
-
-  // solo uno de los inputs type radio puede estar seleccionado a la vez, el problema es con los checkbox 
-  // como saber si los inputs type checkbox estan seleccionados o no ?
-  // => hacer funcion que saque los elementos del arreglo cuando sean deshabilitados los checkbox 
+   
+  // como saber si los inputs type checkbox estan seleccionados o no ? => con e.target.checked, esto devuelve true o false 
 
   return (
     <div>
@@ -48,22 +56,20 @@ export default function DevType() {
         <div>
             <h3>Lenguajes</h3>
           <label>Javascript</label>
-          <input value={"javascript"} type="checkbox" onClick={(e) => (e.target.value)} />
+          <input name="languages" value={"javascript"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
         </div>
 
         <div>
-            <h3>Lenguajes</h3>
           <label>TypeScript</label>
-          <input value={"typeScript"} type="checkbox" onClick={(e) => (e.target.value)} />
+          <input name="languages" value={"typeScript"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
         </div>
 
         <div>
-            <h3>Lenguajes</h3>
           <label>Python</label>
-          <input value={"python"} type="checkbox" onClick={(e) => (e.target.value)} />
+          <input name="languages" value={"python"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
         </div>
 
       </div>
     </div>
   );
-}
+};
