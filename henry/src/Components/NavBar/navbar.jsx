@@ -5,6 +5,8 @@ import ButtonLogin from "./buttons/buttonLogin";
 import ButtonAbout from "./buttons/buttonAbout";
 import LoginApi from "./buttons/LoginApi";
 import { NavbarS,NavButton} from "./NavStyles/navbar";
+import ButtonHome from './buttons/buttonHome'
+import ButtonLanding from './buttons/buttonLanding'
 
 export default function Navbar(){
     return(
@@ -16,8 +18,10 @@ export default function Navbar(){
             {/* <ButtonContact/>
             <ButtonAbout/> */}
             <ButtonLogin/>
+            <ButtonHome/>
             <LoginApi/>
             </NavButton>
+            <ButtonLanding/>
         </NavbarS>
     )
 }
