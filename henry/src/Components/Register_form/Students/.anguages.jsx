@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { allCountries } from "./paises";
 
+// hacer funcion de handle
+// hacer verificaciones
+// hacer los estados que faltan
+
+
 export default function Languages () {
     const [ country, setCountry ] = useState({
         country:"",
         city:""
     });
-
 
     // mas abajo están las funciones que traen todos los paises y ciudades
     // hay que pasar esas funciones escritas en express a funciones para redux-saga

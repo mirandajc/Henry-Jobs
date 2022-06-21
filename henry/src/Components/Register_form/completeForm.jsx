@@ -1,11 +1,21 @@
 import { React, useState } from "react";
 
 export default function StudentForm() {
-  const [whoIam, setwhoIam] = useState("");
+  const [ whoIam, setwhoIam ] = useState("");
+  const [ error, setError ] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     // /register  =>  /register/:whoIam
     // hacer rutas de registro dependiendo el tipo de usuario register/alumno, register/empresa, register/reclutador
+    e.preventDefault();
+
+    if(whoIam === ""){
+      setError("Selecciona que tipo de usuario eres");
+      //manejar info(guardar) y avanzar en el formulario
+    }
+    else{
+      setError("");
+    }
   };
 
   return (
@@ -29,7 +39,7 @@ export default function StudentForm() {
         <input name="userType" value={"reclutador"} type="radio" onClick={(e) => setwhoIam(e.target.value)} />
       </div>
 
-      <button type="submit" value={"siguiente"} />
+      <button type="submit" value={"siguiente"} onClick={(e) => handleSubmit(e)} />
     </div>
   );
 };

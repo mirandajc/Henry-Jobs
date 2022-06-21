@@ -11,7 +11,7 @@ export default function Instance() {
     }
     else{
       setError("");
-      //manejar info y avanzar en el form
+      //manejar info()guardarla y avanzar en el form
     }
   };
 
@@ -31,7 +31,7 @@ export default function Instance() {
         <input name="instance" value={"egresado"} type="radio" onClick={(e) => setInstance(e.target.value)} />
       </div>
 
-      <span>{error & <p>{error}</p>}</span>
+      {error & <span>{error}</span>}
 
       <button type="submit" value={"siguiente"} onClick={(e) => handleSubmit(e)} />
     </div>
