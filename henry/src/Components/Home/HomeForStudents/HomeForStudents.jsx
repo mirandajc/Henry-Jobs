@@ -31,7 +31,7 @@ export default function HomeForStudents(props){
             <img src={props.image} alt={props.name}/>
             <div>
                 {props.otherStudies}
-                
+
             </div>
         </div>
     )
