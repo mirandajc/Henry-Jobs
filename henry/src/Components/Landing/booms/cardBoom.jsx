@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import Booms from './booms';
 import Testimony from './testimony';
-import { Slider,CardDiv } from '../LandingStyles/landing';
+import { Slider,CardDiv,ContCard,Card } from '../LandingStyles/landing';
 import {GrNext, GrPrevious} from 'react-icons/gr';
 import Starting from './starting';
 
@@ -29,13 +29,14 @@ export default function Carousel(){
 		<GrNext className='Rarrow' onClick={nextComponent}/>
 		
 		
+		<ContCard>
 		{
 			arrComp.map((el , index)=> {
 				return(
 					<CardDiv>
 					{ index === current &&(
-						<div>{el}</div>
-					)
+						<Card>{el}</Card>
+						)
 					}
 					</CardDiv>
 					)
@@ -43,6 +44,7 @@ export default function Carousel(){
 			)
 
 		}
+					</ContCard>
 		
 	</Slider>
  )

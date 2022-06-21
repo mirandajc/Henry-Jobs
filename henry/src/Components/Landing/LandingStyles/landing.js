@@ -13,22 +13,26 @@ align-items: center;
 
 
 
-// background-color: black;
-// color: white;
+background-color: black;
+color: white;
 
 .Rarrow{
     position: absolute;
     top:50%;
     right:1em;
     font-size: 2rem;
-    
+    color:white;
     z-index: 10;
     cursor: pointer;
     user-select: none;
+    background-color:white;
+    border-radius:50%;
     
    
 }
     .Larrow{
+        background-color:white;
+        border-radius:50%;
         position: absolute;
         top:50%;
         left:1em;
@@ -46,9 +50,23 @@ align-items: center;
 
 export const CardDiv=styled.div`
 
+// width:100%;
+// height:100%;
 
-div{
-    
-}
+
+
+
+`
+export const ContCard= styled.div`
+
+width:100%;
+
+
+
+`
+
+export const Card= styled.div`
+border: 1px solid black;
+width:100%;
 
 `
