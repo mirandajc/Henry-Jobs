@@ -1,17 +1,19 @@
 import React from "react";
 import { VerticalDiv } from "../../LandingStyles/vertiNav";
-import {FaCode,FaCommentAlt} from 'react-icons/fa'
-import {BiBomb} from 'react-icons/bi'
-import {BsBook} from 'react-icons/bs'
+
+import Anuncio from '../../../images/anuncio.png'
+import Proyectos from '../../../images/protectos.png'
+import Booms from '../../../images/booms.png'
+import Cohete from '../../../images/cohete.png'
 
 
 export default function VertiNav(){
     return(
         <VerticalDiv>
-            <FaCode/>
-            <FaCommentAlt/>
-            <BiBomb/>
-            <BsBook/>
+            <img src={Cohete} className='cohete'/>
+           <img src={Proyectos}/>
+           <img src={Anuncio}/>
+           <img src={Booms}/>
         </VerticalDiv>
     )
 }
