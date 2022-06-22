@@ -50,6 +50,17 @@ color: white;
         
 }
 
+.slide{
+    opacity:0;
+    transition-duration: 2s ease;
+}
+.slide.active{
+    opacity:1;
+    transition-duration: 2s;
+    // transform: scale(1.08);
+}
+
+
 `
 
 export const CardDiv=styled.div`

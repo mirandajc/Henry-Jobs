@@ -33,7 +33,7 @@ export default function Carousel(){
 		{
 			arrComp.map((el , index)=> {
 				return(
-					<CardDiv>
+					<CardDiv className={index === current ? 'slide active' : 'slide'} key={index}>
 					{ index === current &&(
 						<Card>{el}</Card>
 						)
