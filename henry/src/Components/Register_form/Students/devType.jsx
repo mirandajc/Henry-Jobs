@@ -17,7 +17,7 @@ import postgres from "./img/Postgresql_elephant.svg.png";
 import { useNavigate } from "react-router-dom";
 
 
-export default function DevType() {
+export default function DevType({sumarFase}) {
   let navigate = useNavigate();
   const [ devType, setDevType ] = useState("");
   const [ tech, setTech ] = useState({
@@ -52,7 +52,7 @@ export default function DevType() {
     else{
       setError("")
       //manejar info(guardarla) y avanzar en el formulario
-      navigate("/register/alumno/3", { replace:true });
+      sumarFase()
     }
   };
 

@@ -16,14 +16,16 @@ export default function UserForm() {
     else{
       setError("");
       if(whoIam === "alumno"){
-        //manejar info
-        navigate("/register/alumno/1", { replace:true })
+        //manejar info(GUARDAR)
+        navigate("/register/alumno", { replace:true })
       }
       else if(whoIam === "empresa"){
         //manejar info y hacer ruta de registro de empresa
+        // navigate("/register/empresa", { replace:true })
       }
       else{
         //manejar info y hacer ruta de registro de reclutador
+        // navigate("/register/recruiter", { replace:true })
       }
     }
   };
