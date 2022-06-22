@@ -17,18 +17,12 @@ export default function Navbar() {
             </div>
 
             <NavButton>
-                {/* <ButtonContact/>
-            <ButtonAbout/> */}
-
-                <ButtonLogin />
-
-                <ButtonHome />
-
+    
                 <LoginApi />
 
             </NavButton>
 
-            <ButtonLanding />
+            
 
         </NavbarS>
     )

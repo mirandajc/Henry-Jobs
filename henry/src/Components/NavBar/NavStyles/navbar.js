@@ -14,11 +14,10 @@ width:100%;
 export const NavButton= styled.div`
 display: flex;
 justify-content: space-between;
-
+width: 50%;
 
 button{
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-    font-family: 'Roboto', sans-serif;
+   
     font-size: 1em;
     background-color:transparent;
     color:white;
