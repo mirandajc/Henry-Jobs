@@ -17,12 +17,11 @@ export const ContCard= styled.div`
 width: 15em;
 height: 15em;
 overflow:hidden;
-border: 1px solid white;
+border: 1px solid yellow;
 border-radius: 10px;
-box-shadow: 4px 10px 5px 0px rgba(255,255,255,0.75);
--webkit-box-shadow: 4px 10px 5px 0px rgba(255,255,255,0.75);
--moz-box-shadow: 4px 10px 5px 0px rgba(255,255,255,0.75);
-
+box-shadow: 5px 10px 5px 0px rgba(237,224,59,0.75);
+-webkit-box-shadow: 5px 10px 5px 0px rgba(237,224,59,0.75);
+-moz-box-shadow: 5px 10px 5px 0px rgba(237,224,59,0.75);
 && ::-webkit-scrollbar {
     width: 15px;
 }
