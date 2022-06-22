@@ -7,7 +7,7 @@ import {
 } from "../../constants/constants";
 
 const initialState = {
-    user: 'bussines',
+    user: 'business',
     pokemon: [],
     loading: false,
     error: {}
