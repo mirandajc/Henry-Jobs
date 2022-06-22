@@ -9,7 +9,7 @@ export default function Testimony(){
             
             <TittleTestimony>
             <h1>EMPRESAS QUE NOS ELIGEN</h1>
-            <hr/>
+           
             </TittleTestimony>
             
             <GridDiv>

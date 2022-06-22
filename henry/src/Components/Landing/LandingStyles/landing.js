@@ -16,6 +16,10 @@ align-items: center;
 background-color: black;
 color: white;
 
+
+
+
+
 .Rarrow{
     position: absolute;
     top:50%;
@@ -69,4 +73,16 @@ export const Card= styled.div`
 border: 1px solid black;
 width:100%;
 
+`
+
+
+export const ArrowLeft= styled.img`
+    height:2em;
+
+`
+
+export const ArrowRight= styled.img`
+    height:2em;
+    -webkit-transform: rotate(-180deg); 
+-moz-transform: rotate(-180deg);
 `

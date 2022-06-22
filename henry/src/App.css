@@ -2,4 +2,6 @@
   background-image: url('../src/Components/images/background/background.svg');
   background-size: cover;
   margin:0;
+  @import url(//db.onlinewebfonts.com/c/901497541657a2f24e42848bcf7fad52?family=Avenir+Heavy);
+  font-family: Avenir Heavy;
 }

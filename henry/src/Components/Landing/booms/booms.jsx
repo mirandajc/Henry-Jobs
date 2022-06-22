@@ -1,13 +1,28 @@
 import React from "react";
-import { ContStart } from "../LandingStyles/vertiNav";
 
+import { BoomCardContainer,ContCard,GridContBoom } from "../LandingStyles/booms";
+import Boom from '../booms/data/dataBooms';
 
 export default function Booms(){
+    const booms=Boom;
+    console.log(booms)
     
     return(
-        <ContStart>
-            <h1>ACA VAN LOS HENRY BOOMS 💥💥💥</h1>
-            <p>JUSTO EN ESTA PAGE</p>
-        </ContStart>
+        <BoomCardContainer>
+            <div>
+            <h1>BOOMS 💥💥💥</h1>
+            </div>
+            <GridContBoom>
+                {
+                    booms.map(boom=>{
+                        return(
+                            <ContCard>
+                                <p>{boom}</p>
+                            </ContCard>
+                        )
+                    })
+                }
+            </GridContBoom>
+        </BoomCardContainer>
     )
 }
