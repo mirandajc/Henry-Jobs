@@ -1,11 +1,22 @@
-import React from "react";
+import React,{useEffect} from "react";
+import {useDispatch, useSelector} from 'react-redux';
 import HomeBusiness from "./HomeForStudents/HomeBusiness";
 import HomeForStaff from "./HomeForStaff/HomeForStaff";
 import HomeStudents from "./HomeForBusiness/HomeStudents";
 import { testStuden } from './HomeForBusiness/MokedFiles'
+import { getPoke } from "../../reducer/actions/action";
 
 
 export default function Home(){
+    const dispatch= useDispatch();
+    const pokemon= useSelector((state)=> state.fetchDataReducer.pokemon);
+    console.log(pokemon)
+
+
+    useEffect(()=>{
+        dispatch(getPoke())
+        
+    },[])
 
     const modelTypeStudent = true;
 
