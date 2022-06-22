@@ -4,15 +4,23 @@ export const VerticalDiv= styled.div`
 
 
 height: 100.5vh;
-width: 5vh;
+width: 3em;
 display: flex;
 align-items: center;
-justify-content: space-between;
+justify-content: space-evenly;
+// border-right:1px solid white;
 flex-direction: column;
 // color: white;
 font-size: 1.5em;
-// background-color:black;
+background-color:none;
+img{
+width:50%;
+}
 
+// .cohete{
+//     width:20%;
+//     height:2em;
+// }
 
 
 

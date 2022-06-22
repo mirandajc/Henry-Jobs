@@ -2,14 +2,16 @@ import React from "react";
 import {Route,Routes} from 'react-router-dom'; 
 import Landing from "./Components/Landing/Landing";
 import Navbar from "./Components/NavBar/navbar";
+import './App.css';
 import Home from "./Components/Home/home";
 import UserForm from "./Components/Register_form/completeForm";
 import RegisterAlumn from "./Components/Register_form/RegisterAlumn";
 import RegisterCompleted from "./Components/Register_form/RegisterCompleted";
+import DetailStudent from "./Components/Home/HomeForBusiness/DetailStudents";
 
 function App() {
   return (
-    <div >
+    <div className="body">
       <Navbar/>
       
     <Routes>
@@ -17,6 +19,7 @@ function App() {
       <Route path='/home' element={<Home/>}/>
       <Route path='/register' element={<UserForm/>}/>
       <Route path='/register/alumno' element={<RegisterAlumn />} />
+      <Route path='/details/:id' element={<DetailStudent/>}/>
     </Routes>
     </div>
   );
