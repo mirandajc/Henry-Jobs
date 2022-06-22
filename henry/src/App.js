@@ -2,11 +2,16 @@ import React from "react";
 import {Route,Routes} from 'react-router-dom'; 
 import Landing from "./Components/Landing/Landing";
 import Navbar from "./Components/NavBar/navbar";
+<<<<<<< HEAD
 import Home from "./Components/Home/home";
+=======
+import './App.css';
+
+>>>>>>> LandingBooms
 
 function App() {
   return (
-    <div >
+    <div className="body">
       <Navbar/>
       
     <Routes>

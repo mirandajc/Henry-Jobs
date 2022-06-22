@@ -4,9 +4,10 @@ export const NavbarS= styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
-background-color: black;
+background-color: none;
 color: white;
 width:100%;
+
 
 `
 
@@ -32,6 +33,6 @@ display: flex;
 align-items:baseline;
 width: 100%;
 img{
-    width:50%;
+    width:20%;
 }
 `

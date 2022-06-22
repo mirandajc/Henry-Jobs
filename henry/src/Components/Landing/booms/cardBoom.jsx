@@ -1,10 +1,10 @@
 import React,{useState} from 'react';
 import Booms from './booms';
 import Testimony from './testimony';
-import { Slider,CardDiv } from '../LandingStyles/landing';
+import { Slider,CardDiv,ContCard,Card,ArrowLeft, ArrowRight } from '../LandingStyles/landing';
 import {GrNext, GrPrevious} from 'react-icons/gr';
 import Starting from './starting';
-
+import Arrow from '../../images/Arrow/atras.png'
 
 export default function Carousel(){
 	const [current,setCurrent]=useState(0);
@@ -25,25 +25,28 @@ export default function Carousel(){
 
  return(
 	<Slider >
-		<GrPrevious  className='Larrow' onClick={prevComponent}/>
-		<GrNext className='Rarrow' onClick={nextComponent}/>
+		<ArrowLeft src={Arrow} onClick={prevComponent}/>
 		
 		
+		
+		<ContCard>
 		{
 			arrComp.map((el , index)=> {
 				return(
-					<CardDiv>
+					<CardDiv className={index === current ? 'slide active' : 'slide'} key={index}>
 					{ index === current &&(
-						<div>{el}</div>
-					)
+						<Card>{el}</Card>
+						)
 					}
 					</CardDiv>
 					)
+				}
+				)
+				
 			}
-			)
-
-		}
+					</ContCard>
 		
+			<ArrowRight src={Arrow} onClick={nextComponent}/>
 	</Slider>
  )
 }
