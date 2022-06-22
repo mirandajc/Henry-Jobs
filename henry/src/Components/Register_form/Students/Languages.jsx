@@ -5,12 +5,13 @@ import { allCountries } from "./paises";
 // hacer verificaciones
 // hacer los estados que faltan
 
-
 export default function Languages () {
     const [ country, setCountry ] = useState({
         country:"",
         city:""
     });
+    const [ languages, setLanguages ] = useState([]);
+    const [ study, setStudy ] = useState([]);
 
     // mas abajo están las funciones que traen todos los paises y ciudades
     // hay que pasar esas funciones escritas en express a funciones para redux-saga

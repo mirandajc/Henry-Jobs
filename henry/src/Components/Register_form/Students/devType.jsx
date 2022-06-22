@@ -14,9 +14,11 @@ import express from "./img/express.png";
 import php from "./img/php.png";
 import sql from "./img/sql.png";
 import postgres from "./img/Postgresql_elephant.svg.png";
+import { useNavigate } from "react-router-dom";
 
 
 export default function DevType() {
+  let navigate = useNavigate();
   const [ devType, setDevType ] = useState("");
   const [ tech, setTech ] = useState({
     languages:[],  
@@ -48,8 +50,9 @@ export default function DevType() {
       return setError("tienes que seleccionar al menos un lenguaje ó tecnología en cada instancia")
     }
     else{
-      return setError("")
+      setError("")
       //manejar info(guardarla) y avanzar en el formulario
+      navigate("/register/alumno/3", { replace:true });
     }
   };
 

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Instance() {
+  let navigate = useNavigate();
   const [ instance, setInstance ] = useState("");
   const [ error, setError ] = useState("");
 
@@ -11,7 +13,8 @@ export default function Instance() {
     }
     else{
       setError("");
-      //manejar info()guardarla y avanzar en el form
+      //manejar info(guardarla)
+      navigate("/register/alumno/2", { replace:true });
     }
   };
 
@@ -31,9 +34,9 @@ export default function Instance() {
         <input name="instance" value={"egresado"} type="radio" onClick={(e) => setInstance(e.target.value)} />
       </div>
 
-      {error & <span>{error}</span>}
+      { error && <span>{error}</span> }
 
-      <button type="submit" value={"siguiente"} onClick={(e) => handleSubmit(e)} />
+      <button type="submit" value={"siguiente"} onClick={(e) => handleSubmit(e)}>Siguiente</button>
     </div>
   );
 };
