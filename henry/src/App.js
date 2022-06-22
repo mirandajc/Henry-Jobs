@@ -8,6 +8,7 @@ import UserForm from "./Components/Register_form/completeForm";
 import RegisterAlumn from "./Components/Register_form/RegisterAlumn";
 import RegisterCompleted from "./Components/Register_form/RegisterCompleted";
 import DetailStudent from "./Components/Home/HomeForBusiness/DetailStudents";
+import ProfileLogic from "./Components/Profile/ProfileLogic";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path='/register' element={<UserForm/>}/>
       <Route path='/register/alumno' element={<RegisterAlumn />} />
       <Route path='/details/:id' element={<DetailStudent/>}/>
+      <Route path='/profile/:name' element={<ProfileLogic/>}/>
     </Routes>
     </div>
   );
