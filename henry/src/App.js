@@ -4,9 +4,10 @@ import Landing from "./Components/Landing/Landing";
 import Navbar from "./Components/NavBar/navbar";
 import Home from "./Components/Home/home";
 
+
 function App() {
   return (
-    <div >
+    <div>
       <Navbar/>
       
     <Routes>
