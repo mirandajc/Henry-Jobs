@@ -2,12 +2,8 @@ import React from "react";
 import {Route,Routes} from 'react-router-dom'; 
 import Landing from "./Components/Landing/Landing";
 import Navbar from "./Components/NavBar/navbar";
-<<<<<<< HEAD
-import Home from "./Components/Home/home";
-=======
 import './App.css';
-
->>>>>>> LandingBooms
+import Home from './Components/Home/home';
 
 function App() {
   return (
