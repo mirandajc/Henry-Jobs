@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FormDiv,Switch,Error} from "./formStyles/formStyles";
+
+
 
 export default function UserForm() {
   let navigate = useNavigate();
@@ -31,27 +34,44 @@ export default function UserForm() {
   };
 
   return(
-    <div>
-        <h3>¿Qué tipo de usuario eres?</h3>  
+    <FormDiv>
+        <h1>¿Qué tipo de usuario eres?</h1>  
 
       <div>
         <label>Alumno</label>
-        <input name="userType" value={"alumno"} type="radio" onClick={(e) => setwhoIam(e.target.value)} />
+        
+
+        <Switch>
+        <label class="switch">
+        <input type="checkbox"/>
+         <span class="slider round"></span>
+        </label>
+        </Switch>
       </div>
 
       <div>
         <label>Empresa</label>
-        <input name="userType" value={"empresa"} type="radio" onClick={(e) => setwhoIam(e.target.value)} />
+        <Switch>
+        <label class="switch">
+        <input type="checkbox"/>
+         <span class="slider round"></span>
+        </label>
+        </Switch>
       </div>
 
       <div>
         <label>Reclutador</label>
-        <input name="userType" value={"reclutador"} type="radio" onClick={(e) => setwhoIam(e.target.value)} />
+        <Switch>
+        <label class="switch">
+        <input type="checkbox"/>
+         <span class="slider round"></span>
+        </label>
+        </Switch>
       </div>
 
-      {error && <span>{error}</span>}
+      {error && <Error>{error}😡</Error>}
 
-      <button type="submit" value={"siguiente"} onClick={(e) => handleSubmit(e)}>Siguiente</button>
-    </div>
+      <button type="submit" value={"siguiente"} onClick={(e) => handleSubmit(e)}>SIGUIENTE</button>
+    </FormDiv>
   );
 };
