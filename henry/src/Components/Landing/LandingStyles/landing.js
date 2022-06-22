@@ -13,7 +13,7 @@ align-items: center;
 
 
 
-background-color: black;
+// background-color: black;
 color: white;
 
 

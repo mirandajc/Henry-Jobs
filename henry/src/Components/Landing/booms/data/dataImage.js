@@ -25,12 +25,11 @@ const Bussines=[
     JpMorgan,
     Kavak,
     Lenovo,
-    Meli,
     Naranja,
     Rappi,
     Santander,
-    Scale,
-    Uala
+   
+    
 ];
 
 
