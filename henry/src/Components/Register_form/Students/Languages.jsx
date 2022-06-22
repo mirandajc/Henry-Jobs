@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { allCountries } from "./paises";
 
 // hacer funcion de handle
 // hacer verificaciones
 // hacer los estados que faltan
 
-export default function Languages () {
+export default function Languages ({sumarFase}) {
     const [ country, setCountry ] = useState({
         country:"",
         city:""
@@ -26,6 +27,16 @@ export default function Languages () {
         }
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(false){
+          // logica por determinar, falta completar componente
+        }
+        else{
+            sumarFase()
+        }
+      };
+
     return (
         <div>
             <div><h3>¿De qué país eres?</h3></div>
@@ -33,6 +44,8 @@ export default function Languages () {
                 <option>Seleccionar País</option>
                 { allCountries.map(e => <option key={e} value={e}>{e}</option>) }
             </select>
+
+            <button type="submit" onClick={(e) => handleSubmit(e)}>Siguiente</button>
         </div>
     );
 };

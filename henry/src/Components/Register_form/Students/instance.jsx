@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Instance() {
+export default function Instance({sumarFase}) {
   let navigate = useNavigate();
   const [ instance, setInstance ] = useState("");
   const [ error, setError ] = useState("");
@@ -14,7 +14,7 @@ export default function Instance() {
     else{
       setError("");
       //manejar info(guardarla)
-      navigate("/register/alumno/2", { replace:true });
+      sumarFase();
     }
   };
 
