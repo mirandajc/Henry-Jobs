@@ -1,8 +1,8 @@
 import React from "react";
-import HomeForBusiness from "./HomeForBusiness/HomeForBusiness";
+import HomeBusiness from "./HomeForStudents/HomeBusiness";
 import HomeForStaff from "./HomeForStaff/HomeForStaff";
-import HomeForStudents from "./HomeForStudents/HomeForStudents";
-import { testStuden } from "./HomeForStudents/MokedFiles";
+import HomeStudents from "./HomeForBusiness/HomeStudents";
+import { testStuden } from './HomeForBusiness/MokedFiles'
 
 
 export default function Home(){
@@ -17,7 +17,7 @@ export default function Home(){
             {   
                 modelTypeStudent ?
 
-                testStuden.map(e => <HomeForStudents 
+                testStuden.map(e => <HomeStudents 
                     name={e.name} 
                     lastName={e.lastName} 
                     lenguage={e.lenguage} 
@@ -25,6 +25,7 @@ export default function Home(){
                     backFront={e.backFront} 
                     otherStudies={e.otherStudies} 
                     image={e.image}
+                    id={e.id}
                 />)
 
                 : null
