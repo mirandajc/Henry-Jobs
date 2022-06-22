@@ -2,7 +2,7 @@ import React from "react";
 import { VerticalDiv } from "../../LandingStyles/vertiNav";
 
 import Anuncio from '../../../images/anuncio.png'
-import Proyectos from '../../../images/protectos.png'
+import Proyectos from '../../../images/Protecto.png'
 import Booms from '../../../images/booms.png'
 import Cohete from '../../../images/cohete.png'
 

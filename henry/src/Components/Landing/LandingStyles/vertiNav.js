@@ -19,7 +19,7 @@ width:50%;
 
 // .cohete{
 //     width:20%;
-//     height:1em;
+//     height:2em;
 // }
 
 
