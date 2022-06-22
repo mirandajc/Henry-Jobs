@@ -26,12 +26,8 @@ button{
 
 `
 export const NavLogo= styled.div`
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-font-family: 'Roboto', sans-serif;
-display: flex;
-align-items:baseline;
-width: 100%;
+
 img{
-    width:20%;
+    width:30%;
 }
 `

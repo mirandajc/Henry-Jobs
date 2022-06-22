@@ -3,6 +3,7 @@ import {watchFetchDataSaga} from './fetchDataSaga';
 
 export function* RootSaga(){
     yield all([
-        spawn(watchFetchDataSaga)
+        spawn(watchFetchDataSaga),
+    
     ])
 }
