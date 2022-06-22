@@ -10,6 +10,7 @@ import DevType from "./Components/Register_form/Students/devType";
 import Languages from "./Components/Register_form/Students/Languages";
 import RegisterCompleted from "./Components/Register_form/RegisterCompleted";
 import DetailStudent from "./Components/Home/HomeForBusiness/DetailStudents";
+import ProfileLogic from "./Components/Profile/ProfileLogic";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route path='/register/alumno/3' element={<Languages />} />
       <Route path='/registerSuccesful' element={<RegisterCompleted />} />
       <Route path='/details/:id' element={<DetailStudent/>}/>
+      <Route path='/profile/:name' element={<ProfileLogic/>}/>
     </Routes>
     </div>
   );

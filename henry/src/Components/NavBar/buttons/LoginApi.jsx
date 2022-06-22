@@ -16,7 +16,7 @@ export default function LoginApi(){
                 :
                     <ProfileNav>
                 
-                        <NavLoginTrue/>
+                        <NavLoginTrue name={user.name}/>
                     
                         {/* <div>
                             <img scr={user.picture} alt={user.name}/>

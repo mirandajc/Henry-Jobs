@@ -7,7 +7,7 @@ export default function HomeBusiness(props){
         <div>
             
             hi, i'm information for the business's card
-            <div>
+            {/* <div>
                 {props.name}
             </div>
             
@@ -25,7 +25,7 @@ export default function HomeBusiness(props){
                 <Link to={`/details/${props.id}`}>
                 <button>Job Details</button>
                 </Link>
-            </div>
+            </div> */}
         </div>
     )
 }

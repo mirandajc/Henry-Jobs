@@ -11,14 +11,12 @@ export default function Home(){
     const dispatch= useDispatch();
     const pokemon= useSelector((state)=> state.fetchDataReducer.pokemon);
     console.log(pokemon)
-
+    const userType = useSelector((state) => state.fetchDataReducer.user)
 
     useEffect(()=>{
         dispatch(getPoke())
         
     },[])
-
-    const modelTypeStudent = true;
 
     return(
 
@@ -26,7 +24,7 @@ export default function Home(){
             Hi, i'm the logic behind the rendering
 
             {   
-                modelTypeStudent ?
+                userType === 'business' || userType === 'recruiter' ?
 
                 testStuden.map(e => <HomeStudents 
                     name={e.name} 
@@ -39,7 +37,21 @@ export default function Home(){
                     id={e.id}
                 />)
 
-                : null
+                : 
+                
+                userType === 'student' ? 
+
+                <HomeBusiness/>
+
+                :
+
+                userType === 'staff' ?
+
+                <HomeForStaff/>
+
+                :
+                
+                null
                 
             }
 
