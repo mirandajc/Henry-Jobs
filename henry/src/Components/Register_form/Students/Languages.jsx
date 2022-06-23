@@ -1,49 +1,184 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { allCountries } from "./paises";
+import { countries } from "../gistfile1.json"
+
 
 // hacer funcion de handle
 // hacer verificaciones
-// hacer los estados que faltan
 
 export default function Languages ({sumarFase}) {
+    
+    /////////////////////////    COUNTRY & CITY    //////////////////////////////
+    
     const [ country, setCountry ] = useState({
-        country:"",
-        city:""
+        country: "",
+        city: ""
     });
-    const [ languages, setLanguages ] = useState([]);
-    const [ study, setStudy ] = useState([]);
 
-    // mas abajo están las funciones que traen todos los paises y ciudades
-    // hay que pasar esas funciones escritas en express a funciones para redux-saga
-    // el archivo paises.js ya no es necesario cuando se agregue la funcion que trae paises y ciudades
+    const [ errorCountry, setErrorCountry ] = useState("");
 
-    const countrySelect = (e) => {
-        if(e.target.value === 'Seleccionar País'){
-            return
+    const [ allCities, setAllCities ] = useState([]); 
+    // aca se guardan las opciones que mostrará la seleccion de ciudades segun el país seleccionado
+    
+    const countrySelect = (e) => { 
+        // cada vez que se seleccione un pais, se selecciona un pais y la ciudad en blanco
+        // porque si no se limpia la ciudad el estado podria quedar "Argentina, Manchester"
+        let pais = e.target.value
+        if(pais === "Selecciona un País"){
+            return setCountry({...country, country: "", city:""});
+        }
+        else if(pais === country.country){
+            return;
         }
         else{
-            setCountry({...country, country: e.target.value});
+            setCountry({...country, country: e.target.value, city:""});
+            setAllCities(countries.find(el => el.country === pais).states) // aca se guardan las provincias y estados                                         
+        }                                                                  // según el país seleccionado
+    };
+    
+    const citySelect = (e) => {
+        if(e.target.value === "Selecciona una Ciudad"){
+            setCountry({...country, city: ""});
+            return;
+        }
+        else{
+            setCountry({...country, city: e.target.value});
         }
     };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if(false){
-          // logica por determinar, falta completar componente
+    
+    ///////////////////////////    LANGUAGES      ///////////////////////////////
+    
+    //V2
+    const [ nivel, setNivel ] = useState("");
+    
+    const selectIngles = (e) => {
+        let lvl = e.target.value;
+        if(lvl === "Seleccionar nivel" || lvl === "No sé Ingles"){
+            setNivel("")
+            return;
         }
         else{
-            sumarFase()
+            setNivel(lvl);
         }
-      };
-
+    };
+    
+    //////////////////////////    OTROS ESTUDIOS      ///////////////////////////////
+    
+    const [ study, setStudy ] = useState([]);
+    const [ errorStudy, setErrorStudy ] = useState('');
+    
+    const borrarEstudio = (value) => {
+        setStudy(study.filter(e => e !== value));
+    };
+    
+    
+    
+    const validateStudy = (value) => {
+        if(!/[a-zA-Z ]/gim.test(value)){
+            setErrorStudy('El estudio no debe contener números!');
+        }
+        else{
+            setErrorStudy('');
+        }
+    };
+    
+    const agregarEstudios = () => {
+        let value = document.getElementById('estudios').value;
+        if(value === ""){
+            setErrorStudy("Debes escribir el estudio para poder agregarlo! 😡");
+        }
+        else if(!/[a-zA-Z ]/gim.test(value)){
+            setErrorStudy('El estudio no debe contener números!');
+        }
+        else{
+            console.log(value)
+            setErrorStudy("");
+            if(study.includes(value)){
+                setErrorStudy("Ya has agregado ese estudio!")
+            }
+            else{
+                if(errorStudy === ""){
+                    setStudy([...study, value ]);
+                    document.getElementById("estudios").innerText = ""; // NO SE
+                }
+            }
+        }
+    };
+    
+    //////////////////////////     SUBMIT      ///////////////////////////
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(!country.country){
+            return setErrorCountry("Tienes que agregar un país y una ciudad!");
+        }
+        else if(country.country && !country.city){
+            return setErrorCountry("Tienes que agregar una ciudad!");
+        }
+        else{
+            setErrorCountry("");
+            //manejar info(GUARDAR)
+            return sumarFase();
+        }
+    };
+    
     return (
         <div>
-            <div><h3>¿De qué país eres?</h3></div>
-            <select onClick={countrySelect}>
-                <option>Seleccionar País</option>
-                { allCountries.map(e => <option key={e} value={e}>{e}</option>) }
-            </select>
+
+            {/* PAIS Y CIUDAD  */}
+            <div>
+                <h1>¿De dónde eres?</h1>
+                { errorCountry && <span>{errorCountry}</span>}
+                <h1>País:</h1> 
+                <select onClick={(e) => countrySelect(e)}>
+                    <option>Selecciona un País</option>
+                    {countries && countries.map(e => {
+                        return <option>{e.country}</option>
+                    })}
+                </select>
+
+                {allCities && <div>
+                    <h1>Ciudad:</h1>
+                    <select onClick={(e) => citySelect(e)}>
+                        <option>Selecciona una Ciudad</option>
+                        {allCities.map(e => {
+                            return <option>{e}</option>
+                        })}
+                    </select>
+                    </div>}
+            </div>
+            {/* PAIS Y CIUDAD  */}
+
+            {/* NIVEL DE INGLES  */}
+            <div>
+                <h1>¿Qué nivel de Inglés posees?</h1>
+                <select onClick={(e) => selectIngles(e)}>
+                    <option>Seleccionar nivel</option>
+                    <option>No sé Ingles</option>
+                    <option>Ingles Básico</option>
+                    <option>Ingles Intermedio</option>
+                    <option>Ingles Avanzado</option>
+                </select>
+            </div>
+            {/* NIVEL DE INGLES  */}
+
+            {/* OTROS ESTUDIOS  */}
+            <div>
+                <h1>¿Tienes otros estudios?, Agrégalos en forma de lista:</h1>
+                    {study && study.map(e => {
+                        return(
+                            <div key={e}>
+                                <p>{e}</p><button onClick={() => borrarEstudio(e)} title="borrar estudio">X</button>
+                            </div>
+                        );
+                    })}
+                <div>
+                    {errorStudy && <span>{errorStudy}</span>}
+                <input id="estudios" type={'text'} placeholder={'Agrega uno por uno'} onChange={(e) => validateStudy(e.target.value)}/>
+                <button onClick={agregarEstudios}>AGREGAR</button>
+                </div>
+
+            </div>
+            {/* OTROS ESTUDIOS  */}
 
             <button type="submit" onClick={(e) => handleSubmit(e)}>Siguiente</button>
         </div>
@@ -52,78 +187,69 @@ export default function Languages ({sumarFase}) {
 
 
 
-// ESTA FUNCION TRAE LOS PAISES
 
-// app.get('/', async (req, res) => {
-//     try {
-//         const data = (await axios.get("https://www.universal-tutorial.com/api/countries/", {
-//             headers:{
-//                 "authorization":" Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJsdWNpYW5vZGF2aWQyMjAxQGdtYWlsLmNvbSIsImFwaV90b2tlbiI6IjVKSlZNSVJwdmV4R2FMVXlkQkFhaU54V3FNLXBKdTNrTVZSaXdtT0xaSTdqd0tyQjc1eEZvOGFPTGlLRW45RzV1ZlEifSwiZXhwIjoxNjU1ODQ4MzcwfQ.2wapjXfAC7vhnXgZ05ayUTB4auafS-Uf4rRCmbrPg-g",
-//             }
-//         })).data
 
-//         const paises = data.map(e => e.country_name);
+// V1 NO BORRAR!
 
-//         res.send(paises);
-        
-//     } catch (error) {
-//         console.log(error);
+// import { idiomas } from "./idiomas"
+
+// const [ languages, setLanguages ] = useState([]); // lenguaje seleccionado, esta info no se manda
+// const [ languageLvl, setLanguageLvl ] = useState([]); // nivel de lenguaje, ESTA INFO SE MANDA
+//                                                       // ejemplo: "Ingles intermedio"
+
+// const languagesSelect = (e) => {
+//     if(e.target.value === 'Seleccionar Idiomas' || languages.includes(e.target.value)){
+//         return
 //     }
-// });
-
-
-
-
-// ESTA FUNCION TRAE LAS CIUDADES DE UN PAIS SEGUN EL PAIS QUE SE LE PASE, ahora tiene a Argentina
-// cuando se mande el dispatch se tiene que llevar el country seleccionado
-// entonces la funcion recibiría el pais como argumento y se lo agregaria a la url
-// `https://www.universal-tutorial.com/api/states/${country}`
-
-// app.get('/ciudades', async (req, res) => {
-//     try {
-//         // enviar la funcion a la action con el country.country
-//         // (en la url de las actions) /states/${country}
-//         const data = (await axios.get("https://www.universal-tutorial.com/api/states/Argentina", {
-//             headers:{
-//                 "authorization":" Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJsdWNpYW5vZGF2aWQyMjAxQGdtYWlsLmNvbSIsImFwaV90b2tlbiI6IjVKSlZNSVJwdmV4R2FMVXlkQkFhaU54V3FNLXBKdTNrTVZSaXdtT0xaSTdqd0tyQjc1eEZvOGFPTGlLRW45RzV1ZlEifSwiZXhwIjoxNjU1ODQ4MzcwfQ.2wapjXfAC7vhnXgZ05ayUTB4auafS-Uf4rRCmbrPg-g",
-//             }
-//         })).data
-
-//         const ciudades = data.map(e => e.state_name);
-
-//         res.send(ciudades);
-        
-//     } catch (error) {
-//         console.log(error);
+//     else{
+//         setLanguages([...languages, e.target.value]); // agrega un idioma para luego seleccionar el nivel
 //     }
-// });
+// };
+
+// const selectLang = (e) => {
+//     if(e.target.value.includes('Seleccionar') || languageLvl.includes(e.target.value)){
+//         return;
+//     }
+//     else{
+//         setLanguageLvl([...languageLvl, e.target.value]); // agrega un idioma con su nivel
+//         setLanguages(languages.filter(el => !e.target.value.includes(el))); // elimina la seleccion de nivel de idioma
+//     }                                                                       // ya que el nivel de idioma fue agregado
+// };
+
+// const onClose = (e) => {
+//     setLanguages(languages.filter(el => el !== e)); // elimina el idioma seleccionado más la seleccion de nivel de idioma
+//     setLanguageLvl(languageLvl.filter(el => !el.includes(e)));
+// };
+
+// const onCloseLvl = (e) => {
+//     setLanguageLvl(languageLvl.filter(el => el !== e)); // elimina un idioma con su nivel
+// };
 
 
+// V1 DENTRO DEL RETURN
+{/* <div>
+<h1>¿Qué idiomas hablas?</h1>
+{languageLvl && languageLvl.map(e => {
+    return(
+            <div><p>{e}</p><button title="borrar idioma" onClick={() => onCloseLvl(e)}>X</button></div>
+        );
+    })}
+    {languages && languages.map((e) => {
+        return(
+            <div key={e}>
+                <select onClick={selectLang}>
+                    <option>Seleccionar Nivel de {e}</option>
+                    <option>{e} Principiante</option>
+                    <option>{e} Intermedio</option>
+                    <option>{e} Avanzado</option>
+                </select>
+                <button title="borrar idioma" onClick={() => onClose(e)}>X</button>
+            </div>
+        );
+    })}
 
-
-
-
-// const [ langs, setLangs ] = useState({
-//     Languages:[
-//         {
-//             lang:'',
-//             level:''
-//         }
-//     ]
-// })
-
-
-// idiomas: [
-//     {
-//         idioma:'ingles',   
-//         nivel: 'avanzado'
-//     },
-//     {
-//         idioma:'portugues',   
-//         nivel: 'principiante'
-//     },
-// ];
-
-
-
-
+    <select id="dropdown" defaultValue={'Seleccionar Idiomas'} onClick={(e) => languagesSelect(e)}>
+        <option>Seleccionar Idiomas</option>
+        { idiomas.map(e => <option key={e} value={e}>{e}</option>) }
+    </select>
+</div> */}
