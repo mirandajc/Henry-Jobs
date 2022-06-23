@@ -31,10 +31,10 @@ box-shadow: 5px 10px 5px 0px rgba(237,224,59,0.75);
 export const GridContBoom= styled.div`
 width:100%;
 height: 80%;
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-grid-template-rows: repeat(2, 1fr);
-grid-column-gap: 0px;
-grid-row-gap: 0px;
+// display: grid;
+// grid-template-columns: repeat(4, 1fr);
+// grid-template-rows: repeat(2, 1fr);
+// grid-column-gap: 0px;
+// grid-row-gap: 0px;
 
 `

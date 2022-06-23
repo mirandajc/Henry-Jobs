@@ -33,6 +33,7 @@ display: flex;
 align-items:baseline;
 width: 100%;
 img{
-    width:20%;
+    width:30%;
+    margin: 1rem;
 }
 `

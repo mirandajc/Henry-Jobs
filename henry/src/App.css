@@ -1,10 +1,15 @@
 .body{
   background-image: url('../src/Components/images/background/background.svg');
-  background-size: cover;
+  /* background-size: cover; */
   margin:0;
   @import url(//db.onlinewebfonts.com/c/901497541657a2f24e42848bcf7fad52?family=Avenir+Heavy);
   font-family: Avenir Heavy;
   color: white;
+  /* height: 100vh; */
+  /* width: 100%; */
+  /* position: relative; */
+  margin-inline: 0;
+  padding-inline: 0;
 }
 h1{
   color:yellow;

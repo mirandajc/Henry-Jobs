@@ -1,27 +1,12 @@
 import React from "react";
-
-import { BoomCardContainer,ContCard,GridContBoom } from "../LandingStyles/booms";
-import Boom from '../booms/data/dataBooms';
+import { BoomCardContainer,GridContBoom } from "../LandingStyles/booms";
 
 export default function Booms(){
-    const booms=Boom;
-    console.log(booms)
-    
+
     return(
         <BoomCardContainer>
-            <div>
-            <h1>BOOMS 💥💥💥</h1>
-            </div>
             <GridContBoom>
-                {
-                    booms.map(boom=>{
-                        return(
-                            <ContCard>
-                                <p>{boom}</p>
-                            </ContCard>
-                        )
-                    })
-                }
+             <div class="powr-instagram-feed" id="8727bac4_1655907674"></div>
             </GridContBoom>
         </BoomCardContainer>
     )
