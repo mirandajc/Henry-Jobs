@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AlumnCont } from "../formStyles/faceAlumn";
+import { Switch, Error } from "../formStyles/formStyles";
+
 
 export default function Instance({sumarFase}) {
   let navigate = useNavigate();
@@ -19,24 +22,36 @@ export default function Instance({sumarFase}) {
   };
 
   return (
-    <div>
-      <div>
-        <h3>¿En qué instancia estas actualmente?</h3>
-      </div>
+    <AlumnCont>
+      
+        <h1>¿En qué instancia estas actualmente?</h1>
+      
 
       <div>
         <label>Proyecto Final</label>
-        <input name="instance" value={"proyectoFinal"} type="radio" onClick={(e) => setInstance(e.target.value)} />
+        <Switch>
+        <label class="switch">
+        <input type="checkbox" id="Student" value={'Student'}/>
+         <span class="slider round"></span>
+        </label>
+        </Switch>
+        
       </div>
 
       <div>
         <label>Alumno Egresado</label>
-        <input name="instance" value={"egresado"} type="radio" onClick={(e) => setInstance(e.target.value)} />
+        <Switch>
+        <label class="switch">
+        <input type="checkbox" id="Student" value={'Student'}/>
+         <span class="slider round"></span>
+        </label>
+        </Switch>
+      
       </div>
 
-      { error && <span>{error}</span> }
+      { error && <Error>{error}😡</Error> }
 
       <button type="submit" value={"siguiente"} onClick={(e) => handleSubmit(e)}>Siguiente</button>
-    </div>
+    </AlumnCont>
   );
 };
