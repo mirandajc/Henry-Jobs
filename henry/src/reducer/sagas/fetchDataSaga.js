@@ -1,7 +1,7 @@
 import{take,call,all,put,takeEvery} from 'redux-saga/effects';
 import axios from 'axios';
-import{getPokemonFailure, getPokemonLoading, getPokemonSuccess} from '../actions/action';
-import { API_POKEMON, SEND_REQUEST } from '../../constants/constants';
+import{getPokemonFailure, getPokemonLoading, getPokemonSuccess, getStudentsSecess, getStudentsFailure} from '../actions/action';
+import { API_POKEMON, SEND_REQUEST, GET_STUDENTS, RUTAQUEGABIAUNNOMEPASA } from '../../constants/constants';
 //import actions 
 
 function* asyncFetchRequest(){
@@ -18,6 +18,18 @@ function* asyncFetchRequest(){
     }
 }
 
+function* asyncGetStudents(){
+    try {
+        const response = yield call(()=>axios.get(RUTAQUEGABIAUNNOMEPASA))
+        yield put(getStudentsSecess(response))
+    } catch (error) {
+        yield put(getStudentsFailure(error))
+    }finally{
+
+    }
+}
+
 export function* watchFetchDataSaga(){
     yield takeEvery(SEND_REQUEST, asyncFetchRequest)
+    yield takeEvery(GET_STUDENTS, asyncGetStudents)
 }

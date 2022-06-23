@@ -15,7 +15,7 @@ export default function LoginApi(){
                     <div>Loading</div>
                 :
                     <ProfileNav>
-                
+                        {console.log(user)}
                         <NavLoginTrue name={user.name}/>
                     
                         {/* <div>
