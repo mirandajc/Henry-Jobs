@@ -17,28 +17,48 @@ export default function HomeBusinessLogic() {
         dispatch(getStudents())
     }, [])
 
+    const optionFilter = ['Ingles Básico', 'Ingles Intermedio', 'Ingles Avanzado', ''];
+
+    const optionOrder = [];
+
     return (
         <div>
 
+            <p>Filter By</p>
+            <select>
+                {
+                    optionFilter.map(e => <option>{e}</option>)
+                }
+            </select>
+
+            <p>Order By</p>
+            <select>
+                {
+                    optionOrder.map(e => <option>{e}</option>)
+                }
+            </select>
+
             <p>Page {current} of {pages}</p>
             <ul>
+
                 {
-                display.map(e => <HomeBusinessCard
-                    name={e.name}
-                    lastName={e.lastName}
-                    lenguage={e.lenguage}
-                    technologies={e.technologies}
-                    backFront={e.backFront}
-                    otherStudies={e.otherStudies}
-                    image={e.image}
-                    id={e.id}
-                />)
+                    display.map(e => <HomeBusinessCard
+                        name={e.name}
+                        lastName={e.lastName}
+                        lenguage={e.lenguage}
+                        technologies={e.technologies}
+                        backFront={e.backFront}
+                        otherStudies={e.otherStudies}
+                        image={e.image}
+                        id={e.id}
+                    />)
                 }
+
             </ul>
             <button disabled={current === 1} onClick={previous}>Previous Page</button>
             <button disabled={current === pages} onClick={next}>Next Page</button>
             <p>{current}</p>
-            
+
         </div>
     )
 }

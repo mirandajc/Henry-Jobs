@@ -9,6 +9,7 @@ export default function HomeStudentsLogic() {
 
     return (
         <div>
+            
 
             <p>Page {current} of {pages}</p>
             <ul>
