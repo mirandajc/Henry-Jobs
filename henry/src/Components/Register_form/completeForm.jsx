@@ -9,6 +9,29 @@ export default function UserForm() {
   const [ whoIam, setwhoIam ] = useState("");
   const [ error, setError ] = useState("");
 
+  const settingValue = (e) => {
+    if(e.target.checked === true){
+      if(e.target.value === "Student"){
+        setwhoIam(e.target.value);
+        document.getElementById('Recruiter').checked = false;
+        document.getElementById('Business').checked = false;
+      }
+      if(e.target.value === "Business"){
+        setwhoIam(e.target.value);
+        document.getElementById('Recruiter').checked = false;
+        document.getElementById('Student').checked = false;
+      }
+      if(e.target.value === "Recruiter"){
+        setwhoIam(e.target.value);
+        document.getElementById('Student').checked = false;
+        document.getElementById('Business').checked = false;
+      }
+    }
+    else{
+      setwhoIam("");
+    }
+  };
+
   const handleSubmit = (e) => {
     // hacer rutas de registro dependiendo el tipo de usuario register/empresa, register/reclutador
     e.preventDefault();
@@ -18,11 +41,11 @@ export default function UserForm() {
     }
     else{
       setError("");
-      if(whoIam === "alumno"){
+      if(whoIam === "Student"){
         //manejar info(GUARDAR)
         navigate("/register/alumno", { replace:true })
       }
-      else if(whoIam === "empresa"){
+      else if(whoIam === "Business"){
         //manejar info y hacer ruta de registro de empresa
         // navigate("/register/empresa", { replace:true })
       }
@@ -43,7 +66,7 @@ export default function UserForm() {
 
         <Switch>
         <label class="switch">
-        <input type="checkbox"/>
+        <input type="checkbox" id="Student" value={'Student'} onClick={(e) => settingValue(e)}/>
          <span class="slider round"></span>
         </label>
         </Switch>
@@ -53,7 +76,7 @@ export default function UserForm() {
         <label>Empresa</label>
         <Switch>
         <label class="switch">
-        <input type="checkbox"/>
+        <input type="checkbox" id="Business" value={'Business'} onClick={(e) => settingValue(e)}/>
          <span class="slider round"></span>
         </label>
         </Switch>
@@ -63,7 +86,7 @@ export default function UserForm() {
         <label>Reclutador</label>
         <Switch>
         <label class="switch">
-        <input type="checkbox"/>
+        <input type="checkbox" id="Recruiter" value={'Recruiter'} onClick={(e) => settingValue(e)}/>
          <span class="slider round"></span>
         </label>
         </Switch>
