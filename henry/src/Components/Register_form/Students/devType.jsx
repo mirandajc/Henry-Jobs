@@ -15,6 +15,9 @@ import php from "./img/php.png";
 import sql from "./img/sql.png";
 import postgres from "./img/Postgresql_elephant.svg.png";
 import { useNavigate } from "react-router-dom";
+import { DevTypeCont, Type, TechLenguage, Frontend, LenguageCont, Backend } from "../formStyles/devType";
+import { Switch, SwitchChiquito } from "../formStyles/formStyles";
+import { Error } from "../formStyles/formStyles";
 
 
 export default function DevType({sumarFase}) {
@@ -57,8 +60,8 @@ export default function DevType({sumarFase}) {
   };
 
   return (
-    <div>
-      <div>
+    <DevTypeCont>
+      <Type>
 
         <div>
           <h3>¿Qué tipo de desarrollador Eres?</h3>
@@ -66,89 +69,210 @@ export default function DevType({sumarFase}) {
 
         <div>
           <label>Frontend</label>
-          <input name="devType" value={"Frontend"} type="radio" onClick={(e) => setDevType(e.target.value)} />
+
+        <Switch>
+        <label class="switch">
+        <input type="checkbox"  name="devType" value={'Frontend'} onClick={(e) => setDevType(e.target.value)}/>
+         <span class="slider round"></span>
+        </label>
+        </Switch>
         </div>
 
         <div>
           <label>Backend</label>
-          <input name="devType" value={"Backend"} type="radio" onClick={(e) => setDevType(e.target.value)} />
+          <Switch>
+        <label class="switch">
+        <input type="checkbox"  name="devType" value={'Backend'} onClick={(e) => setDevType(e.target.value)}/>
+         <span class="slider round"></span>
+        </label>
+        </Switch>
         </div>
 
         <div>
           <label>Fullstack</label>
-          <input name="devType" value={"Fullstack"} type="radio" onClick={(e) => setDevType(e.target.value)} />
+          <Switch>
+        <label class="switch">
+        <input type="checkbox"  name="devType" value={'Fullstack'} onClick={(e) => setDevType(e.target.value)}/>
+         <span class="slider round"></span>
+        </label>
+        </Switch>
         </div>
 
 
-      </div>
+      </Type>
 
-      <div>
+      <TechLenguage>
         <div>
-          <h3>¿Qué tecnologias usas?</h3>
+          <h2>¿Qué tecnologias usas?</h2>
         </div>
 
-        <div>
-            <h3>Lenguajes</h3>
+            <h2>Lenguajes</h2>
+        <LenguageCont>
+           <div>
             <img src={javascript} title="Javascript" alt="Javascript" width={"70px"} />
-            <input name="languages" value={"Javascript"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
 
+            <SwitchChiquito>
+            <label class="switch">
+            <input name="languages" value={"Javascript"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
+            <span class="slider round"></span>
+            </label>
+            </SwitchChiquito>
+            </div>
+            <div>
             <img src={typescript} title="Typecript" alt="Typescript" width={"70px"} />
-            <input name="languages" value={"Typescript"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
-
+            <SwitchChiquito>
+            <label class="switch">
+            <input name="languages" value={"Typecript"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
+            <span class="slider round"></span>
+            </label>
+            </SwitchChiquito>
+            </div>
+            <div>
             <img src={python} title="Python" alt="Python" width={"70px"} />
-            <input name="languages" value={"Python"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
-        </div>
+            <SwitchChiquito>
+            <label class="switch">
+            <input name="languages" value={"Python"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
+            <span class="slider round"></span>
+            </label>
+            </SwitchChiquito>
+            </div>
+        </LenguageCont>
 
-        <div>
-            <h3>Frontend</h3>
-
+            <h2>Frontend</h2>
+        <Frontend>
+            <div>
             <img src={react} title="React" alt="React" width={"70px"} />
-            <input name="frontend" value={"React"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
-
-            <img src={redux} title="Redux" alt="Redux" width={"70px"} />
-            <input name="frontend" value={"Redux"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
-
-            <img src={react_native} title="React Native" alt="React Native" width={"70px"} />
-            <input name="frontend" value={"React Native"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
-
-            <img src={css} title="CSS" alt="CSS" width={"70px"} />
-            <input name="frontend" value={"CSS"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
-
-            <img src={angular} title="Angular" alt="Angular" width={"70px"} />
-            <input name="frontend" value={"Angular"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
-
-            <img src={tailwind} title="Tailwind" alt="Tailwind" width={"70px"} />
-            <input name="frontend" value={"Tailwind"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
-          
-            <img src={laravel} title="Laravel" alt="Laravel" width={"70px"} />
-            <input name="frontend" value={"Laravel"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
-     
-            <img src={vue} title="Vue" alt="Vue" width={"70px"} />
-            <input name="frontend" value={"Vue"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
-        </div>
-
-
-        <div>
-            <h3>Backend</h3>
             
+            <SwitchChiquito>
+            <label class="switch">
+             <input name="frontend" value={"React"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
+            <span class="slider round"></span>
+            </label>
+           </SwitchChiquito>
+            </div>
+
+            <div>
+            <img src={redux} title="Redux" alt="Redux" width={"70px"} />
+            <SwitchChiquito>
+            <label class="switch">
+            <input name="frontend" value={"Redux"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
+            <span class="slider round"></span>
+            </label>
+            </SwitchChiquito>
+            </div>
+
+            <div>
+            <img src={react_native} title="React Native" alt="React Native" width={"70px"} />
+            <SwitchChiquito>
+            <label class="switch">
+            <input name="frontend" value={"React Native"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
+            <span class="slider round"></span>
+            </label>
+            </SwitchChiquito>
+            </div>
+
+            <div>
+            <img src={css} title="CSS" alt="CSS" width={"70px"} />
+            <SwitchChiquito>
+            <label class="switch">
+            <input name="frontend" value={"CSS"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
+            <span class="slider round"></span>
+            </label>
+            </SwitchChiquito>
+            </div>
+
+            <div>
+            <img src={angular} title="Angular" alt="Angular" width={"70px"} />
+            <SwitchChiquito>
+            <label class="switch">
+            <input name="frontend" value={"Angular"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
+            <span class="slider round"></span>
+            </label>
+            </SwitchChiquito>
+            </div>
+
+            <div>
+            <img src={tailwind} title="Tailwind" alt="Tailwind" width={"70px"} />
+            <SwitchChiquito>
+            <label class="switch">
+            <input name="frontend" value={"Tailwind"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
+            <span class="slider round"></span>
+            </label>
+            </SwitchChiquito>
+            </div>
+
+            <div>
+            <img src={laravel} title="Laravel" alt="Laravel" width={"70px"} />
+            <SwitchChiquito>
+            <label class="switch">
+            <input name="frontend" value={"Laravel"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
+            <span class="slider round"></span>
+            </label>
+            </SwitchChiquito>
+            </div>
+
+            <div>
+            <img src={vue} title="Vue" alt="Vue" width={"70px"} />
+            <SwitchChiquito>
+            <label class="switch">
+            <input name="frontend" value={"Vue"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
+            <span class="slider round"></span>
+            </label>
+        </SwitchChiquito>
+            </div>
+        </Frontend>
+
+
+            <h2>Backend</h2>
+        <Backend>
+            
+            <div>
             <img src={express} title="Express JS" alt="Express Js" width={"70px"} />
-            <input name="backend" value={"Express Js"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
           
+            <SwitchChiquito>
+            <label class="switch">
+            <input name="backend" value={"Express Js"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
+            <span class="slider round"></span>
+            </label>
+            </SwitchChiquito>
+            </div>
+
+            <div>
             <img src={php} title="Php" alt="Php" width={"70px"} />
-            <input name="backend" value={"Php"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
+            <SwitchChiquito>
+            <label class="switch">
+            <input name="backend" value={"Php"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
+            <span class="slider round"></span>
+            </label>
+            </SwitchChiquito>
+            </div>
 
+            <div>
             <img src={sql} title="SQL" alt="SQL" width={"70px"} />
-            <input name="backend" value={"SQL"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
+            <SwitchChiquito>
+            <label class="switch">
+            <input name="backend" value={"SQL"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
+            <span class="slider round"></span>
+            </label>
+            </SwitchChiquito>
+            </div>
 
+            <div>
             <img src={postgres} title="PostgreSQL" alt="PostgreSQL" width={"70px"} />
-            <input name="backend" value={"PostgreSQL"} type="checkbox" onClick={(e) => handleProgLangs(e)} />
-        </div>
-
-      </div>
-      
-      {error && <span>{error}</span>}
+            <SwitchChiquito>
+            <label class="switch">
+            <input name="backend" value={"PostgreSQL"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
+            <span class="slider round"></span>
+            </label>
+            </SwitchChiquito>
+            </div>
+        </Backend>
+      {error && <Error>{error}😡</Error>}
       <button type="submit" onClick={(e) => handleSubmit(e)}>Siguiente</button>
+
+      </TechLenguage>
+      
     
-    </div>
+    </DevTypeCont>
   );
 };

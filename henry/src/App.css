@@ -6,9 +6,16 @@
   font-family: Avenir Heavy;
   color: white;
   
-  height:115vh;
+  height:122vh;
   /* border:1px solid red; */
 }
 h1{
+  color:yellow;
+}
+
+h2{
+  color:yellow;
+}
+h3{
   color:yellow;
 }
