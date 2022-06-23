@@ -50,8 +50,8 @@ export default function UserForm() {
         // navigate("/register/empresa", { replace:true })
       }
       else{
-        //manejar info y hacer ruta de registro de reclutador
-        // navigate("/register/recruiter", { replace:true })
+        // manejar info y hacer ruta de registro de reclutador
+        navigate("/register/recruiter", { replace:true })
       }
     }
   };
