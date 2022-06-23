@@ -6,7 +6,6 @@ import './App.css';
 import Home from "./Components/Home/home";
 import UserForm from "./Components/Register_form/completeForm";
 import RegisterAlumn from "./Components/Register_form/RegisterAlumn";
-import RegisterCompleted from "./Components/Register_form/RegisterCompleted";
 import DetailStudent from "./Components/Home/HomeForBusiness/DetailStudents";
 import ProfileLogic from "./Components/Profile/ProfileLogic";
 
