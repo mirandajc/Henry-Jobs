@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const DevTypeCont= styled.div`
 width: 100%;
-height:90%;
+height:80%;
 
 display:flex;
 align-items:center;

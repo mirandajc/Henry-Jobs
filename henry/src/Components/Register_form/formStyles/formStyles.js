@@ -5,7 +5,7 @@ export const FormDiv= styled.div`
 
 // border: 1px solid red;
 width:100%;
-height:80%;
+height:50%;
 
 display:flex;
 align-items: center;
