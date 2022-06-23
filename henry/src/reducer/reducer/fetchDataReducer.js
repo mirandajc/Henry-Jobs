@@ -3,10 +3,10 @@ import {
     REQUEST_SUCCESS,
     REQUEST_FAILURE,
     REQUEST_LOADING,
-    GET_STUDENTS_SUCESS
+    GET_STUDENTS_SUCESS,
+    GET_STUDENTS_FAILURE
 } from "../../constants/constants";
 
-import { testStuden } from '../../Components/Home/HomeForBusiness/MokedFiles'
 
 const initialState = {
     user: 'business',
@@ -21,7 +21,12 @@ const fetchDataReducer = (state = initialState, action) => {
         case GET_STUDENTS_SUCESS:
             return{
                 ...state,
-                allStudents: testStuden
+                allStudents: action.payload
+            }
+        case GET_STUDENTS_FAILURE:
+            return{
+                ...state,
+                allStudents: []
             }
         case REQUEST_SUCCESS:
             console.log(action.payload)

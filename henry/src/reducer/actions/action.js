@@ -5,7 +5,8 @@ import {
     REQUEST_FAILURE,
     REQUEST_LOADING,
     GET_STUDENTS,
-    GET_STUDENTS_SUCESS
+    GET_STUDENTS_SUCESS,
+    GET_STUDENTS_FAILURE
 } from "../../constants/constants";
 
 
@@ -22,6 +23,15 @@ export function getStudentsSecess(payload){
         payload
     }
 }
+
+export function getStudentsFailure(){
+    return {
+        type: GET_STUDENTS_FAILURE,
+        payload: []
+    }
+}
+
+
 // abajo de esto son pruebas
 
 export function getPoke() {
