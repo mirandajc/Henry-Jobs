@@ -29,5 +29,6 @@ export const NavLogo= styled.div`
 
 img{
     width:30%;
+    margin: 1rem;
 }
 `
