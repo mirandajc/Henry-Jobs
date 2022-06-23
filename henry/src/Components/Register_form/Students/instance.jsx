@@ -21,6 +21,19 @@ export default function Instance({sumarFase}) {
     }
   };
 
+  const settingValue = (e) => {
+    if(e.target.checked === true){
+      if(e.target.value === "Graduate"){
+        setInstance(e.target.value);
+        document.getElementById('PG').checked = false;
+      }
+      else if(e.target.value === "PG"){
+        setInstance("PG");
+        document.getElementById('Graduate').checked = false;
+    }
+  }
+  };
+
   return (
     <AlumnCont>
       
@@ -31,7 +44,7 @@ export default function Instance({sumarFase}) {
         <label>Proyecto Final</label>
         <Switch>
         <label class="switch">
-        <input type="checkbox" id="Student" value={'Student'}/>
+        <input type="checkbox" id='PG' value={'PG'} onClick={(e) => settingValue(e)}/>
          <span class="slider round"></span>
         </label>
         </Switch>
@@ -42,7 +55,7 @@ export default function Instance({sumarFase}) {
         <label>Alumno Egresado</label>
         <Switch>
         <label class="switch">
-        <input type="checkbox" id="Student" value={'Student'}/>
+        <input type="checkbox" id="Graduate" value={'Graduate'} onClick={(e) => settingValue(e)}/>
          <span class="slider round"></span>
         </label>
         </Switch>
