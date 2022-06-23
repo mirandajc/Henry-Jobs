@@ -14,7 +14,7 @@ export default function NavLoginTrue(props) {
             <ButtonHome />
             {
                 userType === 'staff' ? null :
-                    <ButtonPerfil name={props.name} />
+                    <ButtonPerfil name={props.name}/>
             }
         </ContnavLogin>
     )

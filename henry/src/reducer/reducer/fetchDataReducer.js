@@ -1,21 +1,28 @@
-import RootReducer from "./reducer";
 import {
     SEND_REQUEST,
     REQUEST_SUCCESS,
     REQUEST_FAILURE,
-    REQUEST_LOADING
+    REQUEST_LOADING,
+    GET_STUDENTS_SUCESS
 } from "../../constants/constants";
+
+import { testStuden } from '../../Components/Home/HomeForBusiness/MokedFiles'
 
 const initialState = {
     user: 'business',
     pokemon: [],
     loading: false,
-    error: {}
+    error: {},
+    allStudents: []
 };
 
 const fetchDataReducer = (state = initialState, action) => {
     switch (action.type) {
-        
+        case GET_STUDENTS_SUCESS:
+            return{
+                ...state,
+                allStudents: testStuden
+            }
         case REQUEST_SUCCESS:
             console.log(action.payload)
             return{
