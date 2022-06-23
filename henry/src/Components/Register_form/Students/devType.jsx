@@ -29,7 +29,31 @@ export default function DevType({sumarFase}) {
     backend:[]     
   });
 
-  const [ error, setError ] = useState("");  
+  const [ error, setError ] = useState("");
+  
+  const selectDevType = (e) => {
+    console.log(e.target)
+    if(e.target.checked === true){
+      if(e.target.value === "Frontend"){
+        setDevType(e.target.value);
+        document.getElementById('Backend').checked = false;
+        document.getElementById('Fullstack').checked = false;
+      }
+      if(e.target.value === "Backend"){
+        setDevType(e.target.value);
+        document.getElementById('Frontend').checked = false;
+        document.getElementById('Fullstack').checked = false;
+      }
+      if(e.target.value === "Fullstack"){
+        setDevType(e.target.value);
+        document.getElementById('Frontend').checked = false;
+        document.getElementById('Backend').checked = false;
+      }
+    }
+    else{
+      setDevType("");
+    }
+  }
 
   // esta funcion setea el estado de tech
   // como saber si los inputs type checkbox estan seleccionados o no ? => con e.target.checked, 
@@ -72,7 +96,7 @@ export default function DevType({sumarFase}) {
 
         <Switch>
         <label class="switch">
-        <input type="checkbox"  name="devType" value={'Frontend'} onClick={(e) => setDevType(e.target.value)}/>
+        <input type="checkbox" id="Frontend" name="devType" value={'Frontend'} onClick={(e) => selectDevType(e)}/>
          <span class="slider round"></span>
         </label>
         </Switch>
@@ -82,7 +106,7 @@ export default function DevType({sumarFase}) {
           <label>Backend</label>
           <Switch>
         <label class="switch">
-        <input type="checkbox"  name="devType" value={'Backend'} onClick={(e) => setDevType(e.target.value)}/>
+        <input type="checkbox" id="Backend"  name="devType" value={'Backend'} onClick={(e) => selectDevType(e)}/>
          <span class="slider round"></span>
         </label>
         </Switch>
@@ -92,7 +116,7 @@ export default function DevType({sumarFase}) {
           <label>Fullstack</label>
           <Switch>
         <label class="switch">
-        <input type="checkbox"  name="devType" value={'Fullstack'} onClick={(e) => setDevType(e.target.value)}/>
+        <input type="checkbox" id="Fullstack" name="devType" value={'Fullstack'} onClick={(e) => selectDevType(e)}/>
          <span class="slider round"></span>
         </label>
         </Switch>
