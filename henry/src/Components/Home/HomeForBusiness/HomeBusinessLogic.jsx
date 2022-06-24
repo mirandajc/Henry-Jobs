@@ -5,6 +5,7 @@ import HomeBusinessCard from "./HomeBusinessCard";
 import { getStudents } from "../../../reducer/actions/action";
 import { usePagination } from 'use-pagination-hook';
 import { Link } from "react-router-dom";
+import { mokedFilesPublicaciones } from './MokedFilesPublicaciones'
 
 export default function HomeBusinessLogic() {
 
@@ -22,6 +23,7 @@ export default function HomeBusinessLogic() {
             <Link to='/students'>Ver Alumnos</Link>
             <p>Hola soy una publicacion de una persona que sigues ordenados por fecha de publicacion unicamente</p>
             <p>Importar carta de Joce</p>
+            {console.log(mokedFilesPublicaciones)}
         </div>
     )
 }

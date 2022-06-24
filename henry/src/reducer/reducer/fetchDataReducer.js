@@ -11,13 +11,17 @@ import {
 } from "../../constants/constants";
 
 import { testStuden } from "../../Components/Home/HomeForBusiness/MokedFiles";
+import { mokedFilesPublicaciones } from '../../Components/Home/HomeForBusiness/MokedFilesPublicaciones'
 
 const initialState = {
     user: 'business',
+    userFollows: [1,4,2,5],
     pokemon: [],
     loading: false,
     error: {},
     allStudents: testStuden,
+    allPublicationsStudents: mokedFilesPublicaciones,
+    allPublicationsBusiness: [],
     allStudentsAz: [],
     allStudentsZa: [],
     allStudentsHighScore: []
