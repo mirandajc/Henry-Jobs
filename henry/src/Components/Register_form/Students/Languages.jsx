@@ -74,7 +74,7 @@ export default function Languages ({sumarFase}) {
     
     
     const validateStudy = (value) => {
-        if(!/[a-zA-Z ]/gim.test(value)){
+        if(!/[a-zA-Z]/gim.test(value)){
             setErrorStudy('El estudio no debe contener números!');
         }
         else{
@@ -100,6 +100,7 @@ export default function Languages ({sumarFase}) {
                 if(errorStudy === ""){
                     setStudy([...study, value ]);
                     document.getElementById("estudios").innerText = ""; // NO SE
+                   
                 }
             }
         }
