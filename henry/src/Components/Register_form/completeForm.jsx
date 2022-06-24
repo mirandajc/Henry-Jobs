@@ -73,6 +73,19 @@ export default function UserForm() {
       </div>
 
       <div>
+        <label>Henry Staff</label>
+        
+
+        <Switch>
+        <label class="switch">
+        <input type="checkbox" id="Staff" value={'Staff'} onClick={(e) => settingValue(e)}/>
+         <span class="slider round"></span>
+        </label>
+        </Switch>
+      </div>
+
+
+      <div>
         <label>Empresa</label>
         <Switch>
         <label class="switch">
