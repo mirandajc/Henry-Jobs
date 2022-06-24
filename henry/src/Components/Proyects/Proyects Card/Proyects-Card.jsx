@@ -15,6 +15,7 @@ export default function ProyectsCard(props) {
             </Usuario>
             <Publicacion>
                 <textarea>
+    
                 </textarea>
                 <a href=''>
                     <p>Ver mas informacion</p>
