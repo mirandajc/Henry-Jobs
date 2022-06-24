@@ -10,6 +10,7 @@ import RegisterRecruiter from "./Components/Register_form/Recruiter/totalPage/Re
 import DetailStudent from "./Components/Home/HomeForBusiness/DetailStudents";
 import ProfileLogic from "./Components/Profile/ProfileLogic";
 import RecruiterFreelance from "./Components/Register_form/Recruiter/totalPage/recruiterFree";
+import HomeBusinessStudents from './Components/Home/HomeForBusiness/HomeBusinessStudents'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route path='/register/recruiterF' element={<RecruiterFreelance/>} />
       <Route path='/details/:id' element={<DetailStudent/>}/>
       <Route path='/profile/:name' element={<ProfileLogic/>}/>
+      <Route path='/students' element={<HomeBusinessStudents/>}/>
     </Routes>
     </div>
   );

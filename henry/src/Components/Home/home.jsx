@@ -12,14 +12,14 @@ export default function Home(){
     const pokemon= useSelector((state)=> state.fetchDataReducer.pokemon);
     const userType = useSelector((state) => state.fetchDataReducer.user)
 
-    useEffect(()=>{
+ /*    useEffect(()=>{
         dispatch(getPoke())
         
     },[])
 
     useEffect(()=> {
         dispatch(getStudents())
-    },[])
+    },[]) */
 
 
     return(

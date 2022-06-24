@@ -2,63 +2,26 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import HomeBusinessCard from "./HomeBusinessCard";
-import { testStuden } from "./MokedFiles";
 import { getStudents } from "../../../reducer/actions/action";
 import { usePagination } from 'use-pagination-hook';
+import { Link } from "react-router-dom";
 
 export default function HomeBusinessLogic() {
 
     const dispatch = useDispatch();
-    const userType = useSelector((state) => state.fetchDataReducer.user)
-
-    const { current, pages, display, next, previous } = usePagination({ items: testStuden, size: 2 });
+    const allStudents = useSelector((state) => state.fetchDataReducer.allStudents)
+    const { current, pages, display, next, previous, row } = usePagination({ items: allStudents, size: 2 });
 
     useEffect(() => {
-        dispatch(getStudents())
+        console.log(allStudents)
     }, [])
 
-    const optionFilter = ['Ingles Básico', 'Ingles Intermedio', 'Ingles Avanzado', ''];
-
-    const optionOrder = [];
 
     return (
         <div>
-
-            <p>Filter By</p>
-            <select>
-                {
-                    optionFilter.map(e => <option>{e}</option>)
-                }
-            </select>
-
-            <p>Order By</p>
-            <select>
-                {
-                    optionOrder.map(e => <option>{e}</option>)
-                }
-            </select>
-
-            <p>Page {current} of {pages}</p>
-            <ul>
-
-                {
-                    display.map(e => <HomeBusinessCard
-                        name={e.name}
-                        lastName={e.lastName}
-                        lenguage={e.lenguage}
-                        technologies={e.technologies}
-                        backFront={e.backFront}
-                        otherStudies={e.otherStudies}
-                        image={e.image}
-                        id={e.id}
-                    />)
-                }
-
-            </ul>
-            <button disabled={current === 1} onClick={previous}>Previous Page</button>
-            <button disabled={current === pages} onClick={next}>Next Page</button>
-            <p>{current}</p>
-
+            <Link to='/students'>Ver Alumnos</Link>
+            <p>Hola soy una publicacion de una persona que sigues ordenados por fecha de publicacion unicamente</p>
+            <p>Importar carta de Joce</p>
         </div>
     )
 }

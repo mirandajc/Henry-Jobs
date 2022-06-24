@@ -4,16 +4,23 @@ import {
     REQUEST_FAILURE,
     REQUEST_LOADING,
     GET_STUDENTS_SUCESS,
-    GET_STUDENTS_FAILURE
+    GET_STUDENTS_FAILURE,
+    GET_STUDENTS_AZ,
+    GET_STUDENTS_ZA,
+    GET_STUDENTS_HIGH_SCORE
 } from "../../constants/constants";
 
+import { testStuden } from "../../Components/Home/HomeForBusiness/MokedFiles";
 
 const initialState = {
     user: 'business',
     pokemon: [],
     loading: false,
     error: {},
-    allStudents: []
+    allStudents: testStuden,
+    allStudentsAz: [],
+    allStudentsZa: [],
+    allStudentsHighScore: []
 };
 
 const fetchDataReducer = (state = initialState, action) => {
@@ -27,6 +34,28 @@ const fetchDataReducer = (state = initialState, action) => {
             return{
                 ...state,
                 allStudents: []
+            }
+        case GET_STUDENTS_AZ:
+            function SortArray(x, y){
+                if (x.name < y.name) {return -1;}
+                if (x.name > y.name) {return 1;}
+                return 0;
+            }
+            var response = action.payload.sort(SortArray);
+            return {
+                ...state,
+                allStudentsAz: response
+            }
+        case GET_STUDENTS_ZA:
+            function SortArray2(x, y){
+                if (x.name < y.name) {return 1;}
+                if (x.name > y.name) {return -1;}
+                return 0;
+            }
+            var response = action.payload.sort(SortArray2);
+            return {
+                ...state,
+                allStudentsZa: response
             }
         case REQUEST_SUCCESS:
             console.log(action.payload)
