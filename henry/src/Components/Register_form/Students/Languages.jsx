@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { countries } from "../gistfile1.json";
-import { FormDiv } from "../formStyles/lenguajesStyles";
-
+import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} from "../formStyles/lenguajesStyles";
+import { Error } from "../formStyles/formStyles";
 
 // hacer funcion de handle
 // hacer verificaciones
@@ -88,7 +88,7 @@ export default function Languages ({sumarFase}) {
             setErrorStudy("Debes escribir el estudio para poder agregarlo! 😡");
         }
         else if(!/[a-zA-Z ]/gim.test(value)){
-            setErrorStudy('El estudio no debe contener números!');
+            setErrorStudy('El estudio no debe contener números! 😡');
         }
         else{
             console.log(value)
@@ -126,12 +126,11 @@ export default function Languages ({sumarFase}) {
         <FormDiv>
 
             {/* PAIS Y CIUDAD  */}
-            <div>
-                <h1>¿De dónde eres?</h1>
+            <CountryForm>
+                <h2>¿De dónde eres?</h2>
                 <div className="lado">
 
-                { errorCountry && <span>{errorCountry}</span>}
-                <h1>País:</h1> 
+                <h2>País:</h2> 
                 <select onClick={(e) => countrySelect(e)}>
                     <option>Selecciona un País</option>
                     {countries && countries.map(e => {
@@ -141,7 +140,7 @@ export default function Languages ({sumarFase}) {
                 </div>
 
                 {allCities && <div className="lado">
-                    <h1>Provincia/Estado:</h1>
+                    <h2>Provincia/Estado:</h2>
                     <select onClick={(e) => citySelect(e)}>
                         <option>Selecciona una provincia/estado</option>
                         {allCities.map(e => {
@@ -150,12 +149,15 @@ export default function Languages ({sumarFase}) {
                     </select>
                     </div>}
 
-            </div>
+                   
+
+                        { errorCountry && <Error>{errorCountry} 😡</Error>}
+            </CountryForm>
             {/* PAIS Y CIUDAD  */}
 
             {/* NIVEL DE INGLES  */}
-            <div>
-                <h1>¿Qué nivel de Inglés posees?</h1>
+            <EnglishLVL>
+                <h2>¿Cual es tu nivel de inglés?</h2>
                 <select onClick={(e) => selectIngles(e)}>
                     <option>Seleccionar nivel</option>
                     <option>No sé Ingles</option>
@@ -163,29 +165,35 @@ export default function Languages ({sumarFase}) {
                     <option>Ingles Intermedio</option>
                     <option>Ingles Avanzado</option>
                 </select>
-            </div>
+            </EnglishLVL>
             {/* NIVEL DE INGLES  */}
 
             {/* OTROS ESTUDIOS  */}
-            <div>
-                <h1>¿Tienes otros estudios?, Agrégalos en forma de lista:</h1>
-                    {study && study.map(e => {
-                        return(
-                            <div key={e}>
-                                <p>{e}</p><button onClick={() => borrarEstudio(e)} title="borrar estudio">X</button>
-                            </div>
-                        );
-                    })}
+            <OtherStudies>
+                <h2>¿Tienes otros estudios?</h2>
                 <div>
-                    {errorStudy && <span>{errorStudy}</span>}
-                <input id="estudios" type={'text'} placeholder={'Agrega uno por uno'} onChange={(e) => validateStudy(e.target.value)}/>
-                <button onClick={agregarEstudios}>AGREGAR</button>
+                <input id="estudios" type={'text'} placeholder={'Agrega tus estudios!'} onChange={(e) => validateStudy(e.target.value)}/>
+                <button  className='agregar' onClick={agregarEstudios}>AGREGAR</button>
                 </div>
 
-            </div>
+                <div>
+                </div>
+                    {errorStudy && <Error>{errorStudy}</Error>}
+                    {study && study.map(e => {
+                        return(
+                            <ListStyles key={e}>
+                                <p>{e}</p><button onClick={() => borrarEstudio(e)} title="borrar estudio">X</button>
+                            </ListStyles>
+                        );
+                    })}
+
+            </OtherStudies>
             {/* OTROS ESTUDIOS  */}
 
+
+            <ButtonNext>
             <button type="submit" onClick={(e) => handleSubmit(e)}>Siguiente</button>
+            </ButtonNext>
         </FormDiv>
     );
 };

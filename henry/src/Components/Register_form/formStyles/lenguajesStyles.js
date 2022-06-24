@@ -2,24 +2,154 @@ import styled from "styled-components";
 
 // intento de Luciano Components, sentite libre de cambiarlos xd
 export const FormDiv = styled.div`
-border: 2px solid white;
-display: flex;
-flex-direction: column;
+
+
+width: 100%;
+height: 50%;
+
+display:flex;
 align-items: center;
+justify-content: space-evenly;
 
-.lado {
-    display: flex;
+
+
+
+`
+
+export const CountryForm= styled.div`
+
+
+
+div{
+    margin-bottom:2em;
 }
 
-select {
-    border: 0.2em solid #fffc04;
+select{
+    appearance: none;
+    padding: 1em;
     border-radius: 10px;
-    color: #fffc04;
-    background-color: black;
     font-family: Avenir Heavy;
-    font-size: 1.4em;
-    cursor: pointer
+    background-color: white;
+    // select-styles: none;
+
+    
+        ::-webkit-scrollbar {
+            width: 12px;
+          }
+          
+          ::-webkit-scrollbar-track {
+            background: transparent;
+          }
+          
+          ::-webkit-scrollbar-thumb {
+            background-color: black;
+            border-radius: 20px;
+            
+          }
+
+          &:active{
+            border: 1px solid transparent;
+          }  
+    
 }
+
+
+
+
+
+`
+
+export const EnglishLVL= styled.div`
+
+display:flex;
+align-items: center;
+justify.content: center;
+flex-direction: column;
+
+margin-top: 5px;
+
+
+
+select{
+    appearance: none;
+    padding: 1em;
+    border-radius: 10px;
+    font-family: Avenir Heavy;
+    background-color: white;
+    // select-styles: none;
+
+    
+        ::-webkit-scrollbar {
+            width: 12px;
+          }
+          
+          ::-webkit-scrollbar-track {
+            background: transparent;
+          }
+          
+          ::-webkit-scrollbar-thumb {
+            background-color: black;
+            border-radius: 20px;
+            
+          }
+
+          &:active{
+            border: 1px solid transparent;
+          }  
+    
+}
+
+
+`
+
+export const OtherStudies= styled.div`
+
+
+width: 30%;
+height:100%;
+
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+
+input{
+    margin-right: 1em;
+    padding: 1em;
+    border-radius: 10px;
+    font-family: Avenir Heavy;
+    color:black;
+}
+
+div{
+    margin-bottom: 1.5em;
+}
+
+.agregar{
+
+    width:7.5em;
+    heigth:2em;
+    background-color: #fffc04;
+    padding:1em;
+    border-radius: 10px;
+    font-family: Avenir Heavy;
+
+    &:active{
+        background-color:black;
+        color:yellow;
+        border:1px solid  #fffc04;
+    }
+
+}
+
+
+`
+
+
+export const ButtonNext= styled.div`
+
+
+margin-top: 30em;
 
 button{
     width:7.5em;
@@ -28,13 +158,49 @@ button{
     padding:1em;
     border-radius: 10px;
     font-family: Avenir Heavy;
-    cursor: pointer;
 
     &:active{
         background-color:black;
         color:yellow;
         border:1px solid  #fffc04;
     }
+}
+
 `
 
 
+export const ListStyles= styled.div`
+
+
+border-radius: 10px;
+display:flex;
+justify-content: center;
+align-items: center;
+flex-direction: row;
+width:auto;
+height:2em;
+
+background-color: yellow;
+color:black;
+
+p{
+    margin-left: 1em;
+    margin-rigth: 1em;
+
+}
+
+button{
+    width:3em;
+    height:2em;
+    background-color: yellow;
+    border:1px transparent;
+    font-size: 0.5em;
+    font-family: Avenir Heavy;
+    color: black;
+}
+
+
+ 
+
+
+`

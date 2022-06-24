@@ -22,7 +22,7 @@ function App() {
       <Route path='/register' element={<UserForm/>}/>
       <Route path='/register/alumno' element={<RegisterAlumn />} />
       <Route path='/register/recruiter' element={<RegisterRecruiter />} />
-      <Route path='/register/recruiterF' element={<RecruiterFreelance/>} />
+      {/* <Route path='/register/recruiterF' element={<RecruiterFreelance/>} /> */}
       <Route path='/details/:id' element={<DetailStudent/>}/>
       <Route path='/profile/:name' element={<ProfileLogic/>}/>
     </Routes>

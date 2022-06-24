@@ -11,7 +11,7 @@ export default function RecruiterFreelance({sumarFaseReq}){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(!name ||!year ||!work ){
+        if(!name ||!work ){
           setError("Rellena los campos");
         }
         else{
@@ -29,12 +29,7 @@ export default function RecruiterFreelance({sumarFaseReq}){
 
     };
 
-    const handlerYears= (e)=>{
-        e.preventDefault();
-        console.log(e.target.value)
-        setYear(e.target.value)
-
-    };
+  
 
     const handlerWork= (e)=>{
         e.preventDefault();
@@ -47,15 +42,12 @@ export default function RecruiterFreelance({sumarFaseReq}){
 return(
     <div>
         <div>
-        <h2>¿Como se llama la empersa en la que trabajas??</h2>
+        <h2>¿Para que empresas prestas servicios?</h2>
         <input type='text' value={name} onChange={(e)=>handlerName(e)} />
         </div>
+      
         <div>
-        <h2>¿Hace cuantos años trabajas en la empresa?</h2>
-        <input type='number' value={year} onChange={(e)=>handlerYears(e)} />
-        </div>
-        <div>
-        <h2>¿Cual es tu puesto en dicha empresa?</h2>
+        <h2>¿Hace cuanto tiempo?</h2>
         <input type='text' value={work} onChange={(e)=>handlerWork(e)} />
         </div>
 

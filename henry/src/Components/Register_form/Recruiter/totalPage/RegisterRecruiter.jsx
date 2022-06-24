@@ -22,17 +22,17 @@ export default function RegisterRecruiter(){
     if(fase === 1){
         return(
         <>
-        <RecruiterMood sumarFaseReq={sumarFaseReq}/>
-        </>
-        );
-    }
-    else if(fase === 2){
-        return(
-        <>
         <RecruiterWork sumarFaseReq={sumarFaseReq}/>
         </>
         );
     }
+    // else if(fase === 2){
+    //     return(
+    //     <>
+    //     <RecruiterWork sumarFaseReq={sumarFaseReq}/>
+    //     </>
+    //     );
+    // }
     // else if(fase === 3){
     //     return(
     //     <>

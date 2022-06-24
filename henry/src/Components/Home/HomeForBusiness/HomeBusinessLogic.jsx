@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import HomeBusinessCard from "./HomeBusinessCard";
 import { testStuden } from "./MokedFiles";
 import { getStudents } from "../../../reducer/actions/action";
-import { usePagination } from 'use-pagination-hook';
+// import { usePagination } from 'use-pagination-hook';
+import { usePagination } from "use-pagination-hook";
 
 export default function HomeBusinessLogic() {
 
