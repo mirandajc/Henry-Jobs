@@ -4,6 +4,7 @@ import Landing from "./Components/Landing/Landing";
 import Navbar from "./Components/NavBar/navbar";
 import './App.css';
 import Home from "./Components/Home/home";
+import StudentsProfile from "./Components/Profile/Students/students_profile";
 import UserForm from "./Components/Register_form/completeForm";
 import RegisterAlumn from "./Components/Register_form/RegisterAlumn";
 import RegisterRecruiter from "./Components/Register_form/Recruiter/totalPage/RegisterRecruiter";
@@ -25,6 +26,7 @@ function App() {
       {/* <Route path='/register/recruiterF' element={<RecruiterFreelance/>} /> */}
       <Route path='/details/:id' element={<DetailStudent/>}/>
       <Route path='/profile/:name' element={<ProfileLogic/>}/>
+      <Route path='/perfil' element={<StudentsProfile/>}/>
     </Routes>
     </div>
   );
