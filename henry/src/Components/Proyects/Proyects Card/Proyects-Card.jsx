@@ -3,27 +3,29 @@ import {ComponentCardProyect, Description, Usuario, Publicacion, Video} from '..
 import ReactPlayer from 'react-player'
 import { Link } from "react-router-dom";
 
-export default function ProyectsCard(props) {
-
-    // name , imagen usuario, titulo del proyecto, breve resumen, img/video, link, tecnologias
-
+export default function ProyectsCard({name, imagen, titulo, resumen, video, link, tecnologias}) {
+    
     return(
         <ComponentCardProyect>
             <Usuario>
-                <img src=""/>
-                <p>Nombre</p>
+                <img src={imagen}/>
+                <p>{name}</p>
             </Usuario>
             <Publicacion>
+                <h3>{titulo}</h3>
                 <textarea>
-    
+                {resumen}
                 </textarea>
-                <a href=''>
+                <a href={link}>
                     <p>Ver mas informacion</p>
                 </a>
+                {tecnologias.map(el => {
+                    return <p>{el}</p>
+                })}
             </Publicacion>
             <Video>
                 <ReactPlayer
-                url='https://youtu.be/3FAH4ZKn-Kw'
+                url={video}
                 className='video'
                 playing
                 width='40%'
