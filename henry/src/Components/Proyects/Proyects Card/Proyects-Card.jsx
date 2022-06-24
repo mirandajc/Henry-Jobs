@@ -1,6 +1,7 @@
 import React from "react";
 import {ComponentCardProyect, Description, Usuario, Publicacion, Video} from '../Proyects-styles/Proyects'
 import ReactPlayer from 'react-player'
+import { Link } from "react-router-dom";
 
 export default function ProyectsCard(props) {
 
@@ -9,8 +10,15 @@ export default function ProyectsCard(props) {
     return(
         <ComponentCardProyect>
             <Usuario>
+                <img src=""/>
+                <p>Nombre</p>
             </Usuario>
             <Publicacion>
+                <textarea>
+                </textarea>
+                <a href=''>
+                    <p>Ver mas informacion</p>
+                </a>
             </Publicacion>
             <Video>
                 <ReactPlayer
