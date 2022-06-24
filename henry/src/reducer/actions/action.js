@@ -6,7 +6,10 @@ import {
     REQUEST_LOADING,
     GET_STUDENTS,
     GET_STUDENTS_SUCESS,
-    GET_STUDENTS_FAILURE
+    GET_STUDENTS_FAILURE,
+    GET_STUDENTS_AZ,
+    GET_STUDENTS_ZA,
+    GET_STUDENTS_HIGH_SCORE
 } from "../../constants/constants";
 
 
@@ -14,6 +17,24 @@ import {
 export function getStudents(){
     return {
         type: GET_STUDENTS
+    }
+}
+
+export function getStudentsAz(){
+    return {
+        type: GET_STUDENTS_AZ
+    }
+}
+
+export function getStudentsZa(){
+    return {
+        type: GET_STUDENTS_ZA
+    }
+}
+
+export function getStudentsHighScore(){
+    return {
+        type: GET_STUDENTS_HIGH_SCORE
     }
 }
 

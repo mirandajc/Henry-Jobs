@@ -1,15 +1,42 @@
 import React, { useState } from "react";
 import { countries } from "../gistfile1.json";
-import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} from "../formStyles/lenguajesStyles";
 import { Error } from "../formStyles/formStyles";
+import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} from "../formStyles/lenguajesStyles";
 
-// hacer funcion de handle
-// hacer verificaciones
+export default function RecruiterForm ({sumarFase}) {
 
-export default function Languages ({sumarFase}) {
+    ///////////////////////////// NAME & LASTNAME ////////////////////////////////////////////
     
-    /////////////////////////    COUNTRY & CITY    //////////////////////////////
+    const [ name, setName ] = useState("");
+    const [ errorName, setErrorName ] = useState("");
+
+    const validateName = (e) => {
+        setName(e.target.value);
+    };
+
+    ///////////////////////////// AGE /////////////////////////////////////////////
+
+    const [ age, setAge ] = useState("");
+    const [ errorAge, setErrorAge ] = useState("");
     
+    const handleAge = (e) => {
+        if(e.target.value > 75){
+            setAge(e.target.value);
+            setErrorAge("Ingresa una edad válida");
+        }
+        else{
+            setErrorAge("");
+            setAge(e.target.value);
+        }
+    };
+
+    /////////////////////////// PUESTO ///////////////////////////////////////////
+
+    const [ puesto, setPuesto ] = useState("");
+    const [ errorPuesto, setErrorPuesto ] = useState("");
+    
+    ///////////////////////////// COUNTRY & CITY ///////////////////////////////////
+
     const [ country, setCountry ] = useState({
         country: "",
         city: ""
@@ -45,54 +72,57 @@ export default function Languages ({sumarFase}) {
             setCountry({...country, city: e.target.value});
         }
     };
-    
+
     ///////////////////////////    LANGUAGES      ///////////////////////////////
     
     //V2
     const [ nivel, setNivel ] = useState("");
+    const [ errorNivel, setErrorNivel ] = useState("")
     
     const selectIngles = (e) => {
         let lvl = e.target.value;
-        if(lvl === "Seleccionar nivel" || lvl === "No sé Ingles"){
+        if(lvl === "Seleccionar nivel"){
             setNivel("")
+        }
+        else if(lvl === "No sé Ingles"){
+            setNivel("No sé ingles")
             return;
         }
         else{
             setNivel(lvl);
         }
     };
-    
+
+
     //////////////////////////    OTROS ESTUDIOS      ///////////////////////////////
 
 
     const [ studyInput, setStudyInput ] = useState("");
     const [ study, setStudy ] = useState([]); // Arreglo de strings, que son los estudios.
     const [ errorStudy, setErrorStudy ] = useState(''); // verificaciones.
-    
+        
     const borrarEstudio = (value) => {
         setStudy(study.filter(e => e !== value));
     };
-    
-    
-    
+        
     const validateStudy = (value) => {
         if(value === ""){
             setErrorStudy("");
-            setStudyInput(value);
+             setStudyInput(value);
         }
         else if(/^\d*\d$/gim.test(value)){
             setErrorStudy('El estudio no debe contener números!');
         }
         else{
-            setErrorStudy('');
+            setErrorStudy('');                
             setStudyInput(value);
         }
     };
-    
+        
     const agregarEstudios = () => {
         // let value = document.getElementById('estudios').value;
         if(studyInput === ""){
-            setErrorStudy("");
+            setErrorStudy("");            
         }
         else{
             setErrorStudy("");
@@ -102,16 +132,33 @@ export default function Languages ({sumarFase}) {
             else{
                 if(errorStudy === ""){
                     setStudy([...study, studyInput ]);
-                    setStudyInput = "";
-                   
+                    setStudyInput = "";                       
                 }
             }
         }
     };
-    
-    //////////////////////////     SUBMIT      ///////////////////////////
-    
+
+    /////////////////////////////////////// SUBMIT ////////////////////////////////////////////
+
     const handleSubmit = (e) => {
+        if(!name){
+            return setErrorName("ingresa un nombre válido");
+        }
+        else{
+            setErrorName("");
+        }
+        if(!age){
+            return setErrorAge("ingresa una antigüedad válida");
+        }
+        else{
+            setErrorAge("");
+        }
+        if(!puesto){
+            return setErrorPuesto("Ingresa un puesto válido");
+        }
+        else{
+            setErrorPuesto("");
+        }
         e.preventDefault();
         if(!country.country){
             return setErrorCountry("Tienes que agregar un país y una ciudad!");
@@ -121,17 +168,44 @@ export default function Languages ({sumarFase}) {
         }
         else{
             setErrorCountry("");
-            //manejar info(GUARDAR)
+        }
+        if(!nivel){
+            return setErrorNivel("Selecciona un nivel de inglés");
+        }
+        else{
+            setErrorNivel("");
+        }
+        if(errorAge || errorCountry || errorName || errorPuesto || errorStudy || errorNivel){
+            return
+        }
+        else{
             return sumarFase();
         }
     };
-    
-    return (
-        <FormDiv>
 
-            {/* PAIS Y CIUDAD  */}
+    return(
+        <div>
+
+            <div>
+                <h1>¿En qué empresa trabajas actualmente?</h1>
+                { errorName && <span>{ errorName }</span>}
+                <input type={"text"} value={name} onChange={(e) => validateName(e)} />
+            </div>
+
+            <div>
+                <h1>¿Hace cuanto trabajas en la empresa?</h1>
+                { errorAge && <Error>{errorAge}</Error> }
+                <input type={"number"} value={age} onChange={(e) => handleAge(e)}/>
+            </div>
+
+            <div>
+                <h1>¿Cual es tu puesto en dicha empresa?</h1>
+                { errorPuesto && errorPuesto }
+                <input type={"text"} value={puesto} onChange={(e) => setPuesto(e.target.value)} />
+            </div>
+            
             <CountryForm>
-                <h2>¿De dónde eres?</h2>
+                <h2>¿En que país se encuentra registrada?</h2>
                 <div className="lado">
 
                 <h2>País:</h2> 
@@ -153,15 +227,14 @@ export default function Languages ({sumarFase}) {
                     </select>
                     </div>}
 
-                   
-
                         { errorCountry && <Error>{errorCountry} 😡</Error>}
+
             </CountryForm>
-            {/* PAIS Y CIUDAD  */}
 
             {/* NIVEL DE INGLES  */}
             <EnglishLVL>
                 <h2>¿Cual es tu nivel de inglés?</h2>
+                { errorNivel && <span>{ errorNivel }</span> }
                 <select onClick={(e) => selectIngles(e)}>
                     <option>Seleccionar nivel</option>
                     <option>No sé Ingles</option>
@@ -193,80 +266,8 @@ export default function Languages ({sumarFase}) {
 
             </OtherStudies>
             {/* OTROS ESTUDIOS  */}
-
-
-            <ButtonNext>
-            <button type="submit" onClick={(e) => handleSubmit(e)}>Siguiente</button>
-            </ButtonNext>
-        </FormDiv>
+            
+            <button type="submit" value={"siguiente"} onClick={(e) => handleSubmit(e)}>Siguiente</button>
+        </div>
     );
 };
-
-
-
-
-
-// V1 NO BORRAR!
-
-// import { idiomas } from "./idiomas"
-
-// const [ languages, setLanguages ] = useState([]); // lenguaje seleccionado, esta info no se manda
-// const [ languageLvl, setLanguageLvl ] = useState([]); // nivel de lenguaje, ESTA INFO SE MANDA
-//                                                       // ejemplo: "Ingles intermedio"
-
-// const languagesSelect = (e) => {
-//     if(e.target.value === 'Seleccionar Idiomas' || languages.includes(e.target.value)){
-//         return
-//     }
-//     else{
-//         setLanguages([...languages, e.target.value]); // agrega un idioma para luego seleccionar el nivel
-//     }
-// };
-
-// const selectLang = (e) => {
-//     if(e.target.value.includes('Seleccionar') || languageLvl.includes(e.target.value)){
-//         return;
-//     }
-//     else{
-//         setLanguageLvl([...languageLvl, e.target.value]); // agrega un idioma con su nivel
-//         setLanguages(languages.filter(el => !e.target.value.includes(el))); // elimina la seleccion de nivel de idioma
-//     }                                                                       // ya que el nivel de idioma fue agregado
-// };
-
-// const onClose = (e) => {
-//     setLanguages(languages.filter(el => el !== e)); // elimina el idioma seleccionado más la seleccion de nivel de idioma
-//     setLanguageLvl(languageLvl.filter(el => !el.includes(e)));
-// };
-
-// const onCloseLvl = (e) => {
-//     setLanguageLvl(languageLvl.filter(el => el !== e)); // elimina un idioma con su nivel
-// };
-
-
-// V1 DENTRO DEL RETURN
-{/* <div>
-<h1>¿Qué idiomas hablas?</h1>
-{languageLvl && languageLvl.map(e => {
-    return(
-            <div><p>{e}</p><button title="borrar idioma" onClick={() => onCloseLvl(e)}>X</button></div>
-        );
-    })}
-    {languages && languages.map((e) => {
-        return(
-            <div key={e}>
-                <select onClick={selectLang}>
-                    <option>Seleccionar Nivel de {e}</option>
-                    <option>{e} Principiante</option>
-                    <option>{e} Intermedio</option>
-                    <option>{e} Avanzado</option>
-                </select>
-                <button title="borrar idioma" onClick={() => onClose(e)}>X</button>
-            </div>
-        );
-    })}
-
-    <select id="dropdown" defaultValue={'Seleccionar Idiomas'} onClick={(e) => languagesSelect(e)}>
-        <option>Seleccionar Idiomas</option>
-        { idiomas.map(e => <option key={e} value={e}>{e}</option>) }
-    </select>
-</div> */}
