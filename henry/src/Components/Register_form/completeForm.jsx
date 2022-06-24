@@ -15,16 +15,25 @@ export default function UserForm() {
         setwhoIam(e.target.value);
         document.getElementById('Recruiter').checked = false;
         document.getElementById('Business').checked = false;
+        document.getElementById('Staff').checked = false;
       }
       if(e.target.value === "Business"){
         setwhoIam(e.target.value);
         document.getElementById('Recruiter').checked = false;
         document.getElementById('Student').checked = false;
+        document.getElementById('Staff').checked = false;
       }
       if(e.target.value === "Recruiter"){
         setwhoIam(e.target.value);
         document.getElementById('Student').checked = false;
         document.getElementById('Business').checked = false;
+        document.getElementById('Staff').checked = false;
+      }
+      if(e.target.value === "Staff"){
+        setwhoIam(e.target.value);
+        document.getElementById('Student').checked = false;
+        document.getElementById('Business').checked = false;
+        document.getElementById('Recruiter').checked = false;
       }
     }
     else{
@@ -43,15 +52,18 @@ export default function UserForm() {
       setError("");
       if(whoIam === "Student"){
         //manejar info(GUARDAR)
-        navigate("/register/alumno", { replace:true })
+        navigate("/register/alumno", { replace:true });
       }
       else if(whoIam === "Business"){
         //manejar info y hacer ruta de registro de empresa
-        // navigate("/register/empresa", { replace:true })
+        navigate("/register/business", { replace:true });
+      }
+      else if(whoIam === "Recruiter"){
+        // manejar info y hacer ruta de registro de reclutador
+        navigate("/register/recruiter", { replace:true });
       }
       else{
-        // manejar info y hacer ruta de registro de reclutador
-        navigate("/register/recruiter", { replace:true })
+        navigate("/register/staff", { replace: true });
       }
     }
   };
@@ -72,17 +84,6 @@ export default function UserForm() {
         </Switch>
       </div>
 
-      <div>
-        <label>Henry Staff</label>
-        
-
-        <Switch>
-        <label class="switch">
-        <input type="checkbox" id="Staff" value={'Staff'} onClick={(e) => settingValue(e)}/>
-         <span class="slider round"></span>
-        </label>
-        </Switch>
-      </div>
 
 
       <div>
@@ -100,6 +101,18 @@ export default function UserForm() {
         <Switch>
         <label class="switch">
         <input type="checkbox" id="Recruiter" value={'Recruiter'} onClick={(e) => settingValue(e)}/>
+         <span class="slider round"></span>
+        </label>
+        </Switch>
+      </div>
+
+      <div>
+        <label>Henry Staff</label>
+        
+
+        <Switch>
+        <label class="switch">
+        <input type="checkbox" id="Staff" value={'Staff'} onClick={(e) => settingValue(e)}/>
          <span class="slider round"></span>
         </label>
         </Switch>
