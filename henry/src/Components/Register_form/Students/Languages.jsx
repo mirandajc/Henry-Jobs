@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { countries } from "../gistfile1.json"
+import { countries } from "../gistfile1.json";
+import { FormDiv } from "../formStyles/lenguajesStyles";
 
 
 // hacer funcion de handle
@@ -36,7 +37,7 @@ export default function Languages ({sumarFase}) {
     };
     
     const citySelect = (e) => {
-        if(e.target.value === "Selecciona una Ciudad"){
+        if(e.target.value === "Selecciona una provincia/estado"){
             setCountry({...country, city: ""});
             return;
         }
@@ -122,11 +123,13 @@ export default function Languages ({sumarFase}) {
     };
     
     return (
-        <div>
+        <FormDiv>
 
             {/* PAIS Y CIUDAD  */}
             <div>
                 <h1>¿De dónde eres?</h1>
+                <div className="lado">
+
                 { errorCountry && <span>{errorCountry}</span>}
                 <h1>País:</h1> 
                 <select onClick={(e) => countrySelect(e)}>
@@ -135,16 +138,18 @@ export default function Languages ({sumarFase}) {
                         return <option>{e.country}</option>
                     })}
                 </select>
+                </div>
 
-                {allCities && <div>
-                    <h1>Ciudad:</h1>
+                {allCities && <div className="lado">
+                    <h1>Provincia/Estado:</h1>
                     <select onClick={(e) => citySelect(e)}>
-                        <option>Selecciona una Ciudad</option>
+                        <option>Selecciona una provincia/estado</option>
                         {allCities.map(e => {
                             return <option>{e}</option>
                         })}
                     </select>
                     </div>}
+
             </div>
             {/* PAIS Y CIUDAD  */}
 
@@ -181,7 +186,7 @@ export default function Languages ({sumarFase}) {
             {/* OTROS ESTUDIOS  */}
 
             <button type="submit" onClick={(e) => handleSubmit(e)}>Siguiente</button>
-        </div>
+        </FormDiv>
     );
 };
 
