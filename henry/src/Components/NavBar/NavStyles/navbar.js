@@ -28,7 +28,7 @@ button{
 export const NavLogo= styled.div`
 
 img{
-    width:30%;
+    width:40%;
     margin: 1rem;
 }
 `

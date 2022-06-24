@@ -11,7 +11,11 @@ import DetailStudent from "./Components/Home/HomeForBusiness/DetailStudents";
 import ProfileLogic from "./Components/Profile/ProfileLogic";
 import RegisterBusiness from "./Components/Register_form/Business/RegisterBusiness";
 import RegisterStaff from "./Components/Register_form/Staff/RegisterStaff";
-
+import HomeBusinessStudents from './Components/Home/HomeForBusiness/HomeBusinessStudents'
+import Proyects from "./Components/Proyects/Proyects";
+import AboutAs from "./Components/About as/About-as";
+import Ads from "./Components/Ads/Ads";
+import Booms from "./Components/Landing/booms/booms";
 
 function App() {
   return (
@@ -28,6 +32,11 @@ function App() {
       <Route path='/register/staff' element={<RegisterStaff />} />
       <Route path='/details/:id' element={<DetailStudent/>}/>
       <Route path='/profile/:name' element={<ProfileLogic/>}/>
+      <Route path='/students' element={<HomeBusinessStudents/>}/>
+      <Route path="/proyects" element={<Proyects/>}/>
+      <Route path="/about-as" element={<AboutAs/>}/>
+      <Route path="/ads" element={<Ads/>}/>
+      <Route path="/booms" element={<Booms/>}/>
     </Routes>
     </div>
   );

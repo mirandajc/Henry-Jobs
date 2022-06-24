@@ -10,7 +10,7 @@ width:100%;
 display: flex;
 justify-content: center;
 align-items: center;
-
+margin-right: 3rem;
 
 
 // background-color: black;
