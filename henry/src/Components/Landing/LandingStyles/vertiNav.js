@@ -7,16 +7,21 @@ height: 100.5vh;
 width: 4em;
 display: flex;
 align-items: center;
-justify-content: center;
+justify-content: flex-start;
 flex-direction: column;
 font-size: 1.5em;
 background-color:none;
-margin:3rem;
-// img{
-// width:70%;
-// margin: 4rem
-// }
+margin-left: 3rem;
+margin-right: 5rem;
+margin-top: 2rem;
 
+
+
+.link{
+    display: flex;
+    margin: none;
+    justify-content: center;
+}
 .icon{
     width:50%;
     h
@@ -25,7 +30,9 @@ margin:3rem;
 .cohete{
     width:30%;
 }
-
+.contenedor{
+    display:flex;
+}
 `
 
 export const ContStart= styled.div`
@@ -45,14 +52,13 @@ align-items: center;
     margin: 2rem;
 }
 
-
 `
 
 export const LandingCont= styled.div`
 // border:1px solid red;
 display:flex;
 align-items:center;
-justyfy-content: flex-start;
+align-items: flex-start;
 
 // width:100%;
 // heigth:100%;

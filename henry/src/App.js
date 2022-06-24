@@ -8,6 +8,10 @@ import UserForm from "./Components/Register_form/completeForm";
 import RegisterAlumn from "./Components/Register_form/RegisterAlumn";
 import DetailStudent from "./Components/Home/HomeForBusiness/DetailStudents";
 import ProfileLogic from "./Components/Profile/ProfileLogic";
+import Proyects from "./Components/Proyects/Proyects";
+import AboutAs from "./Components/About as/About-as";
+import Ads from "./Components/Ads/Ads";
+import Booms from "./Components/Landing/booms/booms";
 
 function App() {
   return (
@@ -21,6 +25,10 @@ function App() {
       <Route path='/register/alumno' element={<RegisterAlumn />} />
       <Route path='/details/:id' element={<DetailStudent/>}/>
       <Route path='/profile/:name' element={<ProfileLogic/>}/>
+      <Route path="/proyects" element={<Proyects/>}/>
+      <Route path="/about-as" element={<AboutAs/>}/>
+      <Route path="/ads" element={<Ads/>}/>
+      <Route path="/booms" element={<Booms/>}/>
     </Routes>
     </div>
   );
