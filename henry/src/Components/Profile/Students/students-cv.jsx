@@ -1,5 +1,6 @@
 import React from "react";
 import {CV, CvCont, Instancia, Acerca, Publicaciones} from '../profileStyles/studentCV';
+import Carrousell from "./Carrousell";
 
 export default function StudentCV(){
     return(
@@ -21,7 +22,7 @@ export default function StudentCV(){
                 <h2>Acerca De:</h2>
             </Acerca>
             <Publicaciones>
-                <h2>Publicaciones</h2>
+                <Carrousell /> 
             </Publicaciones>
         </CV>
     )
