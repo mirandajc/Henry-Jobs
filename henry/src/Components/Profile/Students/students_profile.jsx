@@ -24,7 +24,7 @@ export default function StudentsProfile(){
 
                 <Ubicacion>
                     <GrLocation className="location"/>
-                    <p>Mendoza</p>
+                    <p>Mendoza - Argentina</p>
                 </Ubicacion>
                 <P>
                     <p>un ser magico de las praderas mendocinas</p>
@@ -32,9 +32,15 @@ export default function StudentsProfile(){
 
 
                 <Redes>
+                    <div>
                     <BsGithub className="gh"/>
+                    </div>
+                    <div>
                     <BsLinkedin className="ln"/>
+                    </div>
+                    <div>
                     <SiGmail className="mail"/>
+                    </div>
                 </Redes>
 
                 <DevStar>

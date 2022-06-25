@@ -4,6 +4,8 @@ import Landing from "./Components/Landing/Landing";
 import Navbar from "./Components/NavBar/navbar";
 import './App.css';
 import Home from "./Components/Home/home";
+import StudentCompletePage from "./Components/Profile/Students/studentProfileComplete";
+import StudentCV from "./Components/Profile/Students/students-cv";
 import StudentsProfile from "./Components/Profile/Students/students_profile";
 import UserForm from "./Components/Register_form/completeForm";
 import RegisterAlumn from "./Components/Register_form/RegisterAlumn";
@@ -33,7 +35,7 @@ function App() {
       <Route path='/register/staff' element={<RegisterStaff />} />
       <Route path='/details/:id' element={<DetailStudent/>}/>
       <Route path='/profile/:name' element={<ProfileLogic/>}/>
-      <Route path='/perfil' element={<StudentsProfile/>}/>
+      <Route path='/perfil' element={<StudentCompletePage/>}/>
       <Route path='/students' element={<HomeBusinessStudents/>}/>
       <Route path="/proyects" element={<Proyects/>}/>
       <Route path="/about-as" element={<AboutAs/>}/>

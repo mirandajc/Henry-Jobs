@@ -2,22 +2,18 @@ import styled from "styled-components";
 
 export const StudentProf= styled.div`
 
-// border: 1px solid white;
 
-width:100%;
-height:120vh;
 
-// display:flex;
-// justyfy-content:center;
-// align-items:center;
-// flex-direction: column;
+width:19em;
+height:auto;
+margin-top: -17em;
+
 
 `
 
 export const ProfCont= styled.div`
 
-margin-left: 3em;
-margin-top: 3em;
+
 // border: 1px solid yellow;
 border-radius: 10px;
 box-shadow: 6px 7px 5px 0px rgb(255 255 255 / 75%);
@@ -28,7 +24,7 @@ background-color: hsl(228deg 8% 12%);
 overflow-hidden;
 
 overflow:hidden;
-width:20%;
+width:100%;
 
 display:flex;
 justyfy-content:center;
@@ -193,14 +189,25 @@ align-items: center;
 justify-content: space-evenly;
 
 font-size: 1.5em;
+div{
+    border:1px solid white;
+    
+    background-color: yellow;
+    padding: 0.2em;
+}
 
 .gh{
+   
+    
     color: black
+
 }
 .ln{
     color: #4d6ad6;
+   
 }
 .mail{
     color: #d64d4d;
+   
 }
 `

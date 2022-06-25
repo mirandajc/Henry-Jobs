@@ -1,6 +1,6 @@
 import React from "react";
 import {ComponentCardProyect, Description, Usuario, Publicacion, Video} from '../Proyects-styles/Proyects'
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
 import { Link } from "react-router-dom";
 
 export default function ProyectsCard(props) {
