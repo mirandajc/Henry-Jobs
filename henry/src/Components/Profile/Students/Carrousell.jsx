@@ -48,5 +48,5 @@ export default function Carrousell () {
         <button onClick={next}> next </button>
 
         </div>
-    );                            
+    );                      
 };

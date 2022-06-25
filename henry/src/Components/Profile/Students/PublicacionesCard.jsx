@@ -11,8 +11,9 @@ export default function PublicacionesCards ({id, picture, name, date, proyectTit
                 </div>
                 <p>{date}</p>
             </div>
-            <div>
+            <div className="title-summary">
                 <h2>{proyectTittle}</h2>
+                <h1>ACA IRIA EL VIDEO O IMAGEN</h1>
                 <p>{summary}</p>
             </div>
             <div className="tech">

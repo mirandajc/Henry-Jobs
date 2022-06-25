@@ -30,6 +30,11 @@ border: 1px solid red;
     padding-right: 1.5em;
 }
 
-
+.title-summary h2 {
+    padding-left: 1em;
+}
+.title-summary p{
+    padding-left: 1em;
+}
 
 `
