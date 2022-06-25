@@ -3,7 +3,9 @@ import { StudentProf,ProfCont,Name,DevStar, Banner, ImageProf,P,Follow,Ubicacion
 import Rene from '../../images/rene.jpeg';
 import {GrLocation} from 'react-icons/gr';
 import {BsGithub, BsLinkedin}from 'react-icons/bs';
+import {BsFillStarFill} from 'react-icons/bs'
 import {SiGmail} from 'react-icons/all';
+import {HiLocationMarker} from 'react-icons/all';
 
 export default function StudentsProfile(){
 
@@ -23,7 +25,7 @@ export default function StudentsProfile(){
                 </Name>
 
                 <Ubicacion>
-                    <GrLocation className="location"/>
+                    <HiLocationMarker className="location"/>
                     <p>Mendoza - Argentina</p>
                 </Ubicacion>
                 <P>
@@ -44,8 +46,9 @@ export default function StudentsProfile(){
                 </Redes>
 
                 <DevStar>
-                    <p>Frontend</p>
-                    <p>Stars ✨✨</p>
+                    <p className="Si">Frontend</p>
+                    <p className="Si" id="cent"><BsFillStarFill className="star"/>3.5</p>
+                    <p id="cent">Graduado</p>
                 </DevStar>
 
 

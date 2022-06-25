@@ -26,10 +26,12 @@ overflow-hidden;
 overflow:hidden;
 width:100%;
 
+
 display:flex;
 justyfy-content:center;
 align-items:center;
 flex-direction: column;
+
 
 
 
@@ -42,6 +44,7 @@ width:100%;
 height:50%;
 display:flex; 
 align-items: center;
+
 
 
 
@@ -58,34 +61,30 @@ img{
 
 export const ImageProf= styled.div`
 
-width:50%;
+width:49%;
+height: 8.5em;
 
+border-radius: 50%;
+margin-top: -3em;
+overflow: hidden;
+
+display:flex;
+justify-content: center;
 
 img{
-    
-    margin-top: -3em;
     width:100%;
-    border-radius: 50%;
-    //  border: 2px solid white;
-    box-shadow: 6px 7px 5px 0px rgb(255 255 255 / 75%);
-    -webkit-box-shadow: 1px 3px 9px 0px rgb(255 255 255 / 31%);
-    -moz-box-shadow: 6px 7px 5px 0px rgba(255,255,255,0.75);
 }
 
 
 `
 
 export const Name= styled.div`
-
-
-
-
-
 width: 100%;
 
 display:flex;
 align-items: center;
 justify-content:center;
+// border-bottom: 0.1px solid black;
 
 h2{
     color:white;
@@ -100,7 +99,8 @@ h2{
 
 export const DevStar= styled.div`
 
-
+// border: 1px solid white;
+width:100%;
 display: flex;
 justify-content: space-evenly;
 align-items: center;
@@ -108,21 +108,35 @@ flex-direction: row;
 
 p{
    
-    
+   
     background-color: hsl(228deg 8% 12%);
     color: white;
-    
-    padding: 1em;
-    border-radius: 10px;
+    padding: 0.5em;
+
+    .star{
+        color: yellow;
+        margin-rigth: 1em;
+    }
+
+
+   
+}
+.Si{
+    border-right: 0.2px solid black;
 }
 
+// #cent{
+//     border: 1px solid red;
+// }
 
 
 `
 
 
 export const P= styled.div`
+width: 100%;
 
+// border-bottom: 0.1px solid black;
 p{
     // font-family:AVENIR LIGHT;
     font-size: 1em;
@@ -172,15 +186,17 @@ p{
     
 }
 .location{
-    font-size:1em;
     color: yellow;
+    font-size: 1.2em;
+   
+    
 }
 
 
 `
 
 export const Redes= styled.div`
-// border: 1px solid white;
+
 
 width: 100%;
 
@@ -188,18 +204,32 @@ display:flex;
 align-items: center;
 justify-content: space-evenly;
 
+border: 0.1px solid transparent;
+
 font-size: 1.5em;
 div{
-    border:1px solid white;
     
-    background-color: yellow;
-    padding: 0.2em;
+    border-radius: 50%;
+    
+    width: 1.5em;
+    height: 1.5em;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+
+    box-shadow: 6px 5px 5px 0px rgb(0 0 0 / 75%);
+    -webkit-box-shadow: 3px 2px 5px 0px rgb(0 0 0 / 75%);
+    -moz-box-shadow: 6px 5px 5px 0px rgba(0,0,0,0.75);
+    background-color: hsl(228deg 11% 9%);
+
+   
+    
 }
 
 .gh{
    
     
-    color: black
+    color: white;
 
 }
 .ln{
