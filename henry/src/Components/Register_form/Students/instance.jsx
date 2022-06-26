@@ -43,9 +43,9 @@ export default function Instance({sumarFase}) {
       <div>
         <label>Proyecto Final</label>
         <Switch>
-        <label class="switch">
+        <label className="switch">
         <input type="checkbox" id='PG' value={'PG'} onClick={(e) => settingValue(e)}/>
-         <span class="slider round"></span>
+         <span className="slider round"></span>
         </label>
         </Switch>
         
@@ -54,9 +54,9 @@ export default function Instance({sumarFase}) {
       <div>
         <label>Alumno Egresado</label>
         <Switch>
-        <label class="switch">
+        <label className="switch">
         <input type="checkbox" id="Graduate" value={'Graduate'} onClick={(e) => settingValue(e)}/>
-         <span class="slider round"></span>
+         <span className="slider round"></span>
         </label>
         </Switch>
       

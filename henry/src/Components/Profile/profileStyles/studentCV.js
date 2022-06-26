@@ -3,8 +3,9 @@ import styled from 'styled-components'
 
 export const CV= styled.div`
 
+margin-top: -19.5em;
 width: 60%;
-height: 130vh;
+height: auto;
 
 display: flex; 
 align-items: center;
@@ -22,13 +23,6 @@ box-shadow: 6px 7px 5px 0px rgb(255 255 255 / 75%);
 overflow-hidden: ;
 background-color: hsl(228deg 11% 9%);
 overflow-hidden;
-
-// div{
-//     border: 1px solid white;
-// }
-
-
-
 
 `
 
@@ -53,6 +47,11 @@ h3{
 `
 
 export const Acerca= styled.div`
+
+box-shadow: 10px 10px 5px 0px rgb(0 0 0 / 42%);
+    -webkit-box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 75%);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+border-top: 1px solid yellow;
 width: 100%;
 
 background-color: hsl(228deg 8% 12%);
@@ -120,18 +119,39 @@ export const More= styled.div`
 
 `
 export const Publicaciones= styled.div`
-width: 100%;
+
+background-color: hsl(228deg 8% 12%);
+border-radius: 10px;
+border-top: 1px solid yellow;
+margin-bottom: 1em;
+width: 90%;
 height: 30%;
+
+box-shadow: 10px 10px 5px 0px rgb(0 0 0 / 42%);
+    -webkit-box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 75%);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
 
 
 `
 
 export const Tecnologias= styled.div`
+border-top: 1px solid yellow;
 background-color: hsl(228deg 8% 12%);
 width: 90%;
 height: 10em;
+
+box-shadow: 10px 10px 5px 0px rgb(0 0 0 / 42%);
+    -webkit-box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 75%);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+
 border-radius: 10px;
 margin-bottom: 1em;
+margin-top: 1em;
 margin-left: 5%;
 
 display:flex;
@@ -155,12 +175,17 @@ ul{
 
 export const OtrosStudy= styled.div`
 
+border-top: 1px solid yellow;
 background-color: hsl(228deg 8% 12%);
 width: 90%;
 height: 10em;
 border-radius: 10px;
 margin-bottom: 1em;
 margin-left: 5%;
+
+box-shadow: 10px 10px 5px 0px rgb(0 0 0 / 42%);
+    -webkit-box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 75%);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 
 display:flex;
 justify-content: center;
@@ -181,6 +206,59 @@ ul{
 }
 
 `
+
+export const PublicArrowLeft= styled.img`
+
+    height:2em;
+    margin-right:1em;
+
+    &:active{
+      box-shadow: box-shadow:
+        7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+      transform: translateY(4px);
+
+
+      @keyframes slideMeL{
+        0%{
+            transform: translateX(-700px);
+        }
+        100%{
+            transform:  translateX(0px);
+        }
+    }
+    }
+
+    
+
+`
+export const PublicArrowRight= styled.img`
+    height:2em;
+    margin-left:1em;
+
+
+
+&:active{
+  box-shadow: box-shadow:
+        7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+      transform: translateY(4px);
+ 
+      @keyframes slideMeR{
+        0%{
+            transform: translateX(700px);
+            opacity:0%;
+        }
+        100%{
+            transform:  translateX(0px);
+            opacity:100%;
+        }
+    }
+}
+`
+
+
+
+
+
 
 
 

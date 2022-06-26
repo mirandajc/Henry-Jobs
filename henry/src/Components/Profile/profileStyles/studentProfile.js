@@ -15,6 +15,7 @@ export const ProfCont= styled.div`
 
 
 // border: 1px solid yellow;
+margin-top: -30em;
 border-radius: 10px;
 box-shadow: 6px 7px 5px 0px rgb(255 255 255 / 75%);
 -webkit-box-shadow: 0px 4px 10px 0px rgb(158 158 158 / 45%);
@@ -70,6 +71,7 @@ overflow: hidden;
 
 display:flex;
 justify-content: center;
+border: 1px solid yellow;
 
 img{
     width:100%;
@@ -224,7 +226,11 @@ div{
     background-color: hsl(228deg 11% 9%);
 
    
-    
+    &: active{
+        box-shadow: box-shadow:
+        7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+      transform: translateY(4px);
+    }
 }
 
 .gh{
