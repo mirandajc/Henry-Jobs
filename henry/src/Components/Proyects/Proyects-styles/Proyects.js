@@ -68,7 +68,6 @@ span{
 img{
     width: 2rem;
     height: auto;
-    margin: 1rem;
     border-radius: 1rem;
 }
 p{
@@ -148,5 +147,11 @@ export const Description= styled.div`
     height: 2rem;
     border-radius: 1rem;
     margin: 1rem;
+}
+`
+export const StyleModal = styled.div`
+color: red;
+.ReactModal__Overlay ReactModal__Overlay--after-open{
+    background-color: #141519;
 }
 `
