@@ -7,20 +7,21 @@ import {
     GET_STUDENTS_FAILURE,
     GET_STUDENTS_AZ,
     GET_STUDENTS_ZA,
-    GET_STUDENTS_HIGH_SCORE
+    GET_STUDENTS_HIGH_SCORE,
+    GET_PUBLIC_FOLLOWS_SUCESS
 } from "../../constants/constants";
 
 import { testStuden } from "../../Components/Home/HomeForBusiness/MokedFiles";
 import { mokedFilesPublicaciones } from '../../Components/Home/HomeForBusiness/MokedFilesPublicaciones'
 
 const initialState = {
-    user: 'business',
-    userFollows: [1,4,2,5],
+    user: 'business', //seteado manualmente, tiene que traer que pido de usuario somos al momento de log
+    userFollows: [1,4,2,5,6,7,3], // seteado manualmente,despues va a tener que traer el array de id de personas o empresas que seguimos
     pokemon: [],
     loading: false,
     error: {},
-    allStudents: testStuden,
-    allPublicationsStudents: mokedFilesPublicaciones,
+    allStudents: [],
+    allPublicationsStudents: [],
     allPublicationsBusiness: [],
     allStudentsAz: [],
     allStudentsZa: [],
@@ -29,6 +30,14 @@ const initialState = {
 
 const fetchDataReducer = (state = initialState, action) => {
     switch (action.type) {
+        case GET_PUBLIC_FOLLOWS_SUCESS:
+            
+            var fol1 = action.payload.filter(e => state.userFollows.includes(e.id))
+            var response = fol1.reverse();
+            return {
+                ...state,
+                allPublicationsStudents: response
+            }
         case GET_STUDENTS_SUCESS:
             return{
                 ...state,

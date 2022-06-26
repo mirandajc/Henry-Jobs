@@ -1,5 +1,6 @@
 import { take, call, all, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
+import { mokedFilesPublicaciones } from '../../Components/Home/HomeForBusiness/MokedFilesPublicaciones';
 import {
     getPokemonFailure,
     getPokemonLoading, 
@@ -8,7 +9,8 @@ import {
     getStudentsFailure, 
     getStudentsAz, 
     getStudentsZa ,
-    getStudentsHighScore
+    getStudentsHighScore,
+    getPublicFollowsSucess
 } from '../actions/action';
 
 import { 
@@ -18,7 +20,8 @@ import {
     RUTAQUEGABIAUNNOMEPASA, 
     GET_STUDENTS_AZ, 
     GET_STUDENTS_ZA , 
-    GET_STUDENTS_HIGH_SCORE
+    GET_STUDENTS_HIGH_SCORE,
+    GET_PUBLIC_FOLLOWS
 } from '../../constants/constants';
 
 //import actions 
@@ -39,8 +42,8 @@ function* asyncFetchRequest(){
 
 function* asyncGetStudents(){
     try {
-        const response = yield call(()=>axios.get(RUTAQUEGABIAUNNOMEPASA))
-        yield put(getStudentsSecess(response.data))
+        /* const response = yield call(()=>axios.get(RUTAQUEGABIAUNNOMEPASA)) */
+        yield put(getStudentsSecess(mokedFilesPublicaciones)) // reemplazar cuando gabi me de la ruta por response.data
     } catch (error) {
         yield put(getStudentsFailure(error))
     }finally{
@@ -75,6 +78,15 @@ function* asyncGetStudentsHighScore(){try {
     
 }}
 
+function* asyncGetPublicFollows(){
+    try {
+        /* const response = yield call(()=>axios.get(RUTAQUEGABIAUNNOMEPASA)) */ // ruta que te trae todas las publicaciones
+        yield put(getPublicFollowsSucess(mokedFilesPublicaciones)) // aca reemplazar con response
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 export function* watchFetchDataSaga(){
     yield takeEvery(SEND_REQUEST, asyncFetchRequest)
@@ -82,4 +94,5 @@ export function* watchFetchDataSaga(){
     yield takeEvery(GET_STUDENTS_AZ, asyncGetStudentsAz)
     yield takeEvery(GET_STUDENTS_ZA, asyncGetStudentsZa)
     yield takeEvery(GET_STUDENTS_HIGH_SCORE, asyncGetStudentsHighScore)
+    yield takeEvery(GET_PUBLIC_FOLLOWS, asyncGetPublicFollows)
 }

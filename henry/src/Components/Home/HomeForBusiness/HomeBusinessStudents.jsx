@@ -17,6 +17,7 @@ export default function HomeBusinessStudents(){
 
     useEffect(() => {
         console.log(allStudents)
+        dispatch(getStudents());
     }, [])
 
 
@@ -47,13 +48,13 @@ export default function HomeBusinessStudents(){
                     display.map(e => {
                         return (<HomeBusinessCard
                             name={e.name}
-                            lastName={e.lastName}
+                            /* lastName={e.lastName}
                             lenguage={e.lenguage}
                             technologies={e.technologies}
                             backFront={e.backFront}
                             otherStudies={e.otherStudies}
                             image={e.image}
-                            id={e.id}
+                            id={e.id} */
                         />)
                     })
                 }

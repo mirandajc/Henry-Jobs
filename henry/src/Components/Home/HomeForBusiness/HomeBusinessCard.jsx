@@ -10,7 +10,7 @@ export default function HomeBusinessCard(props){
             <div>
                 {props.name}
             </div>
-            <div>
+           {/*  <div>
                 {props.lastName}
             </div>
             <div>
@@ -39,7 +39,7 @@ export default function HomeBusinessCard(props){
                 <Link to={`/details/${props.id}`}>
                 <button>Student Details</button>
                 </Link>
-            </div>
+            </div> */}
         </div>
     )
 }

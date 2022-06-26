@@ -9,7 +9,9 @@ import {
     GET_STUDENTS_FAILURE,
     GET_STUDENTS_AZ,
     GET_STUDENTS_ZA,
-    GET_STUDENTS_HIGH_SCORE
+    GET_STUDENTS_HIGH_SCORE,
+    GET_PUBLIC_FOLLOWS,
+    GET_PUBLIC_FOLLOWS_SUCESS
 } from "../../constants/constants";
 
 
@@ -35,6 +37,19 @@ export function getStudentsZa(){
 export function getStudentsHighScore(){
     return {
         type: GET_STUDENTS_HIGH_SCORE
+    }
+}
+
+export function getPublicFollows(){
+    return {
+        type: GET_PUBLIC_FOLLOWS
+    }
+}
+
+export function getPublicFollowsSucess(payload){
+    return {
+        type: GET_PUBLIC_FOLLOWS_SUCESS,
+        payload
     }
 }
 
