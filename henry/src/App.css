@@ -5,8 +5,8 @@
   @import url(//db.onlinewebfonts.com/c/901497541657a2f24e42848bcf7fad52?family=Avenir+Heavy);
   font-family: Avenir Heavy;
   color: white;
-  
-  height:150vh;
+  /* background-repeat: repeat; */
+  height:auto;
   /* border:1px solid red; */
 }
 h1{

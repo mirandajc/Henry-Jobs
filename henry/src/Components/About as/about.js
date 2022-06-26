@@ -42,5 +42,6 @@ span{
     justify-content: space-evenly;
     align-items: center;
     margin-left: 78%;
+    text-decoration:none;
 }
 `
