@@ -77,9 +77,9 @@ export default function UserForm() {
         
 
         <Switch>
-        <label class="switch">
+        <label className="switch">
         <input type="checkbox" id="Student" value={'Student'} onClick={(e) => settingValue(e)}/>
-         <span class="slider round"></span>
+         <span className="slider round"></span>
         </label>
         </Switch>
       </div>
@@ -89,9 +89,9 @@ export default function UserForm() {
       <div>
         <label>Empresa</label>
         <Switch>
-        <label class="switch">
+        <label className="switch">
         <input type="checkbox" id="Business" value={'Business'} onClick={(e) => settingValue(e)}/>
-         <span class="slider round"></span>
+         <span className="slider round"></span>
         </label>
         </Switch>
       </div>
@@ -99,9 +99,9 @@ export default function UserForm() {
       <div>
         <label>Reclutador</label>
         <Switch>
-        <label class="switch">
+        <label className="switch">
         <input type="checkbox" id="Recruiter" value={'Recruiter'} onClick={(e) => settingValue(e)}/>
-         <span class="slider round"></span>
+         <span className="slider round"></span>
         </label>
         </Switch>
       </div>
@@ -111,9 +111,9 @@ export default function UserForm() {
         
 
         <Switch>
-        <label class="switch">
+        <label className="switch">
         <input type="checkbox" id="Staff" value={'Staff'} onClick={(e) => settingValue(e)}/>
-         <span class="slider round"></span>
+         <span className="slider round"></span>
         </label>
         </Switch>
       </div>

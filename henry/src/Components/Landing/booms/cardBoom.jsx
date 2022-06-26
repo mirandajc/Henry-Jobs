@@ -3,7 +3,7 @@ import Booms from './booms';
 import Testimony from './testimony';
 import { Slider,CardDiv,ContCard,Card,ArrowLeft, ArrowRight } from '../LandingStyles/landing';
 import Starting from './starting';
-import Arrow from '../../images/Arrow/atras.png'
+import Arrow from '../../images/Arrow/atras.png';
 
 export default function Carousel(){
 	const [current,setCurrent]=useState(0);

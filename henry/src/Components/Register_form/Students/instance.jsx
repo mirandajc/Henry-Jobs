@@ -4,19 +4,20 @@ import { AlumnCont } from "../formStyles/faceAlumn";
 import { Switch, Error } from "../formStyles/formStyles";
 
 
-export default function Instance({sumarFase}) {
+export default function Instance({sumarFase,instancia, setInstancia}) {
   let navigate = useNavigate();
   const [ instance, setInstance ] = useState("");
   const [ error, setError ] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => { ///////////////////////////////////////////// SUBMIT //////////////////////
     e.preventDefault();
+    
     if(!instance){
       setError("Selecciona una instancia");
     }
     else{
       setError("");
-      //manejar info(guardarla)
+      const userType = instance; // PG O GRADUATE
       sumarFase();
     }
   };
@@ -43,9 +44,9 @@ export default function Instance({sumarFase}) {
       <div>
         <label>Proyecto Final</label>
         <Switch>
-        <label class="switch">
+        <label className="switch">
         <input type="checkbox" id='PG' value={'PG'} onClick={(e) => settingValue(e)}/>
-         <span class="slider round"></span>
+         <span className="slider round"></span>
         </label>
         </Switch>
         
@@ -54,9 +55,9 @@ export default function Instance({sumarFase}) {
       <div>
         <label>Alumno Egresado</label>
         <Switch>
-        <label class="switch">
+        <label className="switch">
         <input type="checkbox" id="Graduate" value={'Graduate'} onClick={(e) => settingValue(e)}/>
-         <span class="slider round"></span>
+         <span className="slider round"></span>
         </label>
         </Switch>
       

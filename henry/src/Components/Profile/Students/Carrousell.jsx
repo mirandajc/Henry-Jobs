@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { mokedFilesPublicaciones } from "../../Home/HomeForBusiness/MokedFilesPublicaciones";
 import PublicacionesCards from "./PublicacionesCard";
+import Arrow from '../../images/Arrow/atras.png'
+import { PublicArrowRight, PublicArrowLeft } from "../profileStyles/studentCV";
+import ArrowR from '../../images/adelante.png'
+import { SlyderCont } from "./cardStyles/PublicacionCard";
+
 
 export default function Carrousell () {
 
@@ -21,11 +26,12 @@ export default function Carrousell () {
 	}
 
     return(
-        <div>
+        <SlyderCont>
 
-        <button onClick={prev}> prev </button>
+        
+        <PublicArrowLeft src={Arrow} alt='back' onClick={prev}/>
 
-        <div>
+        <div className="ContCards">
             { publicaciones && publicaciones.map( (e, index) => {
                 if(current === index ){
                     return(
@@ -45,8 +51,8 @@ export default function Carrousell () {
             })}
         </div>
 
-        <button onClick={next}> next </button>
+            <PublicArrowRight src={ArrowR} alt='next'onClick={next}/>
 
-        </div>
+        </SlyderCont>
     );                      
 };

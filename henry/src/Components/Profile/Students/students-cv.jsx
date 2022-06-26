@@ -41,7 +41,7 @@ export default function StudentCV(){
                <MostrarMas/>
             </Acerca>
             <Publicaciones>
-                <h3>Publicaciones</h3>
+                <h3>Publicaciones:</h3>
                 <Carrousell /> 
             </Publicaciones>
         </CV>

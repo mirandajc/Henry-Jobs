@@ -21,7 +21,6 @@ import { Error } from "../formStyles/formStyles";
 
 
 export default function DevType({sumarFase}) {
-  let navigate = useNavigate();
   const [ devType, setDevType ] = useState("");
   const [ tech, setTech ] = useState({
     languages:[],  
@@ -70,15 +69,23 @@ export default function DevType({sumarFase}) {
       return setTech({...tech, [e.target.name]: tech[e.target.name].filter(el => el !== e.target.value)});
     }                  
   };
+
+
   
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = (e) => { /////////////////////////////////////////////// SUBMIT /////////////////////////
     e.preventDefault();
     if(devType === "" || tech.languages.length === 0 || tech.frontend.length === 0 || tech.backend.length === 0){
       return setError("tienes que seleccionar al menos un lenguaje ó tecnología en cada instancia")
     }
     else{
       setError("")
-      //manejar info(guardarla) y avanzar en el formulario
+
+      const devtech = {
+        backfront: devType,
+        technologies: [...tech.languages, ...tech.frontend, ...tech.backend]
+      };
+
       sumarFase()
     }
   };
@@ -95,9 +102,9 @@ export default function DevType({sumarFase}) {
           <label>Frontend</label>
 
         <Switch>
-        <label class="switch">
+        <label className="switch">
         <input type="checkbox" id="Frontend" name="devType" value={'Frontend'} onClick={(e) => selectDevType(e)}/>
-         <span class="slider round"></span>
+         <span className="slider round"></span>
         </label>
         </Switch>
         </div>
@@ -105,9 +112,9 @@ export default function DevType({sumarFase}) {
         <div>
           <label>Backend</label>
           <Switch>
-        <label class="switch">
+        <label className="switch">
         <input type="checkbox" id="Backend"  name="devType" value={'Backend'} onClick={(e) => selectDevType(e)}/>
-         <span class="slider round"></span>
+         <span className="slider round"></span>
         </label>
         </Switch>
         </div>
@@ -115,9 +122,9 @@ export default function DevType({sumarFase}) {
         <div>
           <label>Fullstack</label>
           <Switch>
-        <label class="switch">
+        <label className="switch">
         <input type="checkbox" id="Fullstack" name="devType" value={'Fullstack'} onClick={(e) => selectDevType(e)}/>
-         <span class="slider round"></span>
+         <span className="slider round"></span>
         </label>
         </Switch>
         </div>
@@ -136,27 +143,27 @@ export default function DevType({sumarFase}) {
             <img src={javascript} title="Javascript" alt="Javascript" width={"70px"} />
 
             <SwitchChiquito>
-            <label class="switch">
+            <label className="switch">
             <input name="languages" value={"Javascript"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
             </label>
             </SwitchChiquito>
             </div>
             <div>
             <img src={typescript} title="Typecript" alt="Typescript" width={"70px"} />
             <SwitchChiquito>
-            <label class="switch">
+            <label className="switch">
             <input name="languages" value={"Typecript"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
             </label>
             </SwitchChiquito>
             </div>
             <div>
             <img src={python} title="Python" alt="Python" width={"70px"} />
             <SwitchChiquito>
-            <label class="switch">
+            <label className="switch">
             <input name="languages" value={"Python"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
             </label>
             </SwitchChiquito>
             </div>
@@ -168,9 +175,9 @@ export default function DevType({sumarFase}) {
             <img src={react} title="React" alt="React" width={"70px"} />
             
             <SwitchChiquito>
-            <label class="switch">
+            <label className="switch">
              <input name="frontend" value={"React"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
             </label>
            </SwitchChiquito>
             </div>
@@ -178,9 +185,9 @@ export default function DevType({sumarFase}) {
             <div>
             <img src={redux} title="Redux" alt="Redux" width={"70px"} />
             <SwitchChiquito>
-            <label class="switch">
+            <label className="switch">
             <input name="frontend" value={"Redux"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
             </label>
             </SwitchChiquito>
             </div>
@@ -188,9 +195,9 @@ export default function DevType({sumarFase}) {
             <div>
             <img src={react_native} title="React Native" alt="React Native" width={"70px"} />
             <SwitchChiquito>
-            <label class="switch">
+            <label className="switch">
             <input name="frontend" value={"React Native"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
             </label>
             </SwitchChiquito>
             </div>
@@ -198,9 +205,9 @@ export default function DevType({sumarFase}) {
             <div>
             <img src={css} title="CSS" alt="CSS" width={"70px"} />
             <SwitchChiquito>
-            <label class="switch">
+            <label className="switch">
             <input name="frontend" value={"CSS"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
             </label>
             </SwitchChiquito>
             </div>
@@ -208,9 +215,9 @@ export default function DevType({sumarFase}) {
             <div>
             <img src={angular} title="Angular" alt="Angular" width={"70px"} />
             <SwitchChiquito>
-            <label class="switch">
+            <label className="switch">
             <input name="frontend" value={"Angular"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
             </label>
             </SwitchChiquito>
             </div>
@@ -218,9 +225,9 @@ export default function DevType({sumarFase}) {
             <div>
             <img src={tailwind} title="Tailwind" alt="Tailwind" width={"70px"} />
             <SwitchChiquito>
-            <label class="switch">
+            <label className="switch">
             <input name="frontend" value={"Tailwind"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
             </label>
             </SwitchChiquito>
             </div>
@@ -228,9 +235,9 @@ export default function DevType({sumarFase}) {
             <div>
             <img src={laravel} title="Laravel" alt="Laravel" width={"70px"} />
             <SwitchChiquito>
-            <label class="switch">
+            <label className="switch">
             <input name="frontend" value={"Laravel"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
             </label>
             </SwitchChiquito>
             </div>
@@ -238,9 +245,9 @@ export default function DevType({sumarFase}) {
             <div>
             <img src={vue} title="Vue" alt="Vue" width={"70px"} />
             <SwitchChiquito>
-            <label class="switch">
+            <label className="switch">
             <input name="frontend" value={"Vue"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
             </label>
         </SwitchChiquito>
             </div>
@@ -254,9 +261,9 @@ export default function DevType({sumarFase}) {
             <img src={express} title="Express JS" alt="Express Js" width={"70px"} />
           
             <SwitchChiquito>
-            <label class="switch">
+            <label className="switch">
             <input name="backend" value={"Express Js"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
             </label>
             </SwitchChiquito>
             </div>
@@ -264,9 +271,9 @@ export default function DevType({sumarFase}) {
             <div>
             <img src={php} title="Php" alt="Php" width={"70px"} />
             <SwitchChiquito>
-            <label class="switch">
+            <label className="switch">
             <input name="backend" value={"Php"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
             </label>
             </SwitchChiquito>
             </div>
@@ -274,9 +281,9 @@ export default function DevType({sumarFase}) {
             <div>
             <img src={sql} title="SQL" alt="SQL" width={"70px"} />
             <SwitchChiquito>
-            <label class="switch">
+            <label className="switch">
             <input name="backend" value={"SQL"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
             </label>
             </SwitchChiquito>
             </div>
@@ -284,9 +291,9 @@ export default function DevType({sumarFase}) {
             <div>
             <img src={postgres} title="PostgreSQL" alt="PostgreSQL" width={"70px"} />
             <SwitchChiquito>
-            <label class="switch">
+            <label className="switch">
             <input name="backend" value={"PostgreSQL"} type="checkbox" onClick={(e) => handleProgLangs(e)}/>
-            <span class="slider round"></span>
+            <span className="slider round"></span>
             </label>
             </SwitchChiquito>
             </div>

@@ -75,20 +75,17 @@ export default function RecruiterForm ({sumarFase}) {
 
     ///////////////////////////    LANGUAGES      ///////////////////////////////
     
-    //V2
     const [ nivel, setNivel ] = useState("");
     const [ errorNivel, setErrorNivel ] = useState("")
     
     const selectIngles = (e) => {
         let lvl = e.target.value;
         if(lvl === "Seleccionar nivel"){
-            setNivel("")
-        }
-        else if(lvl === "No sé Ingles"){
-            setNivel("No sé ingles")
+            setNivel("");
             return;
         }
         else{
+            setErrorNivel("");
             setNivel(lvl);
         }
     };
@@ -120,7 +117,7 @@ export default function RecruiterForm ({sumarFase}) {
     };
         
     const agregarEstudios = () => {
-        // let value = document.getElementById('estudios').value;
+
         if(studyInput === ""){
             setErrorStudy("");            
         }
@@ -179,6 +176,16 @@ export default function RecruiterForm ({sumarFase}) {
             return
         }
         else{
+            const info = {
+                enterprise: name,
+                antiguedad: age,
+                puesto: puesto,
+                location: country,
+                languages: nivel,
+                otherStudies: study
+            };
+
+
             return sumarFase();
         }
     };
@@ -234,13 +241,16 @@ export default function RecruiterForm ({sumarFase}) {
             {/* NIVEL DE INGLES  */}
             <EnglishLVL>
                 <h2>¿Cual es tu nivel de inglés?</h2>
-                { errorNivel && <span>{ errorNivel }</span> }
+                {errorNivel && <Error>{errorNivel}</Error>}
                 <select onClick={(e) => selectIngles(e)}>
                     <option>Seleccionar nivel</option>
-                    <option>No sé Ingles</option>
-                    <option>Ingles Básico</option>
-                    <option>Ingles Intermedio</option>
-                    <option>Ingles Avanzado</option>
+                    <option>A0</option>
+                    <option>A1</option>
+                    <option>A2</option>
+                    <option>B1</option>
+                    <option>B2</option>
+                    <option>C1</option>
+                    <option>C2</option>
                 </select>
             </EnglishLVL>
             {/* NIVEL DE INGLES  */}
