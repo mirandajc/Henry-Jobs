@@ -83,7 +83,7 @@ export default function AboutAs() {
                     <h1>Nahuel Cempellin</h1>
                     <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
                     <div className='icon'> 
-                    <a href="https://www.linkedin.com/in/jocelynmiranda/">
+                    <a href="https://www.linkedin.com/in/nahuel-felipe-cempellin">
                         <SiLinkedin/>
                     </a>
                     <a href="https://github.com/mirandajc">
