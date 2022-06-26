@@ -9,21 +9,6 @@ export default function LoginApi() {
 
     const dispatch = useDispatch();
     const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0();
-    
-
-
-
-    const localstorage= storage;
-    console.log(localstorage)
-
-    const Redirect=()=>{
-        
-        loginWithRedirect()
-        .then(
-            localstorage.userTypes === '' ? navigate('/register'): navigate('/home')
-        )
-        
-    }
 
     const userRegister = useSelector((state) => state.fetchDataReducer.userRegister);
 
