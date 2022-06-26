@@ -2,7 +2,6 @@ import React,{useState} from 'react';
 import Booms from './booms';
 import Testimony from './testimony';
 import { Slider,CardDiv,ContCard,Card,ArrowLeft, ArrowRight } from '../LandingStyles/landing';
-import {GrNext, GrPrevious} from 'react-icons/gr';
 import Starting from './starting';
 import Arrow from '../../images/Arrow/atras.png'
 

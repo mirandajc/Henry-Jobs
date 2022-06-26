@@ -6,7 +6,7 @@ export default function Booms(){
     return(
         <BoomCardContainer>
             <GridContBoom>
-             <div class="powr-instagram-feed" id="8727bac4_1655907674"></div>
+             <div class="powr-instagram-feed" id="6e4716dc_1655908803"></div>
             </GridContBoom>
         </BoomCardContainer>
     )
