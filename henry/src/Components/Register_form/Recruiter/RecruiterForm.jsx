@@ -5,7 +5,7 @@ import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} f
 
 export default function RecruiterForm ({sumarFase}) {
 
-    ///////////////////////////// NAME & LASTNAME ////////////////////////////////////////////
+    ///////////////////////////// nombre de empresa para la cual trabaja ////////////////////////////////////////////
     
     const [ name, setName ] = useState("");
     const [ errorName, setErrorName ] = useState("");
@@ -14,7 +14,7 @@ export default function RecruiterForm ({sumarFase}) {
         setName(e.target.value);
     };
 
-    ///////////////////////////// AGE /////////////////////////////////////////////
+    ///////////////////////////// antigüedad en la empresa /////////////////////////////////////////////
 
     const [ age, setAge ] = useState("");
     const [ errorAge, setErrorAge ] = useState("");
