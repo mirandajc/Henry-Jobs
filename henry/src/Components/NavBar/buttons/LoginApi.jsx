@@ -34,7 +34,6 @@ export default function LoginApi() {
                             <p>Email: {user.email}</p>
 
                         </div> */}
-<<<<<<< HEAD
                                 <ButtonDiv>
                                     <button onClick={() => logout({ returnTo: window.location.origin })} >Logout</button>
                                 </ButtonDiv>
@@ -47,17 +46,6 @@ export default function LoginApi() {
                         </LoginCont>
 
                         
-=======
-                        <ButtonDiv>
-                        <button onClick={()=> logout({ returnTo : window.location.origin })} >Logout</button>
-                        </ButtonDiv>
-                    </ProfileNav>
-            :
-            <LoginCont>
-                
-                <button onClick={() => loginWithRedirect()}>Login</button>
-            </LoginCont>
->>>>>>> ConnectingApp
             }
         </ContainerProfile>
     )
