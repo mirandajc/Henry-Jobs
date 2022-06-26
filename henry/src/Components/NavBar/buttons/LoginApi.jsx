@@ -16,14 +16,14 @@ export default function LoginApi(){
     const localstorage= storage;
     console.log(localstorage)
 
-    const Redirect=()=>{
+    // const Redirect=()=>{
         
-        loginWithRedirect()
-        .then(
-            localstorage.userTypes === '' ? navigate('/register'): navigate('/home')
-        )
+    //     loginWithRedirect()
+    //     .then(
+    //         localstorage.userTypes === '' ? navigate('/register'): navigate('/home')
+    //     )
         
-    }
+    // }
 
     return(
         <ContainerProfile>
@@ -49,7 +49,7 @@ export default function LoginApi(){
             :
             <LoginCont>
                 
-                <button onClick={() => Redirect()}>Login</button>
+                <button onClick={() => loginWithRedirect()}>Login</button>
             </LoginCont>
             }
         </ContainerProfile>

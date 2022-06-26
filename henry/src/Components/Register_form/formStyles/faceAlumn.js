@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const AlumnCont=styled.div`
 
 width:100%;
-height:50%;
-
+height:120vh;
+margin-top: -10em;
 display:flex;
 align-items:center;
 flex-direction:column;

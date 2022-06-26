@@ -5,7 +5,9 @@ export const FormDiv = styled.div`
 
 
 width: 100%;
-height: 50%;
+height: 120vh;
+margin-top: -10em;
+
 
 display:flex;
 align-items: center;
