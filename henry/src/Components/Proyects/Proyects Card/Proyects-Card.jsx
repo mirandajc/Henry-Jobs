@@ -1,9 +1,12 @@
 import React from "react";
 import {ComponentCardProyect, Description, Usuario, Publicacion, Video} from '../Proyects-styles/Proyects'
 import ReactPlayer from 'react-player'
+import { Link } from "react-router-dom";
+
+
 
 export default function ProyectsCard({name, imagen, titulo, resumen, video, link, tecnologias}) {
-    
+        // name , imagen usuario, titulo del proyecto, breve resumen, img/video, link, tecnologias
     return(
         <ComponentCardProyect>
             <Description>

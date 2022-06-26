@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const NavbarS= styled.div`
+
 display: flex;
 align-items: center;
 justify-content: space-between;
@@ -28,7 +29,7 @@ button{
 export const NavLogo= styled.div`
 
 img{
-    width:40%;
+    width:30%;
     margin: 1rem;
 }
 `
