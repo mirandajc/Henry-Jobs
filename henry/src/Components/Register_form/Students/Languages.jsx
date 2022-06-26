@@ -50,14 +50,16 @@ export default function Languages ({sumarFase}) {
     
     //V2
     const [ nivel, setNivel ] = useState("");
+    const [ errorNivel, setErrorNivel ] = useState("")
     
     const selectIngles = (e) => {
         let lvl = e.target.value;
-        if(lvl === "Seleccionar nivel" || lvl === "No sé Ingles"){
-            setNivel("")
+        if(lvl === "Seleccionar nivel"){
+            setNivel("");
             return;
         }
         else{
+            setErrorNivel("");
             setNivel(lvl);
         }
     };
@@ -119,8 +121,22 @@ export default function Languages ({sumarFase}) {
         }
         else{
             setErrorCountry("");
-            //manejar info(GUARDAR)
-            return sumarFase();
+            if(!nivel){
+                return setErrorNivel("Selecciona un nivel de ingles");
+            }
+            else{
+                setErrorNivel("")
+            }
+            if(!errorCountry && !errorStudy && !errorNivel){
+
+                const info = {
+                    location: country,
+                    languages: nivel,
+                    otherStudies: study
+                };
+
+                return sumarFase();
+            }
         }
     };
     
@@ -160,12 +176,16 @@ export default function Languages ({sumarFase}) {
             {/* NIVEL DE INGLES  */}
             <EnglishLVL>
                 <h2>¿Cual es tu nivel de inglés?</h2>
+                {errorNivel && <Error>{errorNivel}</Error>}
                 <select onClick={(e) => selectIngles(e)}>
                     <option>Seleccionar nivel</option>
-                    <option>No sé Ingles</option>
-                    <option>Ingles Básico</option>
-                    <option>Ingles Intermedio</option>
-                    <option>Ingles Avanzado</option>
+                    <option>A0</option>
+                    <option>A1</option>
+                    <option>A2</option>
+                    <option>B1</option>
+                    <option>B2</option>
+                    <option>C1</option>
+                    <option>C2</option>
                 </select>
             </EnglishLVL>
             {/* NIVEL DE INGLES  */}

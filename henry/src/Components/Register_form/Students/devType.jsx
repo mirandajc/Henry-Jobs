@@ -21,7 +21,6 @@ import { Error } from "../formStyles/formStyles";
 
 
 export default function DevType({sumarFase}) {
-  let navigate = useNavigate();
   const [ devType, setDevType ] = useState("");
   const [ tech, setTech ] = useState({
     languages:[],  
@@ -70,15 +69,23 @@ export default function DevType({sumarFase}) {
       return setTech({...tech, [e.target.name]: tech[e.target.name].filter(el => el !== e.target.value)});
     }                  
   };
+
+
   
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = (e) => { /////////////////////////////////////////////// SUBMIT /////////////////////////
     e.preventDefault();
     if(devType === "" || tech.languages.length === 0 || tech.frontend.length === 0 || tech.backend.length === 0){
       return setError("tienes que seleccionar al menos un lenguaje ó tecnología en cada instancia")
     }
     else{
       setError("")
-      //manejar info(guardarla) y avanzar en el formulario
+
+      const devtech = {
+        backfront: devType,
+        technologies: [...tech.languages, ...tech.frontend, ...tech.backend]
+      };
+
       sumarFase()
     }
   };
