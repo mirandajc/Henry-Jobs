@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { countries } from "../gistfile1.json";
 import { Error } from "../formStyles/formStyles";
 import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} from "../formStyles/lenguajesStyles";
+import { RecruiterCont } from "../formStyles/recruiterForm";
+import { QueryReq, CountryCont, EnglishNv, TercerCont, Studies} from "../formStyles/recruiterForm";
+
+
 
 export default function RecruiterForm ({sumarFase}) {
 
@@ -191,27 +195,23 @@ export default function RecruiterForm ({sumarFase}) {
     };
 
     return(
-        <div>
+        <RecruiterCont>
 
-            <div>
-                <h1>¿En qué empresa trabajas actualmente?</h1>
-                { errorName && <span>{ errorName }</span>}
+            <QueryReq>
+                <h2>¿En qué empresa trabajas actualmente?</h2>
                 <input type={"text"} value={name} onChange={(e) => validateName(e)} />
-            </div>
-
-            <div>
-                <h1>¿Hace cuanto trabajas en la empresa?</h1>
-                { errorAge && <Error>{errorAge}</Error> }
-                <input type={"number"} value={age} onChange={(e) => handleAge(e)}/>
-            </div>
-
-            <div>
-                <h1>¿Cual es tu puesto en dicha empresa?</h1>
-                { errorPuesto && errorPuesto }
-                <input type={"text"} value={puesto} onChange={(e) => setPuesto(e.target.value)} />
-            </div>
+                { errorName && <span>{ errorName }</span>}
             
-            <CountryForm>
+                <h2>¿Hace cuanto trabajas en la empresa?</h2>
+                <input type={"number"} value={age} onChange={(e) => handleAge(e)}/>
+                { errorAge && <Error>{errorAge}</Error> }
+            
+                <h2>¿Cual es tu puesto en dicha empresa?</h2>
+                <input type={"text"} value={puesto} onChange={(e) => setPuesto(e.target.value)} />
+                { errorPuesto && errorPuesto }
+            </QueryReq>
+            
+            <CountryCont>
                 <h2>¿En que país se encuentra registrada?</h2>
                 <div className="lado">
 
@@ -236,10 +236,11 @@ export default function RecruiterForm ({sumarFase}) {
 
                         { errorCountry && <Error>{errorCountry} 😡</Error>}
 
-            </CountryForm>
+            </CountryCont>
 
             {/* NIVEL DE INGLES  */}
-            <EnglishLVL>
+            <TercerCont>
+            <EnglishNv>
                 <h2>¿Cual es tu nivel de inglés?</h2>
                 {errorNivel && <Error>{errorNivel}</Error>}
                 <select onClick={(e) => selectIngles(e)}>
@@ -252,11 +253,11 @@ export default function RecruiterForm ({sumarFase}) {
                     <option>C1</option>
                     <option>C2</option>
                 </select>
-            </EnglishLVL>
+            </EnglishNv>
             {/* NIVEL DE INGLES  */}
 
             {/* OTROS ESTUDIOS  */}
-            <OtherStudies>
+            <Studies>
                 <h2>¿Tienes otros estudios?</h2>
                 <div>
                 <input id="estudios" type={'text'} value={studyInput} placeholder={'Agrega tus estudios!'} onChange={(e) => validateStudy(e.target.value)}/>
@@ -274,10 +275,11 @@ export default function RecruiterForm ({sumarFase}) {
                         );
                     })}
 
-            </OtherStudies>
+            </Studies>
+            <button type="submit" value={"siguiente"} onClick={(e) => handleSubmit(e)}>Siguiente</button>
+            </TercerCont>
             {/* OTROS ESTUDIOS  */}
             
-            <button type="submit" value={"siguiente"} onClick={(e) => handleSubmit(e)}>Siguiente</button>
-        </div>
+        </RecruiterCont>
     );
 };

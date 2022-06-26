@@ -5,8 +5,9 @@ export const FormDiv= styled.div`
 
 // border: 1px solid red;
 width:100%;
-height:50%;
+height:100vh;
 
+margin-top: -5em;
 display:flex;
 align-items: center;
 justify-content: center;
