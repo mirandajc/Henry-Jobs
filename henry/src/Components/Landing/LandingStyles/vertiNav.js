@@ -32,6 +32,7 @@ margin-top: 2rem;
 }
 .contenedor{
     display:flex;
+    padding: 0;
 }
 `
 
