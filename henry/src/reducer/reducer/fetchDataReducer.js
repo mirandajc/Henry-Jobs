@@ -8,11 +8,10 @@ import {
     GET_STUDENTS_AZ,
     GET_STUDENTS_ZA,
     GET_STUDENTS_HIGH_SCORE,
-    GET_PUBLIC_FOLLOWS_SUCESS
+    GET_PUBLIC_FOLLOWS_SUCESS,
+    GET_INFO_USER_SUCCES,
+    SET_REGISTER_TRUE_SUCCES
 } from "../../constants/constants";
-
-import { testStuden } from "../../Components/Home/HomeForBusiness/MokedFiles";
-import { mokedFilesPublicaciones } from '../../Components/Home/HomeForBusiness/MokedFilesPublicaciones'
 
 const initialState = {
     user: 'business', //seteado manualmente, tiene que traer que pido de usuario somos al momento de log
@@ -25,11 +24,22 @@ const initialState = {
     allPublicationsBusiness: [],
     allStudentsAz: [],
     allStudentsZa: [],
-    allStudentsHighScore: []
+    allStudentsHighScore: [],
+    userRegister: false
 };
 
 const fetchDataReducer = (state = initialState, action) => {
     switch (action.type) {
+        case GET_INFO_USER_SUCCES:
+            return { // aca hay que traer y setear todo lo que queramos del usuario
+                ...state,
+                userRegister: action.payload
+            }
+        case SET_REGISTER_TRUE_SUCCES:
+            return {
+                ...state,
+                userRegister: true
+            }
         case GET_PUBLIC_FOLLOWS_SUCESS:
             
             var fol1 = action.payload.filter(e => state.userFollows.includes(e.id))

@@ -10,7 +10,10 @@ import {
     getStudentsAz, 
     getStudentsZa ,
     getStudentsHighScore,
-    getPublicFollowsSucess
+    getPublicFollowsSucess,
+    getInfoUser,
+    getInfoUserSucces,
+    setRegisterTrueSucces
 } from '../actions/action';
 
 import { 
@@ -21,7 +24,9 @@ import {
     GET_STUDENTS_AZ, 
     GET_STUDENTS_ZA , 
     GET_STUDENTS_HIGH_SCORE,
-    GET_PUBLIC_FOLLOWS
+    GET_PUBLIC_FOLLOWS,
+    GET_INFO_USER,
+    SET_REGISTER_TRUE
 } from '../../constants/constants';
 
 //import actions 
@@ -48,6 +53,23 @@ function* asyncGetStudents(){
         yield put(getStudentsFailure(error))
     }finally{
 
+    }
+}
+
+function* asyncGetInfoUser(){
+    try {
+        /* const response = yield call(()=>axios.get(RUTAQUEGABIAUNNOMEPASA que trae info del user)) */
+        // yield put(getInfoUserSucces(response.data.register)) // reemplazar por la props que lo trae
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+function* asyncSetRegisterTrue(){
+    try {
+        yield put(setRegisterTrueSucces(true))
+    } catch (error) {
+        console.log(error)
     }
 }
 
@@ -95,4 +117,6 @@ export function* watchFetchDataSaga(){
     yield takeEvery(GET_STUDENTS_ZA, asyncGetStudentsZa)
     yield takeEvery(GET_STUDENTS_HIGH_SCORE, asyncGetStudentsHighScore)
     yield takeEvery(GET_PUBLIC_FOLLOWS, asyncGetPublicFollows)
+    yield takeEvery(GET_INFO_USER, asyncGetInfoUser)
+    yield takeEvery(SET_REGISTER_TRUE, asyncSetRegisterTrue)
 }

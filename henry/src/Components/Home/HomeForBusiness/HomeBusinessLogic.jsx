@@ -18,10 +18,6 @@ export default function HomeBusinessLogic() {
         dispatch(getPublicFollows());
     }, [])
 
-    useEffect(() => {
-        console.log(allPublicationsStud);
-    },[allPublicationsStud])
-
     return (
         <div>
             <Link to='/students'>Ver Alumnos</Link>

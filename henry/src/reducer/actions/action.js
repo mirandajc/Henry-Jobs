@@ -11,10 +11,38 @@ import {
     GET_STUDENTS_ZA,
     GET_STUDENTS_HIGH_SCORE,
     GET_PUBLIC_FOLLOWS,
-    GET_PUBLIC_FOLLOWS_SUCESS
+    GET_PUBLIC_FOLLOWS_SUCESS,
+    GET_INFO_USER,
+    SET_REGISTER_TRUE,
+    GET_INFO_USER_SUCCES,
+    SET_REGISTER_TRUE_SUCCES
 } from "../../constants/constants";
 
+export function getInfoUser(){
+    return {
+        type: GET_INFO_USER
+    }
+}
 
+export function getInfoUserSucces(payload){
+    return {
+        type: GET_INFO_USER_SUCCES,
+        payload
+    }
+}
+
+export function setRegisterTrue(){
+    return {
+        type : SET_REGISTER_TRUE
+    }
+}
+
+export function setRegisterTrueSucces(payload){
+    return {
+        type: SET_REGISTER_TRUE_SUCCES,
+        payload
+    }
+}
 
 export function getStudents(){
     return {

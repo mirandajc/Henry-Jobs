@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 export default function ButtonHome() {
 
     const userType = useSelector((state) => state.fetchDataReducer.user)
-    console.log(userType)
 
     return (
        
