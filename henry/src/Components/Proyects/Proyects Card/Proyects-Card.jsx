@@ -39,9 +39,11 @@ export default function ProyectsCard({name, imagen, titulo, resumen, video, link
                     <ReactPlayer
                     url={video}
                     className='video'
-                    playing
+                    playing={false}
                     width='100%'
                     height='100%'
+                    volume={null}
+                    
                     />
             </Video>
             
