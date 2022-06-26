@@ -11,7 +11,7 @@ align-items: center;
 justify-content: space-evenly;
 flex-direction: column;
 
-h2{
+h3{
     color: white;
 }
 
@@ -20,12 +20,12 @@ box-shadow: 6px 7px 5px 0px rgb(255 255 255 / 75%);
 -webkit-box-shadow: 0px 4px 10px 0px rgb(158 158 158 / 45%);
 -moz-box-shadow: 6px 7px 5px 0px rgba(255,255,255,0.75);
 overflow-hidden: ;
-background-color: hsl(228deg 8% 12%);
+background-color: hsl(228deg 11% 9%);
 overflow-hidden;
 
-div{
-    border: 1px solid white;
-}
+// div{
+//     border: 1px solid white;
+// }
 
 
 
@@ -33,25 +33,90 @@ div{
 `
 
 export const CvCont= styled.div`
-
-
-margin-top: -7em;
 width: 100%;
 
 
 `
 
 export const Instancia= styled.div`
+width:100%;
+display: flex;
 
-width:50%;
+justify-content: space-evenly;
+
+h3{
+    background-color: hsl(228deg 8% 12%);
+    padding: 2em;
+    border-radius: 10px;
+}
 
 `
 
 export const Acerca= styled.div`
 width: 100%;
-height: 20%;
 
-margin-top: -5em;
+background-color: hsl(228deg 8% 12%);
+width: 90%;
+height: auto;
+border-radius: 10px;
+margin-bottom: 1em;
+
+
+display:flex;
+justify-content: center;
+align-items:center;
+flex-direction: column;
+`
+
+export const More= styled.div`
+
+.read-more-state {
+    display: none;
+  }
+  
+  .read-more-target {
+    opacity: 0;
+    max-height: 0;
+    font-size: 0;
+    transition: .25s ease;
+  }
+  
+  .read-more-state:checked ~ .read-more-wrap .read-more-target {
+    opacity: 1;
+    font-size: inherit;
+    max-height: 999em;
+  }
+  
+  .read-more-state ~ .read-more-trigger:before {
+    content: 'Mostrar mas..';
+  }
+  
+  .read-more-state:checked ~ .read-more-trigger:before {
+    content: 'Mostrar menos...';
+  }
+  
+  .read-more-trigger {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 .5em;
+    color: yellow;
+    font-size: 1em;
+    line-height: 2;
+    margin-left: 80%;
+    
+  }
+  
+  /* Other style */ 
+  body {
+    padding: 2%;
+  }
+  
+  p {
+    padding: 2%;
+   
+    border-radius: .25em;
+  }
+
 
 `
 export const Publicaciones= styled.div`
@@ -60,3 +125,62 @@ height: 30%;
 
 
 `
+
+export const Tecnologias= styled.div`
+background-color: hsl(228deg 8% 12%);
+width: 90%;
+height: 10em;
+border-radius: 10px;
+margin-bottom: 1em;
+margin-left: 5%;
+
+display:flex;
+align-items:center;
+flex-direction: column;
+ul{
+    
+    display: flex;
+    justify-content: space-evenly;
+    li{
+        list-style: none;
+        background-color: black;
+        color: yellow;
+        padding:0.5em;
+        border-radius: 15px;
+        margin-left:1em;
+    }
+}
+
+`
+
+export const OtrosStudy= styled.div`
+
+background-color: hsl(228deg 8% 12%);
+width: 90%;
+height: 10em;
+border-radius: 10px;
+margin-bottom: 1em;
+margin-left: 5%;
+
+display:flex;
+justify-content: center;
+align-items:center;
+flex-direction: column;
+ul{
+    
+    display: flex;
+    justify-content: space-evenly;
+    li{
+        list-style: none;
+        background-color: black;
+        color: yellow;
+        padding:0.5em;
+        border-radius: 15px;
+        margin-left:1em;
+    }
+}
+
+`
+
+
+

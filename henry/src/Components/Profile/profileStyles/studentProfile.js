@@ -62,7 +62,7 @@ img{
 export const ImageProf= styled.div`
 
 width:49%;
-height: 8.5em;
+height: 9em;
 
 border-radius: 50%;
 margin-top: -3em;
@@ -165,6 +165,7 @@ p{
     margin-left: 40%;
     width: 100%;
     color: black;
+    cursor: pointer;
 }
 
 
