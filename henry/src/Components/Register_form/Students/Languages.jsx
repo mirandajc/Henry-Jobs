@@ -73,8 +73,6 @@ export default function Languages ({sumarFase}) {
         setStudy(study.filter(e => e !== value));
     };
     
-    
-    
     const validateStudy = (value) => {
         if(value === ""){
             setErrorStudy("");
@@ -102,7 +100,7 @@ export default function Languages ({sumarFase}) {
             else{
                 if(errorStudy === ""){
                     setStudy([...study, studyInput ]);
-                    setStudyInput = "";
+                    setStudyInput("");
                    
                 }
             }
