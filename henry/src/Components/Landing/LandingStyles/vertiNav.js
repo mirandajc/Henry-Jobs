@@ -14,7 +14,7 @@ background-color:none;
 margin-left: 3rem;
 margin-right: 5rem;
 margin-top: 2rem;
-
+margin-bottom: 1em;
 
 
 .link{
@@ -40,7 +40,7 @@ export const ContStart= styled.div`
 
 width: 100%;
 height:100vh;
-// border:1px solid yellow;
+
 
 display:flex;
 justify-content:center;
