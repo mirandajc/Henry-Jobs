@@ -7,6 +7,8 @@ import { usePagination } from 'use-pagination-hook';
 import { Link } from "react-router-dom";
 import { mokedFilesPublicaciones } from './MokedFilesPublicaciones'
 import CardPublicationsTest from "./CardPublicationsTest";
+import { PublicacionesCont } from "../HomeStyles/HomePublicationCard";
+
 
 export default function HomeBusinessLogic() {
 
@@ -17,15 +19,19 @@ export default function HomeBusinessLogic() {
     useEffect(() => {
         dispatch(getPublicFollows());
     }, [])
-
+    
     return (
         <div>
-            <Link to='/students'>Ver Alumnos</Link>
-            <p>Hola soy una publicacion de una persona que sigues ordenados por fecha de publicacion unicamente</p>
-            <p>Importar carta de Joce</p>
-            {console.log()}
+            
+            
+            <button disabled={current === 1} onClick={previous}>Previous Page</button>
+            <button disabled={current === pages} onClick={next}>Next Page</button>
+            {/* <p>{current}</p> */}
             <p>Pag {current} de {pages}</p>
+            <Link to='/students'>Ver Alumnos</Link>
+            
 
+            <PublicacionesCont>
             {
                 display.map(e => <CardPublicationsTest
                     name={e.name}
@@ -37,9 +43,7 @@ export default function HomeBusinessLogic() {
                     technologies={e.technologies}
                 />)
             }
-            <button disabled={current === 1} onClick={previous}>Previous Page</button>
-            <button disabled={current === pages} onClick={next}>Next Page</button>
-            <p>{current}</p>
+            </PublicacionesCont>
         </div>
     )
 }

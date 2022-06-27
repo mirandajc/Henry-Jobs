@@ -25,7 +25,7 @@ export default function Home(){
     return(
 
         <div>
-            Hi, i'm the logic behind the rendering
+            
 
             {   
                 userType === 'business' || userType === 'recruiter' ?
