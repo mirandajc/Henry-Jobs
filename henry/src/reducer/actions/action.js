@@ -27,7 +27,8 @@ export function getInfoUser(){
 export function getInfoUserSucces(payload){
     return {
         type: GET_INFO_USER_SUCCES,
-        payload
+        register: payload.register,
+        premium: payload.premium
     }
 }
 
