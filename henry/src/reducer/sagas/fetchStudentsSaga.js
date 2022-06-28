@@ -29,6 +29,7 @@ function* asyncFetchRequest(){
     }
 }
 
+function* asyncGetStudents(){}
 
 
 export function* watchFetchStudentsSaga(){

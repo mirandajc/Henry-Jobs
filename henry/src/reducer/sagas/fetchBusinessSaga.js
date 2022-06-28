@@ -29,7 +29,7 @@ function* asyncFetchRequest(){
     }
 }
 
-
+function* asyncGetStudents(){}
 
 export function* watchFetchBusinessSaga(){
     yield takeEvery(SEND_REQUEST, asyncFetchRequest)

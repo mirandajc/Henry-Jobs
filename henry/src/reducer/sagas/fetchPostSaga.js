@@ -28,7 +28,7 @@ function* asyncFetchRequest(){
         yield put(getPokemonLoading(false))
     }
 }
-
+function* asyncGetStudents(){}
 
 
 export function* watchFetchPostSaga(){

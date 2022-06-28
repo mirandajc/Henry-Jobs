@@ -6,13 +6,13 @@ const initialState = {
 
 };
 
-const fetchStudentsReducer = (state = initialState, action) => {
+const fetchInfoUserReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_INFO_USER_SUCCES:
+        /* case GET_INFO_USER_SUCCES:
             return { 
                 ...state,
                 userRegister: action.payload
-            }
+            } */
         default:
         return {
                 ...state
@@ -20,4 +20,4 @@ const fetchStudentsReducer = (state = initialState, action) => {
     }
 };
 
-export default fetchStudentsReducer;
+export default fetchInfoUserReducer;

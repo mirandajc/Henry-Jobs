@@ -28,19 +28,19 @@ export default function Home(){
             Hi, i'm the logic behind the rendering
 
             {   
-                userType === 'business' || userType === 'recruiter' ?
+                userType === 'Business' || userType === 'Recruiter' ?
                 
                 <HomeBusinessLogic/>
 
                 : 
                 
-                userType === 'student' ? 
+                userType === 'PG' || userType === 'Graduate'? 
 
                 <HomeStudentsLogic/>
 
                 :
 
-                userType === 'staff' ?
+                userType === 'Staff' ?
 
                 <HomeForStaff/>
 
