@@ -11,15 +11,15 @@ export default function ButtonHome() {
         <div>
             
         {
-            userType === 'student' ?  <Link to='/home'>Home</Link>
+            userType === 'PG' || userType === "Graduate" ?  <Link to='/home'>Home</Link>
             
             :
 
-            userType === 'business' ? <Link to='/home'>Home</Link> 
+            userType === 'Business' || userType === "Recruiter" ? <Link to='/home'>Home</Link> 
             
             :
 
-            userType === 'staff' ? <Link to='/home'>Home</Link> 
+            userType === 'Staff' ? <Link to='/home'>Home</Link> 
             
             : null
         }

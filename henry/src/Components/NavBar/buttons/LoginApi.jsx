@@ -25,15 +25,9 @@ export default function LoginApi() {
                             <div>Loading</div>
                             :
                             <ProfileNav>
-                                {console.log(user)}
+
                                 <NavLoginTrue name={user.name} />
 
-                                {/* <div>
-                            <img scr={user.picture} alt={user.name}/>
-                            <h2>{user.name}</h2>
-                            <p>Email: {user.email}</p>
-
-                        </div> */}
                                 <ButtonDiv>
                                     <button onClick={() => logout({ returnTo: window.location.origin })} >Logout</button>
                                 </ButtonDiv>

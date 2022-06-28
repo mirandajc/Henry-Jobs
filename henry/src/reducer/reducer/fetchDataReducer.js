@@ -14,7 +14,7 @@ import {
 } from "../../constants/constants";
 
 const initialState = {
-    user: 'business', //seteado manualmente, tiene que traer que pido de usuario somos al momento de log
+    user: 'Business', //seteado manualmente, tiene que traer que pido de usuario somos al momento de log
     userFollows: [1,4,2,5,6,7,3], // seteado manualmente,despues va a tener que traer el array de id de personas o empresas que seguimos
     pokemon: [],
     loading: false,
