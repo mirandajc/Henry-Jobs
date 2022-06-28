@@ -1,34 +1,67 @@
 import React from "react";
+import { PublicationCard, PictureCont, Cavecera, NamePic, InnerPost, FooterPost, Detalle} from "../HomeStyles/HomePublicationCard";
+import {AiOutlineShareAlt} from 'react-icons/ai';
+import {AiFillHeart} from 'react-icons/ai';
+import {FaCommentAlt} from 'react-icons/fa'
+import ReactPlayer from "react-player";
+import { Player } from "../HomeStyles/PublicationSet";
 
 
 export default function CardPublicationsTest(props){
 
 
     return(
-        <div>
-            <div>
-                <h1>{props.name}</h1>
-            </div>
-            <div>
-                <p>{props.proyectTittle}</p>
-            </div>
-            <div>
-                <p>{props.date}</p>
-            </div>
-            <div>
+        <PublicationCard>
+           
+            <Cavecera>
+                <NamePic>
+                <PictureCont>
                 <img src={props.picture}/>
-            </div>
-            <div>
+                </PictureCont>
+                <div>
+                <h3>{props.name}</h3>
+                
+                </div>
+                </NamePic>
+                <p>{props.date}</p>
+            </Cavecera>
+            
+            
+           
+            <InnerPost>
+                <p>{props.proyectTittle}</p>
                 <p>{props.summary}</p>
-            </div>
-            <div>
-                <p>{props.linkedin}</p>
-            </div>
-            <div>
-                {
-                    props.technologies.map(e => <div>{e}</div>)
-                }
-            </div>
-        </div>
+            
+                <Player>
+                    <ReactPlayer
+                      url='https://www.youtube.com/watch?v=mCdA4bJAGGk'
+                      className='video'
+                      playing={false}
+                        width='100%'
+                        height='100%'
+                      volume={null}
+                      />
+                </Player>
+            
+              
+            </InnerPost>
+
+
+            <FooterPost>
+                <div>
+                <AiFillHeart className="heart"/>
+                <p>2000</p>
+                </div>
+
+                <span>
+                <FaCommentAlt className="comenta"/>
+                <p className="comentar">Comentar</p>
+                </span>
+                <div>
+                <AiOutlineShareAlt className="share"/>
+               
+                </div>
+            </FooterPost>
+        </PublicationCard>
     )
 }

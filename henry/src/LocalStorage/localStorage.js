@@ -10,14 +10,14 @@ export const storage= {
             province:'',
             city:''
         },
-        backfront:'',
+        backFront:'',
         instancia:'',
         follow:[],
         id:'',
         firstName:'',
         lastName:'',
         email:'',
-        password:''
+        password:'',
 
     }
 
