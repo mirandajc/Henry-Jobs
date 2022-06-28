@@ -84,6 +84,7 @@ export default function BusinessForm ({sumarFase}) {
             return;
         }
         else{
+            setErrorCountry("");
             setCountry({...country, city: e.target.value});
         }
     };

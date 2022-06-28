@@ -13,7 +13,7 @@ export default function BusinessNavBar () {
         {
             !isPremium ? <ButtonPremium /> : null
         }
-            {/* <Link to={"/home"}><h1>HOME</h1></Link>
+            {/*
             <Link to={""}><h1>PERFIL</h1></Link>
             <Link to={"/proyects"}><h1>PROYECTOS</h1></Link>
             <Link to={""}><h1>CONTACTOS</h1></Link> */}

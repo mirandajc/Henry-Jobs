@@ -75,6 +75,7 @@ export default function RecruiterForm ({sumarFase}) {
             return;
         }
         else{
+            setErrorCountry("");
             setCountry({...country, city: e.target.value});
         }
     };

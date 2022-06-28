@@ -46,6 +46,7 @@ export default function Languages ({sumarFase}) {
             return;
         }
         else{
+            setErrorCountry("");
             setCountry({...country, city: e.target.value});
         }
     };
