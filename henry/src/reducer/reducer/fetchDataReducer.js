@@ -25,7 +25,8 @@ const initialState = {
     allStudentsAz: [],
     allStudentsZa: [],
     allStudentsHighScore: [],
-    userRegister: false
+    userRegister: false,
+    isPremium: false
 };
 
 const fetchDataReducer = (state = initialState, action) => {
@@ -33,7 +34,8 @@ const fetchDataReducer = (state = initialState, action) => {
         case GET_INFO_USER_SUCCES:
             return { // aca hay que traer y setear todo lo que queramos del usuario
                 ...state,
-                userRegister: action.payload
+                userRegister: action.payload.register,
+                /* isPremium: action.payload.premium */
             }
         case SET_REGISTER_TRUE_SUCCES:
             return {
