@@ -150,8 +150,9 @@ export const Description= styled.div`
 }
 `
 export const StyleModal = styled.div`
-color: red;
-.ReactModal__Overlay ReactModal__Overlay--after-open{
-    background-color: #141519;
+
+h1{
+    display:flex;
+    color:red;
 }
 `

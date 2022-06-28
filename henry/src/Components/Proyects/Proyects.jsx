@@ -42,21 +42,25 @@ function handleSumit(e){
                 </SearchProyects>
             <button onClick={openModal} className="button">PUBLICAR</button>
             <StyleModal >
-                <Modal isOpen={modalIsOpen} onRequestClose={closeModal}         >
+                <Modal  
+                className="Modal"
+                overlayClassName="Overlay"
+                isOpen={modalIsOpen} 
+                onRequestClose={closeModal} >
                 <button onClick={closeModal}>x</button>
-                <h1>Publicacion</h1>
+                <h1>CREA TU PUBLICACION 🚀</h1>
                 <form>
-                    <label>Titulo</label>
-                    <input></input>
-                    <label>Inserta una imagen o video</label>
-                    <input></input>
-                    <label>Link de tu github o linkedin</label>
-                    <input></input>
-                    <label>Tecnologias que usaste</label>
-                    <input></input>
-                    <label>Breve resumen no pueden superar 100 caracteres</label>
-                    <input></input>
-                    <button>Crear Publicacion</button>
+                    <label >TITULO</label>
+                    <input className="inputForm"></input>
+                    <label>INSERTA IMAGEN O VIDEO</label>
+                    <input className="inputForm"></input>
+                    <label>COMPARTI TU LINK (LINKEDIN O GITHUB)</label>
+                    <input className="inputForm"></input>
+                    <label>TECNOLOGIAS QUE USASTE</label>
+                    <input className="inputForm"></input>
+                    <label>BREVE RESUMEN NO DEBE SUPERAR LOS 100 CARACTERES</label>
+                    <input className="inputForm"></input>
+                    <button>CREAR</button>
                 </form>
             </Modal>
             </StyleModal>

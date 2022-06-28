@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const RecruiterCont= styled.div`
 
-border: 1px solid white;
+
 display: flex;
 align-items: center;
 justify-content: space-between;
@@ -90,11 +90,12 @@ align-items: center;
 justify-content: center;
 flex-direction: column;
 
-border: 1px solid yellow;
+
 
 
 
 select{
+    margin-left: 5em;
     appearance: none;
     padding: 1em;
     border-radius: 10px;
@@ -128,8 +129,22 @@ select{
 
 export const TercerCont= styled.div`
 
-border: 1px solid white;
-margin-top: -12em;
+
+margin-top: -17em;
+
+
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+
+`
+
+export const InnerStudy= styled.div`
+
+display: flex;
+
+
 
 `
 
@@ -173,6 +188,26 @@ div{
 }
 
 
+
+
+`
+
+
+export const ButtonNex= styled.div`
+
+width:4.5em;
+heigth:2em;
+background-color: #fffc04;
+padding:1em;
+border-radius: 10px;
+font-family: Avenir Heavy;
+color: black;
+
+&:active{
+    background-color:black;
+    color:yellow;
+    border:1px solid  #fffc04;
+}
 
 
 `

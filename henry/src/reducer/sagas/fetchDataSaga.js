@@ -59,7 +59,7 @@ function* asyncGetStudents(){
 function* asyncGetInfoUser(){
     try {
         /* const response = yield call(()=>axios.get(RUTAQUEGABIAUNNOMEPASA que trae info del user)) */
-        // yield put(getInfoUserSucces(response.data.register)) // reemplazar por la props que lo trae
+        // yield put(getInfoUserSucces(response.data)) // reemplazar por la props que lo trae
     } catch (error) {
         console.log(error)
     }

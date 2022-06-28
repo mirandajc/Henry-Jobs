@@ -3,14 +3,16 @@ import { countries } from "../gistfile1.json";
 import { Error } from "../formStyles/formStyles";
 import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} from "../formStyles/lenguajesStyles";
 import { RecruiterCont } from "../formStyles/recruiterForm";
-import { QueryReq, CountryCont, EnglishNv, TercerCont, Studies} from "../formStyles/recruiterForm";
-
+import { QueryReq, CountryCont, EnglishNv, TercerCont, Studies, InnerStudy, ButtonNex} from "../formStyles/recruiterForm";
+import { useDispatch } from 'react-redux';
+import { setRegisterTrue } from "../../../reducer/actions/action";
 
 
 export default function RecruiterForm ({sumarFase}) {
 
     ///////////////////////////// nombre de empresa para la cual trabaja ////////////////////////////////////////////
-    
+    const dispatch = useDispatch();
+
     const [ name, setName ] = useState("");
     const [ errorName, setErrorName ] = useState("");
 
@@ -189,7 +191,7 @@ export default function RecruiterForm ({sumarFase}) {
                 otherStudies: study
             };
 
-
+            dispatch(setRegisterTrue());
             return sumarFase();
         }
     };
@@ -242,7 +244,6 @@ export default function RecruiterForm ({sumarFase}) {
             <TercerCont>
             <EnglishNv>
                 <h2>¿Cual es tu nivel de inglés?</h2>
-                {errorNivel && <Error>{errorNivel}</Error>}
                 <select onClick={(e) => selectIngles(e)}>
                     <option>Seleccionar nivel</option>
                     <option>A0</option>
@@ -253,19 +254,21 @@ export default function RecruiterForm ({sumarFase}) {
                     <option>C1</option>
                     <option>C2</option>
                 </select>
+                { errorNivel && <span>{ errorNivel }</span> }
             </EnglishNv>
             {/* NIVEL DE INGLES  */}
 
             {/* OTROS ESTUDIOS  */}
             <Studies>
-                <h2>¿Tienes otros estudios?</h2>
                 <div>
+                <h2>¿Tienes otros estudios?</h2>
+                <InnerStudy>
                 <input id="estudios" type={'text'} value={studyInput} placeholder={'Agrega tus estudios!'} onChange={(e) => validateStudy(e.target.value)}/>
                 <button  className='agregar' onClick={agregarEstudios}>AGREGAR</button>
+                </InnerStudy>
                 </div>
-
-                <div>
-                </div>
+                {/* <div>
+                </div> */}
                     {errorStudy && <Error>{errorStudy}</Error>}
                     {study && study.map(e => {
                         return(
@@ -276,7 +279,7 @@ export default function RecruiterForm ({sumarFase}) {
                     })}
 
             </Studies>
-            <button type="submit" value={"siguiente"} onClick={(e) => handleSubmit(e)}>Siguiente</button>
+            <ButtonNex className='agregar'type="submit" value={"siguiente"} onClick={(e) => handleSubmit(e)}>Siguiente</ButtonNex>
             </TercerCont>
             {/* OTROS ESTUDIOS  */}
             
