@@ -39,6 +39,21 @@ h3{
     }
 }
 
+p{
+    font-size: 0.7em;
+    margin-right: 0.5em;
+    margin-top: -5em;
+}
+
+
+
+`
+
+export const Detalle= styled.p`
+font-size: 0.7em;
+// border: 1px solid white;
+
+
 `
 export const NamePic= styled.div`
 
@@ -91,12 +106,18 @@ align-items: center;
 justify-content: space-around;
 flex-direction: column;
 
+p{
+    
+    margin-left:-4em;
+}
 
 
 
 `
 
 export const FooterPost= styled.div`
+
+
 
 p{
     &:hover{
@@ -106,12 +127,12 @@ p{
 }
 
 width: 100%;
-height: 1.5em;
+height: 3em;
 border-top: 1px solid hsl(228deg 11% 9%);
 background-color: #141519;
 display: flex;
 align-items: center;
-justify-content: flex-end;
+justify-content: space-around;
 
 div{
     width:10%;
@@ -170,8 +191,8 @@ span{
 
 .share{
     color: yellow;
-
-
+    
+    
 
     &:active{
        

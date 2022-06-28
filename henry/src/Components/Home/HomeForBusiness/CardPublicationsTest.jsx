@@ -1,9 +1,11 @@
 import React from "react";
-import { PublicationCard, PictureCont, Cavecera, NamePic, InnerPost, FooterPost } from "../HomeStyles/HomePublicationCard";
+import { PublicationCard, PictureCont, Cavecera, NamePic, InnerPost, FooterPost, Detalle} from "../HomeStyles/HomePublicationCard";
 import {AiOutlineShareAlt} from 'react-icons/ai';
 import {AiFillHeart} from 'react-icons/ai';
 import {FaCommentAlt} from 'react-icons/fa'
 import ReactPlayer from "react-player";
+import { Player } from "../HomeStyles/PublicationSet";
+
 
 export default function CardPublicationsTest(props){
 
@@ -18,7 +20,7 @@ export default function CardPublicationsTest(props){
                 </PictureCont>
                 <div>
                 <h3>{props.name}</h3>
-                {/* <p>Full-Stack Developer</p> */}
+                
                 </div>
                 </NamePic>
                 <p>{props.date}</p>
@@ -30,20 +32,18 @@ export default function CardPublicationsTest(props){
                 <p>{props.proyectTittle}</p>
                 <p>{props.summary}</p>
             
-                <div>
+                <Player>
                     <ReactPlayer
-                      url={props.imgVideo}
+                      url='https://www.youtube.com/watch?v=mCdA4bJAGGk'
                       className='video'
                       playing={false}
-                      width='100%'
-                      height='100%'
+                        width='100%'
+                        height='100%'
                       volume={null}
                       />
-                </div>
+                </Player>
             
-                {
-                    props.technologies.map(e => <div>{e}</div>)
-                }
+              
             </InnerPost>
 
 
@@ -57,8 +57,10 @@ export default function CardPublicationsTest(props){
                 <FaCommentAlt className="comenta"/>
                 <p className="comentar">Comentar</p>
                 </span>
-
+                <div>
                 <AiOutlineShareAlt className="share"/>
+               
+                </div>
             </FooterPost>
         </PublicationCard>
     )

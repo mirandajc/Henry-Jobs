@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { mokedFilesPublicaciones } from './MokedFilesPublicaciones'
 import CardPublicationsTest from "./CardPublicationsTest";
 import { PublicacionesCont } from "../HomeStyles/HomePublicationCard";
-
+import PubliSettings from "../PublicationSet/publicationSettings";
 
 export default function HomeBusinessLogic() {
 
@@ -23,6 +23,7 @@ export default function HomeBusinessLogic() {
     return (
         <div>
             
+            <PubliSettings/>
             
             <button disabled={current === 1} onClick={previous}>Previous Page</button>
             <button disabled={current === pages} onClick={next}>Next Page</button>
