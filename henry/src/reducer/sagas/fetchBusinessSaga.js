@@ -1,6 +1,6 @@
-import { take, call, all, put, takeEvery } from 'redux-saga/effects';
+import { take, call, all, put, takeEvery, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
-import { mokedFilesPostBusiness, mokedFilesStudens } from '../../Components/Home/HomeForBusiness/MokedFilesPublicaciones';
+import { mokedFilesPostBusiness, mokedFilesStudens, Alumnos } from '../../Components/Home/HomeForBusiness/MokedFilesPublicaciones';
 import {
     getPublicationStudentsSuccess,
     getAllStudentsSuccess 
@@ -25,7 +25,7 @@ function* asyncGetAllStudents () {
     try { 
         // const response = yield call(()=> axios.get(URL_PEDIDO)) // REEMPLAZAR POR LA RUTA QUE TRAE ESTUDIANTES
 
-        yield put(getAllStudentsSuccess(mokedFilesStudens)) // reemplazar por response.data
+        yield put(getAllStudentsSuccess(Alumnos)) // reemplazar por response.data
         
     } catch (error) {
         console.log(error);

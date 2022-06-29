@@ -9,7 +9,7 @@ import {
 } from '../../constants/constants';
 
 let userInfo = {
-    userType: 1,
+    userType: 5,
     premium: true,
     isRegistered: false,
 };
@@ -30,6 +30,6 @@ function* asyncInfoUser (value) {
 
 
 export function* watchFetchPostSaga(){
-    yield takeEvery(GET_INFO_USER, asyncInfoUser);
+    yield takeEvery(GET_INFO_USER, asyncInfoUser)
 
 }

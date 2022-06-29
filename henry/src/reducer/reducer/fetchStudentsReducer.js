@@ -20,9 +20,11 @@ const fetchStudentsReducer = (state = initialState, action) => {
     switch (action.type) {
         
         case GET_PUBLICATIONS_BUSINESS_SUCCESS:
-            let fol1 = action.payload.filter(e => state.userFollows.includes(e.id))
+
+            let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id))
             let response = fol1.reverse();
-            let responseBusiness = response.filter(e => e.userTypes === 5);
+            let responseBusiness = fol1.filter(e => e.posterUser.userTypes === 4 || e.posterUser.userTypes === 5);
+
             return {
                 ...state,  // cambiar por action.payload
                 businessPublicationsStudents: response,
@@ -46,7 +48,7 @@ const fetchStudentsReducer = (state = initialState, action) => {
         }
 
         case GET_PUBLICATIONS_ENGLISH:
-            let filtroEng = state.filtered.filter(e => e.english === action.payload)
+            let filtroEng = state.filtered.filter(e => e.languages === action.payload)
         return{
             ...state,
             filtered: filtroEng
@@ -60,7 +62,7 @@ const fetchStudentsReducer = (state = initialState, action) => {
         }
 
         case GET_PUBLICATIONS_UBICATION:
-            let filtroUb = state.filtered.filter(e => e.ubication === action.payload)
+            let filtroUb = state.filtered.filter(e => e.country === action.payload)
         return{
             ...state,
             filtered: filtroUb

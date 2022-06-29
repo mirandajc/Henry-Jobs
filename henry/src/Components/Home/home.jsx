@@ -19,22 +19,21 @@ export default function Home() {
     return(
 
         <div>
-            
 
             {   
-                userType === 'Business' || userType === 'Recruiter' ?
+                userType === 4 || userType === 5 ?
                 
                 <HomeBusinessLogic/>
 
                 : 
                 
-                userType === 'PG' || userType === 'Graduate'? 
+                userType === 1 || userType === 2? 
 
                 <HomeStudentsLogic/>
 
                 :
 
-                userType === 'Staff' ?
+                userType === 3 ?
 
                 <HomeForStaff/>
 
@@ -43,8 +42,6 @@ export default function Home() {
                 null
                 
             }
-
-            
 
         </div>
 

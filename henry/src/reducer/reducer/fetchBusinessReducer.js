@@ -4,30 +4,48 @@ import {
     GET_ALL_STUDENTS_SUCCESS 
 } from "../../constants/constants";
 
+import { mokedFilesPostBusiness } from "../../Components/Home/HomeForBusiness/MokedFilesPublicaciones";
+
 const initialState = {
   allPublications: [],
+  allPublications2: mokedFilesPostBusiness,
   userFollows: [1,4,2,5,6,7,3,12,11,10,9],
   studentsFiltered: [],
   publicatShow: [],
-  allStudents: []
+  allStudents: [],
+
+  filtros: {
+      technologies:"",
+      english:"",
+      ubication:"",
+      devType:"",
+      workModal:"",
+      stars:""
+  }
 };
+
+// los select del front solo cambian el estado filtros, cada vez que el filtro se actualice
+    // hace un filter con lo que haya en filtros en allStudents y guarda el resultado en studentsFiltered
+// pasar como dependencia [filtros] al useEffect para que haga el filtrado
+// takeLatest para evitar bucle infinito ?
+
 
 const fetchBusinessReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PUBLICATION_STUDENTS_SUCCESS:
-        let fol1 = action.payload.filter(e => state.userFollows.includes(e.id))
+        let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id))
         let response = fol1.reverse();
-       return { 
-        ...state, 
-        allPublications: response,
-    };
+        return { 
+            ...state, 
+            allPublications: response,
+        };
 
     case GET_ALL_STUDENTS_SUCCESS:
-        console.log(action.payload)
+        let responseAlumnos = action.payload.filter(e => e.userTypes === 1 || e.userTypes === 2);        
         return {
             ...state,
-            allStudents: action.payload,
-            studentsFiltered: action.payload
+            allStudents: responseAlumnos,
+            studentsFiltered: responseAlumnos
         };
 
     case GET_PUBLICAT_TECHNOLOGIES:
@@ -38,7 +56,7 @@ const fetchBusinessReducer = (state = initialState, action) => {
         };
 
     case GET_PUBLICAT_ENGLISH:
-        let filtradoPorEng = state.studentsFiltered.filter(e => e.english === action.payload);
+        let filtradoPorEng = state.studentsFiltered.filter(e => e.languages === action.payload);
         return {
             ...state,
             studentsFiltered: filtradoPorEng
