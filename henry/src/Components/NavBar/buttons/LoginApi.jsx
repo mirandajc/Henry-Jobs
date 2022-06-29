@@ -3,7 +3,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 import NavLoginTrue from "./navLogin/navLogintrue";
 import { ProfileNav, ContainerProfile, ButtonDiv, LoginCont } from './navLogin/navLoginStyles/navLogin';
 import { useDispatch, useSelector } from "react-redux";
-import { getInfoUser } from "../../../reducer/actions/actionPost";
 
 export default function LoginApi() {
 

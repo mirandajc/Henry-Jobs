@@ -13,22 +13,22 @@ import PubliSettings from "../PublicationSet/publicationSettings";
 export default function HomeBusinessLogic() {
 
     const dispatch = useDispatch();
-    const allPublicationsStud = useSelector((state) => state.fetchDataReducer.allPublicationsStudents)
-    const { current, pages, display, next, previous, row } = usePagination({ items: allPublicationsStud, size: 2 });
+    // const allPublicationsStud = useSelector((state) => state.fetchDataReducer.allPublicationsStudents)
+    // const { current, pages, display, next, previous, row } = usePagination({ items: allPublicationsStud, size: 2 });
 
-    useEffect(() => {
-        dispatch(getPublicFollows());
-    }, [])
+    // useEffect(() => {
+    //     dispatch(getPublicFollows());
+    // }, [])
     
     return (
         <div>
             
-            <PubliSettings/>
+            {/* <PubliSettings/>
             
             <button disabled={current === 1} onClick={previous}>Previous Page</button>
             <button disabled={current === pages} onClick={next}>Next Page</button>
             {/* <p>{current}</p> */}
-            <p>Pag {current} de {pages}</p>
+            {/* <p>Pag {current} de {pages}</p>
             <Link to='/students'>Ver Alumnos</Link>
             
 
@@ -44,7 +44,7 @@ export default function HomeBusinessLogic() {
                     technologies={e.technologies}
                 />)
             }
-            </PublicacionesCont>
+            </PublicacionesCont> */}
         </div>
     )
 }

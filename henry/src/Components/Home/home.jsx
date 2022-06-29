@@ -6,7 +6,7 @@ import HomeStudentsLogic from "./HomeForStudents/HomeStudentsLogic";
 import { getInfoUser } from "../../reducer/actions/actionPost";
 
 
-export default function Home(props) {
+export default function Home() {
     const dispatch= useDispatch();
     const userType = useSelector((state) => state.fetchInfoUserReducer.userType)
     const emailUser = useSelector((state) => state.fetchInfoUserReducer.email)
