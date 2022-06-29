@@ -3,6 +3,7 @@ import { Contenedor , Redes } from '../LandingStyles/footer'
 import {AiFillInstagram} from 'react-icons/ai'
 import {FiTwitter} from 'react-icons/fi'
 import { Link } from 'react-router-dom'
+import { BsLinkedin } from 'react-icons/bs'
 
 function Footer() {
   return (
@@ -20,10 +21,14 @@ function Footer() {
           <p>Contacto</p>
       </Link>
       <Redes>
-        <a>
+        <a href='https://www.instagram.com/soyhenry_ok'>
           <AiFillInstagram/>
         </a>
-        <a><FiTwitter/></a>
+        <a href='https://twitter.com/soyhenry_ok'><FiTwitter/>
+        </a>
+        <a href='https://www.linkedin.com/school/henryok/'>
+            <BsLinkedin />
+        </a>
       </Redes>
     </Contenedor>
     )

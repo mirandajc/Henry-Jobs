@@ -1,9 +1,10 @@
 import React from "react";
+import { FAQ } from "../LandingStyles/footer";
 
 export default function Faq () {
 return (
-    <div>
+    <FAQ>
     <h1>Proximamente</h1>
-    </div>
+    </FAQ>
 )
 }

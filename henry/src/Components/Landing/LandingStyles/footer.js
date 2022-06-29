@@ -31,6 +31,14 @@ a{
     padding-right: 1rem;
     padding-left: 1rem;
 }
+
+// .linkedin{
+//     box-shadow: 10px 10px 5px 0px rgb(0 0 0 / 75%);
+// -webkit-box-shadow: 1px 5px 5px 2px #ffeb3b;
+// }
+a:hover{
+    box-shadow: 6px 6px 5px 0px #ffeb3b;
+}
 `
 
 export const ContentForm = styled.div`
@@ -99,4 +107,9 @@ textarea{
     font-family: unset;
     font-size: 16px;
 }
+`
+
+export const FAQ = styled.div`
+width: 100%;
+    height: 100vh;  
 `
