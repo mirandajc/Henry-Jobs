@@ -9,10 +9,10 @@ function Contact() {
     e.preventDefault();
 
     emailjs.sendForm(
-      "service_7vsqgzj", 
-      'template_3cj384e', 
+      "gmail", 
+      'template_henry', 
       form.current, 
-      'YHOob930gtdc0h7SB')
+      'hV9_O7n8pEkr9Za6O')
       .then((result) => {
           console.log(result.text);
           console.log("message sent");
@@ -37,8 +37,8 @@ function Contact() {
             <span>
                 <textarea  name="message" placeholder='Escribe tu comentario'/> 
             </span>
-          {/* <button type="submit" value="Send" >Enviar</button> */}
-          <input type="submit" value="Send" />
+          <button type="submit" value="Send" >Enviar</button>
+          {/* <input type="submit" value="Send" /> */}
           </div>
       </form>
       
