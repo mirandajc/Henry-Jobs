@@ -1,132 +1,57 @@
 import {
-    API_POKEMON,
-    SEND_REQUEST,
-    REQUEST_SUCCESS,
-    REQUEST_FAILURE,
-    REQUEST_LOADING,
-    GET_STUDENTS,
-    GET_STUDENTS_SUCESS,
-    GET_STUDENTS_FAILURE,
-    GET_STUDENTS_AZ,
-    GET_STUDENTS_ZA,
-    GET_STUDENTS_HIGH_SCORE,
-    GET_PUBLIC_FOLLOWS,
-    GET_PUBLIC_FOLLOWS_SUCESS,
-    GET_INFO_USER,
-    SET_REGISTER_TRUE,
-    GET_INFO_USER_SUCCES,
-    SET_REGISTER_TRUE_SUCCES
+    GET_PUBLICATIONS_BUSINESS,
+    GET_PUBLICATIONS_BUSINESS_SUCCESS,
+    GET_PUBLICATIONS_TECHNOLOGIES,
+    GET_PUBLICATIONS_DEVTYPE,
+    GET_PUBLICATIONS_WORK_MODALITY,
+    GET_PUBLICATIONS_ENGLISH,
+    GET_PUBLICATIONS_UBICATION
 } from "../../constants/constants";
 
-export function getInfoUser(){
+export function getPublicationsBusiness(){
     return {
-        type: GET_INFO_USER
+        type: GET_PUBLICATIONS_BUSINESS
     }
-}
+};
 
-export function getInfoUserSucces(payload){
+export function getPublicationsBusinessSuccess(payload){
     return {
-        type: GET_INFO_USER_SUCCES,
+        type: GET_PUBLICATIONS_BUSINESS_SUCCESS,
         payload
     }
-}
+};
 
-export function setRegisterTrue(){
+export function getPublicationsTechnologies(value){
     return {
-        type : SET_REGISTER_TRUE
+        type: GET_PUBLICATIONS_TECHNOLOGIES,
+        payload: value
     }
-}
+};
 
-export function setRegisterTrueSucces(payload){
+export function getPublicationsDevType(value){
     return {
-        type: SET_REGISTER_TRUE_SUCCES,
-        payload
+        type: GET_PUBLICATIONS_DEVTYPE,
+        payload: value
     }
-}
+};
 
-export function getStudents(){
+export function getWorkModality(value){
     return {
-        type: GET_STUDENTS
+        type: GET_PUBLICATIONS_WORK_MODALITY,
+        payload: value
     }
-}
+};
 
-export function getStudentsAz(){
+export function getPublicationEnglish(value){
     return {
-        type: GET_STUDENTS_AZ
+        type: GET_PUBLICATIONS_ENGLISH,
+        payload: value
     }
-}
+};
 
-export function getStudentsZa(){
+export function getPublicationUbication(value){
     return {
-        type: GET_STUDENTS_ZA
+        type: GET_PUBLICATIONS_UBICATION,
+        payload: value
     }
-}
-
-export function getStudentsHighScore(){
-    return {
-        type: GET_STUDENTS_HIGH_SCORE
-    }
-}
-
-export function getPublicFollows(){
-    return {
-        type: GET_PUBLIC_FOLLOWS
-    }
-}
-
-export function getPublicFollowsSucess(payload){
-    return {
-        type: GET_PUBLIC_FOLLOWS_SUCESS,
-        payload
-    }
-}
-
-export function getStudentsSecess(payload){
-    return {
-        type: GET_STUDENTS_SUCESS,
-        payload
-    }
-}
-
-export function getStudentsFailure(){
-    return {
-        type: GET_STUDENTS_FAILURE,
-        payload: []
-    }
-}
-
-
-// abajo de esto son pruebas
-
-export function getPoke() {
-
-    return {
-        type: SEND_REQUEST,
-
-    }
-}
-
-export const getPokemonSuccess = (payload) => {
-    console.log(payload)
-    return {
-        
-            type: REQUEST_SUCCESS,
-            payload
-       
-    }
-}
-
-export const getPokemonFailure = (error) => {
-    return {
-        type: REQUEST_FAILURE,
-        payload: {},
-        error: error
-    }
-}
-
-export const getPokemonLoading = (payload) => {
-    return {
-        type: REQUEST_LOADING,
-        payload
-    }
-}
+};

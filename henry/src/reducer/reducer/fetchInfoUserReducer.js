@@ -1,22 +1,27 @@
-import {
-
-} from "../../constants/constants";
+import { GET_INFO_USER_SUCCESS } from "../../constants/constants";
 
 const initialState = {
-
+    userType:"",
+    premium: false,
+    isRegistered: false,
+    email:""
 };
 
 const fetchInfoUserReducer = (state = initialState, action) => {
     switch (action.type) {
-        /* case GET_INFO_USER_SUCCES:
-            return { 
+        case GET_INFO_USER_SUCCESS:
+            return {
                 ...state,
-                userRegister: action.payload
-            } */
+                userType: action.payload[0].userType,
+                premium: action.payload[0].premium,
+                isRegistered: action.payload[0].isRegistered,
+                email: action.payload[1]
+            };
+
         default:
         return {
                 ...state
-            }
+            };
     }
 };
 

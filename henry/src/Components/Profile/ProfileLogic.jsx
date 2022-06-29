@@ -6,21 +6,21 @@ import StudentsProfile from "./Students/students_profile";
 
 export default function ProfileLogic(){
 
-    const userType = useSelector((state) => state.fetchDataReducer.user)
+    const userType = useSelector((state) => state.fetchInfoUserReducer.userType)
 
     return(
         <div>
 
             {
-                userType === 'student' ?  <StudentsProfile/>
+                userType === 'Student' ?  <StudentsProfile/>
                 
                 :
 
-                userType === 'business' ? <BusinessProfile/>
+                userType === 'Business' ? <BusinessProfile/>
                 
                 :
 
-                userType === 'recruiter' ? <RecruiterProfile/>
+                userType === 'Recruiter' ? <RecruiterProfile/>
                 
                 : null
             }

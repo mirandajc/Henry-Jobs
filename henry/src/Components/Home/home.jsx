@@ -1,25 +1,19 @@
 import React,{useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import HomeForStaff from "./HomeForStaff/HomeForStaff";
-import { getPoke, getStudents } from "../../reducer/actions/action";
 import HomeBusinessLogic from "./HomeForBusiness/HomeBusinessLogic";
 import HomeStudentsLogic from "./HomeForStudents/HomeStudentsLogic";
+import { getInfoUser } from "../../reducer/actions/actionPost";
 
-/*  */
 
-export default function Home(){
+export default function Home(props) {
     const dispatch= useDispatch();
-    const pokemon= useSelector((state)=> state.fetchDataReducer.pokemon);
-    const userType = useSelector((state) => state.fetchDataReducer.user)
+    const userType = useSelector((state) => state.fetchInfoUserReducer.userType)
+    const emailUser = useSelector((state) => state.fetchInfoUserReducer.email)
 
- /*    useEffect(()=>{
-        dispatch(getPoke())
-        
+     useEffect(()=>{
+        dispatch(getInfoUser())
     },[])
-
-    useEffect(()=> {
-        dispatch(getStudents())
-    },[]) */
 
 
     return(

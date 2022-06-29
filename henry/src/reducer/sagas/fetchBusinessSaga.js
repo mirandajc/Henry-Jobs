@@ -1,37 +1,40 @@
 import { take, call, all, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
-import { mokedFilesPublicaciones } from '../../Components/Home/HomeForBusiness/MokedFilesPublicaciones';
+import { mokedFilesPostBusiness, mokedFilesStudens } from '../../Components/Home/HomeForBusiness/MokedFilesPublicaciones';
 import {
-    getPokemonFailure,
-    getPokemonLoading, 
-    getPokemonSuccess, 
+    getPublicationStudentsSuccess,
+    getAllStudentsSuccess 
 } from '../actions/actionBusiness';
 
-import { 
-    API_POKEMON, 
-    SEND_REQUEST, 
-    GET_STUDENTS, 
+import {
+    GET_ALL_STUDENTS,
+    GET_PUBLICATION_STUDENTS, URL_PEDIDO,
 } from '../../constants/constants';
 
-//import actions 
 
-function* asyncFetchRequest(){
-    try{
-        yield put(getPokemonLoading(true))
-        const response= yield call(()=>axios.get(API_POKEMON))
-        yield put(getPokemonSuccess(response.data))
-        console.log(response.data)
-
-    }catch(error){
-        yield (getPokemonFailure(error))
-    }finally{
-        yield put(getPokemonLoading(false))
+function* asyncGetPublicationStudents () {
+    try {
+        // const response = yield call(()=> axios.get(URL_PEDIDO))
+        yield put(getPublicationStudentsSuccess(mokedFilesPostBusiness)) // reemplazar por response.data
+    } catch (error) {
+        console.log(error);
     }
-}
+};
 
-function* asyncGetStudents(){}
+function* asyncGetAllStudents () {
+    try { 
+        // const response = yield call(()=> axios.get(URL_PEDIDO)) // REEMPLAZAR POR LA RUTA QUE TRAE ESTUDIANTES
+
+        yield put(getAllStudentsSuccess(mokedFilesStudens)) // reemplazar por response.data
+        
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
 
 export function* watchFetchBusinessSaga(){
-    yield takeEvery(SEND_REQUEST, asyncFetchRequest)
-    yield takeEvery(GET_STUDENTS, asyncGetStudents)
+    yield takeEvery(GET_PUBLICATION_STUDENTS, asyncGetPublicationStudents)
+    yield takeEvery(GET_ALL_STUDENTS, asyncGetAllStudents)
 }

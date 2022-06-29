@@ -11,14 +11,13 @@ import { getInfoUser } from "../../../../reducer/actions/action";
 export default function NavLoginTrue(props) {
 
     const dispatch = useDispatch();
-    const userType = useSelector((state) => state.fetchDataReducer.user)
-    const isPremium = useSelector((state) => state.fetchDataReducer.isPremium)
-    const userRegister = useSelector((state) => state.fetchDataReducer.userRegister);
+    const userType = useSelector((state) => state.fetchInfoUserReducer.user)
+    const isPremium = useSelector((state) => state.fetchInfoUserReducer.isPremium)
+    const userRegister = useSelector((state) => state.fetchInfoUserReducer.userRegister);
 
     useEffect(() => {
-       dispatch(getInfoUser());
-       
-    }, [isPremium])
+       dispatch(getInfoUser(props.email));
+    }, [])
 
     return (
         <ContnavLogin>
@@ -35,12 +34,12 @@ export default function NavLoginTrue(props) {
 
             }
             {
-                userType === 'staff' ? null :
+                userType === 'Staff' ? null :
                     <ButtonPerfil name={props.name} />
             }
             {
 
-                userType === 'recruiter' || userType === 'business' ?
+                userType === 'Recruiter' || userType === 'Business' ?
 
                     !isPremium ?
 
