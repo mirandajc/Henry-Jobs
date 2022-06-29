@@ -1,37 +1,33 @@
 import { take, call, all, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
-import { mokedFilesPublicaciones } from '../../Components/Home/HomeForBusiness/MokedFilesPublicaciones';
 import {
-    getPokemonFailure,
-    getPokemonLoading, 
-    getPokemonSuccess, 
+    getInfoUserSuccess 
 } from '../actions/actionPost';
 
+let userInfo = [{
+    userType: 1,
+    premium: true
+}];
+
 import { 
-    API_POKEMON, 
-    SEND_REQUEST, 
-    GET_STUDENTS, 
+    GET_INFO_USER, 
+    URL_PEDIDO_USER
 } from '../../constants/constants';
 
 //import actions 
 
-function* asyncFetchRequest(){
-    try{
-        yield put(getPokemonLoading(true))
-        const response= yield call(()=>axios.get(API_POKEMON))
-        yield put(getPokemonSuccess(response.data))
-        console.log(response.data)
-
-    }catch(error){
-        yield (getPokemonFailure(error))
-    }finally{
-        yield put(getPokemonLoading(false))
+function* asyncInfoUser (value) {
+    console.log(value);
+    try {
+        // const response = yield call(() => axios(URL_PEDIDO_USER+value)); // TODAVIA NO CONOCEMOS LA RUTA
+        yield put(getInfoUserSuccess(userInfo)); // response.data
+    } catch (error) {
+        console.log(error);
     }
-}
-function* asyncGetStudents(){}
+};
 
 
 export function* watchFetchPostSaga(){
-    yield takeEvery(SEND_REQUEST, asyncFetchRequest)
-    yield takeEvery(GET_STUDENTS, asyncGetStudents)
+    yield takeEvery(GET_INFO_USER, asyncInfoUser);
+
 }
