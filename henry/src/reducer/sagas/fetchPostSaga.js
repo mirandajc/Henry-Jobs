@@ -1,11 +1,15 @@
 import { take, call, all, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 import {
-    getInfoUserSuccess 
+    getInfoUserSuccess,
+    postUserSuccess
 } from '../actions/actionPost';
 import { 
     GET_INFO_USER, 
-    URL_PEDIDO_USER
+    URL_PEDIDO_USER,
+    POST_USER,
+    POST_USER_SUCCESS,
+    URL_POST
 } from '../../constants/constants';
 
 let userInfo = [{
@@ -27,8 +31,20 @@ function* asyncInfoUser (value) {
     }
 };
 
+function* asyncPostUser(user){
+    try{
+        const response = yield call(()=>axios.post(URL_POST, user));
+
+        yield put(postUserSuccess(response.data))
+    }catch(error){
+        console.log(error)
+    }finally{}
+
+}
+
 
 export function* watchFetchPostSaga(){
-    yield takeEvery(GET_INFO_USER, asyncInfoUser);
+    yield takeEvery(GET_INFO_USER, asyncInfoUser)
+    yield takeEvery(POST_USER, asyncPostUser)
 
 }

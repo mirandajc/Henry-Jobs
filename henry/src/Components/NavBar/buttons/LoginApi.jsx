@@ -4,13 +4,18 @@ import NavLoginTrue from "./navLogin/navLogintrue";
 import { ProfileNav, ContainerProfile, ButtonDiv, LoginCont } from './navLogin/navLoginStyles/navLogin';
 import { useDispatch, useSelector } from "react-redux";
 import { getInfoUser } from "../../../reducer/actions/actionPost";
+import {useNavigate} from 'react-router-dom';
 
 export default function LoginApi() {
-
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0();
 
     const userRegister = useSelector((state) => state.fetchInfoUserReducer.isRegistered);
+
+    const register =()=>{
+        navigate('/login')
+    }
 
     // useEffect(() => {
     // }, [])
@@ -41,7 +46,7 @@ export default function LoginApi() {
                         :
                         <LoginCont>
 
-                            <button onClick={() => loginWithRedirect()}>Login</button>
+                            <button onClick={() => register()}>Login</button>
                         </LoginCont>
 
                         

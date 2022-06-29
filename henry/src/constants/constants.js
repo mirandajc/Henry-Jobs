@@ -39,3 +39,10 @@ export const GET_ALL_STUDENTS_SUCCESS = "GET_ALL_STUDENTS_SUCCESS";
 export const URL_PEDIDO_USER = "URL_PEDIDO_USER"; // URL QUE TRAE INFO DE USUARIO
 export const GET_INFO_USER = "GET_INFO_USER";
 export const GET_INFO_USER_SUCCESS = "GET_INFO_USER_SUCCESS";
+
+
+
+export const POST_USER= 'POST_USER';
+export const POST_USER_SUCCESS='POST_USER_SUCCESS';
+export const URL_POST='';
+export const HENRY_LOGO ='https://blog.soyhenry.com/content/images/2021/03/151211491_440151970756357_8005198803636550092_o.jpg';

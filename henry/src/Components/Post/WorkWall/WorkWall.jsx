@@ -18,7 +18,7 @@ export default function WorkWall(){
 
     return(
         <div>
-
+                <h1>NO CONOCES LA DE CONSEGUIR LABURO?</h1>
             <NavWall/>
             {
                 bussinesPub.map((publication)=> (

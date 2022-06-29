@@ -20,6 +20,10 @@ import AboutAs from "./Components/About as/About-as";
 import Ads from "./Components/Ads/Ads";
 import Booms from "./Components/Landing/booms/booms";
 import WorkWall from './Components/Post/WorkWall/WorkWall';
+import LoginPage from "./Components/Login/LoginPage/login";
+import LoginCard from "./Components/Login/LoginPage/loginCard";
+import RegisterPage from "./Components/Login/registerPage/registerPage";
+
 
 function App() {
   return (
@@ -27,22 +31,24 @@ function App() {
       <Navbar/>
       
     <Routes>
-      <Route path="/" element={<Landing/>}/>
-      <Route path='/home' element={<Home/>}/>
-      <Route path='/register' element={<UserForm/>}/>
-      <Route path='/register/alumno' element={<RegisterAlumn />} />
-      <Route path='/register/business' element={<RegisterBusiness />} />
-      <Route path='/register/recruiter' element={<RegisterRecruiter />} />
-      <Route path='/register/staff' element={<RegisterStaff />} />
-      <Route path='/details/:id' element={<DetailStudent/>}/>
-      <Route path='/profile/:name' element={<ProfileLogic/>}/>
-      <Route path='/perfil' element={<StudentCompletePage/>}/>
+      <Route path="/" element={<Landing/>}/>//ususario logeado no!
+      <Route path='/login' element={<LoginCard/>}/>//ususario logeado no!
+      <Route path='/register' element={<RegisterPage/>}/>//ususario logeado no!
+      <Route path='/home' element={<Home/>}/> // no tendria que verlo alguien no logeado
+      <Route path='/register' element={<UserForm/>}/> // solo los nuevos usuarios 
+      <Route path='/register/alumno' element={<RegisterAlumn />} />// solo los nuevos usuarios 
+      <Route path='/register/business' element={<RegisterBusiness />} />// solo los nuevos usuarios 
+      <Route path='/register/recruiter' element={<RegisterRecruiter />} />// solo los nuevos usuarios 
+      <Route path='/register/staff' element={<RegisterStaff />} />// solo los nuevos usuarios 
+      <Route path='/details/:id' element={<DetailStudent/>}/>//preguntar a rene
+      <Route path='/profile/:name' element={<ProfileLogic/>}/>//preguntar a rene
+      <Route path='/perfil' element={<StudentCompletePage/>}/> //solo acceso a edit al usuairo propietario
       <Route path='/students' element={<HomeBusinessStudents/>}/>
       <Route path="/proyects" element={<Proyects/>}/>
       <Route path="/about-as" element={<AboutAs/>}/>
       <Route path="/ads" element={<Ads/>}/>
       <Route path="/booms" element={<Booms/>}/>
-      <Route path='/workwall' element={<WorkWall/>}/>
+      <Route path='/workwall' element={<WorkWall/>}/> //todos los registrados
     </Routes>
     </div>
   );
