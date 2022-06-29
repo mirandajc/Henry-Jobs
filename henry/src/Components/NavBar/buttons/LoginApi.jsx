@@ -3,18 +3,17 @@ import { useAuth0 } from '@auth0/auth0-react';
 import NavLoginTrue from "./navLogin/navLogintrue";
 import { ProfileNav, ContainerProfile, ButtonDiv, LoginCont } from './navLogin/navLoginStyles/navLogin';
 import { useDispatch, useSelector } from "react-redux";
-import { getInfoUser } from "../../../reducer/actions/action";
+import { getInfoUser } from "../../../reducer/actions/actionPost";
 
 export default function LoginApi() {
 
     const dispatch = useDispatch();
     const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0();
 
-    const userRegister = useSelector((state) => state.fetchDataReducer.userRegister);
+    const userRegister = useSelector((state) => state.fetchInfoUserReducer.isRegistered);
 
-    useEffect(() => {
-        dispatch(getInfoUser());
-    }, [])
+    // useEffect(() => {
+    // }, [])
 
     return (
         <ContainerProfile>
@@ -26,7 +25,7 @@ export default function LoginApi() {
                             :
                             <ProfileNav>
                                 {console.log(user)}
-                                <NavLoginTrue name={user.name} />
+                                <NavLoginTrue name={user.name} email={user.email} />
 
                                 {/* <div>
                             <img scr={user.picture} alt={user.name}/>

@@ -3,16 +3,17 @@ import axios from 'axios';
 import {
     getInfoUserSuccess 
 } from '../actions/actionPost';
-
-let userInfo = [{
-    userType: 1,
-    premium: true
-}];
-
 import { 
     GET_INFO_USER, 
     URL_PEDIDO_USER
 } from '../../constants/constants';
+
+let userInfo = [{
+    userType: 1,
+    premium: true,
+    isRegistered: false,
+}];
+
 
 //import actions 
 
@@ -20,7 +21,7 @@ function* asyncInfoUser (value) {
     console.log(value);
     try {
         // const response = yield call(() => axios(URL_PEDIDO_USER+value)); // TODAVIA NO CONOCEMOS LA RUTA
-        yield put(getInfoUserSuccess(userInfo)); // response.data
+        yield put(getInfoUserSuccess(userInfo, value)); // response.data
     } catch (error) {
         console.log(error);
     }

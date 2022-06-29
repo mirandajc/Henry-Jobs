@@ -2,7 +2,9 @@ import { GET_INFO_USER_SUCCESS } from "../../constants/constants";
 
 const initialState = {
     userType:"",
-    premium: false
+    premium: false,
+    isRegistered: false,
+    email:""
 };
 
 const fetchInfoUserReducer = (state = initialState, action) => {
@@ -10,8 +12,10 @@ const fetchInfoUserReducer = (state = initialState, action) => {
         case GET_INFO_USER_SUCCESS:
             return {
                 ...state,
-                userType: action.payload.userType,
-                premium: action.payload.premium
+                userType: action.payload[0].userType,
+                premium: action.payload[0].premium,
+                isRegistered: action.payload[0].isRegistered,
+                email: action.payload[1]
             };
 
         default:

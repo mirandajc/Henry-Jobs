@@ -11,9 +11,9 @@ export function getInfoUser (value) {
     }
 };
 
-export function getInfoUserSuccess (payload) {
+export function getInfoUserSuccess (payload, value) {
     return {
         type: GET_INFO_USER_SUCCESS,
-
+        payload:[payload, value]
     }
 }
