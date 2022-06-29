@@ -19,6 +19,7 @@ import Proyects from "./Components/Proyects/Proyects";
 import AboutAs from "./Components/About as/About-as";
 import Ads from "./Components/Ads/Ads";
 import Booms from "./Components/Landing/booms/booms";
+import WorkWall from './Components/Post/WorkWall/WorkWall';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
       <Route path="/about-as" element={<AboutAs/>}/>
       <Route path="/ads" element={<Ads/>}/>
       <Route path="/booms" element={<Booms/>}/>
+      <Route path='/workwall' element={<WorkWall/>}/>
     </Routes>
     </div>
   );

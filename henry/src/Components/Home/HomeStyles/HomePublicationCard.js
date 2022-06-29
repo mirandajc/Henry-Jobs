@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const PublicationCard= styled.div`
 
+cursor:pointer;
 border-top: 1px solid yellow;
 width: 50%;
 height: auto;
@@ -142,6 +143,7 @@ div{
     
 
     .heart{
+        cursor:pointer;
         margin-right: 0.5em;
         color: yellow;
 
@@ -191,7 +193,7 @@ span{
 
 .share{
     color: yellow;
-    
+    cursor:pointer;
     
 
     &:active{
@@ -207,11 +209,38 @@ span{
 }
 
 .comentar{
+    cursor:pointer;
     &:hover{
         cursor: pointer;
         text-decoration: underline;
     }
 }
 
+
+`
+
+export const DetailPost= styled.div`
+width:100%;
+border-bottom: 0.5px solid hsl(228deg 11% 9%);
+height: 1.5em;
+display: flex; 
+align-items: center;
+justify-content: space-around;
+flex-direction: row;
+
+div{
+    
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    p{
+        
+        width:auto;
+        color: yellow;
+        cursor:pointer;
+    }
+}
 
 `

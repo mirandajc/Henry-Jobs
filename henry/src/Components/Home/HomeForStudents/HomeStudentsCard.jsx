@@ -14,7 +14,7 @@ export default function HomeStudentsCard(props){
     return (
         <div>
             
-            hi, i'm information for the business's card
+          
             
         </div>
     )
