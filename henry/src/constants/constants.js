@@ -48,3 +48,9 @@ export const URL_POST='';
 export const HENRY_LOGO ='https://blog.soyhenry.com/content/images/2021/03/151211491_440151970756357_8005198803636550092_o.jpg';
 export const SHOW_FILTER = "SHOW_FILTER";
 export const SET_STARS_ORDER = "SET_STARS_ORDER";
+
+export const GET_INFO_FOR_STAFF = "GET_INFO_FOR_STAFF";
+export const GET_INFO_FOR_STAFF_SUCCESS = "GET_INFO_FOR_STAFF_SUCCESS";
+export const GET_STUDENT_DETAIL = "GET_STUDENT_DETAIL";
+export const STAFF_ORDER_STUDENTS = "STAFF_ORDER_STUDENTS";
+
