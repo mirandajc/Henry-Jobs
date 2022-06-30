@@ -1,7 +1,7 @@
 import React from "react";
 import Bussines from "./data/dataImage";
 import { TestimonyDiv, GridDiv,TittleTestimony } from "../LandingStyles/testimony";
-
+import albo from "../../images/Albo-opinion.png"
 
 
 
@@ -9,8 +9,9 @@ export default function Testimony(){
     const bussinesArray= Bussines;
     return(
         <TestimonyDiv>
-            
-            <TittleTestimony>
+             <img src={albo}/>
+            {/* <TittleTestimony>
+               
             <h1>EMPRESAS QUE NOS ELIGEN</h1>
            
             </TittleTestimony>
@@ -26,7 +27,7 @@ export default function Testimony(){
                     )
                 })
             }
-            </GridDiv>
+            </GridDiv> */}
             
         </TestimonyDiv>
     )

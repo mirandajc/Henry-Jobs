@@ -16,7 +16,7 @@ export default function CardPublicationsTest(props){
                 <p>{props.date}</p>
             </div>
             <div>
-                <img src={props.picture}/>
+                <img src={props.picture} alt="imagen"/>
             </div>
             <div>
                 <p>{props.summary}</p>
