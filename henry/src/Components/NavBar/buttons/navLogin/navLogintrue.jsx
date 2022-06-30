@@ -49,6 +49,7 @@ export default function NavLoginTrue(props) {
 
                     : null
             }
+            {console.log('acarey',userType)}
             {
                 userType === 1 || userType === 2 ? <ButtonWorkWall/> : <ButtonStudentsWall/>
             }

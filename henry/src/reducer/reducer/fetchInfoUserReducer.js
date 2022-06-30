@@ -1,7 +1,7 @@
 import { GET_INFO_USER_SUCCESS } from "../../constants/constants";
 
 const initialState = {
-    userType: 1,
+    userType: 5,
     premium: false,
     isRegistered: true,
     email:""
