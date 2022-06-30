@@ -10,7 +10,7 @@ import StaffNavBar from "./NavBarCondicional/StaffNavBar";
 
 
 export default function Navbar() {
-  const userType = useSelector((state) => state.fetchDataReducer.user);
+  const userType = useSelector((state) => state.fetchInfoUserReducer.userType);
 
   return (
     <NavbarS>
@@ -19,9 +19,9 @@ export default function Navbar() {
       </div>
 
       <NavButton>
-        {userType === "Graduate" || userType === "PG" ? (
+        {userType === 1 || userType === 2 ? (
           <StudentsNavBar />
-        ) : userType === "Business" || userType === "Recruiter" ? (
+        ) : userType === 5 || userType === 4 ? (
           <BusinessNavBar />
         ) : (
           <StaffNavBar />

@@ -46,7 +46,6 @@ function App() {
       <Route path='/details/:id' element={<DetailStudent/>}/>//preguntar a rene
       <Route path='/profile/:userName' element={<ProfileLogic/>}/>//preguntar a rene
       <Route path='/perfil' element={<StudentCompletePage/>}/> //solo acceso a edit al usuairo propietario
-      <Route path='/students' element={<HomeBusinessStudents/>}/>
       <Route path="/proyects" element={<Proyects/>}/>
       <Route path="/about-as" element={<AboutAs/>}/>
       <Route path="/ads" element={<Ads/>}/>

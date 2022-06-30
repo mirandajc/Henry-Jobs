@@ -76,25 +76,6 @@ export default function WorkWall(){
 
     return(
         <div>
-<<<<<<< HEAD
-                <h1>NO CONOCES LA DE CONSEGUIR LABURO?</h1>
-            <NavWall/>
-            {
-                bussinesPub.map((publication)=> (
-                    <CardPublicationsTest
-                        image={publication.img}
-                        name={publication.posterUser}
-                        lastname={''}
-                        date={''}
-                        title={publication.proyectTittle}
-                        summary={publication.text}
-                        video={publication.imgVideo}
-                        technologies={publication.technologies}
-                        backFront={publication.backFront}
-                        ubication={publication.ubication}
-                        workModality={publication.workModality}
-                        english={publication.english}
-=======
             <select onChange={(e) => techSelection(e)}>
                 <option>Tecnologías</option>
             {technologies.map(e => {
@@ -150,7 +131,6 @@ export default function WorkWall(){
                         english={e.languages}
                         username={e.userName}
 
->>>>>>> LuchoRene
 
                     />
                 ))
