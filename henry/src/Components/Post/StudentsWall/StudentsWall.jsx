@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllStudents, setOrderStars, getPublicatWorkModal, getPublicatDevType, getPublicatEnglish, getPublicatTechnologies, getPublicatUbication, showFilter } from "../../../reducer/actions/actionBusiness";
 import CardWallStudents from "./CardWallStudents";
 import { technologies, idiomas, DevType, workModal, allCountries } from "./select";
-
+import {BodyStudentsWallCard} from "../../Home/HomeStyles/HomePublicationCard.js"
 
 export default function StudentsWall () {
     const estudiantes = useSelector(state => state.fetchBusinessReducer.studentsFiltered);
@@ -82,7 +82,7 @@ export default function StudentsWall () {
     };
 
     return(
-        <div>
+        <BodyStudentsWallCard>
             <button onClick={()=> window.location.reload()}>Borrar Filtros</button> {/* Luciano recomienda un reload, luciano es un gato */}
 
             <select onChange={(e) => selectTech(e)}>
@@ -155,6 +155,6 @@ export default function StudentsWall () {
                 )
             })}
             
-        </div>
+        </BodyStudentsWallCard>
     );
 };

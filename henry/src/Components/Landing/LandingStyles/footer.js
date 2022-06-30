@@ -48,14 +48,16 @@ display:flex;
 align-items: center;
 justify-content: center;
 input{
-    border: solid yellow;
+    border:none;
+    // border: solid yellow;
     border-radius: 0.5rem;
-    background: black;
+    background: white;
     align-content: normal;
     height: 2rem;
     width: 90%;
     margin-block-start: 0.7rem;
-    color:yellow;
+    color:black;
+    font-size: 12px;
 }
 label{
     font-size: 16px;
@@ -74,6 +76,7 @@ form{
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+
 }
 .mensaje{
     width: 50%;

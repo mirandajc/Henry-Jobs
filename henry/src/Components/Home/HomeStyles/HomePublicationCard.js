@@ -1,27 +1,30 @@
 import styled from 'styled-components';
 
+export const BodyStudentsWallCard= styled.div`
+width: 100%;
+height: 100vh;
+` 
+export const BotonTecnologias = styled.div`
+border: 2px solid #5D5F66;
+box-shadow: -1px -1px 5px 1px rgba(248, 247, 242, 0.13);
+border-radius: 12px;
+p{
+    position: absolute;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: justify;
+    color: #5D5F66;
+}
+`
 
 export const PublicationCard= styled.div`
-
-cursor:pointer;
-border-top: 1px solid yellow;
+background-color: #1A1B1E;
 width: 50%;
-height: auto;
-background-color: hsl(228deg 8% 12%);
-// border-radius: 10px;
-border-end-end-radius: 1rem;
-border-end-start-radius: 1rem;
-
-overflow:hidden;
-margin-top: 2em;
-margin-bottom: 3em;
-
-box-shadow: 4px 6px 5px 0px rgb(193 196 25 / 75%);
-    -webkit-box-shadow: 2px 1px 5px 0px rgb(193 196 25 / 24%);
-    -moz-box-shadow: 4px 6px 5px 0px rgba(193,196,25,0.75);
-
+height: 15rem;
+border-radius: 1rem;
 
 `
+
 
 export const Cavecera= styled.div`
 display: flex;
@@ -79,25 +82,6 @@ img{
 `
 
 
-export const PublicacionesCont= styled.div`
-
-// border: 1px solid yellow;
-display: flex;
-align-items: center;
-jusrify-content: center;
-flex-direction: column;
-
-
-// border-radius: 10px;
-// box-shadow: 6px 7px 5px 0px rgb(255 255 255 / 75%);
-// -webkit-box-shadow: 0px 4px 10px 0px rgb(158 158 158 / 45%);
-// -moz-box-shadow: 6px 7px 5px 0px rgba(255,255,255,0.75);
-overflow-hidden: ;
-// background-color: hsl(228deg 11% 9%);
-overflow-hidden;
-
-`
-
 export const InnerPost= styled.div`
 
 // border: 1px solid white;
@@ -108,7 +92,6 @@ justify-content: space-around;
 flex-direction: column;
 
 p{
-    
     margin-left:-4em;
 }
 
@@ -117,8 +100,6 @@ p{
 `
 
 export const FooterPost= styled.div`
-
-
 
 p{
     &:hover{
@@ -220,27 +201,34 @@ span{
 `
 
 export const DetailPost= styled.div`
-width:100%;
-border-bottom: 0.5px solid hsl(228deg 11% 9%);
-height: 1.5em;
+ width:100%;
+// border-bottom: 0.5px solid hsl(228deg 11% 9%);
+// height: 1.5em;
 display: flex; 
 align-items: center;
 justify-content: space-around;
 flex-direction: row;
 
 div{
-    
-    width: 100%;
-    display:flex;
-    align-items: center;
-    justify-content: center;
+    border: 2px solid #5D5F66;
+    box-shadow: -1px -1px 5px 1px rgba(248, 247, 242, 0.13);
+    border-radius: 12px;
+    width: 2rem;
+    height: 26px;
 
-    p{
-        
-        width:auto;
-        color: yellow;
-        cursor:pointer;
+    //   @media(max-width:20px){
+    //     .content {  
+    //         width: 960px;
+    //     }
+    // }
     }
+    
+  
+p{
+    font-size: 11px;
+    // line-height: 13px;
+    // text-align: justify;
+    color: #5D5F66;
 }
 
 `

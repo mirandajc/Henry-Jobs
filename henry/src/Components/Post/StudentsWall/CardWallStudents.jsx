@@ -8,6 +8,8 @@ import {
   FooterPost,
   Detalle,
   DetailPost,
+  ContenedorCard,
+  BotonTecnologias
 } from "../../Home/HomeStyles/HomePublicationCard";
 import { AiOutlineShareAlt } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
@@ -30,20 +32,18 @@ export default function CardWallStudents({name,lastname,email,technologies,other
         // REEMPLAZAR POR UNA TARJETA DE ALUMNOS
   return (
       <PublicationCard> 
-      <Cavecera>
-        <NamePic>
-          <PictureCont>
-            <img src={profileImage} alt={`${name} Image`} />
-          </PictureCont>
-          <div>
-            <Link to={`/profile/${userName}`}><h3>{name + " " + lastname}</h3></Link>
-            <h5>{email}</h5>
-          </div>
-        </NamePic>
-      </Cavecera>
-
+        <Cavecera>
+          <NamePic>
+            <PictureCont>
+              <img src={profileImage} alt={`${name} Image`} />
+            </PictureCont>
+            <div>
+              <Link to={`/profile/${userName}`}><h3>{name + " " + lastname}</h3></Link>
+              <h5>{email}</h5>
+            </div>
+          </NamePic>
+        </Cavecera>
       <InnerPost>
-
         {technologies && backFront ? (
           <DetailPost>
             <div>
@@ -75,22 +75,7 @@ export default function CardWallStudents({name,lastname,email,technologies,other
         ) : (
           " "
         )}
-      </InnerPost>
-
-      <FooterPost>
-        {/* <div>
-          <AiFillHeart className="heart" />
-          <p>{likes}</p>
-        </div>
-
-        <span>
-          <FaCommentAlt className="comenta" />
-          <p className="comentar">Comentar</p>
-        </span>
-        <div>
-          <AiOutlineShareAlt className="share" />
-        </div> */}
-      </FooterPost>
+        </InnerPost>
     </PublicationCard>
   );
 };
