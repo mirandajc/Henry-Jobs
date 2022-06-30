@@ -78,28 +78,6 @@ export default function CardPublicationsAll({ image, name, lastname, date, title
             </PublicationCard>
 
 
-<<<<<<< HEAD
-    return(
-        <div>
-            <div>
-                <h1>{props.name}</h1>
-            </div>
-            <div>
-                <p>{props.proyectTittle}</p>
-            </div>
-            <div>
-                <p>{props.date}</p>
-            </div>
-            <div>
-                <img src={props.picture} alt="imagen"/>
-            </div>
-            <div>
-                <p>{props.summary}</p>
-            </div>
-            <div>
-                <p>{props.linkedin}</p>
-            </div>
-=======
 
         :    ////////////////////////// Publicaciones de alumnos  ///////////////////////////
 
@@ -111,7 +89,6 @@ export default function CardPublicationsAll({ image, name, lastname, date, title
             <PictureCont>
               <img src={image} alt={`${name} Image`} />
             </PictureCont>
->>>>>>> newLogin
             <div>
               <h3>{name + " " + lastname}</h3>
             </div>
