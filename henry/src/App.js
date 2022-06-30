@@ -28,6 +28,7 @@ import RegisterPage from "./Components/Login/registerPage/registerPage";
 import StudentsWall from "./Components/Post/StudentsWall/StudentsWall";
 
 
+
 function App() {
   return (
     <div className="body">
