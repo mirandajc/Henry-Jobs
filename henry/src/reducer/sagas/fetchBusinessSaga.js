@@ -36,5 +36,5 @@ function* asyncGetAllStudents () {
 
 export function* watchFetchBusinessSaga(){
     yield takeEvery(GET_PUBLICATION_STUDENTS, asyncGetPublicationStudents)
-    yield takeEvery(GET_ALL_STUDENTS, asyncGetAllStudents)
+    yield takeLatest(GET_ALL_STUDENTS, asyncGetAllStudents)
 }

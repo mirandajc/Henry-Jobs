@@ -13,14 +13,6 @@ export const mokedFilesPublicaciones = [
 
 ]
 
-
-
-export const mokedFilesPostBusiness = [
-    {posterUser:{userTypes: 1, _id: 7, name: 'Laura',lastName: 'Ana', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', ubication: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], language: "C2" },
-    {posterUser:{userTypes: 1, _id: 4, name: 'Laura',lastName: 'Ana', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', ubication: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], language: "C2" },
-    {posterUser:{userTypes: 5, _id: 2, name: 'Laura', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', ubication: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], language: "C2" },
-]
-
 export const mokedFilesStudens = [
     {userTypes: 1, name: 'Rene', lastName: 'Cadena', english: 'C1', country: 'Argentina', city: 'Mendoza', technologies: ['Java','React'], backFront: 'Frontend',picture: ''},
     {userTypes: 2, name: 'Nahu', lastName: 'Crack', english: 'A0', country: 'Peru', city: 'Lima', technologies: ['Java','React'], backFront: 'Backend',picture: ''},
@@ -30,7 +22,17 @@ export const mokedFilesStudens = [
 
 ]
 
-export const Alumnos = [{
+
+export const mokedFilesPostBusiness = [ // NO BORRAR
+    {posterUser:{userTypes: 1, _id: 7, name: 'Laura',lastName: 'Ana', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], languages: "C2" },
+    {posterUser:{userTypes: 1, _id: 4, name: 'Laura',lastName: 'Ana', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], languages: "C2" },
+    {backFront: "Frontend",workModality: "Remoto",posterUser:{userTypes: 5, _id: 1, name: 'Laura', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Chile', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['Laravel', 'Vue'], languages: "C2" },
+    {backFront: "Backend",workModality: "Presencial",posterUser:{userTypes: 5, _id: 2, name: 'Laura', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Brazil', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['Typescript', 'Javascript'], languages: "C1" },
+    {backFront: "Fullstack",workModality: "Remoto",posterUser:{userTypes: 5, _id: 3, name: 'Laura', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['Redux', 'React'], languages: "B1" },
+]
+
+
+export const Alumnos = [{ // NO BORRAR
     _id: "62bc9dff5c41483e313e899a",
     name: "luchito",
     lastName: "groso",
@@ -45,9 +47,10 @@ export const Alumnos = [{
     city:"Cordoba Capital",
     backFront: "Backend",
     curriculumCounter: 22,
-    languages: "b1",
+    languages: "B1",
     otherStudies: ["el super albañil"],
-    workModality: "presencial"
+    workModality: "Remoto",
+    stars: 2
   },
   {
     _id: "62bc9dff5c41483e313e899a",
@@ -64,10 +67,11 @@ export const Alumnos = [{
     country: "Chile",
     city:"Bs As",
     backFront: "Frontend",
-    languages: "c2",
+    languages: "C2",
     curriculumCounter: 12,
     otherStudies: ["panadero"],
-    workModality: "presencial"
+    workModality: "Presencial",
+    stars: 3
   }
 ]
 

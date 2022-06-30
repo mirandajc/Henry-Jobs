@@ -5,7 +5,6 @@ import HomeBusinessLogic from "./HomeForBusiness/HomeBusinessLogic";
 import HomeStudentsLogic from "./HomeForStudents/HomeStudentsLogic";
 import { getInfoUser } from "../../reducer/actions/actionPost";
 
-
 export default function Home() {
     const dispatch= useDispatch();
     const userType = useSelector((state) => state.fetchInfoUserReducer.userType)
@@ -14,7 +13,6 @@ export default function Home() {
      useEffect(()=>{
         dispatch(getInfoUser())
     },[])
-
 
     return(
 

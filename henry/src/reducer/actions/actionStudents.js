@@ -5,7 +5,8 @@ import {
     GET_PUBLICATIONS_DEVTYPE,
     GET_PUBLICATIONS_WORK_MODALITY,
     GET_PUBLICATIONS_ENGLISH,
-    GET_PUBLICATIONS_UBICATION
+    GET_PUBLICATIONS_UBICATION,
+    SHOW_FILTER
 } from "../../constants/constants";
 
 export function getPublicationsBusiness(){
@@ -53,5 +54,11 @@ export function getPublicationUbication(value){
     return {
         type: GET_PUBLICATIONS_UBICATION,
         payload: value
+    }
+};
+
+export function ShowFilter(){
+    return {
+        type: SHOW_FILTER
     }
 };

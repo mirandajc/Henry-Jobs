@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllStudents, getPublicatDevType, getPublicatEnglish, getPublicatTechnologies, getPublicatUbication } from "../../../reducer/actions/actionBusiness";
+import { getAllStudents, setOrderStars, getPublicatWorkModal, getPublicatDevType, getPublicatEnglish, getPublicatTechnologies, getPublicatUbication, showFilter } from "../../../reducer/actions/actionBusiness";
 import CardWallStudents from "./CardWallStudents";
 import { technologies, idiomas, DevType, workModal, allCountries } from "./select";
 
@@ -11,64 +11,75 @@ export default function StudentsWall () {
 
     useEffect(() => {
         dispatch(getAllStudents());
-        console.log("Esto es un bucle infinito?")
     },[]);
-
+    
     //traer el objeto filtros con use selector y usarlo como dependencia en el effect
     // en cada return enviar "" con el dispatch
     const selectTech = (e) => {
         if(e.target.value === "Tecnologías"){
-            return;
+            dispatch(getPublicatTechnologies(""));
+            dispatch(showFilter())
         }
         else{
             dispatch(getPublicatTechnologies(e.target.value))
+            dispatch(showFilter())
         }
     };
 
     const selectDevType = (e) => {
         if(e.target.value === "Desarrollador"){
-            return;
+            dispatch(getPublicatDevType(""));
+            dispatch(showFilter())
         }
         else{
             dispatch(getPublicatDevType(e.target.value))
+            dispatch(showFilter())
         }
     };
 
     const selectEnglish = (e) => {
         if(e.target.value === "Nivel de Inglés"){
-            return;
+            dispatch(getPublicatEnglish(""));
+            dispatch(showFilter())
         }
         else{
             dispatch(getPublicatEnglish(e.target.value))
+            dispatch(showFilter())
         }
     };
 
-    // const selectModal = (e) => {
-    //     if(e.target.value === "Modalidad"){
-    //         return;
-    //     }
-    //     else{
-    //         dispatch() // getPublicatWorkModal
-    //     }
-    // };
+    const selectModal = (e) => {
+        if(e.target.value === "Modalidad"){
+            dispatch(getPublicatWorkModal(""))
+            dispatch(showFilter())
+        }
+        else{
+            dispatch(getPublicatWorkModal(e.target.value)) // getPublicatWorkModal
+            dispatch(showFilter())
+        }
+    };
 
     const selectPais = (e) => {
         if(e.target.value === "País"){
-            return;
+            dispatch(getPublicatUbication(""));
+            dispatch(showFilter())
         }
         else{
             dispatch(getPublicatUbication(e.target.value))
+            dispatch(showFilter())
         }
     };
 
-    // const selectStars = (e) => {
-    //     if(e.target.value === "Stars"){
-    //         return;
-    //     }
-    //     else{
-    //         dispatch() // ordenamiento por stars
-    //     }
-    // };
+    const selectStars = (e) => {
+        if(e.target.value === "Stars"){
+            dispatch(setOrderStars(""));
+            dispatch(showFilter())
+        }
+        else{
+            dispatch(setOrderStars(e.target.value)); // ordenamiento por stars
+            dispatch(showFilter())
+        }
+    };
 
     return(
         <div>
@@ -97,7 +108,7 @@ export default function StudentsWall () {
             })}
             </select>
 
-            <select>
+            <select onChange={(e) => selectModal(e)}>
                 <option>Modalidad</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}
             {workModal.map(e => {
@@ -113,7 +124,7 @@ export default function StudentsWall () {
             })}
             </select> 
 
-            <select>
+            <select onChange={(e) => selectStars(e)}>
                 <option>Stars</option> {/* si cambias lo que hay dentro de options, cambialo en la funcion tambien, dentro del if */}
                 <option>Ascendente</option>
                 <option>Descendente</option>

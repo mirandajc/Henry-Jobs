@@ -1,7 +1,7 @@
 import { 
     GET_PUBLICATION_STUDENTS_SUCCESS,GET_PUBLICAT_TECHNOLOGIES, GET_PUBLICAT_ENGLISH, 
     GET_PUBLICAT_UBICATION, GET_PUBLICAT_DEVTYPE,
-    GET_ALL_STUDENTS_SUCCESS 
+    GET_ALL_STUDENTS_SUCCESS,SHOW_FILTER,GET_PUBLICAT_WORKMODALITY,SET_STARS_ORDER
 } from "../../constants/constants";
 
 import { mokedFilesPostBusiness } from "../../Components/Home/HomeForBusiness/MokedFilesPublicaciones";
@@ -13,7 +13,6 @@ const initialState = {
   studentsFiltered: [],
   publicatShow: [],
   allStudents: [],
-
   filtros: {
       technologies:"",
       english:"",
@@ -32,6 +31,7 @@ const initialState = {
 
 const fetchBusinessReducer = (state = initialState, action) => {
   switch (action.type) {
+
     case GET_PUBLICATION_STUDENTS_SUCCESS:
         let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id))
         let response = fol1.reverse();
@@ -48,39 +48,89 @@ const fetchBusinessReducer = (state = initialState, action) => {
             studentsFiltered: responseAlumnos
         };
 
+    ////////////////////////////////////////////////////////////////////////// CASOS DE FILTRADO //////
+
     case GET_PUBLICAT_TECHNOLOGIES:
-        let filtradoPorTech = state.studentsFiltered.filter(e => e.technologies.includes(action.payload));
         return {
             ...state,
-            studentsFiltered: filtradoPorTech
+            filtros: {...state.filtros, technologies: action.payload}
         };
 
     case GET_PUBLICAT_ENGLISH:
-        let filtradoPorEng = state.studentsFiltered.filter(e => e.languages === action.payload);
         return {
             ...state,
-            studentsFiltered: filtradoPorEng
+            filtros: {...state.filtros, english: action.payload}
         };
 
     case GET_PUBLICAT_UBICATION:
-        let filtradoPorUbication = state.studentsFiltered.filter(e => e.country === action.payload);
         return {
             ...state,
-            studentsFiltered: filtradoPorUbication
+            filtros: {...state.filtros, ubication: action.payload}
         };
 
     case GET_PUBLICAT_DEVTYPE:
-        let filtradoPorDevType = state.studentsFiltered.filter(e => e.backFront === action.payload);
         return {
             ...state,
-            studentsFiltered: filtradoPorDevType
+            filtros: {...state.filtros, devType: action.payload}
         };
+
+    case GET_PUBLICAT_WORKMODALITY:
+        return {
+            ...state,
+            filtros: {...state.filtros, workModal: action.payload}
+        }
     
+    case SET_STARS_ORDER:
+        return {
+            ...state,
+            filtros: {...state.filtros, stars: action.payload }
+        }
+        
+    case SHOW_FILTER: //////////////////// falta agregar modalidad de trabajo y ordenamiento por estrellas
+        let alumnosFiltrados = state.allStudents;
+        if(state.filtros.technologies !== ""){
+            alumnosFiltrados = alumnosFiltrados.filter(e => e.technologies.includes(state.filtros.technologies));
+        }
+        else if(state.filtros.devType !== ""){
+            alumnosFiltrados = alumnosFiltrados.filter(e => e.backFront === state.filtros.devType);
+        }
+        else if(state.filtros.english !== ""){
+            alumnosFiltrados = alumnosFiltrados.filter(e => e.languages === state.filtros.english);
+        }
+        else if(state.filtros.ubication !== ""){
+            alumnosFiltrados = alumnosFiltrados.filter(e => e.country === state.filtros.ubication);
+        }
+        else if(state.filtros.workModal !== ""){
+            alumnosFiltrados = alumnosFiltrados.filter(e => e.workModality === state.filtros.workModal);
+        }
+        else if(state.filtros.stars !== ""){
+            if(state.filtros.stars === "Ascendente"){
+                alumnosFiltrados = alumnosFiltrados.sort((a,b) => {
+                    if(a.stars < b.stars) return -1;
+                    if(b.stars < a.stars) return 1;
+                    return 0;
+                })
+
+            }
+            else{
+                alumnosFiltrados = alumnosFiltrados.sort((a,b) => {
+                    if(a.stars < b.stars) return -1;
+                    if(b.stars < a.stars) return 1;
+                    return 0;
+                })
+                alumnosFiltrados = alumnosFiltrados.reverse();
+            }
+        }
+        return{
+            ...state,
+            studentsFiltered: alumnosFiltrados
+        };
+            
     default:
-      return {
-        ...state,
-      };
-  }
+        return {
+    ...state,
+};
+}
 };
 
 export default fetchBusinessReducer;
