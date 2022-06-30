@@ -3,7 +3,6 @@ import { countries } from "../gistfile1.json";
 import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} from "../formStyles/lenguajesStyles";
 import { Error } from "../formStyles/formStyles";
 import { useDispatch } from "react-redux";
-import { setRegisterTrue } from "../../../reducer/actions/action";
 
 // hacer funcion de handle
 // hacer verificaciones
@@ -139,8 +138,6 @@ export default function Languages ({sumarFase}) {
                     languages: nivel,
                     otherStudies: study
                 };
-
-                dispatch(setRegisterTrue());
 
                 return sumarFase();
             }

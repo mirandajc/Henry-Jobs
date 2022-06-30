@@ -4,22 +4,22 @@ import { Link } from "react-router-dom";
 
 export default function ButtonHome() {
 
-    const userType = useSelector((state) => state.fetchDataReducer.user)
+    const userType = useSelector((state) => state.fetchInfoUserReducer.userType)
 
     return (
        
         <div>
             
         {
-            userType === 'PG' || userType === "Graduate" ?  <Link to='/home'>Home</Link>
+            userType === 1 || userType === 2 ?  <Link to='/home'>Home</Link>
             
             :
 
-            userType === 'Business' || userType === "Recruiter" ? <Link to='/home'>Home</Link> 
+            userType === 5 ||  userType === 4  ? <Link to='/home'>Home</Link> 
             
             :
 
-            userType === 'Staff' ? <Link to='/home'>Home</Link> 
+            userType === 3 ? <Link to='/home'>Home</Link> 
             
             : null
         }

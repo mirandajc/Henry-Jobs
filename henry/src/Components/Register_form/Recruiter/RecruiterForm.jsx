@@ -5,7 +5,6 @@ import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} f
 import { RecruiterCont } from "../formStyles/recruiterForm";
 import { QueryReq, CountryCont, EnglishNv, TercerCont, Studies, InnerStudy, ButtonNex} from "../formStyles/recruiterForm";
 import { useDispatch } from 'react-redux';
-import { setRegisterTrue } from "../../../reducer/actions/action";
 
 
 export default function RecruiterForm ({sumarFase}) {
@@ -192,7 +191,6 @@ export default function RecruiterForm ({sumarFase}) {
                 otherStudies: study
             };
 
-            dispatch(setRegisterTrue());
             return sumarFase();
         }
     };

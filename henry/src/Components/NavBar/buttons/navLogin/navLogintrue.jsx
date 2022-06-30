@@ -5,20 +5,19 @@ import ButtonPerfil from "../buttonPerfil";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ButtonPremium from "../buttonPremium";
-import { getInfoUser } from "../../../../reducer/actions/action";
+import { getInfoUser } from "../../../../reducer/actions/actionPost";
+import ButtonStudentsWall from "../buttonStudentsWall";
+import ButtonWorkWall from "../buttonWorkWall";
 
 
 export default function NavLoginTrue(props) {
 
     const dispatch = useDispatch();
-    const userType = useSelector((state) => state.fetchDataReducer.user)
-    const isPremium = useSelector((state) => state.fetchDataReducer.isPremium)
-    const userRegister = useSelector((state) => state.fetchDataReducer.userRegister);
+    const userType = useSelector((state) => state.fetchInfoUserReducer.userType)
+    const isPremium = useSelector((state) => state.fetchInfoUserReducer.premium)
+    const userRegister = useSelector((state) => state.fetchInfoUserReducer.isRegistered);
 
-    useEffect(() => {
-       dispatch(getInfoUser());
-       
-    }, [isPremium])
+ 
 
     return (
         <ContnavLogin>
@@ -35,12 +34,12 @@ export default function NavLoginTrue(props) {
 
             }
             {
-                userType === 'staff' ? null :
+                userType === 3 ? null :
                     <ButtonPerfil name={props.name} />
             }
             {
 
-                userType === 'recruiter' || userType === 'business' ?
+                userType === 4 || userType === 5 ?
 
                     !isPremium ?
 
@@ -49,6 +48,10 @@ export default function NavLoginTrue(props) {
                         : null 
 
                     : null
+            }
+            {console.log('acarey',userType)}
+            {
+                userType === 1 || userType === 2 ? <ButtonWorkWall/> : <ButtonStudentsWall/>
             }
         </ContnavLogin>
     )

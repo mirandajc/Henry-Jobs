@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 export const Slider= styled.div`
-border: 1px solid black;
+
 margin-top:0px;
 position: relative;
 height: 100vh;
@@ -81,7 +81,7 @@ width:100%;
 `
 
 export const Card= styled.div`
-border: 1px solid black;
+
 width:100%;
 
 `

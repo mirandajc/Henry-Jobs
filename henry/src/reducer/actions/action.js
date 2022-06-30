@@ -18,116 +18,116 @@ import {
     SET_REGISTER_TRUE_SUCCES
 } from "../../constants/constants";
 
-export function getInfoUser(){
-    return {
-        type: GET_INFO_USER
-    }
-}
+// export function getInfoUser(){
+//     return {
+//         type: GET_INFO_USER,
+//     }
+// }
 
-export function getInfoUserSucces(payload){
-    return {
-        type: GET_INFO_USER_SUCCES,
-        register: payload.register,
-        premium: payload.premium
-    }
-}
+// export function getInfoUserSucces(payload){
+//     return {
+//         type: GET_INFO_USER_SUCCES,
+//         register: payload.register,
+//         premium: payload.premium
+//     }
+// }
 
-export function setRegisterTrue(){
-    return {
-        type : SET_REGISTER_TRUE
-    }
-}
+// export function setRegisterTrue(){
+//     return {
+//         type : SET_REGISTER_TRUE
+//     }
+// }
 
-export function setRegisterTrueSucces(payload){
-    return {
-        type: SET_REGISTER_TRUE_SUCCES,
-        payload
-    }
-}
+// export function setRegisterTrueSucces(payload){
+//     return {
+//         type: SET_REGISTER_TRUE_SUCCES,
+//         payload
+//     }
+// }
 
-export function getStudents(){
-    return {
-        type: GET_STUDENTS
-    }
-}
+// export function getStudents(){
+//     return {
+//         type: GET_STUDENTS
+//     }
+// }
 
-export function getStudentsAz(){
-    return {
-        type: GET_STUDENTS_AZ
-    }
-}
+// export function getStudentsAz(){
+//     return {
+//         type: GET_STUDENTS_AZ
+//     }
+// }
 
-export function getStudentsZa(){
-    return {
-        type: GET_STUDENTS_ZA
-    }
-}
+// export function getStudentsZa(){
+//     return {
+//         type: GET_STUDENTS_ZA
+//     }
+// }
 
-export function getStudentsHighScore(){
-    return {
-        type: GET_STUDENTS_HIGH_SCORE
-    }
-}
+// export function getStudentsHighScore(){
+//     return {
+//         type: GET_STUDENTS_HIGH_SCORE
+//     }
+// }
 
-export function getPublicFollows(){
-    return {
-        type: GET_PUBLIC_FOLLOWS
-    }
-}
+// export function getPublicFollows(){
+//     return {
+//         type: GET_PUBLIC_FOLLOWS
+//     }
+// }
 
-export function getPublicFollowsSucess(payload){
-    return {
-        type: GET_PUBLIC_FOLLOWS_SUCESS,
-        payload
-    }
-}
+// export function getPublicFollowsSucess(payload){
+//     return {
+//         type: GET_PUBLIC_FOLLOWS_SUCESS,
+//         payload
+//     }
+// }
 
-export function getStudentsSecess(payload){
-    return {
-        type: GET_STUDENTS_SUCESS,
-        payload
-    }
-}
+// export function getStudentsSecess(payload){
+//     return {
+//         type: GET_STUDENTS_SUCESS,
+//         payload
+//     }
+// }
 
-export function getStudentsFailure(){
-    return {
-        type: GET_STUDENTS_FAILURE,
-        payload: []
-    }
-}
+// export function getStudentsFailure(){
+//     return {
+//         type: GET_STUDENTS_FAILURE,
+//         payload: []
+//     }
+// }
 
 
-// abajo de esto son pruebas
+// // abajo de esto son pruebas
 
-export function getPoke() {
+// export function getPoke() {
 
-    return {
-        type: SEND_REQUEST,
+//     return {
+//         type: SEND_REQUEST,
 
-    }
-}
+//     }
+// }
 
-export const getPokemonSuccess = (payload) => {
-    console.log(payload)
-    return {
+// export const getPokemonSuccess = (payload) => {
+//     console.log(payload)
+//     return {
         
-            type: REQUEST_SUCCESS,
-            payload
+//             type: REQUEST_SUCCESS,
+//             payload
        
-    }
-}
+//     }
+// }
 
-export const getPokemonFailure = (error) => {
-    return {
-        type: REQUEST_FAILURE,
-        payload: {},
-        error: error
-    }
-}
+// export const getPokemonFailure = (error) => {
+//     return {
+//         type: REQUEST_FAILURE,
+//         payload: {},
+//         error: error
+//     }
+// }
 
-export const getPokemonLoading = (payload) => {
-    return {
-        type: REQUEST_LOADING,
-        payload
-    }
-}
+// export const getPokemonLoading = (payload) => {
+//     return {
+//         type: REQUEST_LOADING,
+//         payload
+//     }
+// }
