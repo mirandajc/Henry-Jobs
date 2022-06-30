@@ -14,7 +14,7 @@ export default function NavLoginTrue(props) {
 
     const dispatch = useDispatch();
     const userType = useSelector((state) => state.fetchInfoUserReducer.userType)
-    const isPremium = useSelector((state) => state.fetchInfoUserReducer.premium)
+    const isPremium = false/* useSelector((state) => state.fetchInfoUserReducer.premium) */
     const userRegister = useSelector((state) => state.fetchInfoUserReducer.isRegistered);
 
  
@@ -35,23 +35,13 @@ export default function NavLoginTrue(props) {
             }
             {
                 userType === 3 ? null :
+                <div>
                     <ButtonPerfil name={props.name} />
-            }
-            {
-
-                userType === 4 || userType === 5 ?
-
-                    !isPremium ?
-
-                        <ButtonPremium />
-
-                        : null 
-
-                    : null
+                </div>
             }
             {console.log('acarey',userType)}
             {
-                userType === 1 || userType === 2 ? <ButtonWorkWall/> : <ButtonStudentsWall/>
+                userType === 1 || userType === 2 ? <div><ButtonWorkWall/></div> : <div><ButtonStudentsWall/></div>
             }
         </ContnavLogin>
     )

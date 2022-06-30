@@ -29,7 +29,6 @@ export default function LoginApi() {
                             :
                             <ProfileNav>
                                 {console.log(user)}
-                                <NavLoginTrue name={user.name} email={user.email} />
 
                                 <ButtonDiv>
                                     <button onClick={() => logout({ returnTo: window.location.origin })} >Logout</button>
@@ -38,8 +37,10 @@ export default function LoginApi() {
                             </ProfileNav>
                         :
                         <LoginCont>
-
-                            <button onClick={() => register()}>Login</button>
+                            <NavLoginTrue /* name={user.name} email={user.email}  *//>
+                            <div>
+                                <button onClick={() => register()}>Login</button>
+                            </div>
                         </LoginCont>
 
                         
