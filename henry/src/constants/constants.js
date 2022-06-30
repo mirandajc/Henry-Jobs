@@ -46,3 +46,5 @@ export const POST_USER= 'POST_USER';
 export const POST_USER_SUCCESS='POST_USER_SUCCESS';
 export const URL_POST='';
 export const HENRY_LOGO ='https://blog.soyhenry.com/content/images/2021/03/151211491_440151970756357_8005198803636550092_o.jpg';
+export const SHOW_FILTER = "SHOW_FILTER";
+export const SET_STARS_ORDER = "SET_STARS_ORDER";
