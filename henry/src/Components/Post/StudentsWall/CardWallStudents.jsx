@@ -15,13 +15,16 @@ import { FaCommentAlt } from "react-icons/fa";
 import { GrTechnology } from "react-icons/gr";
 import { FaLaptopCode } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/all";
+import { Link } from "react-router-dom";
 
 export default function CardWallStudents({name,lastname,email,technologies,otherstudies,banner,english,
     backFront,
     workModality,ubication,
     city,
     curriculumCounter,
-    profileImage}) {
+    profileImage,userName}) {
+
+
         const isPremium = false; //CAMBIAR
         const userTypes = 3;
         // REEMPLAZAR POR UNA TARJETA DE ALUMNOS
@@ -33,7 +36,7 @@ export default function CardWallStudents({name,lastname,email,technologies,other
             <img src={profileImage} alt={`${name} Image`} />
           </PictureCont>
           <div>
-            <h3>{name + " " + lastname}</h3>
+            <Link to={`/profile/${userName}`}><h3>{name + " " + lastname}</h3></Link>
             <h5>{email}</h5>
           </div>
         </NamePic>

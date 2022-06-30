@@ -9,9 +9,9 @@ import {
 } from '../../constants/constants';
 
 let userInfo = {
-    userType: 1,
+    userType: 5,
     premium: true,
-    isRegistered: false,
+    isRegistered: true,
 };
 
 

@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ButtonPremium from "../buttonPremium";
 import { getInfoUser } from "../../../../reducer/actions/actionPost";
+import ButtonStudentsWall from "../buttonStudentsWall";
+import ButtonWorkWall from "../buttonWorkWall";
 
 
 export default function NavLoginTrue(props) {
@@ -15,15 +17,7 @@ export default function NavLoginTrue(props) {
     const isPremium = useSelector((state) => state.fetchInfoUserReducer.premium)
     const userRegister = useSelector((state) => state.fetchInfoUserReducer.isRegistered);
 
-    useEffect(() => {
-       dispatch(getInfoUser(props.email));
-    }, [])
-    useEffect(() => {
-       console.log("userType", userType);
-       console.log("isPremium", isPremium);
-       console.log("userRegister", userRegister);
-       console.log("props", props);
-    }, [userType, isPremium, userRegister])
+ 
 
     return (
         <ContnavLogin>
@@ -40,12 +34,12 @@ export default function NavLoginTrue(props) {
 
             }
             {
-                userType === 'Staff' ? null :
+                userType === 3 ? null :
                     <ButtonPerfil name={props.name} />
             }
             {
 
-                userType === 'Recruiter' || userType === 'Business' ?
+                userType === 4 || userType === 5 ?
 
                     !isPremium ?
 
@@ -54,6 +48,9 @@ export default function NavLoginTrue(props) {
                         : null 
 
                     : null
+            }
+            {
+                userType === 1 || userType === 2 ? <ButtonWorkWall/> : <ButtonStudentsWall/>
             }
         </ContnavLogin>
     )

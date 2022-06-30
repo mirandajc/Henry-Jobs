@@ -36,7 +36,7 @@ function App() {
       <Route path='/register/recruiter' element={<RegisterRecruiter />} />
       <Route path='/register/staff' element={<RegisterStaff />} />
       <Route path='/details/:id' element={<DetailStudent/>}/>
-      <Route path='/profile/:name' element={<ProfileLogic/>}/>
+      <Route path='/profile/:userName' element={<ProfileLogic/>}/>
       <Route path='/perfil' element={<StudentCompletePage/>}/>
       <Route path="/proyects" element={<Proyects/>}/>
       <Route path="/about-as" element={<AboutAs/>}/>

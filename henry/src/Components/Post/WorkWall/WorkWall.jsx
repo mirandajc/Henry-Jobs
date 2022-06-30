@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch} from "react-redux"
-import CardPublicationsTest from "../../Home/HomeForBusiness/CardPublicationsTest"; 
 import { getPublicationEnglish, getPublicationsBusiness, getPublicationsDevType, getPublicationsTechnologies, getPublicationUbication, getWorkModality, ShowFilter } from "../../../reducer/actions/actionStudents";
 import NavWall from "./navBarWall";
 import {idiomas, allCountries, DevType, technologies, workModal} from "../StudentsWall/select"
+import CardPublicationWorkTest2 from "./CardPublicationsTest";
 
 
 //Este componente va a renderizar las publicaciones de empresas y reclutadores
@@ -114,26 +114,27 @@ export default function WorkWall(){
             {console.log("COMPONENTE", business)}
 
             {/* <NavWall/> */} 
-            {/* {                   ACTUALIZAR/MODIFICAR LA TARJETA QUE MUESTRA LAS PUBLICACIONES DE EMPRESAS
-                                    USAR COMO REFERENCIA MOCKEDFILES => mokedFilesPostBusiness
-                business.map((publication)=> (
-                    <CardPublicationsTest
-                        image={publication.img}
-                        name={publication.posterUser}
-                        lastname={''}
-                        date={''}
-                        title={publication.proyectTittle}
-                        summary={publication.text}
-                        video={publication.imgVideo}
-                        technologies={publication.technologies}
-                        backFront={publication.backFront}
-                        ubication={publication.ubication}
-                        workModality={publication.workModality}
-                        english={publication.english}
+            {                  /*  ACTUALIZAR/MODIFICAR LA TARJETA QUE MUESTRA LAS PUBLICACIONES DE EMPRESAS
+                                    USAR COMO REFERENCIA MOCKEDFILES => mokedFilesPostBusiness */
+                business.map((e)=> (
+                    <CardPublicationWorkTest2
+                        image={e.posterUser.frofileImage}
+                        name={e.posterUser.name}
+                        date={e.date}
+                        title={e.proyectTittle}
+                        summary={e.text}
+                        video={e.imgVideo}
+                        technologies={e.technologies}
+                        backFront={e.backFront}
+                        ubication={e.country}
+                        workModality={e.workModality}
+                        english={e.languages}
+                        username={e.userName}
+
 
                     />
                 ))
-            } */}
+            }
 
         </div>
     )

@@ -83,7 +83,7 @@ export default function StudentsWall () {
 
     return(
         <div>
-            <button onClick={()=> window.location.reload()}>Borrar Filtros</button> {/* Luciano recomienda un reload */}
+            <button onClick={()=> window.location.reload()}>Borrar Filtros</button> {/* Luciano recomienda un reload, luciano es un gato */}
 
             <select onChange={(e) => selectTech(e)}>
                 <option>Tecnologías</option> {/* si cambias lo que hay dentro de options,
@@ -148,6 +148,7 @@ export default function StudentsWall () {
                         ubication={e.country}
                         city={e.city}
                         curriculumCounter= {e.curriculumCounter}
+                        userName={e.userName}
                         // profileImage={e.profileImage.secure_url}
                         />
                     </div>

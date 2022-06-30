@@ -1,28 +1,41 @@
 import React, { useEffect } from "react";
-
+import { SiAlgolia } from "react-icons/si";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import CardPublicationWorkTest from "./CardPublicationsTest";
+import {  getPublicationsBusiness } from '../../../reducer/actions/actionStudents'
 
 //Feed del alumno con pyublicaciones 
 export default function HomeStudentsLogic() {
 
-    // const students = useSelector((state) => state.fetchBusinessReducer.studentsFiltered);
-    // const publicaciones = useSelector((state) => state.fetchBusinessReducer.allPublications);
-    // const dispatch = useDispatch();
+    const publicaciones = useSelector((state) => state.fetchStudentsReducer.AllPublications);
+    const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     dispatch(getAllStudents());
-    //     dispatch(getPublicationStudents());
-    // }, []);
+    useEffect(() => {
+        dispatch(getPublicationsBusiness());
+    }, []);
 
-    // useEffect(() => {
-    //     console.log("1",students)
-    //     console.log("2", publicaciones)
-    // }, [students, publicaciones]);
 
     return (
         <div>
 
-            <Link to ='/workwall'><button>workWall</button></Link>
+            {
+                publicaciones.map(e => <CardPublicationWorkTest
+                    image={e.posterUser.profileImage} 
+                    name={e.posterUser.name} 
+                    date={e.date}  
+                    title={e.proyectTittle}  
+                    summary={e.text}  
+                    video={e.imgVideo}  
+                    technologies={e.technologies}  
+                    backFront={e.backFront}  
+                    ubication={e.country}  
+                    workModality={e.workModality}  
+                    english={e.languages} 
+                    
+                />)
+            }
+
         </div>
     );
 };

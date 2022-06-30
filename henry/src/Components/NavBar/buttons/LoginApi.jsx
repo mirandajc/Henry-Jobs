@@ -11,8 +11,6 @@ export default function LoginApi() {
 
     const userRegister = useSelector((state) => state.fetchInfoUserReducer.isRegistered);
 
-    // useEffect(() => {
-    // }, [])
 
     return (
         <ContainerProfile>

@@ -1,16 +1,16 @@
 import React from "react";
-import { PublicationCard, PictureCont, Cavecera, NamePic, InnerPost, FooterPost, Detalle, DetailPost} from "../HomeStyles/HomePublicationCard";
+import { PublicationCard, PictureCont, Cavecera, NamePic, InnerPost, FooterPost, Detalle, DetailPost} from "../../Home/HomeStyles/HomePublicationCard";
 import {AiOutlineShareAlt} from 'react-icons/ai';
 import {AiFillHeart} from 'react-icons/ai';
 import {FaCommentAlt} from 'react-icons/fa'
 import ReactPlayer from "react-player";
-import { Player } from "../HomeStyles/PublicationSet";
+import { Player } from "../../Home/HomeStyles/PublicationSet";
 import {GrTechnology} from 'react-icons/gr';
 import {FaLaptopCode} from 'react-icons/fa';
 import {IoLocationSharp} from 'react-icons/all';
 
 
-export default function CardPublicationWorkTest({image, name, date,title,summary, video, technologies,backFront,ubication,workModality, english,userName}){
+export default function CardPublicationWorkTest2({image, name, date,title,summary, video, technologies,backFront,ubication,workModality, english,userName}){
 
 
     return(

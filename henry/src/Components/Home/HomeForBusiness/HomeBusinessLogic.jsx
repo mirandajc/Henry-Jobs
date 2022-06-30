@@ -13,8 +13,7 @@ export default function HomeBusinessLogic() {
 
   return (
     <div>
-        <Link to={"/students"}><button>BOTON QUE REDIRECCIONA A STUDENTS WALL</button></Link>
-        {console.log(allPublications)}
+      
       {allPublications.map((e) => {
         return(
         <div>
