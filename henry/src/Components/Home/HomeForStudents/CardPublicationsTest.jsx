@@ -1,5 +1,5 @@
 import React from "react";
-import {Video ,ComponentCardStudents , DatosProyect, ButtonTecnologies, ButtonLight, ComponentDatos , Date} from './HomeStyled';
+import {Video ,ComponentCard , DatosProyect, ButtonTecnologies, ButtonLight, ComponentDatos , Date} from './HomeStyled';
 import ReactPlayer from "react-player";
 import ubicacion from "../../images/ubicacion.png"
 
@@ -7,7 +7,7 @@ export default function CardPublicationWorkTest({ image, name, date, title, summ
 // viene publicacion de empresas y alumnos mix
 
     return (
-        <ComponentCardStudents>
+        <ComponentCard>
             <ComponentDatos>
             <div className="Imagen-And-Name">
             <img src={image} alt={`${name} Image`} />
@@ -54,6 +54,6 @@ export default function CardPublicationWorkTest({ image, name, date, title, summ
                         <p>{date}</p>
                         </Date>
             </Video>
-        </ComponentCardStudents>
+        </ComponentCard>
     )
 }

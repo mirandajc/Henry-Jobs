@@ -22,7 +22,7 @@ flex-direction: column;
 }
 `
 
-export const ComponentCardStudents= styled.div`
+export const ComponentCard= styled.div`
 border-top: 1px solid yellow;
 display: flex;
 background-color: #1A1B1E;
