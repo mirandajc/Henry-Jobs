@@ -10,7 +10,7 @@ import { setLogout } from "../../../reducer/actions/actionPost";
 export default function LoginApi() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const logout= useSelector((state)=> state.fetchPostReducer.log);
+    const logout= useSelector((state)=> state.fetchPostReducer.response);
     
 
 
@@ -19,11 +19,21 @@ export default function LoginApi() {
     }
     
     const Logout=()=>{
-        dispatch(setLogout(false))
-        localStorage.removeItem('TK');
+       
+        dispatch(setLogout())
+        localStorage.removeItem('TK')
+        localStorage.clear()
         navigate('/')
 
     }
+
+
+    // const tal= localStorage.getItem('TK') TRAE UN ITEM DEL STORAGE
+    // const SetearItem=localStorage.setItem(tal,'tal') SETEA UN ITEM DEL STORAGE
+    // localStorage.clear() LIMPIA TODO EL STORAGE
+    // localStorage.removeItem('nombre de item') REMUEVE UN ITEM ESPECIFICO DEL STORAGE
+    // const token= JSON.parse(tal) PARSEO EL ITEM A FORMA DE OBJETO
+
 
     useEffect(()=>{
         console.log(logout)
@@ -33,13 +43,16 @@ export default function LoginApi() {
     return (
         <ContainerProfile>
                 <LoginCont>
-                    {
-                        logout === true?
-                        <button onClick={()=>Logout()}>Logout</button>
-                        :
-                        <button onClick={() => register()}>Login</button>
+                    
+    {
+        logout?
+        <button onClick={()=>Logout()}>Logout</button>
+        :
+        <button onClick={() => register()}>Login</button>
+    }
                         
-                    }
+                        
+                    
                 </LoginCont>
         </ContainerProfile>
     )

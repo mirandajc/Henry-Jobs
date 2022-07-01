@@ -1,5 +1,5 @@
 import {
-    POST_USER, POST_USER_SUCCESS,SET_LOGOUT
+    POST_USER, POST_USER_SUCCESS,SET_LOGOUT,
 
 } from "../../constants/constants";
 
@@ -34,7 +34,7 @@ const fetchPostReducer = (state = initialState, action) => {
             case SET_LOGOUT:
                 return{
                     ...state,
-                    log: action.payload
+                    response: undefined
 
                 }
         default: 

@@ -22,12 +22,14 @@ export function getInfoUserSuccess (payload, value) {
 }
 
 
-export function setLogout(value){
+export function setLogout(){
     return{
         type: SET_LOGOUT,
-        payload: value
+        
     }
 }
+
+
 
 export function postUser(user){
     console.log(user)
