@@ -4,7 +4,7 @@ import { getPublicationEnglish, getPublicationsBusiness, getPublicationsDevType,
 import NavWall from "./navBarWall";
 import {idiomas, allCountries, DevType, technologies, workModal} from "../StudentsWall/select"
 import CardPublicationWorkTest2 from "./CardPublicationsTest";
-import {Componente, DivFiltros} from "./WorkWall.js"
+import {Componente, DivFiltros} from "./WorkWallStyles.js"
 
 //Este componente va a renderizar las publicaciones de empresas y reclutadores
 
