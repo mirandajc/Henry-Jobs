@@ -1,11 +1,12 @@
 import {
-    POST_USER, POST_USER_SUCCESS,
+    POST_USER, POST_USER_SUCCESS,SET_LOGOUT
 
 } from "../../constants/constants";
 
 const initialState = {
     userResponse:[],
-    response:[]
+    response:[],
+    log:false,
 
 };
 
@@ -24,9 +25,17 @@ const fetchPostReducer = (state = initialState, action) => {
 
                 }
             case POST_USER_SUCCESS:
+               
                 return{
                     ...state,
+                    
                     response: action.payload
+                }
+            case SET_LOGOUT:
+                return{
+                    ...state,
+                    log: action.payload
+
                 }
         default: 
         return {

@@ -9,7 +9,8 @@ import {
     URL_PEDIDO_USER,
     POST_USER,
     POST_USER_SUCCESS,
-    URL_POST
+    URL_POST,
+    SET_LOGOUT
 } from '../../constants/constants';
 
 let userInfo = {
@@ -19,7 +20,7 @@ let userInfo = {
 };
 
 
-//import actions 
+//axios.defaults.headers.post['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`;
 
 function* asyncInfoUser (value) {
     console.log(value);
@@ -32,10 +33,13 @@ function* asyncInfoUser (value) {
     }
 };
 
-function* asyncPostUser(user){
+function* asyncPostUser (user){
+    console.log(user)
     try{
-        const response = yield call(()=>axios.post(URL_POST, user));
-
+        const response = yield call(()=>(axios.post(URL_POST, user.payload)));
+        // const codedTK= response.data;
+        // localStorage.setItem('codedTK',JSON.stringify(codedTK));
+        
         yield put(postUserSuccess(response.data))
     }catch(error){
         console.log(error)
@@ -44,8 +48,11 @@ function* asyncPostUser(user){
 }
 
 
+
+
+
 export function* watchFetchPostSaga(){
     yield takeEvery(GET_INFO_USER, asyncInfoUser)
     yield takeEvery(POST_USER, asyncPostUser)
-
+   
 }

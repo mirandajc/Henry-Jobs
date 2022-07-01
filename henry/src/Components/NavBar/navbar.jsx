@@ -1,7 +1,5 @@
 import React from "react";
 import Logo from "./Logo/logo";
-import ButtonAbout from "./buttons/buttonAbout";
-import LoginApi from "./buttons/LoginApi";
 import { NavbarS, NavButton } from "./NavStyles/navbar";
 import { useSelector } from "react-redux";
 import BusinessNavBar from "./NavBarCondicional/NavBarBusiness";
