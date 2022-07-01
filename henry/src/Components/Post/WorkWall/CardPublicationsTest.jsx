@@ -1,94 +1,45 @@
 import React from "react";
-import { PublicationCard, PictureCont, Cavecera, NamePic, InnerPost, FooterPost, Detalle, DetailPost} from "../../Home/HomeStyles/HomePublicationCard";
-import {AiOutlineShareAlt} from 'react-icons/ai';
-import {AiFillHeart} from 'react-icons/ai';
-import {FaCommentAlt} from 'react-icons/fa'
-import ReactPlayer from "react-player";
-import { Player } from "../../Home/HomeStyles/PublicationSet";
-import {GrTechnology} from 'react-icons/gr';
-import {FaLaptopCode} from 'react-icons/fa';
-import {IoLocationSharp} from 'react-icons/all';
 
 
-export default function CardPublicationWorkTest2({image, name, date,title,summary, video, technologies,backFront,ubication,workModality, english,userName}){
+export default function CardPublicationWorkTest2({ image, name, date, title, summary, video, technologies, backFront, ubication, workModality, english, userName }) {
 
 
-    return(
-        <PublicationCard>
-           
-            <Cavecera>
-                <NamePic>
-                <PictureCont>
-                <img src={image} alt={`${name} Image`}/>
-                </PictureCont>
-                <div>
-                    <h3>{name}</h3>
-                </div>
-                </NamePic>
-                <p>{date}</p>
-            </Cavecera>
-            
-            
-           
-            <InnerPost>
-                <p>{title}</p>
+    return (
+        <div>
+            <img src={image} alt={`${name} Image`} />
 
+            <div>
+                <h3>{name}</h3>
+            </div>
 
-              { 
-              technologies && backFront?  <DetailPost>
-                    <div>
-                <p>{technologies.map(el=>el + ' ')}</p>
-               
-                    </div>
-                    <div>
+            <p>{date}</p>
+
+            <p>{title}</p>
+
+            <div>
+                {
+                    technologies.map(e => <div>{e}</div>)
+                }
+            </div>
+
+            <div>
                 <p>{backFront}</p>
-                </div>
-                <div>
+            </div>
+
+            <div>
                 <p>{ubication}</p>
-                <IoLocationSharp/>
+            </div>
 
-                </div>
-                <div>
-                <p>Modalidad: {workModality}</p>
-                <p>ingles: {english}</p>
-                </div>
-                </DetailPost>
-                : ' '
-}
+            <div>
+                <p>{workModality}</p>
+            </div>
 
-                <p>{summary}</p>
-               {
-                video? (  <Player>
-                    <ReactPlayer
-                      url={video}
-                      className='video'
-                      playing={false}
-                        width='100%'
-                        height='100%'
-                      volume={null}
-                      />
-                </Player>)
-                : ''
-                    }
-              
-            </InnerPost>
+            <div>
+                <p>{english}</p>
+            </div>
 
-
-            <FooterPost>
-              {/*   <div>
-                <AiFillHeart className="heart"/>
-                <p>{likes}</p>
-                </div> */}
-
-                <span>
-                <FaCommentAlt className="comenta"/>
-                <p className="comentar">Comentar</p>
-                </span>
-                {/* <div>
-                <AiOutlineShareAlt className="share"/>
-               
-                </div> */}
-            </FooterPost>
-        </PublicationCard>
+            <p>{summary}</p>
+            <p>{video}</p>
+        </div>
     )
 }
