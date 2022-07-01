@@ -105,7 +105,7 @@ const fetchBusinessReducer = (state = initialState, action) => {
             alumnosFiltrados = alumnosFiltrados.filter(e => e.workModality === state.filtros.workModal);
         }
         if(state.filtros.stars !== ""){
-            if(state.filtros.stars === "Ascendente"){
+            if(state.filtros.stars === "ASCENDENTE"){
                 alumnosFiltrados = alumnosFiltrados.sort((a,b) => {
                     if(a.stars < b.stars) return -1;
                     if(b.stars < a.stars) return 1;
@@ -113,7 +113,7 @@ const fetchBusinessReducer = (state = initialState, action) => {
                 })
                 b = '1'
             }
-            else{
+            if(state.filtros.stars === "DESCENDENTE"){
                 alumnosFiltrados = alumnosFiltrados.sort((a,b) => {
                     if(a.stars < b.stars) return -1;
                     if(b.stars < a.stars) return 1;

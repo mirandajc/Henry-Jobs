@@ -19,7 +19,7 @@ export default function WorkWall(){
     }, [])
 
     const techSelection = (e) => {
-        if(e.target.value === "Tecnologías"){
+        if(e.target.value === "TECNOLOGIAS"){
             dispatch(getPublicationsTechnologies(""))
             dispatch(ShowFilter())
         }
@@ -30,7 +30,7 @@ export default function WorkWall(){
     }
 
     const englishSelection = (e) => {
-        if(e.target.value === "Nivel de Inglés"){
+        if(e.target.value === "NIVEL DE INGLES"){
             dispatch(getPublicationEnglish(""))
             dispatch(ShowFilter())
         }
@@ -41,7 +41,7 @@ export default function WorkWall(){
     }
 
     const workModalSelection = (e) => {
-        if(e.target.value === "Modalidad"){
+        if(e.target.value === "MODALIDAD"){
             dispatch(getWorkModality(""))
             dispatch(ShowFilter())
         }
@@ -52,7 +52,7 @@ export default function WorkWall(){
     }
 
     const countrySelection = (e) => {
-        if(e.target.value === "País"){
+        if(e.target.value === "PAIS"){
             dispatch(getPublicationUbication(""))
             dispatch(ShowFilter())
         }
@@ -63,7 +63,7 @@ export default function WorkWall(){
     }
 
     const devTypeSelection = (e) => {
-        if(e.target.value === "Desarrollador"){
+        if(e.target.value === "DESARROLLO"){
             dispatch(getPublicationsDevType(""))
             dispatch(ShowFilter())
         }
