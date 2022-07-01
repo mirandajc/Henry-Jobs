@@ -11,7 +11,7 @@ export default function RegisterCard(){
                 <button>x</button>
                 </Link>
             </div>
-            <h1>Registrate!</h1>
+            <h1>Registrate! 🚀</h1>
             <div>
                 <input placeholder="Nombre de usuario"/>
             </div>
@@ -25,7 +25,7 @@ export default function RegisterCard(){
                 <input placeholder="Mail"/>
             </div>
             <div>
-                <input placeholder="Contraseña"/>
+                <input placeholder="Contraseña" type='password'/>
             </div>
 
             <div>

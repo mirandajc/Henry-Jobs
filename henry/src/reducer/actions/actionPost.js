@@ -22,6 +22,7 @@ export function getInfoUserSuccess (payload, value) {
 
 
 export function postUser(user){
+    console.log(user)
     return{
         type: POST_USER,
         payload: user

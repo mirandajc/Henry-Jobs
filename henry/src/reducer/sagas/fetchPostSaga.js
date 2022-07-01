@@ -19,7 +19,7 @@ let userInfo = [{
 }];
 
 
-//import actions 
+//axios.defaults.headers.post['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`;
 
 function* asyncInfoUser (value) {
     console.log(value);
@@ -31,10 +31,12 @@ function* asyncInfoUser (value) {
     }
 };
 
-function* asyncPostUser(user){
+function* asyncPostUser (user){
+    
     try{
-        const response = yield call(()=>axios.post(URL_POST, user));
+        const response = yield call(()=>(axios.post(URL_POST, user.payload)));
 
+        
         yield put(postUserSuccess(response.data))
     }catch(error){
         console.log(error)

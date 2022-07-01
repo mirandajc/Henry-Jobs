@@ -1,37 +1,62 @@
 import React,{useState,useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
-import { LoginnCont } from "../LoginStyles/logstyle";
-import { storage } from "../../../LocalStorage/localStorage";
+import {useNavigate} from 'react-router-dom';
 import { postUser } from "../../../reducer/actions/actionPost";
 import { HENRY_LOGO } from "../../../constants/constants";
 import { ConteinLogin } from "../LoginStyles/logstyle";
 import {FcGoogle} from 'react-icons/fc'
 import {VscGithubInverted} from 'react-icons/all';
-
-
+import { useJwt } from "react-jwt";
 
 export default function LoginPage(){
+    const navigate= useNavigate();
     const dispatch= useDispatch('');
     const res= useSelector((state)=> state.fetchPostReducer.response);
-    const [login, setLogin]= useState('');
+    
+    const [email, setEmail]= useState('');
     const [password, setPassword]= useState('');
-    const userStorage= storage;
-    console.log(userStorage)
+    const [savedData,setSavedData]= useState(false);
+    const [logged,setLogged]= useState(false);
+    
+    
+    const {decodedToken, isExpided}= useJwt(res);
+    
+    const TK= decodedToken;
+    localStorage.setItem('TK', JSON.stringify(TK));
+    const token= localStorage.getItem('TK');
+    const usedTk= JSON.parse(token);
+    console.log(usedTk);
+    
 
     const user={
-        login,
+        email,
         password
     }
-    console.log(user)
+    
 
-    function handlerLogin(){
-        dispatch(postUser(user))
-    }
 
     useEffect(()=>{
-        storage.push(res)
+       
+       
     },[])
+    
+    function handlerLogin(){
+        user.email= email;
+        user.password= password;
+        
+        dispatch(postUser(user));
+
+
+         if(usedTk){
+            navigate('/home')
+        }else{
+            console.log('es un string maestro')
+        }
+    }
+    
+
+   
 
 
     return(
@@ -47,10 +72,10 @@ export default function LoginPage(){
                  </div>
             <div className="inputs">
                 <div>
-                     <input placeholder="usuario" value={login} onInput={(e)=>setLogin(e.target.value)}/>
+                     <input placeholder="Usuario" value={email} onInput={(e)=>setEmail(e.target.value)}/>
             </div>
                 <div>
-                      <input placeholder="contraseña" value={password} onInput={(e)=>setPassword(e.target.value)}/>
+                      <input type='password' placeholder="Contraseña" value={password} onInput={(e)=>setPassword(e.target.value)}/>
                 </div>
 
                 <div className="BTN">
@@ -62,7 +87,7 @@ export default function LoginPage(){
 
 
                 <div className="second">
-                    <p>Or singin with</p>
+                    <p>Or signIn with</p>
                   
                 </div>
                 <div className="other">

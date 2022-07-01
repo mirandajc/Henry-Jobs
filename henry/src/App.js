@@ -35,7 +35,7 @@ function App() {
       <Route path='/login' element={<LoginCard/>}/>//ususario logeado no!
       <Route path='/register' element={<RegisterPage/>}/>//ususario logeado no!
       <Route path='/home' element={<Home/>}/> // no tendria que verlo alguien no logeado
-      <Route path='/register' element={<UserForm/>}/> // solo los nuevos usuarios 
+      <Route path='/registerform' element={<UserForm/>}/> // solo los nuevos usuarios 
       <Route path='/register/alumno' element={<RegisterAlumn />} />// solo los nuevos usuarios 
       <Route path='/register/business' element={<RegisterBusiness />} />// solo los nuevos usuarios 
       <Route path='/register/recruiter' element={<RegisterRecruiter />} />// solo los nuevos usuarios 
@@ -49,6 +49,7 @@ function App() {
       <Route path="/ads" element={<Ads/>}/>
       <Route path="/booms" element={<Booms/>}/>
       <Route path='/workwall' element={<WorkWall/>}/> //todos los registrados
+    
     </Routes>
     </div>
   );
