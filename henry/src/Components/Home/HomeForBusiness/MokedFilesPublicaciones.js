@@ -50,7 +50,8 @@ export const Alumnos = [{ // NO BORRAR
     languages: "B1",
     otherStudies: ["el super albañil"],
     workModality: "Remoto",
-    stars: 1
+    stars: 1,
+    profileImage:{secure_url:"https://ceslava.s3-accelerate.amazonaws.com/2016/04/mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png"}
   },
   {
     _id: "62bc9dff5c41483e313e899a",
@@ -71,7 +72,8 @@ export const Alumnos = [{ // NO BORRAR
     curriculumCounter: 8,
     otherStudies: ["panadero"],
     workModality: "Presencial",
-    stars: 2
+    stars: 2,
+    profileImage:{secure_url:"https://ceslava.s3-accelerate.amazonaws.com/2016/04/mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png"}
   },
   {
     _id: "62bc9dff5c41483e313e899a",
@@ -92,7 +94,8 @@ export const Alumnos = [{ // NO BORRAR
     curriculumCounter: 15,
     otherStudies: ["panadero"],
     workModality: "Presencial",
-    stars: 3
+    stars: 3,
+    profileImage:{secure_url:"https://ceslava.s3-accelerate.amazonaws.com/2016/04/mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png"}
   },
   {
     _id: "62bc9dff5c41483e313e899a",
@@ -112,7 +115,8 @@ export const Alumnos = [{ // NO BORRAR
     curriculumCounter: 10,
     otherStudies: ["panadero"],
     workModality: "Presencial",
-    stars: 2
+    stars: 2,
+    profileImage:{secure_url:"https://ceslava.s3-accelerate.amazonaws.com/2016/04/mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png"}
   },
   {
     _id: "62bc9dff5c41483e313e899a",
@@ -132,7 +136,8 @@ export const Alumnos = [{ // NO BORRAR
     curriculumCounter: 12,
     otherStudies: ["panadero"],
     workModality: "Presencial",
-    stars: 3
+    stars: 3,
+    profileImage:{secure_url:"https://ceslava.s3-accelerate.amazonaws.com/2016/04/mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png"}
   },
 ]
 
