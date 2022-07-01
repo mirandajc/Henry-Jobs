@@ -5,19 +5,10 @@ import {
   Cavecera,
   NamePic,
   InnerPost,
-  FooterPost,
-  Detalle,
   DetailPost,
   ContenedorCard,
-  BotonTecnologias,
   ButonGrey
 } from "../../Home/HomeStyles/HomePublicationCard";
-import { AiOutlineShareAlt } from "react-icons/ai";
-import { AiFillHeart } from "react-icons/ai";
-import { FaCommentAlt } from "react-icons/fa";
-import { GrTechnology } from "react-icons/gr";
-import { FaLaptopCode } from "react-icons/fa";
-import { IoLocationSharp } from "react-icons/all";
 import { Link } from "react-router-dom";
 import Star from '../../images/Star.png';
 import Ubicacion from "../../images/ubicacion.png";
