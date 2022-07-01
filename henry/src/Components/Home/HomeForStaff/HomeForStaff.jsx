@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from "react";
-import { useDispatch, useSelector } from "react-redux";
 import StaffStudentsBusiness from "./StaffStudentsBusiness";
 import StaffPublications from "./StaffPublications";
 import { getInfoForStaff, ordenarAlumnos, getStudentDetail, staffShowOrder } from "../../../reducer/actions/actionStaff";
-
+import { useDispatch, useSelector } from "react-redux";
 
 export default function HomeForStaff(){
-
+  
     const dispatch = useDispatch();
     
     //////////////////////////// estados de alumnos y empresas, y sus publicaciones respectivamente
@@ -21,10 +20,6 @@ export default function HomeForStaff(){
     useEffect(() => {
         dispatch(getInfoForStaff());
     }, []);
-
-    useEffect(() => {
-        console.log("front", alumnos)
-    }, [alumnos])
 
     //////////////////////////// Seleccion de botones /////////////////////////////////////
     
@@ -47,7 +42,6 @@ export default function HomeForStaff(){
     ////////////////////////////// Ordenamientos de alumnos //////////////////////////////////
 
     const handleSelect = (e) => {
-        console.log(e.target.value);
         if(e.target.value === "Orden"){
             dispatch(ordenarAlumnos(""));
             dispatch(staffShowOrder());
@@ -84,7 +78,7 @@ export default function HomeForStaff(){
 
             {
                 renderizar === "Alumnos" ? 
-                alumnos.map(e => <StaffStudentsBusiness name={e.name} profileImage={e.profileImage.secure_url} lastname={e.lastName} userName={e.userName} email={e.email} country={e.country} city={e.city} stars={e.stars} curriculumCounter={e.curriculumCounter}/>) :
+                alumnos.renderizar.map(e => <StaffStudentsBusiness name={e.name} profileImage={e.profileImage.secure_url} lastname={e.lastName} userName={e.userName} email={e.email} country={e.country} city={e.city} stars={e.stars} curriculumCounter={e.curriculumCounter}/>) :
                 renderizar === "Empresas" ? empresas.map(e => <StaffStudentsBusiness name={e.name} profileImage={e.profileImage.secure_url} userName={e.userName} email={e.email} country={e.country} city={e.city} />) :
                 renderizar === "AlumnosPub" ? <StaffPublications /> :
                 renderizar === "EmpresasPub" ? <StaffPublications /> :

@@ -6,7 +6,7 @@ const initialState = {
     staffAllBusiness:[],
     staffAllStudentsPublications:[],
     staffAllBusinessPublications:[],
-    staffStudentDetail:[],
+    staffStudentDetail:{renderizar:[], filtro:''},
     staffStudentBusinessProfile:{},
     staffStudentOrder:{
         busqueda:"",
@@ -33,7 +33,7 @@ const fetchStaffReducer = (state = initialState, action) => {
                 staffAllBusiness: BusinessUser,
                 staffAllStudentsPublications: StudentPub,
                 staffAllBusinessPublications: BusinessPub,
-                staffStudentDetail: StudentUser
+                staffStudentDetail: {...state, renderizar: StudentUser }
             };
 
         case STAFF_ORDER_STUDENTS: 
@@ -51,7 +51,7 @@ const fetchStaffReducer = (state = initialState, action) => {
 
         case STAFF_SHOW_ORDER:
             let Todos = state.staffAllStudents;
-            
+            let e = '';
             if(state.staffStudentOrder.orden !== ""){
                 if(state.staffStudentOrder.orden === "CV enviado ascendente"){
                     Todos = Todos.sort((a,b) => {
@@ -59,6 +59,7 @@ const fetchStaffReducer = (state = initialState, action) => {
                         if(b.curriculumCounter < a.curriculumCounter) return 1;
                         return 0;
                     })
+                    e = 'as'
                 }
                 else if(state.staffStudentOrder.orden === "CV enviado descendente"){
                     Todos = Todos.sort((a,b) => {
@@ -66,6 +67,7 @@ const fetchStaffReducer = (state = initialState, action) => {
                         if(b.curriculumCounter < a.curriculumCounter) return 1;
                         return 0;
                     })
+                    e = 'des'
                     Todos = Todos.reverse();
 
                 }
@@ -75,6 +77,7 @@ const fetchStaffReducer = (state = initialState, action) => {
                         if(b.stars < a.stars) return 1;
                         return 0;
                     })
+                    e = 'stas'
                 }
                 else if(state.staffStudentOrder.orden === "Stars descendente"){
                     Todos = Todos.sort((a,b) => {
@@ -82,7 +85,7 @@ const fetchStaffReducer = (state = initialState, action) => {
                         if(b.stars < a.stars) return 1;
                         return 0;
                     })
-                    
+                    e = 'destas'
                     Todos = Todos.reverse();
                 }
             }
@@ -100,10 +103,9 @@ const fetchStaffReducer = (state = initialState, action) => {
                 }
             });
             }
-            
             return{
                 ...state,
-                staffStudentDetail: Todos
+                staffStudentDetail:{...state, filtro: e, renderizar: Todos }
             };
         
             default:

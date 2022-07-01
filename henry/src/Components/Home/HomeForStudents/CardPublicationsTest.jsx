@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-export default function CardPublicationWorkTest({ image, name, date, title, summary, video, technologies, backFront, ubication, workModality, english, userName }) {
+export default function CardPublicationWorkTest({ image,lastName, name, date, title, summary, video, technologies, backFront, ubication, workModality, english, userName }) {
 
 
     return (
@@ -11,6 +11,9 @@ export default function CardPublicationWorkTest({ image, name, date, title, summ
 
             <div>
                 <h3>{name}</h3>
+            </div>
+            <div>
+                <h3>{lastName}</h3>
             </div>
 
             <p>{date}</p>

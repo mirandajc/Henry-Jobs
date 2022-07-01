@@ -75,20 +75,17 @@ const fetchStudentsReducer = (state = initialState, action) => {
             if(state.filtrosos.technologies !== ""){
                 publicacionesFiltradas = publicacionesFiltradas.filter(e => e.technologies.includes(state.filtrosos.technologies))
             }
-            else if(state.filtrosos.devType !== ""){
+            if(state.filtrosos.devType !== ""){
                 publicacionesFiltradas = publicacionesFiltradas.filter(e => e.backFront === state.filtrosos.devType)
             }
-            else if(state.filtrosos.english !== ""){
+            if(state.filtrosos.english !== ""){
                 publicacionesFiltradas = publicacionesFiltradas.filter(e => e.languages === state.filtrosos.english)
             }
-            else if(state.filtrosos.workModality !== ""){
+            if(state.filtrosos.workModality !== ""){
                 publicacionesFiltradas = publicacionesFiltradas.filter(e => e.workModality === state.filtrosos.workModality)
             }
-            else if(state.filtrosos.ubication !== ""){
+            if(state.filtrosos.ubication !== ""){
                 publicacionesFiltradas = publicacionesFiltradas.filter(e => e.country === state.filtrosos.ubication)
-            }
-            else{
-
             }
             return{
             ...state,
