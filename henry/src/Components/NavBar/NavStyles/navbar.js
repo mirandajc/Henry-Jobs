@@ -5,7 +5,7 @@ export const NavbarS= styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
-background-color: none;
+background-color: black;
 color: white;
 width:100%;
 

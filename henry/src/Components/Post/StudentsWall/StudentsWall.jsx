@@ -4,6 +4,7 @@ import { getAllStudents, setOrderStars, getPublicatWorkModal, getPublicatDevType
 import CardWallStudents from "./CardWallStudents";
 import { technologies, idiomas, DevType, workModal, allCountries } from "./select";
 import {BodyStudentsWallCard} from "../../Home/HomeStyles/HomePublicationCard.js"
+import {DivFiltros } from "../WorkWall/WorkWall.js";
 
 export default function StudentsWall () {
     const estudiantes = useSelector(state => state.fetchBusinessReducer.studentsFiltered);
@@ -83,17 +84,17 @@ export default function StudentsWall () {
 
     return(
         <BodyStudentsWallCard>
-            <button onClick={()=> window.location.reload()}>Borrar Filtros</button> {/* Luciano recomienda un reload, luciano es un gato */}
+            <DivFiltros>
 
             <select onChange={(e) => selectTech(e)}>
-                <option>Tecnologías</option> {/* si cambias lo que hay dentro de options,
+                <option>TECNOLOGIAS</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}
             {technologies.map(e => {
                 return <option>{e}</option>
             })}</select>
 
             <select onChange={(e) => selectDevType(e)}>
-                <option>Desarrollador</option> {/* si cambias lo que hay dentro de options,
+                <option>DESARROLLADOR</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}
             {DevType.map(e => {
                 return <option>{e}</option>
@@ -101,7 +102,7 @@ export default function StudentsWall () {
             </select> 
 
             <select onChange={(e) => selectEnglish(e)}>
-                <option>Nivel de Inglés</option> {/* si cambias lo que hay dentro de options,
+                <option>NIVEL DE INGLES</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}
             {idiomas.map(e => {
                 return <option>{e}</option>
@@ -109,7 +110,7 @@ export default function StudentsWall () {
             </select>
 
             <select onChange={(e) => selectModal(e)}>
-                <option>Modalidad</option> {/* si cambias lo que hay dentro de options,
+                <option>MODALIDAD</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}
             {workModal.map(e => {
                 return <option>{e}</option>
@@ -117,7 +118,7 @@ export default function StudentsWall () {
             </select> 
 
             <select onChange={(e) => selectPais(e)}>
-                <option>País</option> {/* si cambias lo que hay dentro de options,
+                <option>PAIS</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}
             {allCountries.map(e => {
                 return <option>{e}</option>
@@ -125,16 +126,16 @@ export default function StudentsWall () {
             </select> 
 
             <select onChange={(e) => selectStars(e)}>
-                <option>Stars</option> {/* si cambias lo que hay dentro de options, cambialo en la funcion tambien, dentro del if */}
-                <option>Ascendente</option>
-                <option>Descendente</option>
+                <option>STARS</option> {/* si cambias lo que hay dentro de options, cambialo en la funcion tambien, dentro del if */}
+                <option>ASCENDENTE</option>
+                <option>DESCENDENTE</option>
             </select> 
-
-
+            <button onClick={()=> window.location.reload()}>BORRAR</button> {/* Luciano recomienda un reload, luciano es un gato */}
+            </DivFiltros>
 
             {estudiantes.map(e => {
                 return(
-                    <div>
+                    
                         <CardWallStudents  // REEMPLAZAR POR UNA TARJETA DE ALUMNOS
                         name={e.name}
                         lastname={e.lastName}
@@ -151,7 +152,7 @@ export default function StudentsWall () {
                         userName={e.userName}
                         // profileImage={e.profileImage.secure_url}
                         />
-                    </div>
+                    
                 )
             })}
             

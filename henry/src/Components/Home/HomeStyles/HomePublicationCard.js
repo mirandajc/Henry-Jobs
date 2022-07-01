@@ -2,8 +2,12 @@ import styled from 'styled-components';
 
 export const BodyStudentsWallCard= styled.div`
 width: 100%;
-height: 100vh;
 
+display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    align-content: center;
 ` 
 export const BotonTecnologias = styled.div`
 border: 2px solid #5D5F66;
