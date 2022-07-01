@@ -34,7 +34,7 @@ export const mokedFilesPostBusiness = [ // NO BORRAR
 
 export const Alumnos = [{ // NO BORRAR
     _id: "62bc9dff5c41483e313e899a",
-    name: "luchito",
+    name: "Luchito",
     lastName: "groso",
     userName: "lala",
     email: "email@gmail.com",
@@ -50,7 +50,7 @@ export const Alumnos = [{ // NO BORRAR
     languages: "B1",
     otherStudies: ["el super albañil"],
     workModality: "Remoto",
-    stars: 2
+    stars: 1
   },
   {
     _id: "62bc9dff5c41483e313e899a",
@@ -65,6 +65,67 @@ export const Alumnos = [{ // NO BORRAR
       "Redux"
     ],
     country: "Chile",
+    city:"Santiago",
+    backFront: "Frontend",
+    languages: "C2",
+    curriculumCounter: 8,
+    otherStudies: ["panadero"],
+    workModality: "Presencial",
+    stars: 2
+  },
+  {
+    _id: "62bc9dff5c41483e313e899a",
+    name: "Roberto",
+    lastName: "Dominguez",
+    userName: "lala2222",
+    email: "email21212@gmail.com",
+    password: "12345678910",
+    userTypes: 1,
+    technologies: [
+      "Javascript",
+      "Redux"
+    ],
+    country: "Chile",
+    city:"Santiago",
+    backFront: "Frontend",
+    languages: "C2",
+    curriculumCounter: 15,
+    otherStudies: ["panadero"],
+    workModality: "Presencial",
+    stars: 3
+  },
+  {
+    _id: "62bc9dff5c41483e313e899a",
+    name: "Mercado Libre",
+    userName: "ML",
+    email: "email122@gmail.com",
+    password: "12345678910",
+    userTypes: 5,
+    technologies: [
+      "Javascript",
+      "Redux"
+    ],
+    country: "Argentina",
+    city:"Bs As",
+    backFront: "Frontend",
+    languages: "C2",
+    curriculumCounter: 10,
+    otherStudies: ["panadero"],
+    workModality: "Presencial",
+    stars: 2
+  },
+  {
+    _id: "62bc9dff5c41483e313e899a",
+    name: "Amazon",
+    userName: "Amazon",
+    email: "emai123l2@gmail.com",
+    password: "12345678910",
+    userTypes: 4,
+    technologies: [
+      "Javascript",
+      "Redux"
+    ],
+    country: "United States",
     city:"Bs As",
     backFront: "Frontend",
     languages: "C2",
@@ -72,7 +133,7 @@ export const Alumnos = [{ // NO BORRAR
     otherStudies: ["panadero"],
     workModality: "Presencial",
     stars: 3
-  }
+  },
 ]
 
 // banner={e.banner.secure_url}
