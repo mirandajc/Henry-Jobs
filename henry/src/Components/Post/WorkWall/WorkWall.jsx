@@ -111,7 +111,6 @@ export default function WorkWall(){
             })}
             </select> 
 
-            {console.log("COMPONENTE", business)}
 
             {/* <NavWall/> */} 
             {                  /*  ACTUALIZAR/MODIFICAR LA TARJETA QUE MUESTRA LAS PUBLICACIONES DE EMPRESAS

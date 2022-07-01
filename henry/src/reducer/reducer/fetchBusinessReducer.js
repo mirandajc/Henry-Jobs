@@ -10,7 +10,7 @@ const initialState = {
   allPublications: [],
   allPublications2: mokedFilesPostBusiness,
   userFollows: [1,4,2,5,6,7,3,12,11,10,9],
-  studentsFiltered: [],
+  studentsFiltered: { render:[], filt: '' },
   publicatShow: [],
   allStudents: [],
   filtros: {
@@ -45,7 +45,7 @@ const fetchBusinessReducer = (state = initialState, action) => {
         return {
             ...state,
             allStudents: responseAlumnos,
-            studentsFiltered: responseAlumnos
+            studentsFiltered: {...state, render: responseAlumnos}
         };
 
     ////////////////////////////////////////////////////////////////////////// CASOS DE FILTRADO //////
@@ -88,29 +88,30 @@ const fetchBusinessReducer = (state = initialState, action) => {
         
     case SHOW_FILTER: //////////////////// falta agregar modalidad de trabajo y ordenamiento por estrellas
         let alumnosFiltrados = state.allStudents;
+        let b = ''
         if(state.filtros.technologies !== ""){
             alumnosFiltrados = alumnosFiltrados.filter(e => e.technologies.includes(state.filtros.technologies));
         }
-        else if(state.filtros.devType !== ""){
+        if(state.filtros.devType !== ""){
             alumnosFiltrados = alumnosFiltrados.filter(e => e.backFront === state.filtros.devType);
         }
-        else if(state.filtros.english !== ""){
+        if(state.filtros.english !== ""){
             alumnosFiltrados = alumnosFiltrados.filter(e => e.languages === state.filtros.english);
         }
-        else if(state.filtros.ubication !== ""){
+        if(state.filtros.ubication !== ""){
             alumnosFiltrados = alumnosFiltrados.filter(e => e.country === state.filtros.ubication);
         }
-        else if(state.filtros.workModal !== ""){
+        if(state.filtros.workModal !== ""){
             alumnosFiltrados = alumnosFiltrados.filter(e => e.workModality === state.filtros.workModal);
         }
-        else if(state.filtros.stars !== ""){
+        if(state.filtros.stars !== ""){
             if(state.filtros.stars === "Ascendente"){
                 alumnosFiltrados = alumnosFiltrados.sort((a,b) => {
                     if(a.stars < b.stars) return -1;
                     if(b.stars < a.stars) return 1;
                     return 0;
                 })
-
+                b = '1'
             }
             else{
                 alumnosFiltrados = alumnosFiltrados.sort((a,b) => {
@@ -118,12 +119,13 @@ const fetchBusinessReducer = (state = initialState, action) => {
                     if(b.stars < a.stars) return 1;
                     return 0;
                 })
+                b = '2'
                 alumnosFiltrados = alumnosFiltrados.reverse();
             }
         }
         return{
             ...state,
-            studentsFiltered: alumnosFiltrados
+            studentsFiltered: {...state, render:alumnosFiltrados, filt: b },
         };
             
     default:

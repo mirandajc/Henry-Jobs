@@ -12,7 +12,7 @@ export default function StudentsWall () {
     useEffect(() => {
         dispatch(getAllStudents());
     },[]);
-    
+
     //traer el objeto filtros con use selector y usarlo como dependencia en el effect
     // en cada return enviar "" con el dispatch
     const selectTech = (e) => {
@@ -132,7 +132,7 @@ export default function StudentsWall () {
 
 
 
-            {estudiantes.map(e => {
+            {estudiantes.render.map(e => {
                 return(
                     <div>
                         <CardWallStudents  // REEMPLAZAR POR UNA TARJETA DE ALUMNOS

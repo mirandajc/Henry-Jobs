@@ -22,6 +22,7 @@ export default function HomeStudentsLogic() {
             {
                 publicaciones.map(e => <CardPublicationWorkTest
                     image={e.posterUser.profileImage} 
+                    lastName={e.posterUser.lastName}
                     name={e.posterUser.name} 
                     date={e.date}  
                     title={e.proyectTittle}  
