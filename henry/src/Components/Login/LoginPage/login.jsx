@@ -15,11 +15,7 @@ export default function LoginPage(){
     const navigate= useNavigate();
     const dispatch= useDispatch('');
     const res= useSelector((state)=> state.fetchPostReducer.response);
-   
-    
-  
-    
-    
+
     const [user, setUser]=useState({
         email: '',
         password: ''
@@ -38,17 +34,20 @@ export default function LoginPage(){
 
  
     useEffect(()=>{
-        if(res){
+       
+        if(TK){
             
              navigate('/home')
         }
+        console.log(res)
+        console.log(TK)
 
         return()=>{} 
     },[TK])
     
      function handlerLogin (){
        if(user.email && user.password){
-         dispatch(setLogout(true))
+        //  dispatch(setLogout(true))
          dispatch(postUser(user));
        }
     }
