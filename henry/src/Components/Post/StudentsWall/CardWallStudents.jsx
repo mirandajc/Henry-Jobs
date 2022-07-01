@@ -18,7 +18,7 @@ export default function CardWallStudents({name,lastname,email,technologies,other
     workModality,ubication,
     city,
     curriculumCounter,
-    profileImage,userName}) {
+    profileImage,userName, stars}) {
 
 
         const isPremium = false; //CAMBIAR
@@ -78,7 +78,7 @@ export default function CardWallStudents({name,lastname,email,technologies,other
               <p>{backFront}</p>
             </ButonGrey>
             <ButonGrey>
-              <p>{curriculumCounter}</p>
+              <p>{stars}</p>
               <img src={Star} alt='start'/>
             </ButonGrey> 
             <ButonGrey>

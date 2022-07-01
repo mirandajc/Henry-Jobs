@@ -17,7 +17,7 @@ export default function StudentsWall () {
     //traer el objeto filtros con use selector y usarlo como dependencia en el effect
     // en cada return enviar "" con el dispatch
     const selectTech = (e) => {
-        if(e.target.value === "Tecnologías"){
+        if(e.target.value === "TECNOLOGIAS"){
             dispatch(getPublicatTechnologies(""));
             dispatch(showFilter())
         }
@@ -28,7 +28,7 @@ export default function StudentsWall () {
     };
 
     const selectDevType = (e) => {
-        if(e.target.value === "Desarrollador"){
+        if(e.target.value === "DESARROLLADOR"){
             dispatch(getPublicatDevType(""));
             dispatch(showFilter())
         }
@@ -39,7 +39,7 @@ export default function StudentsWall () {
     };
 
     const selectEnglish = (e) => {
-        if(e.target.value === "Nivel de Inglés"){
+        if(e.target.value === "NIVEL DE INGLES"){
             dispatch(getPublicatEnglish(""));
             dispatch(showFilter())
         }
@@ -50,7 +50,7 @@ export default function StudentsWall () {
     };
 
     const selectModal = (e) => {
-        if(e.target.value === "Modalidad"){
+        if(e.target.value === "MODALIDAD"){
             dispatch(getPublicatWorkModal(""))
             dispatch(showFilter())
         }
@@ -61,7 +61,7 @@ export default function StudentsWall () {
     };
 
     const selectPais = (e) => {
-        if(e.target.value === "País"){
+        if(e.target.value === "PAIS"){
             dispatch(getPublicatUbication(""));
             dispatch(showFilter())
         }
@@ -72,7 +72,7 @@ export default function StudentsWall () {
     };
 
     const selectStars = (e) => {
-        if(e.target.value === "Stars"){
+        if(e.target.value === "STARS"){
             dispatch(setOrderStars(""));
             dispatch(showFilter())
         }
@@ -150,6 +150,7 @@ export default function StudentsWall () {
                         city={e.city}
                         curriculumCounter= {e.curriculumCounter}
                         userName={e.userName}
+                        stars={e.stars}
                         // profileImage={e.profileImage.secure_url}
                         />
                     
