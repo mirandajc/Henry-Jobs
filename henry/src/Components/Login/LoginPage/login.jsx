@@ -8,18 +8,25 @@ import { ConteinLogin } from "../LoginStyles/logstyle";
 import {FcGoogle} from 'react-icons/fc'
 import {VscGithubInverted} from 'react-icons/all';
 import { useJwt } from "react-jwt";
+import { setLogout } from "../../../reducer/actions/actionPost";
+
 
 export default function LoginPage(){
     const navigate= useNavigate();
     const dispatch= useDispatch('');
     const res= useSelector((state)=> state.fetchPostReducer.response);
+   
     
-    const [email, setEmail]= useState('');
-    const [password, setPassword]= useState('');
-    const [savedData,setSavedData]= useState(false);
-    const [logged,setLogged]= useState(false);
+  
     
     
+    const [user, setUser]=useState({
+        email: '',
+        password: ''
+    })
+
+
+
     const {decodedToken, isExpided}= useJwt(res);
     
     const TK= decodedToken;
@@ -29,30 +36,21 @@ export default function LoginPage(){
     console.log(usedTk);
     
 
-    const user={
-        email,
-        password
-    }
-    
-
-
+ 
     useEffect(()=>{
-       
-       
-    },[])
-    
-    function handlerLogin(){
-        user.email= email;
-        user.password= password;
-        
-        dispatch(postUser(user));
-
-
-         if(usedTk){
-            navigate('/home')
-        }else{
-            console.log('es un string maestro')
+        if(res){
+            
+             navigate('/home')
         }
+
+        return()=>{} 
+    },[TK])
+    
+     function handlerLogin (){
+       if(user.email && user.password){
+         dispatch(setLogout(true))
+         dispatch(postUser(user));
+       }
     }
     
 
@@ -72,10 +70,10 @@ export default function LoginPage(){
                  </div>
             <div className="inputs">
                 <div>
-                     <input placeholder="Usuario" value={email} onInput={(e)=>setEmail(e.target.value)}/>
+                     <input placeholder="Usuario" value={user.email} onChange={(e)=>setUser({...user, email:e.target.value})}/>
             </div>
                 <div>
-                      <input type='password' placeholder="Contraseña" value={password} onInput={(e)=>setPassword(e.target.value)}/>
+                      <input type='password' placeholder="Contraseña" value={user.password} onChange={(e)=>setUser({...user, password:e.target.value})}/>
                 </div>
 
                 <div className="BTN">

@@ -1,49 +1,46 @@
 import React, { useEffect } from "react";
-import { useAuth0 } from '@auth0/auth0-react';
-import NavLoginTrue from "./navLogin/navLogintrue";
-import { ProfileNav, ContainerProfile, ButtonDiv, LoginCont } from './navLogin/navLoginStyles/navLogin';
+import {  ContainerProfile, LoginCont } from './navLogin/navLoginStyles/navLogin';
 import { useDispatch, useSelector } from "react-redux";
 import {useNavigate} from 'react-router-dom';
+import { setLogout } from "../../../reducer/actions/actionPost";
+
+
+
 
 export default function LoginApi() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0();
+    const logout= useSelector((state)=> state.fetchPostReducer.log);
+    
 
-    const userRegister = useSelector((state) => state.fetchInfoUserReducer.isRegistered);
 
     const register =()=>{
         navigate('/login')
     }
+    
+    const Logout=()=>{
+        dispatch(setLogout(false))
+        localStorage.removeItem('TK');
+        navigate('/')
 
-    // useEffect(() => {
-    // }, [])
+    }
+
+    useEffect(()=>{
+        console.log(logout)
+    },[logout])
+    
 
     return (
         <ContainerProfile>
-            {
-                
-                    isAuthenticated ?
-                        isLoading ?
-                            <div>Loading</div>
-                            :
-                            <ProfileNav>
-                                {console.log(user)}
-                                <NavLoginTrue name={user.name} email={user.email} />
-
-                                <ButtonDiv>
-                                    <button onClick={() => logout({ returnTo: window.location.origin })} >Logout</button>
-                                </ButtonDiv>
-
-                            </ProfileNav>
+                <LoginCont>
+                    {
+                        logout === true?
+                        <button onClick={()=>Logout()}>Logout</button>
                         :
-                        <LoginCont>
-
-                            <button onClick={() => register()}>Login</button>
-                        </LoginCont>
-
+                        <button onClick={() => register()}>Login</button>
                         
-            }
+                    }
+                </LoginCont>
         </ContainerProfile>
     )
 }

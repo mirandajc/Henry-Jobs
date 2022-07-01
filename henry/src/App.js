@@ -50,15 +50,10 @@ function App() {
       <Route path="/about-as" element={<AboutAs/>}/>
       <Route path="/ads" element={<Ads/>}/>
       <Route path="/booms" element={<Booms/>}/>
-<<<<<<< HEAD
-      <Route path='/workwall' element={<WorkWall/>}/> //todos los registrados
-    
-=======
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/hc" element={<Faq/>}/>
       <Route path='/workwall' element={<WorkWall/>}/>
       <Route path="/students" element={<StudentsWall />} />
->>>>>>> 1b2756f00984e58b0afdcf60533dc71b0ae06a90
     </Routes>
     <Footer/>
     </div>
