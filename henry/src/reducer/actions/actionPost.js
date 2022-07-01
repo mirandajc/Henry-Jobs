@@ -16,4 +16,4 @@ export function getInfoUserSuccess (payload, value) {
         type: GET_INFO_USER_SUCCESS,
         payload:[payload, value]
     }
-}
+};

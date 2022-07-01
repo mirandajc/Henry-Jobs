@@ -1,45 +1,41 @@
 import React, { useEffect } from "react";
+import { SiAlgolia } from "react-icons/si";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllStudents, getPublicatDevType, getPublicationStudents, getPublicatUbication } from "../../../reducer/actions/actionBusiness";
-import {Link} from'react-router-dom'; 
-import { getPublicationsBusiness, getPublicationsDevType, getPublicationUbication } from "../../../reducer/actions/actionStudents";
-import HomeStudentsCard from "./HomeStudentsCard";
+import { Link } from "react-router-dom";
+import CardPublicationWorkTest from "./CardPublicationsTest";
+import {  getPublicationsBusiness } from '../../../reducer/actions/actionStudents'
 
 //Feed del alumno con pyublicaciones 
 export default function HomeStudentsLogic() {
 
-    const students = useSelector((state) => state.fetchBusinessReducer.studentsFiltered);
-    const publicaciones = useSelector((state) => state.fetchBusinessReducer.allPublications);
+    const publicaciones = useSelector((state) => state.fetchStudentsReducer.AllPublications);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getAllStudents());
-        dispatch(getPublicationStudents());
+        dispatch(getPublicationsBusiness());
     }, []);
 
-    useEffect(() => {
-        console.log("1",students)
-        console.log("2", publicaciones)
-    }, [students, publicaciones]);
 
     return (
         <div>
-            <Link to ='/workwall'><button>workWall</button></Link>
 
+            {
+                publicaciones.map(e => <CardPublicationWorkTest
+                    image={e.posterUser.profileImage} 
+                    name={e.posterUser.name} 
+                    date={e.date}  
+                    title={e.proyectTittle}  
+                    summary={e.text}  
+                    video={e.imgVideo}  
+                    technologies={e.technologies}  
+                    backFront={e.backFront}  
+                    ubication={e.country}  
+                    workModality={e.workModality}  
+                    english={e.languages} 
+                    
+                />)
+            }
 
-            <button onClick={() => dispatch(getAllStudents())}>Recargar</button>
-            <select onChange={(e) => {dispatch(getPublicatUbication(e.target.value))}}>
-                <option>Argentina</option>
-                <option>Brazil</option>
-                <option>Colombia</option>
-                <option>Peru</option>
-            </select>
-
-            <select onChange={(e) => dispatch(getPublicatDevType(e.target.value))}>
-                <option>Frontend</option>
-                <option>Backend</option>
-                <option>Fullstack</option>
-            </select>
         </div>
     );
 };

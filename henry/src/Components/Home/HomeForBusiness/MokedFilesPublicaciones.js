@@ -38,4 +38,61 @@ export const mokedFilesStudens = [
 
 ]
 
+
+export const mokedFilesPostBusiness = [ // NO BORRAR
+    {posterUser:{usenName: 'susanahora',userTypes: 1, _id: 7, name: 'Laura',lastName: 'Ana', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], languages: "C2" },
+    {posterUser:{usenName: 'marioneta',userTypes: 1, _id: 4, name: 'Laura',lastName: 'Ana', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], languages: "C2" },
+    {backFront: "Frontend",workModality: "Remoto",posterUser:{userTypes: 5, _id: 1, name: 'Laura', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Chile', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['Laravel', 'Vue'], languages: "C2" },
+    {backFront: "Backend",workModality: "Presencial",posterUser:{userTypes: 5, _id: 2, name: 'Laura', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Brazil', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['Typescript', 'Javascript'], languages: "C1" },
+    {backFront: "Fullstack",workModality: "Remoto",posterUser:{userTypes: 5, _id: 3, name: 'Laura', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['Redux', 'React'], languages: "B1" },
+]
+
+
+export const Alumnos = [{ // NO BORRAR
+    _id: "62bc9dff5c41483e313e899a",
+    name: "luchito",
+    lastName: "groso",
+    userName: "lala",
+    email: "email@gmail.com",
+    password: "12345678910",
+    userTypes: 1,
+    technologies: [
+      "SQL"
+    ],
+    country: "Argentina",
+    city:"Cordoba Capital",
+    backFront: "Backend",
+    curriculumCounter: 22,
+    languages: "B1",
+    otherStudies: ["el super albañil"],
+    workModality: "Remoto",
+    stars: 2
+  },
+  {
+    _id: "62bc9dff5c41483e313e899a",
+    name: "Nahuel",
+    lastName: "groso",
+    userName: "lala2",
+    email: "email2@gmail.com",
+    password: "12345678910",
+    userTypes: 2,
+    technologies: [
+      "Javascript",
+      "Redux"
+    ],
+    country: "Chile",
+    city:"Bs As",
+    backFront: "Frontend",
+    languages: "C2",
+    curriculumCounter: 12,
+    otherStudies: ["panadero"],
+    workModality: "Presencial",
+    stars: 3
+  }
+]
+
+// banner={e.banner.secure_url}
+// curriculumCounter= {e.curriculumCounter}
+// profileImage={e.profileImage.secure_url}
+
 /* console.log(mokedFilesPublicaciones.sort((a, b) => a.date > b.date)); */

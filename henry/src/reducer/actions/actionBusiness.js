@@ -6,7 +6,10 @@ import {
     GET_PUBLICAT_UBICATION,
     GET_PUBLICAT_DEVTYPE,
     GET_ALL_STUDENTS,
-    GET_ALL_STUDENTS_SUCCESS
+    GET_ALL_STUDENTS_SUCCESS,
+    SHOW_FILTER,
+    GET_PUBLICAT_WORKMODALITY,
+    SET_STARS_ORDER
 } from "../../constants/constants";
 
 export function getPublicationStudents () {
@@ -50,6 +53,13 @@ export function getPublicatDevType (value) {
     }
 };
 
+export function getPublicatWorkModal (value) {
+    return {
+        type: GET_PUBLICAT_WORKMODALITY,
+        payload: value
+    }
+};
+
 export function getAllStudents () {
     return {
         type: GET_ALL_STUDENTS,
@@ -60,6 +70,19 @@ export function getAllStudentsSuccess (payload) {
     return {
         type: GET_ALL_STUDENTS_SUCCESS,
         payload
+    }
+}
+
+export function setOrderStars(payload){
+    return {
+        type: SET_STARS_ORDER,
+        payload: payload
+    }
+}
+
+export function showFilter (){
+    return{
+        type: SHOW_FILTER
     }
 }
 

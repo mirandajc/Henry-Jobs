@@ -8,11 +8,11 @@ import {
     URL_PEDIDO_USER
 } from '../../constants/constants';
 
-let userInfo = [{
-    userType: 1,
+let userInfo = {
+    userType: 5,
     premium: true,
-    isRegistered: false,
-}];
+    isRegistered: true,
+};
 
 
 //import actions 
@@ -21,6 +21,7 @@ function* asyncInfoUser (value) {
     console.log(value);
     try {
         // const response = yield call(() => axios(URL_PEDIDO_USER+value)); // TODAVIA NO CONOCEMOS LA RUTA
+                                                                            // llevar mail y password al back
         yield put(getInfoUserSuccess(userInfo, value)); // response.data
     } catch (error) {
         console.log(error);
@@ -29,6 +30,6 @@ function* asyncInfoUser (value) {
 
 
 export function* watchFetchPostSaga(){
-    yield takeEvery(GET_INFO_USER, asyncInfoUser);
+    yield takeEvery(GET_INFO_USER, asyncInfoUser)
 
 }
