@@ -5,8 +5,7 @@ import HomeBusinessLogic from "./HomeForBusiness/HomeBusinessLogic";
 import HomeStudentsLogic from "./HomeForStudents/HomeStudentsLogic";
 import { getInfoUser } from "../../reducer/actions/actionPost";
 
-
-export default function Home(props) {
+export default function Home() {
     const dispatch= useDispatch();
     const userType = useSelector((state) => state.fetchInfoUserReducer.userType)
     const emailUser = useSelector((state) => state.fetchInfoUserReducer.email)
@@ -15,26 +14,24 @@ export default function Home(props) {
         dispatch(getInfoUser())
     },[])
 
-
     return(
 
         <div>
-            
 
             {   
-                userType === 'Business' || userType === 'Recruiter' ?
+                userType === 4 || userType === 5 ?
                 
                 <HomeBusinessLogic/>
 
                 : 
                 
-                userType === 'PG' || userType === 'Graduate'? 
+                userType === 1 || userType === 2? 
 
                 <HomeStudentsLogic/>
 
                 :
 
-                userType === 'Staff' ?
+                userType === 3 ?
 
                 <HomeForStaff/>
 
@@ -43,8 +40,6 @@ export default function Home(props) {
                 null
                 
             }
-
-            
 
         </div>
 

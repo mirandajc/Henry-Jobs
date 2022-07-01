@@ -1,4 +1,4 @@
-import { take, call, all, put, takeEvery } from 'redux-saga/effects';
+import { take, call, all, put, takeEvery, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 import { mokedFilesPublicaciones, mokedFilesPostBusiness } from '../../Components/Home/HomeForBusiness/MokedFilesPublicaciones';
 import {  

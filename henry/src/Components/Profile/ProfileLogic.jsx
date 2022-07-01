@@ -12,17 +12,15 @@ export default function ProfileLogic(){
         <div>
 
             {
-                userType === 'Student' ?  <StudentsProfile/>
+                userType === 1 || userType === 2 ?  <StudentsProfile/>
                 
                 :
 
-                userType === 'Business' ? <BusinessProfile/>
+                userType === 4 || userType === 5 ? <BusinessProfile/>
                 
                 :
-
-                userType === 'Recruiter' ? <RecruiterProfile/>
                 
-                : null
+                null
             }
 
         </div>

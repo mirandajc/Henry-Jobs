@@ -7,7 +7,7 @@ export default function Logo(){
     return(
         <NavLogo>
             <Link to={"/"}>
-            <img src={logo}/>
+            <img src={logo} alt='Logo henry'/>
             </Link>
         </NavLogo>
     )

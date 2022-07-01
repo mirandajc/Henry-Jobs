@@ -14,15 +14,18 @@ import DetailStudent from "./Components/Home/HomeForBusiness/DetailStudents";
 import ProfileLogic from "./Components/Profile/ProfileLogic";
 import RegisterBusiness from "./Components/Register_form/Business/RegisterBusiness";
 import RegisterStaff from "./Components/Register_form/Staff/RegisterStaff";
-import HomeBusinessStudents from './Components/Home/HomeForBusiness/HomeBusinessStudents'
 import Proyects from "./Components/Proyects/Proyects";
 import AboutAs from "./Components/About as/About-as";
 import Ads from "./Components/Ads/Ads";
 import Booms from "./Components/Landing/booms/booms";
+import Contact from "./Components/Landing/Footer/Contact";
+import Faq from "./Components/Landing/Footer/Faq";
+import Footer from "./Components/Landing/Footer/Footer";
 import WorkWall from './Components/Post/WorkWall/WorkWall';
 import LoginPage from "./Components/Login/LoginPage/login";
 import LoginCard from "./Components/Login/LoginPage/loginCard";
 import RegisterPage from "./Components/Login/registerPage/registerPage";
+import StudentsWall from "./Components/Post/StudentsWall/StudentsWall";
 
 
 function App() {
@@ -41,16 +44,23 @@ function App() {
       <Route path='/register/recruiter' element={<RegisterRecruiter />} />// solo los nuevos usuarios 
       <Route path='/register/staff' element={<RegisterStaff />} />// solo los nuevos usuarios 
       <Route path='/details/:id' element={<DetailStudent/>}/>//preguntar a rene
-      <Route path='/profile/:name' element={<ProfileLogic/>}/>//preguntar a rene
+      <Route path='/profile/:userName' element={<ProfileLogic/>}/>//preguntar a rene
       <Route path='/perfil' element={<StudentCompletePage/>}/> //solo acceso a edit al usuairo propietario
-      <Route path='/students' element={<HomeBusinessStudents/>}/>
       <Route path="/proyects" element={<Proyects/>}/>
       <Route path="/about-as" element={<AboutAs/>}/>
       <Route path="/ads" element={<Ads/>}/>
       <Route path="/booms" element={<Booms/>}/>
+<<<<<<< HEAD
       <Route path='/workwall' element={<WorkWall/>}/> //todos los registrados
     
+=======
+      <Route path="/contact" element={<Contact/>}/>
+      <Route path="/hc" element={<Faq/>}/>
+      <Route path='/workwall' element={<WorkWall/>}/>
+      <Route path="/students" element={<StudentsWall />} />
+>>>>>>> 1b2756f00984e58b0afdcf60533dc71b0ae06a90
     </Routes>
+    <Footer/>
     </div>
   );
 };

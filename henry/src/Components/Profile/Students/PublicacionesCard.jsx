@@ -7,7 +7,7 @@ export default function PublicacionesCards ({id, picture, name, date, proyectTit
             <div className="img-name-date">
                 <div className="perfil">
                 <div className="imgPer">
-                  <img src={picture} />
+                  <img src={picture} alt="publicacion-imagen"/>
                 </div>
                   <h3>{name}</h3>
                 </div>
