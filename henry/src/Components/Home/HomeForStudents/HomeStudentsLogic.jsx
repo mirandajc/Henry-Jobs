@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CardPublicationWorkTest from "./CardPublicationsTest";
 import {  getPublicationsBusiness } from '../../../reducer/actions/actionStudents'
+import { ContenedorStudents } from "./HomeStyled"
 
 //Feed del alumno con pyublicaciones 
 export default function HomeStudentsLogic() {
@@ -17,8 +18,7 @@ export default function HomeStudentsLogic() {
 
 
     return (
-        <div>
-
+        <ContenedorStudents>
             {
                 publicaciones.map(e => <CardPublicationWorkTest
                     image={e.posterUser.profileImage} 
@@ -33,10 +33,10 @@ export default function HomeStudentsLogic() {
                     ubication={e.country}  
                     workModality={e.workModality}  
                     english={e.languages} 
-                    
+                    lastname={e.posterUser.lastName}
                 />)
             }
 
-        </div>
+        </ContenedorStudents>
     );
 };

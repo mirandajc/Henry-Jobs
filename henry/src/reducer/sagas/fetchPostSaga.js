@@ -13,7 +13,7 @@ import {
 } from '../../constants/constants';
 
 let userInfo = {
-    userType: 3,
+    userType: 1,
     premium: true,
     isRegistered: true,
 };
