@@ -9,7 +9,7 @@ import {FcGoogle} from 'react-icons/fc'
 import {VscGithubInverted} from 'react-icons/all';
 import { useJwt } from "react-jwt";
 import { setLogout } from "../../../reducer/actions/actionPost";
-
+import GoogleLog from "./googleLogin";
 
 export default function LoginPage(){
     const navigate= useNavigate();
@@ -22,6 +22,9 @@ export default function LoginPage(){
     })
 
 
+
+    //49386310605-dghc6jkl2evtt3s7df6vus6ac2ekt0d4.apps.googleusercontent.com GOOGLE ID
+    //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 SECRET
 
     const {decodedToken, isExpided}= useJwt(res);
     
@@ -89,11 +92,14 @@ export default function LoginPage(){
                 </div>
                 <div className="other">
                     <div>
-                        <FcGoogle className="another"/>
+                        {/* <FcGoogle className="another"/> */}
+                        <GoogleLog/>
                     </div>
                     <div>
                         <VscGithubInverted className="another"/>
                     </div>
+                </div>
+                <div>
                 </div>
             </div>
 
