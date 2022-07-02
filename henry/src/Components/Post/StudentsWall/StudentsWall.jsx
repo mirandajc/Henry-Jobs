@@ -133,6 +133,7 @@ export default function StudentsWall () {
             <button onClick={()=> window.location.reload()}>BORRAR</button> {/* Luciano recomienda un reload, luciano es un gato */}
             </DivFiltros>
 
+            
             {estudiantes.render.map(e => {
                 return(
                     
@@ -151,6 +152,7 @@ export default function StudentsWall () {
                         curriculumCounter= {e.curriculumCounter}
                         userName={e.userName}
                         stars={e.stars}
+                        id={e._id}
                         // profileImage={e.profileImage.secure_url}
                         />
                     

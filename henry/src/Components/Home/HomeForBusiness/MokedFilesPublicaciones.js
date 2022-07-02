@@ -24,13 +24,24 @@ export const mokedFilesStudens = [
 
 
 export const mokedFilesPostBusiness = [ // NO BORRAR
-    {posterUser:{usenName: 'susanahora',userTypes: 1, _id: 7, name: 'Laura',lastName: 'Ana', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], languages: "C2" },
-    {posterUser:{usenName: 'marioneta',userTypes: 1, _id: 4, name: 'Laura',lastName: 'Ana', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], languages: "C2" },
-    {backFront: "Frontend",workModality: "Remoto",posterUser:{userTypes: 5, _id: 1, name: 'Laura', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Chile', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['Laravel', 'Vue'], languages: "C2" },
-    {backFront: "Backend",workModality: "Presencial",posterUser:{userTypes: 5, _id: 2, name: 'Laura', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Brazil', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['Typescript', 'Javascript'], languages: "C1" },
-    {backFront: "Fullstack",workModality: "Remoto",posterUser:{userTypes: 5, _id: 3, name: 'Laura', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['Redux', 'React'], languages: "B1" },
+    {posterUser:{usenName: 'susanahora',userTypes: 1, _id: '62bc9dff5c41483e313e899a', name: 'asd',lastName: 'Ana', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], languages: "C2" },
+    {posterUser:{usenName: 'marioneta2',userTypes: 1, _id: '62bc9dff5c41483e313e899a', name: 'dgdf',lastName: 'aasd', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], languages: "C2" },
+    {posterUser:{usenName: 'marioneta3',userTypes: 1, _id: '62bc9dff5c41483e313e899a', name: 'rau',lastName: 'sdfsdf', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], languages: "C2" },
+    {posterUser:{usenName: 'marioneta4',userTypes: 1, _id: '62bc9dff5c41483e313e899ab', name: 'ig',lastName: 'cvbcvb', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], languages: "C2" },
+    {posterUser:{usenName: 'marioneta5',userTypes: 1, _id: '62bc9dff5c41483e313e899ab', name: 'mark',lastName: 'etretr', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], languages: "C2" },
+    {posterUser:{usenName: 'marioneta6',userTypes: 1, _id: '62bc9dff5c41483e313e899ab', name: 'anton',lastName: 'kuyku', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], languages: "C2" },
+    {posterUser:{usenName: 'marioneta7',userTypes: 1, _id: '62bc9dff5c41483e313e899ac', name: 'jul',lastName: 'zxczx', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], languages: "C2" },
+    {posterUser:{usenName: 'marioneta8',userTypes: 1, _id: '62bc9dff5c41483e313e899ac', name: 'asrd',lastName: 'qweqsd', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], languages: "C2" },
+    {posterUser:{usenName: 'marioneta9',userTypes: 1, _id: '62bc9dff5c41483e313e899ac', name: 'lalsd',lastName: 'mjjhmhj', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['golang', 'js'], languages: "C2" },
+    {backFront: "Frontend",workModality: "Remoto",posterUser:{userTypes: 5, _id: '62bc9dff5c41483e313e899ad', name: 'Laura', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Chile', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['Laravel', 'Vue'], languages: "C2" },
+    {backFront: "Backend",workModality: "Presencial",posterUser:{userTypes: 5, _id: '62bc9dff5c41483e313e899ad', name: 'Laura', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Brazil', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['Typescript', 'Javascript'], languages: "C1" },
+    {backFront: "Fullstack",workModality: "Remoto",posterUser:{userTypes: 5, _id: '62bc9dff5c41483e313e899ae', name: 'Laura', profileImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Icono_Usuario.png' }, date: '12-10-18', country: 'Argentina', proyectTittle: 'Primer Proyecto', text: 'este va a ser mi primer proyecto', imgVideo: 'https://www.youtube.com/watch?v=3PHXvlpOkf4', linkedin: 'www.linkedin.com', technologies: ['Redux', 'React'], languages: "B1" },
 ]
 
+
+var idpubl =[]
+
+var idusuariosquesigo = ['62bc9dff5c41483e313e899a','62bc9dff5c41483e313e899ab','62bc9dff5c41483e313e899ac','62bc9dff5c41483e313e899ad','62bc9dff5c41483e313e899ae']
 
 export const Alumnos = [{ // NO BORRAR
     _id: "62bc9dff5c41483e313e899a",
@@ -54,7 +65,7 @@ export const Alumnos = [{ // NO BORRAR
     profileImage:{secure_url:"https://ceslava.s3-accelerate.amazonaws.com/2016/04/mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png"}
   },
   {
-    _id: "62bc9dff5c41483e313e899a",
+    _id: "62bc9dff5c41483e313e899ab",
     name: "Nahuel",
     lastName: "groso",
     userName: "lala2",
@@ -76,7 +87,7 @@ export const Alumnos = [{ // NO BORRAR
     profileImage:{secure_url:"https://ceslava.s3-accelerate.amazonaws.com/2016/04/mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png"}
   },
   {
-    _id: "62bc9dff5c41483e313e899a",
+    _id: "62bc9dff5c41483e313e899ac",
     name: "Roberto",
     lastName: "Dominguez",
     userName: "lala2222",
@@ -98,7 +109,7 @@ export const Alumnos = [{ // NO BORRAR
     profileImage:{secure_url:"https://ceslava.s3-accelerate.amazonaws.com/2016/04/mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png"}
   },
   {
-    _id: "62bc9dff5c41483e313e899a",
+    _id: "62bc9dff5c41483e313e899ad",
     name: "Mercado Libre",
     userName: "ML",
     email: "email122@gmail.com",
@@ -119,7 +130,7 @@ export const Alumnos = [{ // NO BORRAR
     profileImage:{secure_url:"https://ceslava.s3-accelerate.amazonaws.com/2016/04/mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png"}
   },
   {
-    _id: "62bc9dff5c41483e313e899a",
+    _id: "62bc9dff5c41483e313e899ae",
     name: "Amazon",
     userName: "Amazon",
     email: "emai123l2@gmail.com",

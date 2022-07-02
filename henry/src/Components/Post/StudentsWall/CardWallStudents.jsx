@@ -12,18 +12,25 @@ import {
 import { Link } from "react-router-dom";
 import Star from '../../images/Star.png';
 import Ubicacion from "../../images/ubicacion.png";
+import { useDispatch } from "react-redux";
+import { postIdFollow } from "../../../reducer/actions/actionStudents";
+
 
 export default function CardWallStudents({name,lastname,email,technologies,otherstudies,banner,english,
     backFront,
     workModality,ubication,
     city,
     curriculumCounter,
-    profileImage,userName, stars}) {
+    profileImage,userName, stars, id}) {
+
+      const dispatch = useDispatch();
+
+      const handleFollow = () => {
+        dispatch(postIdFollow(id));
+        
+      }
 
 
-        const isPremium = false; //CAMBIAR
-        const userTypes = 3;
-        // REEMPLAZAR POR UNA TARJETA DE ALUMNOS
   return (
       <PublicationCard> 
         <Cavecera>
@@ -86,6 +93,11 @@ export default function CardWallStudents({name,lastname,email,technologies,other
             </ButonGrey>
             <ButonGrey>
               <p>INGLES {english}</p>
+             
+            </ButonGrey>
+            <ButonGrey>
+             
+              <button onClick={() => handleFollow()}>Follow</button>
             </ButonGrey>
             </div> 
             

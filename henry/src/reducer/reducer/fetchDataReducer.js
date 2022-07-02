@@ -15,7 +15,7 @@ import {
 
 const initialState = {
     user: 'Business', //seteado manualmente, tiene que traer que pido de usuario somos al momento de log
-    userFollows: [1,4,2,5,6,7,3], // seteado manualmente,despues va a tener que traer el array de id de personas o empresas que seguimos
+    userFollows: ['62bc9dff5c41483e313e899a','62bc9dff5c41483e313e899ab','62bc9dff5c41483e313e899ac','62bc9dff5c41483e313e899ad','62bc9dff5c41483e313e899ae'], // seteado manualmente,despues va a tener que traer el array de id de personas o empresas que seguimos
     pokemon: [],
     loading: false,
     error: {},

@@ -6,12 +6,13 @@ import {
     GET_PUBLICATIONS_WORK_MODALITY,
     GET_PUBLICATIONS_ENGLISH,
     GET_PUBLICATIONS_UBICATION,
-    SHOW_FILTER
+    SHOW_FILTER,
+    POST_ID_FOLLOW
 } from "../../constants/constants";
 
 const initialState = {
     AllPublications:[],
-    userFollows: [1,4,2,5,6,7,3,12,11,10,9],
+    userFollows: ['62bc9dff5c41483e313e899a','62bc9dff5c41483e313e899ab','62bc9dff5c41483e313e899ac','62bc9dff5c41483e313e899ad','62bc9dff5c41483e313e899ae'],
     busPublication:[],
     publicationsFiltered:[],
     filtrosos: {
@@ -37,6 +38,19 @@ const fetchStudentsReducer = (state = initialState, action) => {
                 AllPublications: response,
                 busPublication: responseBusiness,
                 publicationsFiltered: responseBusiness
+            }
+        case POST_ID_FOLLOW:
+            let respon = state.userFollows
+            if(state.userFollows.includes(action.payload)) {
+                respon = state.userFollows.filter(e => e !== action.payload)
+            }
+            if(!state.userFollows.includes(action.payload)) {
+                respon.push(action.payload)
+            }
+            console.log(respon)
+            return {
+                ...state,
+                userFollows: respon
             }
         
         case GET_PUBLICATIONS_TECHNOLOGIES:
