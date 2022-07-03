@@ -61,6 +61,24 @@ export default function LoginPage(){
          dispatch(postUser(user));
        }
     }
+    const handleCallbackResponse = (response) => {
+  
+        console.log("Encoded JWT ID token" + response.credential);
+      }
+      
+      useEffect(() => {
+        /* global google */
+        google.accounts.id.initialize({
+          
+          client_id:"49386310605-t1sf3e31jfe1li9cprtcr3dslrddop1h.apps.googleusercontent.com",
+          callback: handleCallbackResponse
+        });
+      
+        google.accounts.id.renderButton(
+          document.getElementById("signInDiv"),
+          {theme: "outline", size: "small"}
+        );
+      },[]);
     
 
    
@@ -98,7 +116,7 @@ export default function LoginPage(){
                     <p>Or signIn with</p>
                 </div>
                 <div className="other">
-                    <div>
+                    <div id="signInDiv" >
                         {/* <FcGoogle className="another"/> */}
                         <GoogleLog/>
                     </div>
@@ -106,7 +124,27 @@ export default function LoginPage(){
                         <GithubLog/>
                         {/* <VscGithubInverted className="another"
                         /> */}
+<<<<<<< HEAD
                   
+=======
+                        <LoginGithub 
+                clientId='8eccabf164d5d88227d5'
+                render={(renderProp) => (
+                    <ButtonGoogle 
+                    onClick={renderProp.onClick}
+                    disabled={renderProp.disabled}
+                    >
+                        <VscGithubInverted className="goo"
+                        />
+                    </ButtonGoogle>
+                    )}
+                    onSuccess={onSuccess}
+                    onFailure={onFailure}
+                    cookiePolicy='single_host_origin'
+                />
+                        <VscGithubInverted className="another"
+                        />
+>>>>>>> e7018b2b1891d8b28c1fc885be8ea9f6146be970
                     </div>
                 </div>
                 <div>
