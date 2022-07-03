@@ -6,7 +6,9 @@ import {
     SET_LOGOUT,
     PROFILE_ID,
     URL_PROFILE,
-    PROFILE_SUCCESS
+    PROFILE_SUCCESS,
+    POST_REGISTER_MODAL,
+    POST_REGISTER_MODAL_SUCCESS
  
 } from "../../constants/constants";
 
@@ -69,3 +71,17 @@ export function postUserSuccess(payload){
         payload
     }
 }
+
+export function postRegisterModal(payload){
+    return{
+        type: POST_REGISTER_MODAL,
+        payload
+    };
+};
+
+export function postRegisterModalSuccess(payload){
+    return{
+        type: POST_REGISTER_MODAL_SUCCESS,
+        payload
+    };
+};

@@ -1,5 +1,5 @@
 import {
-    POST_USER, POST_USER_SUCCESS,SET_LOGOUT,PROFILE_SUCCESS,
+    POST_USER, POST_USER_SUCCESS,SET_LOGOUT,PROFILE_SUCCESS, POST_REGISTER_MODAL_SUCCESS
 
 } from "../../constants/constants";
 
@@ -45,6 +45,12 @@ const fetchPostReducer = (state = initialState, action) => {
                     ...state,
                     response: undefined
 
+                }
+            
+            case POST_REGISTER_MODAL_SUCCESS:
+                return {
+                    ...state,
+                    response: action.payload
                 }
         default: 
         return {
