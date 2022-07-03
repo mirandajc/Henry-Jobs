@@ -15,7 +15,9 @@ width:100%;
 export const NavButton= styled.div`
 display: flex;
 justify-content: space-between;
-width: 50%;
+width: 100%;
+height: auto;
+
 
 button{
    

@@ -23,23 +23,33 @@ export default function StudentCompletePage() {
 
 
     return (
-        <CompleteProfile>
-
-            {
-                renderi
-                    ?
-                    <div>
+        
+        <div>
+        {
+            renderi
+            ?
+            <CompleteProfile>
+                <StudentsProfile 
+                backFront={userProfile.backFront}
+                banner={userProfile.banner}
+                country={userProfile.country}
+                curriculumCounter={userProfile.curriculumCounter}
+                email={userProfile.email}
+                lastName={userProfile.lastName}
+                name={userProfile.name}
+                profileImage={userProfile.profileImage}
+                
+                 />
                         <StudentCV
                             technologies={userProfile.technologies}
                             otherStudies={userProfile.otherStudies}
                         />
-                        <StudentsProfile />
-                    </div>
+                        </CompleteProfile>
 
-                    : null
+        : null
             }
+        </div>
 
-        </CompleteProfile>
     )
 
 

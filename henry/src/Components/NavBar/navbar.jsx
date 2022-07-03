@@ -23,7 +23,7 @@ export default function Navbar() {
         <Logo />
       </div>
 
-      <LoginApi />
+     
 
       <NavButton>
 
@@ -51,6 +51,7 @@ export default function Navbar() {
         }
 
       </NavButton>
+      <LoginApi />
     </NavbarS>
   );
 }

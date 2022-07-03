@@ -23,7 +23,7 @@ export default function ButtonPerfil(props){
     return(
         <div>
             <Link to={`/profile/${id}`}>
-                <button onClick={handleID} >My Profile</button>
+                <button onClick={handleID} >Perfil</button>
             </Link>
         </div>
     )
