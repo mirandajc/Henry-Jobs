@@ -9,6 +9,10 @@ import {FcGoogle} from 'react-icons/fc'
 import {VscGithubInverted} from 'react-icons/all';
 import { useJwt } from "react-jwt";
 import { setLogout } from "../../../reducer/actions/actionPost";
+import LoginGithub from 'react-login-github';
+
+const onSuccess = response => console.log(response);
+const onFailure = response => console.error(response);
 
 
 export default function LoginPage(){
@@ -34,10 +38,9 @@ export default function LoginPage(){
 
  
     useEffect(()=>{
-       
         if(TK){
             
-             navigate('/home')
+            navigate('/home')
         }
         console.log(res)
         console.log(TK)
@@ -66,13 +69,13 @@ export default function LoginPage(){
             <div className="contLog">
                 <div className="conteinter">
                     <img src={HENRY_LOGO} alt='logo de henry'/>
-                 </div>
+                </div>
             <div className="inputs">
                 <div>
-                     <input placeholder="Usuario" value={user.email} onChange={(e)=>setUser({...user, email:e.target.value})}/>
+                    <input placeholder="Usuario" value={user.email} onChange={(e)=>setUser({...user, email:e.target.value})}/>
             </div>
                 <div>
-                      <input type='password' placeholder="Contraseña" value={user.password} onChange={(e)=>setUser({...user, password:e.target.value})}/>
+                    <input type='password' placeholder="Contraseña" value={user.password} onChange={(e)=>setUser({...user, password:e.target.value})}/>
                 </div>
 
                 <div className="BTN">
@@ -81,18 +84,32 @@ export default function LoginPage(){
                     <button>Registrarse</button>
                     </Link>
                 </div>
+                
 
 
                 <div className="second">
                     <p>Or signIn with</p>
-                  
                 </div>
                 <div className="other">
                     <div>
                         <FcGoogle className="another"/>
                     </div>
                     <div>
-                        <VscGithubInverted className="another"/>
+                        <VscGithubInverted className="another"
+                        />
+                        <LoginGithub 
+                clientId='8eccabf164d5d88227d5'
+                render={(renderProp) => (
+                    <button 
+                    onClick={renderProp.onClick}
+                    disabled={renderProp.disabled}
+                    >
+                    </button>
+                    )}
+                    onSuccess={onSuccess}
+                    onFailure={onFailure}
+                    cookiePolicy='single_host_origin'
+                />
                     </div>
                 </div>
             </div>
