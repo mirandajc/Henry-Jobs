@@ -3,20 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllStudents, setOrderStars, getPublicatWorkModal, getPublicatDevType, getPublicatEnglish, getPublicatTechnologies, getPublicatUbication, showFilter } from "../../../reducer/actions/actionBusiness";
 import CardWallStudents from "./CardWallStudents";
 import { technologies, idiomas, DevType, workModal, allCountries } from "./select";
-
+import {BodyStudentsWallCard} from "../../Home/HomeStyles/HomePublicationCard.js"
+import {DivFiltros } from "../WorkWall/WorkWall.js";
 
 export default function StudentsWall () {
+    
     const estudiantes = useSelector(state => state.fetchBusinessReducer.studentsFiltered);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getAllStudents());
     },[]);
-    
+
     //traer el objeto filtros con use selector y usarlo como dependencia en el effect
     // en cada return enviar "" con el dispatch
     const selectTech = (e) => {
-        if(e.target.value === "Tecnologías"){
+        if(e.target.value === "TECNOLOGIAS"){
             dispatch(getPublicatTechnologies(""));
             dispatch(showFilter())
         }
@@ -27,7 +29,7 @@ export default function StudentsWall () {
     };
 
     const selectDevType = (e) => {
-        if(e.target.value === "Desarrollador"){
+        if(e.target.value === "DESARROLLADOR"){
             dispatch(getPublicatDevType(""));
             dispatch(showFilter())
         }
@@ -38,7 +40,7 @@ export default function StudentsWall () {
     };
 
     const selectEnglish = (e) => {
-        if(e.target.value === "Nivel de Inglés"){
+        if(e.target.value === "NIVEL DE INGLES"){
             dispatch(getPublicatEnglish(""));
             dispatch(showFilter())
         }
@@ -49,7 +51,7 @@ export default function StudentsWall () {
     };
 
     const selectModal = (e) => {
-        if(e.target.value === "Modalidad"){
+        if(e.target.value === "MODALIDAD"){
             dispatch(getPublicatWorkModal(""))
             dispatch(showFilter())
         }
@@ -60,7 +62,7 @@ export default function StudentsWall () {
     };
 
     const selectPais = (e) => {
-        if(e.target.value === "País"){
+        if(e.target.value === "PAIS"){
             dispatch(getPublicatUbication(""));
             dispatch(showFilter())
         }
@@ -71,7 +73,7 @@ export default function StudentsWall () {
     };
 
     const selectStars = (e) => {
-        if(e.target.value === "Stars"){
+        if(e.target.value === "STARS"){
             dispatch(setOrderStars(""));
             dispatch(showFilter())
         }
@@ -82,18 +84,18 @@ export default function StudentsWall () {
     };
 
     return(
-        <div>
-            <button onClick={()=> window.location.reload()}>Borrar Filtros</button> {/* Luciano recomienda un reload, luciano es un gato */}
+        <BodyStudentsWallCard>
+            <DivFiltros>
 
             <select onChange={(e) => selectTech(e)}>
-                <option>Tecnologías</option> {/* si cambias lo que hay dentro de options,
+                <option>TECNOLOGIAS</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}
             {technologies.map(e => {
                 return <option>{e}</option>
             })}</select>
 
             <select onChange={(e) => selectDevType(e)}>
-                <option>Desarrollador</option> {/* si cambias lo que hay dentro de options,
+                <option>DESARROLLADOR</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}
             {DevType.map(e => {
                 return <option>{e}</option>
@@ -101,7 +103,7 @@ export default function StudentsWall () {
             </select> 
 
             <select onChange={(e) => selectEnglish(e)}>
-                <option>Nivel de Inglés</option> {/* si cambias lo que hay dentro de options,
+                <option>NIVEL DE INGLES</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}
             {idiomas.map(e => {
                 return <option>{e}</option>
@@ -109,7 +111,7 @@ export default function StudentsWall () {
             </select>
 
             <select onChange={(e) => selectModal(e)}>
-                <option>Modalidad</option> {/* si cambias lo que hay dentro de options,
+                <option>MODALIDAD</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}
             {workModal.map(e => {
                 return <option>{e}</option>
@@ -117,7 +119,7 @@ export default function StudentsWall () {
             </select> 
 
             <select onChange={(e) => selectPais(e)}>
-                <option>País</option> {/* si cambias lo que hay dentro de options,
+                <option>PAIS</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}
             {allCountries.map(e => {
                 return <option>{e}</option>
@@ -125,16 +127,17 @@ export default function StudentsWall () {
             </select> 
 
             <select onChange={(e) => selectStars(e)}>
-                <option>Stars</option> {/* si cambias lo que hay dentro de options, cambialo en la funcion tambien, dentro del if */}
-                <option>Ascendente</option>
-                <option>Descendente</option>
+                <option>STARS</option> {/* si cambias lo que hay dentro de options, cambialo en la funcion tambien, dentro del if */}
+                <option>ASCENDENTE</option>
+                <option>DESCENDENTE</option>
             </select> 
+            <button onClick={()=> window.location.reload()}>BORRAR</button> {/* Luciano recomienda un reload, luciano es un gato */}
+            </DivFiltros>
 
-
-
-            {estudiantes.map(e => {
+            
+            {estudiantes.render.map(e => {
                 return(
-                    <div>
+                    
                         <CardWallStudents  // REEMPLAZAR POR UNA TARJETA DE ALUMNOS
                         name={e.name}
                         lastname={e.lastName}
@@ -149,12 +152,14 @@ export default function StudentsWall () {
                         city={e.city}
                         curriculumCounter= {e.curriculumCounter}
                         userName={e.userName}
+                        stars={e.stars}
+                        id={e._id}
                         // profileImage={e.profileImage.secure_url}
                         />
-                    </div>
+                    
                 )
             })}
             
-        </div>
+        </BodyStudentsWallCard>
     );
 };

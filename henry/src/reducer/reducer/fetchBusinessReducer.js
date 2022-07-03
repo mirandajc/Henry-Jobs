@@ -1,16 +1,15 @@
 import { 
     GET_PUBLICATION_STUDENTS_SUCCESS,GET_PUBLICAT_TECHNOLOGIES, GET_PUBLICAT_ENGLISH, 
     GET_PUBLICAT_UBICATION, GET_PUBLICAT_DEVTYPE,
-    GET_ALL_STUDENTS_SUCCESS,SHOW_FILTER,GET_PUBLICAT_WORKMODALITY,SET_STARS_ORDER
+    GET_ALL_STUDENTS_SUCCESS,SHOW_FILTER,GET_PUBLICAT_WORKMODALITY,SET_STARS_ORDER,POST_ID_FOLLOW_BUSS
 } from "../../constants/constants";
 
-import { mokedFilesPostBusiness } from "../../Components/Home/HomeForBusiness/MokedFilesPublicaciones";
+
 
 const initialState = {
   allPublications: [],
-  allPublications2: mokedFilesPostBusiness,
-  userFollows: [1,4,2,5,6,7,3,12,11,10,9],
-  studentsFiltered: [],
+  userFollows: [/* '62bc9dff5c41483e313e899a','62bc9dff5c41483e313e899ab','62bc9dff5c41483e313e899ac','62bc9dff5c41483e313e899ad','62bc9dff5c41483e313e899ae' */],
+  studentsFiltered: { render:[], filt: ''},
   publicatShow: [],
   allStudents: [],
   filtros: {
@@ -28,13 +27,17 @@ const initialState = {
 // pasar como dependencia [filtros] al useEffect para que haga el filtrado
 // takeLatest para evitar bucle infinito ?
 
+// dile al dj que apague luces luce! 
+
 
 const fetchBusinessReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case GET_PUBLICATION_STUDENTS_SUCCESS:
+        
         let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id))
-        let response = fol1.reverse();
+        let pubStu = fol1.filter(e => e.posterUser.userTypes === 1 || e.posterUser.userTypes === 2)
+        let response = pubStu.reverse();
         return { 
             ...state, 
             allPublications: response,
@@ -45,8 +48,22 @@ const fetchBusinessReducer = (state = initialState, action) => {
         return {
             ...state,
             allStudents: responseAlumnos,
-            studentsFiltered: responseAlumnos
+            studentsFiltered: {...state, render: responseAlumnos}
         };
+
+    case POST_ID_FOLLOW_BUSS:
+        let respon = state.userFollows
+        if(state.userFollows.includes(action.payload)) {
+            respon = state.userFollows.filter(e => e !== action.payload)
+        }
+        if(!state.userFollows.includes(action.payload)) {
+            respon.push(action.payload)
+        }
+        console.log(respon)
+        return {
+            ...state,
+            userFollows: respon
+        }
 
     ////////////////////////////////////////////////////////////////////////// CASOS DE FILTRADO //////
 
@@ -88,42 +105,45 @@ const fetchBusinessReducer = (state = initialState, action) => {
         
     case SHOW_FILTER: //////////////////// falta agregar modalidad de trabajo y ordenamiento por estrellas
         let alumnosFiltrados = state.allStudents;
+        let b = ''
         if(state.filtros.technologies !== ""){
             alumnosFiltrados = alumnosFiltrados.filter(e => e.technologies.includes(state.filtros.technologies));
         }
-        else if(state.filtros.devType !== ""){
+        if(state.filtros.devType !== ""){
             alumnosFiltrados = alumnosFiltrados.filter(e => e.backFront === state.filtros.devType);
         }
-        else if(state.filtros.english !== ""){
+        if(state.filtros.english !== ""){
             alumnosFiltrados = alumnosFiltrados.filter(e => e.languages === state.filtros.english);
         }
-        else if(state.filtros.ubication !== ""){
+        if(state.filtros.ubication !== ""){
             alumnosFiltrados = alumnosFiltrados.filter(e => e.country === state.filtros.ubication);
         }
-        else if(state.filtros.workModal !== ""){
+        if(state.filtros.workModal !== ""){
             alumnosFiltrados = alumnosFiltrados.filter(e => e.workModality === state.filtros.workModal);
         }
-        else if(state.filtros.stars !== ""){
-            if(state.filtros.stars === "Ascendente"){
+        if(state.filtros.stars !== ""){
+            if(state.filtros.stars === "ASCENDENTE"){
                 alumnosFiltrados = alumnosFiltrados.sort((a,b) => {
                     if(a.stars < b.stars) return -1;
                     if(b.stars < a.stars) return 1;
                     return 0;
                 })
-
+                b = '1'
             }
-            else{
+            if(state.filtros.stars === "DESCENDENTE"){
                 alumnosFiltrados = alumnosFiltrados.sort((a,b) => {
                     if(a.stars < b.stars) return -1;
                     if(b.stars < a.stars) return 1;
                     return 0;
                 })
+                b = '2'
                 alumnosFiltrados = alumnosFiltrados.reverse();
             }
         }
+    
         return{
             ...state,
-            studentsFiltered: alumnosFiltrados
+            studentsFiltered: {...state, render:alumnosFiltrados, filt: b },
         };
             
     default:

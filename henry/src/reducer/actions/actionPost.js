@@ -3,8 +3,33 @@ import {
     GET_INFO_USER_SUCCESS,
     POST_USER,
     POST_USER_SUCCESS,
-    SET_LOGOUT
+    SET_LOGOUT,
+    PROFILE_ID,
+    URL_PROFILE,
+    PROFILE_SUCCESS,
+    POST_REGISTER_MODAL,
+    POST_REGISTER_MODAL_SUCCESS
+ 
 } from "../../constants/constants";
+
+
+export function profileSuccess(response){
+    return{
+        type: PROFILE_SUCCESS,
+        payload: response
+    }
+}
+
+
+export function profileID(id){
+    
+    return{
+        type:PROFILE_ID,
+        payload: id
+
+    }
+}
+
 
 
 export function getInfoUser (value) {
@@ -32,7 +57,7 @@ export function setLogout(){
 
 
 export function postUser(user){
-    console.log(user)
+    
     return{
         type: POST_USER,
         payload: user
@@ -46,3 +71,17 @@ export function postUserSuccess(payload){
         payload
     }
 }
+
+export function postRegisterModal(payload){
+    return{
+        type: POST_REGISTER_MODAL,
+        payload
+    };
+};
+
+export function postRegisterModalSuccess(payload){
+    return{
+        type: POST_REGISTER_MODAL_SUCCESS,
+        payload
+    };
+};

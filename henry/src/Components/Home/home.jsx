@@ -4,11 +4,17 @@ import HomeForStaff from "./HomeForStaff/HomeForStaff";
 import HomeBusinessLogic from "./HomeForBusiness/HomeBusinessLogic";
 import HomeStudentsLogic from "./HomeForStudents/HomeStudentsLogic";
 import { getInfoUser } from "../../reducer/actions/actionPost";
+import UserForm from "../Register_form/completeForm";
+
 
 export default function Home() {
+
+
     const dispatch= useDispatch();
-    const userType = useSelector((state) => state.fetchInfoUserReducer.userType)
-    const emailUser = useSelector((state) => state.fetchInfoUserReducer.email)
+    
+    const tal = localStorage.getItem('TK')
+    const userType = JSON.parse(tal);
+
 
      useEffect(()=>{
         dispatch(getInfoUser())
@@ -19,25 +25,29 @@ export default function Home() {
         <div>
 
             {   
-                userType === 4 || userType === 5 ?
+                userType.type === 4 || userType.type === 5 ?
                 
                 <HomeBusinessLogic/>
 
                 : 
                 
-                userType === 1 || userType === 2? 
+                userType.type === 1 || userType.type === 2? 
 
                 <HomeStudentsLogic/>
 
                 :
 
-                userType === 3 ?
+                userType.type === 3 ?
 
                 <HomeForStaff/>
 
                 :
                 
-                null
+                userType.type === 0 ? 
+                
+                <UserForm/> 
+                
+                :null
                 
             }
 

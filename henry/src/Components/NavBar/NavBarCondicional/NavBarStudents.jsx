@@ -1,22 +1,45 @@
 import React from "react";
-import { Link } from "react-router-dom"
-import LoginApi from "../buttons/LoginApi";
-import { Nav } from "./Estilos/NavStudents";
+import ButtonWorkWall from "../buttons/buttonWorkWall";
+import ButtonHome from '../buttons/buttonHome'
+import ButtonPerfil from '../buttons/buttonPerfil'
+import ButtonStudentsWall from '../buttons/buttonStudentsWall'
+import { useSelector } from "react-redux";
+import { NavSt,DivContSt } from "./Estilos/navStudent";
+
+
+
 
 export default function StudentsNavBar () {
-
-
-
+    
+    const logout = useSelector((state) => state.fetchPostReducer.response);
 
     return(
-        <Nav>
-            <LoginApi />
+        <DivContSt>
+           
+            {
+                logout ?
+                    
+                    <NavSt>
+                        
+                        <div>
+                            <ButtonHome />
+                        </div>
 
-            {/*
-            <Link to={""}><h1>PERFIL</h1></Link>
-            <Link to={""}><h1>PUBLICACIONES DE EMPRESAS</h1></Link>
-            <Link to={"/proyects"}><h1>PROYECTOS</h1></Link>
-            <Link to={""}><h1>CONTACTOS</h1></Link> */}
-        </Nav>
+                        <div>
+                            <ButtonStudentsWall />
+                        </div>
+
+                        <div>
+                            <ButtonWorkWall />
+                        </div>
+
+                        <div>
+                            <ButtonPerfil />
+                        </div>
+                    </NavSt>
+                    : null
+            }
+
+        </DivContSt>
     );
 };

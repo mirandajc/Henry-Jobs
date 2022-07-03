@@ -10,10 +10,10 @@ import {VscGithubInverted} from 'react-icons/all';
 import { useJwt } from "react-jwt";
 import { setLogout } from "../../../reducer/actions/actionPost";
 import LoginGithub from 'react-login-github';
-import GoogleLog from "./googleLogin";
-
-const onSuccess = response => console.log(response, "exito");
-const onFailure = response => console.error(response, "fracaso");
+/* import GoogleLog from "./googleLogin"; */
+import { ButtonGoogle } from "../LoginStyles/logstyle";
+const onSuccess = response => console.log(response);
+const onFailure = response => console.error(response);
 
 
 export default function LoginPage(){
@@ -33,21 +33,24 @@ export default function LoginPage(){
 
     const {decodedToken, isExpided}= useJwt(res);
     
+
+  
     const TK= decodedToken;
     localStorage.setItem('TK', JSON.stringify(TK));
+    //localStorage.setItem('nombre del item que quiero guardar' item que guardo)
     const token= localStorage.getItem('TK');
+    //localStorage.getItem('nombre del item que me traigo')
     const usedTk= JSON.parse(token);
-    console.log(usedTk);
+    
     
 
  
     useEffect(()=>{
-        if(TK){
+        if(TK !== null){
             
             navigate('/home')
         }
-        console.log(res)
-        console.log(TK)
+        
 
         return()=>{} 
     },[TK])
@@ -115,17 +118,21 @@ export default function LoginPage(){
                 <div className="other">
                     <div id="signInDiv" >
                         {/* <FcGoogle className="another"/> */}
-                        
+                        {/* <GoogleLog/> */}
                     </div>
                     <div>
+                        {/* <VscGithubInverted className="another"
+                        /> */}
                         <LoginGithub 
                 clientId='8eccabf164d5d88227d5'
                 render={(renderProp) => (
-                    <button 
+                    <ButtonGoogle 
                     onClick={renderProp.onClick}
                     disabled={renderProp.disabled}
                     >
-                    </button>
+                        <VscGithubInverted className="goo"
+                        />
+                    </ButtonGoogle>
                     )}
                     onSuccess={onSuccess}
                     onFailure={onFailure}

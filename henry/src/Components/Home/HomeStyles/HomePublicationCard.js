@@ -1,27 +1,49 @@
 import styled from 'styled-components';
 
+export const BodyStudentsWallCard= styled.div`
+width: 100%;
+
+display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    align-content: center;
+` 
+export const BotonTecnologias = styled.div`
+border: 2px solid #5D5F66;
+box-shadow: -1px -1px 5px 1px rgba(248, 247, 242, 0.13);
+border-radius: 12px;
+p{
+    position: absolute;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: justify;
+    color: #5D5F66;
+    font-weight: lighter;
+
+}
+`
 
 export const PublicationCard= styled.div`
-
-cursor:pointer;
-border-top: 1px solid yellow;
-width: 50%;
-height: auto;
-background-color: hsl(228deg 8% 12%);
-// border-radius: 10px;
-border-end-end-radius: 1rem;
-border-end-start-radius: 1rem;
-
-overflow:hidden;
-margin-top: 2em;
-margin-bottom: 3em;
-
-box-shadow: 4px 6px 5px 0px rgb(193 196 25 / 75%);
-    -webkit-box-shadow: 2px 1px 5px 0px rgb(193 196 25 / 24%);
-    -moz-box-shadow: 4px 6px 5px 0px rgba(193,196,25,0.75);
-
+    display: flex;
+    background-color: #1A1B1E;
+    width: 50%;
+    height: 15rem;
+    border-radius: 1rem;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: space-between;
+    margin: 2rem;
+p{
+    margin-left: 3rem;
+    font-size: 11px;
+    text-align: justify;
+    margin-right: 3rem;
+}
 
 `
+
 
 export const Cavecera= styled.div`
 display: flex;
@@ -57,20 +79,58 @@ font-size: 0.7em;
 
 `
 export const NamePic= styled.div`
-
+width: 100%;
 display: flex;
+flex-direction: row;
+justify-content: space-between;
+margin: 0.5rem;
 
+.imageName{
+    display: flex;
+    width: 50%;
+    align-items: center;
+}
+.datos{
+    margin: 0.5rem;
+}
+.ubicacion{
+    display: flex;
+    align-items: center;
+}
+.nombre{
+    
+}
+p{
+    display: flex;
+    margin: 0;
+    font-size: 10px;
+    flex-direction: row;
+    align-items: center;
+    color: #8e929a;
+;
+}
+h3{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    margin: 0;
+}
+h5{
+    margin-right: 1rem;
+    color: #8e929a;
+    font-size: 10px;
+}
+.imagenUbicacion{
+    width: 0.5rem;
+}
 `
 
 export const PictureCont= styled.div`
 width: 3em;
 height: 3em;
-
 border-radius: 50%;
-margin-right: 0.5em;
-margin-left: 0.5em;
-overflow:hidden;
-border: 1px solid yellow;
+overflow: hidden;
 
 img{
     width:100%;
@@ -78,25 +138,6 @@ img{
 
 `
 
-
-export const PublicacionesCont= styled.div`
-
-// border: 1px solid yellow;
-display: flex;
-align-items: center;
-jusrify-content: center;
-flex-direction: column;
-
-
-// border-radius: 10px;
-// box-shadow: 6px 7px 5px 0px rgb(255 255 255 / 75%);
-// -webkit-box-shadow: 0px 4px 10px 0px rgb(158 158 158 / 45%);
-// -moz-box-shadow: 6px 7px 5px 0px rgba(255,255,255,0.75);
-overflow-hidden: ;
-// background-color: hsl(228deg 11% 9%);
-overflow-hidden;
-
-`
 
 export const InnerPost= styled.div`
 
@@ -108,7 +149,6 @@ justify-content: space-around;
 flex-direction: column;
 
 p{
-    
     margin-left:-4em;
 }
 
@@ -117,8 +157,6 @@ p{
 `
 
 export const FooterPost= styled.div`
-
-
 
 p{
     &:hover{
@@ -220,27 +258,66 @@ span{
 `
 
 export const DetailPost= styled.div`
-width:100%;
-border-bottom: 0.5px solid hsl(228deg 11% 9%);
-height: 1.5em;
+ width:100%;
 display: flex; 
 align-items: center;
 justify-content: space-around;
 flex-direction: row;
 
+
 div{
-    
-    width: 100%;
-    display:flex;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin: 0.5rem;
+}
+span{
+    border: 2px solid #5D5F66;
+    box-shadow: -1px -1px 5px 1px rgba(248,247,242,0.13);
+    border-radius: 12px;
+    width: auto;
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
 
-    p{
-        
-        width:auto;
-        color: yellow;
-        cursor:pointer;
     }
+    
+p{  
+    margin: 0;
+    font-size: 11px;
+    color: #5D5F66;
+    font-weight: bold;
+
+}
+
+
+ 
+`
+export const ButonGrey = styled.div `
+
+background: #5D5F66;
+border: 2px solid #5D5F66;
+box-shadow: -1px -1px 5px 1px rgba(248, 247, 242, 0.13);
+border-radius: 12px;
+width: auto;
+height: 26px;
+
+
+p{
+    color: #1A1B1E;
+    font-size: 12px;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    font-weight: bold;
+}
+img{
+   width: 25%;
+    padding: none;
 }
 
 `

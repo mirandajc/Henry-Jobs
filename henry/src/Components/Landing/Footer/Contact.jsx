@@ -26,11 +26,11 @@ function Contact() {
     <ContentForm>
       <form ref={form} onSubmit={sendEmail}>
         <div className='datos'>
-          <label>Nombre</label>
-          <input type="text" name="user_name"/>
-          <label >Email</label>
+          {/* <label>Nombre</label> */}
+          <input type="text" name="user_name" placeholder='Nombre'/>
+          {/* <label >Email</label> */}
           <input type="email" name="user_email" />
-          <label >Asunto</label>
+          {/* <label >Asunto</label> */}
           <input type="text" name="asunto"/>
         </div>
           <div className='mensaje'>

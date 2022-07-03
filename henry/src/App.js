@@ -21,11 +21,12 @@ import Booms from "./Components/Landing/booms/booms";
 import Contact from "./Components/Landing/Footer/Contact";
 import Faq from "./Components/Landing/Footer/Faq";
 import Footer from "./Components/Landing/Footer/Footer";
-import WorkWall from './Components/Post/WorkWall/WorkWall';
 import LoginPage from "./Components/Login/LoginPage/login";
 import LoginCard from "./Components/Login/LoginPage/loginCard";
 import RegisterPage from "./Components/Login/registerPage/registerPage";
 import StudentsWall from "./Components/Post/StudentsWall/StudentsWall";
+import WorkWall from "./Components/Post/WorkWall/WorkWall.jsx";
+
 
 
 function App() {
@@ -46,7 +47,7 @@ function App() {
       <Route path='/register/recruiter' element={<RegisterRecruiter />} />// solo los nuevos usuarios 
       <Route path='/register/staff' element={<RegisterStaff />} />// solo los nuevos usuarios 
       <Route path='/details/:id' element={<DetailStudent/>}/>//preguntar a rene
-      <Route path='/profile/:userName' element={<ProfileLogic/>}/>//preguntar a rene
+      <Route path='/profile/:id' element={<StudentCompletePage/>}/>//preguntar a rene
       <Route path='/perfil' element={<StudentCompletePage/>}/> //solo acceso a edit al usuairo propietario
       <Route path="/proyects" element={<Proyects/>}/>
       <Route path="/about-as" element={<AboutAs/>}/>
@@ -54,7 +55,7 @@ function App() {
       <Route path="/booms" element={<Booms/>}/>
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/hc" element={<Faq/>}/>
-      <Route path='/workwall' element={<WorkWall/>}/>
+      <Route path="/workwall" element={<WorkWall />}/>
       <Route path="/students" element={<StudentsWall />} />
     </Routes>
     <Footer/>
