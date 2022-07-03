@@ -18,9 +18,12 @@ import { useNavigate } from "react-router-dom";
 import { DevTypeCont, Type, TechLenguage, Frontend, LenguageCont, Backend } from "../formStyles/devType";
 import { Switch, SwitchChiquito } from "../formStyles/formStyles";
 import { Error } from "../formStyles/formStyles";
+import { useDispatch } from "react-redux";
+import { setDevTypeAndTech } from "../../../reducer/actions/actionPost";
 
 
 export default function DevType({sumarFase}) {
+  const dispatch = useDispatch();
   const [ devType, setDevType ] = useState("");
   const [ tech, setTech ] = useState({
     languages:[],  
@@ -86,7 +89,9 @@ export default function DevType({sumarFase}) {
         technologies: [...tech.languages, ...tech.frontend, ...tech.backend]
       };
 
-      sumarFase()
+      dispatch(setDevTypeAndTech(devtech));
+
+      sumarFase();
     }
   };
 

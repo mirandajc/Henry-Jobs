@@ -2,18 +2,22 @@ import React, { useState } from "react";
 import { countries } from "../gistfile1.json";
 import { Error } from "../formStyles/formStyles";
 import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} from "../formStyles/lenguajesStyles";
+import { useDispatch } from "react-redux";
+import { setBusinessInfo } from "../../../reducer/actions/actionPost.js";
+
 
 export default function BusinessForm ({sumarFase}) {
+    const dispatch = useDispatch();
 
     ///////////////////////////// NAME ////////////////////////////////////////////
-    
-    const [ name, setName ] = useState("");
-    const [ nameError, setNameError ] = useState("");
-
-    const handleName = (e) => {
-        setName(e.target.value);
-    };
-
+    ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR
+    // const [ name, setName ] = useState(""); ///// NO DESCOMENTAR ///// NO DESCOMENTAR
+    // const [ nameError, setNameError ] = useState(""); ///// NO DESCOMENTAR
+    ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR
+    // const handleName = (e) => { ///// NO DESCOMENTAR ///// NO DESCOMENTAR
+    //     setName(e.target.value); ///// NO DESCOMENTAR ///// NO DESCOMENTAR
+    // }; ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR
+    ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR
     ///////////////////////////// AGE /////////////////////////////////////////////
 
     const [ age, setAge ] = useState("");
@@ -93,12 +97,6 @@ export default function BusinessForm ({sumarFase}) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(!name){
-            return setNameError("Ingresa un nombre válido");
-        }
-        else{
-            setNameError("");
-        }
         if(!age){
             return setErrorAge("Ingresa una antigüedad válida");
         }
@@ -120,11 +118,20 @@ export default function BusinessForm ({sumarFase}) {
         else{
             setErrorCountry("");
         }
-        if(errorAge || errorCuit || nameError || errorCountry ){
+        if(errorAge || errorCuit || errorCountry ){
             return;
         }
         else{
             //manejar info(GUARDAR)
+            const info = {
+                cuit: cuit,
+                age: age,
+                location: country,
+
+            }
+
+            console.log(info)
+            dispatch(setBusinessInfo(info));
             return sumarFase();
         }
     };
@@ -132,11 +139,11 @@ export default function BusinessForm ({sumarFase}) {
     return(
         <div>
 
-            <div>
+            {/* <div>
                 <h1>Ingresa el nombre de tu empresa</h1>
                 { nameError && <span>{ nameError }</span> }
                 <input type={"text"} value={name} placeholder="Ej: Soy Henry" onChange={(e) => handleName(e)}/>
-            </div>
+            </div> */}
 
             <div>
                 <h1>¿Cuántos años de antigüedad tiene tu empresa?</h1>
