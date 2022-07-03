@@ -8,7 +8,7 @@ const initialState = {
     response:[],
     responseProfile:[],
     log: false,
-    upDateProfile:{
+    upDateProfile: {
         userTypes:'',
         country:'',
         city:'',

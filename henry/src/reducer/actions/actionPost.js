@@ -13,7 +13,8 @@ import {
     SET_DEV_TYPE_AND_TECH,
     SET_LOCATION_ENG_STUDY,
     SET_RECRUITER_INFO,
-    SET_BUSINESS_INFO
+    SET_BUSINESS_INFO,
+    UPDATE_USER
  
 } from "../../constants/constants";
 
@@ -123,5 +124,12 @@ export function setBusinessInfo(payload){
     return {
         type: SET_BUSINESS_INFO,
         payload
+    };
+};
+
+export function updateUser(payload, id){
+    return {
+        type: UPDATE_USER,
+        payload: [payload, id]
     };
 };

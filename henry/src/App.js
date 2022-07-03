@@ -31,10 +31,12 @@ import Paypal2 from "./Components/Paypal/Paypal2";
 import Paypal3 from "./Components/Paypal/Paypal3";
 import CardPremium from "./Components/SerPremium/CardPremium"
 import WorkWall from "./Components/Post/WorkWall/WorkWall.jsx";
-
+import GithubLog from "./Components/Login/LoginPage/githubLogin";
 
 
 function App() {
+
+
   return (
     
       <div className="body">

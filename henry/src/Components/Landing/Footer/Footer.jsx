@@ -8,10 +8,10 @@ import { BsLinkedin } from 'react-icons/bs'
 function Footer() {
   return (
     <Contenedor>
-      <a href='https://www.soyhenry.com/admissions'>
+      <a  target='_blank' href='https://www.soyhenry.com/admissions'>
         <p>Admisiones</p>
       </a>
-      <a href='https://www.soyhenry.com/about-us'>
+      <a  target='_blank' href='https://www.soyhenry.com/about-us'>
         <p>Sobre nosotros</p>
       </a>
       <Link to='hc'>
@@ -21,12 +21,12 @@ function Footer() {
           <p>Contacto</p>
       </Link>
       <Redes>
-        <a href='https://www.instagram.com/soyhenry_ok'>
+        <a  target='_blank' href='https://www.instagram.com/soyhenry_ok'>
           <AiFillInstagram/>
         </a>
-        <a href='https://twitter.com/soyhenry_ok'><FiTwitter/>
+        <a  target='_blank' href='https://twitter.com/soyhenry_ok'><FiTwitter/>
         </a>
-        <a href='https://www.linkedin.com/school/henryok/'>
+        <a target='_blank' href='https://www.linkedin.com/school/henryok/'>
             <BsLinkedin />
         </a>
       </Redes>

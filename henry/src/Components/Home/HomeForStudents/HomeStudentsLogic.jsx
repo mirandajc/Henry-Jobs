@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-import { SiAlgolia } from "react-icons/si";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import CardPublicationWorkTest from "./CardPublicationsTest";
 import {  getPublicationsBusiness } from '../../../reducer/actions/actionStudents'
 import { ContenedorStudents } from "./HomeStyled"
@@ -10,11 +8,12 @@ import { ContenedorStudents } from "./HomeStyled"
 export default function HomeStudentsLogic() {
 
     const publicaciones = useSelector((state) => state.fetchStudentsReducer.AllPublicationsFollows);
+    const foll = useSelector((state) => state.fetchStudentsReducer.userFollows);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getPublicationsBusiness());
-    }, []);
+    }, [foll]);
 
 
     return (
