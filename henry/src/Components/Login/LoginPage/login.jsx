@@ -10,11 +10,11 @@ import {VscGithubInverted} from 'react-icons/all';
 import { useJwt } from "react-jwt";
 import { setLogout } from "../../../reducer/actions/actionPost";
 import LoginGithub from 'react-login-github';
-
-const onSuccess = response => console.log(response);
-const onFailure = response => console.error(response);
-
 import GoogleLog from "./googleLogin";
+
+const onSuccess = response => console.log(response, "exito");
+const onFailure = response => console.error(response, "fracaso");
+
 
 export default function LoginPage(){
     const navigate= useNavigate();
@@ -58,6 +58,24 @@ export default function LoginPage(){
          dispatch(postUser(user));
        }
     }
+    const handleCallbackResponse = (response) => {
+  
+        console.log("Encoded JWT ID token" + response.credential);
+      }
+      
+      useEffect(() => {
+        /* global google */
+        google.accounts.id.initialize({
+          
+          client_id:"49386310605-t1sf3e31jfe1li9cprtcr3dslrddop1h.apps.googleusercontent.com",
+          callback: handleCallbackResponse
+        });
+      
+        google.accounts.id.renderButton(
+          document.getElementById("signInDiv"),
+          {theme: "outline", size: "small"}
+        );
+      },[]);
     
 
    
@@ -95,13 +113,11 @@ export default function LoginPage(){
                     <p>Or signIn with</p>
                 </div>
                 <div className="other">
-                    <div>
+                    <div id="signInDiv" >
                         {/* <FcGoogle className="another"/> */}
-                        <GoogleLog/>
+                        
                     </div>
                     <div>
-                        <VscGithubInverted className="another"
-                        />
                         <LoginGithub 
                 clientId='8eccabf164d5d88227d5'
                 render={(renderProp) => (
@@ -115,6 +131,8 @@ export default function LoginPage(){
                     onFailure={onFailure}
                     cookiePolicy='single_host_origin'
                 />
+                        <VscGithubInverted className="another"
+                        />
                     </div>
                 </div>
                 <div>

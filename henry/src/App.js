@@ -29,6 +29,8 @@ import StudentsWall from "./Components/Post/StudentsWall/StudentsWall";
 
 
 function App() {
+
+
   return (
     <div className="body">
       <Navbar/>
