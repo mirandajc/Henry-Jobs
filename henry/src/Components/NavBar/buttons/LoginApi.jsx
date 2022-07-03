@@ -8,6 +8,7 @@ import { setLogout } from "../../../reducer/actions/actionPost";
 
 
 export default function LoginApi() {
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const logout= useSelector((state)=> state.fetchPostReducer.response);
@@ -33,12 +34,6 @@ export default function LoginApi() {
     // localStorage.clear() LIMPIA TODO EL STORAGE
     // localStorage.removeItem('nombre de item') REMUEVE UN ITEM ESPECIFICO DEL STORAGE
     // const token= JSON.parse(tal) PARSEO EL ITEM A FORMA DE OBJETO
-
-
-    useEffect(()=>{
-        console.log(logout)
-    },[logout])
-    
 
     return (
         <ContainerProfile>

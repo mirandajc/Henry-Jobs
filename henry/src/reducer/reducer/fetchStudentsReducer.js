@@ -6,12 +6,14 @@ import {
     GET_PUBLICATIONS_WORK_MODALITY,
     GET_PUBLICATIONS_ENGLISH,
     GET_PUBLICATIONS_UBICATION,
-    SHOW_FILTER
+    SHOW_FILTER,
+    POST_ID_FOLLOW
 } from "../../constants/constants";
 
 const initialState = {
     AllPublications:[],
-    userFollows: [1,4,2,5,6,7,3,12,11,10,9],
+    AllPublicationsFollows:[],
+    userFollows: ['62bc9dff5c41483e313e899a','62bc9dff5c41483e313e899ab','62bc9dff5c41483e313e899ac','62bc9dff5c41483e313e899ad','62bc9dff5c41483e313e899ae'],
     busPublication:[],
     publicationsFiltered:[],
     filtrosos: {
@@ -27,16 +29,30 @@ const fetchStudentsReducer = (state = initialState, action) => {
     switch (action.type) {
         
         case GET_PUBLICATIONS_BUSINESS_SUCCESS:
-
+            let all = action.payload.reverse();
             let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id))
             let response = fol1.reverse();
-            let responseBusiness = fol1.filter(e => e.posterUser.userTypes === 4 || e.posterUser.userTypes === 5);
+            let responseBusiness = all.filter(e => e.posterUser.userTypes === 4 || e.posterUser.userTypes === 5);
 
             return {
                 ...state,
-                AllPublications: response,
+                AllPublications: all,
                 busPublication: responseBusiness,
-                publicationsFiltered: responseBusiness
+                publicationsFiltered: responseBusiness,
+                AllPublicationsFollows: response,
+            }
+        case POST_ID_FOLLOW:
+            let respon = state.userFollows
+            if(state.userFollows.includes(action.payload)) {
+                respon = state.userFollows.filter(e => e !== action.payload)
+            }
+            if(!state.userFollows.includes(action.payload)) {
+                respon.push(action.payload)
+            }
+            console.log(respon)
+            return {
+                ...state,
+                userFollows: respon
             }
         
         case GET_PUBLICATIONS_TECHNOLOGIES:
@@ -75,20 +91,17 @@ const fetchStudentsReducer = (state = initialState, action) => {
             if(state.filtrosos.technologies !== ""){
                 publicacionesFiltradas = publicacionesFiltradas.filter(e => e.technologies.includes(state.filtrosos.technologies))
             }
-            else if(state.filtrosos.devType !== ""){
+            if(state.filtrosos.devType !== ""){
                 publicacionesFiltradas = publicacionesFiltradas.filter(e => e.backFront === state.filtrosos.devType)
             }
-            else if(state.filtrosos.english !== ""){
+            if(state.filtrosos.english !== ""){
                 publicacionesFiltradas = publicacionesFiltradas.filter(e => e.languages === state.filtrosos.english)
             }
-            else if(state.filtrosos.workModality !== ""){
+            if(state.filtrosos.workModality !== ""){
                 publicacionesFiltradas = publicacionesFiltradas.filter(e => e.workModality === state.filtrosos.workModality)
             }
-            else if(state.filtrosos.ubication !== ""){
+            if(state.filtrosos.ubication !== ""){
                 publicacionesFiltradas = publicacionesFiltradas.filter(e => e.country === state.filtrosos.ubication)
-            }
-            else{
-
             }
             return{
             ...state,

@@ -14,7 +14,7 @@ import {
 } from '../../constants/constants';
 
 let userInfo = {
-    userType: 5,
+    userType: 1,
     premium: true,
     isRegistered: true,
 };
@@ -23,7 +23,6 @@ let userInfo = {
 //axios.defaults.headers.post['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`;
 
 function* asyncInfoUser (value) {
-    console.log(value);
     try {
         // const response = yield call(() => axios(URL_PEDIDO_USER+value)); // TODAVIA NO CONOCEMOS LA RUTA
                                                                             // llevar mail y password al back

@@ -1,18 +1,39 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import ButtonPremium from "../buttons/buttonPremium";
-import LoginApi from "../buttons/LoginApi";
 import { useSelector } from "react-redux";
-import { NavBar } from "./Estilos/NavEmpresa"
+import ButtonStudentsWall from '../buttons/buttonStudentsWall'
+import ButtonHome from "../buttons/buttonHome";
+import ButtonPerfil from "../buttons/buttonPerfil";
 
-export default function BusinessNavBar () {
-    const isPremium = useSelector((state) => state.fetchInfoUserReducer.premium)
-    return(
-        <NavBar>
-        <LoginApi />
-        {
-            !isPremium ? <ButtonPremium /> : null
-        }
-        </NavBar>
+export default function BusinessNavBar() {
+
+    const logout = useSelector((state) => state.fetchPostReducer.response);
+
+    let isPremium = false;
+
+    return (
+        <div>
+            {
+                logout ?
+                    <div>
+                        <div>
+                            <ButtonHome />
+                        </div>
+
+                        <div>
+                            <ButtonStudentsWall />
+                        </div>
+
+                        <div>
+                            <ButtonPerfil />
+                        </div>
+                        {
+                            !isPremium ? <ButtonPremium /> : null
+                        }
+                    </div>
+                    : null
+            }
+
+        </div>
     );
 };
