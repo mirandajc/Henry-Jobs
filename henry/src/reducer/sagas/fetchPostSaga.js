@@ -42,7 +42,6 @@ function* asyncInfoUser (value) {
 function* asyncPostUser (user){
     
     try{
-        console.log('hola rey')
         const response = yield call(()=>(axios.post(URL_POST, user.payload)));
         // const codedTK= response.data;
         // localStorage.setItem('codedTK',JSON.stringify(codedTK));

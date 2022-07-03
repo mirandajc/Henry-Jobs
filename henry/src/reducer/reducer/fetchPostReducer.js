@@ -8,6 +8,17 @@ const initialState = {
     response:[],
     responseProfile:[],
     log:false,
+    upDateProfile:{
+        userTypes:'',
+        country:'',
+        city:'',
+        languages:'',
+        otherStudies:[],
+        currentJob:{name:'',date:'',job:''},
+        backFront:'',
+        technologies:[],
+        cuit:''
+    }
 
 };
 
