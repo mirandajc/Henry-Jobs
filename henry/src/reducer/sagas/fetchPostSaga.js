@@ -17,7 +17,8 @@ import {
     URL_PROFILE,
     PROFILE_SUCCESS,
     POST_REGISTER_MODAL,
-    URL_DEPLOY
+    URL_DEPLOY,
+    UPDATE_USER
 } from '../../constants/constants';
 
 let userInfo = {
@@ -76,6 +77,15 @@ function* asyncPostRegisterModal(RegisterUser){ // datos del registro modal
     }
 };
 
+function* asyncUpdateUser (objetoGlobal){
+    try {
+        console.log("objeto global", objetoGlobal);
+        const response = yield call(() => axios.put(URL_DEPLOY + `/user/${objetoGlobal[1]}`, objetoGlobal[0]))
+        console.log("response", response)
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 
 
@@ -85,5 +95,5 @@ export function* watchFetchPostSaga(){
     yield takeEvery(POST_USER, asyncPostUser)
     yield takeEvery(PROFILE_ID, getProfileByID)
     yield takeEvery(POST_REGISTER_MODAL, asyncPostRegisterModal)
-   
+    yield takeEvery(UPDATE_USER, asyncUpdateUser)
 }
