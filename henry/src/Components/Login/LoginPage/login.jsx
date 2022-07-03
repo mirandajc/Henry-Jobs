@@ -30,7 +30,9 @@ export default function LoginPage(){
     
     const TK= decodedToken;
     localStorage.setItem('TK', JSON.stringify(TK));
+    //localStorage.setItem('nombre del item que quiero guardar' item que guardo)
     const token= localStorage.getItem('TK');
+    //localStorage.getItem('nombre del item que me traigo')
     const usedTk= JSON.parse(token);
     console.log(usedTk);
     
