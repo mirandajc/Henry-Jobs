@@ -10,12 +10,8 @@ import {VscGithubInverted} from 'react-icons/all';
 import { useJwt } from "react-jwt";
 import { setLogout } from "../../../reducer/actions/actionPost";
 import LoginGithub from 'react-login-github';
-import GoogleLog from "./googleLogin";
-<<<<<<< HEAD
+/* import GoogleLog from "./googleLogin"; */
 import { ButtonGoogle } from "../LoginStyles/logstyle";
-=======
-
->>>>>>> Practice
 const onSuccess = response => console.log(response);
 const onFailure = response => console.error(response);
 
@@ -104,7 +100,7 @@ export default function LoginPage(){
                 <div className="other">
                     <div>
                         {/* <FcGoogle className="another"/> */}
-                        <GoogleLog/>
+                        {/* <GoogleLog/> */}
                     </div>
                     <div>
                         {/* <VscGithubInverted className="another"
