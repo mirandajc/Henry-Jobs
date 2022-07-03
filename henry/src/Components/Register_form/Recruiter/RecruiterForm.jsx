@@ -135,7 +135,7 @@ export default function RecruiterForm ({sumarFase}) {
             else{
                 if(errorStudy === ""){
                     setStudy([...study, studyInput ]);
-                    setStudyInput = "";                       
+                    setStudyInput("");                      
                 }
             }
         }
