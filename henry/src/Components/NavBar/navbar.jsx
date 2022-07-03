@@ -7,13 +7,14 @@ import StaffNavBar from "./NavBarCondicional/StaffNavBar";
 import LoginApi from "./buttons/LoginApi";
 import { useSelector } from "react-redux";
 import { useJwt } from "react-jwt";
-
+import { Link, useNavigate } from "react-router-dom";
+import RegistroGeneral from "../Register_form/RegistroGeneral";
 
 
 export default function Navbar() {
 
   const logout = useSelector((state) => state.fetchPostReducer.response);
-
+  const navigate = useNavigate();
   const { decodedToken, isExpided } = useJwt(logout);
   const respuesta = decodedToken
 
@@ -46,6 +47,10 @@ export default function Navbar() {
                 respuesta.type === 3 ?
 
                   <StaffNavBar />
+
+                  : respuesta.type === 0 ?
+
+                    null 
 
                   : null
         }

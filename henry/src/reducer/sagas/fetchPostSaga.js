@@ -1,7 +1,8 @@
-import { take, call, all, put, takeEvery } from 'redux-saga/effects';
+import { take, call, all, put, takeEvery, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 import {
     getInfoUserSuccess,
+    postRegisterModalSuccess,
     postUserSuccess,
     profileSuccess,
 } from '../actions/actionPost';
@@ -14,7 +15,9 @@ import {
     SET_LOGOUT,
     PROFILE_ID,
     URL_PROFILE,
-    PROFILE_SUCCESS
+    PROFILE_SUCCESS,
+    POST_REGISTER_MODAL,
+    URL_DEPLOY
 } from '../../constants/constants';
 
 let userInfo = {
@@ -39,6 +42,7 @@ function* asyncInfoUser (value) {
 function* asyncPostUser (user){
     
     try{
+        console.log('hola rey')
         const response = yield call(()=>(axios.post(URL_POST, user.payload)));
         // const codedTK= response.data;
         // localStorage.setItem('codedTK',JSON.stringify(codedTK));
@@ -62,6 +66,17 @@ function* getProfileByID(id){
     }
 }
 
+function* asyncPostRegisterModal(RegisterUser){ // datos del registro modal
+    console.log("llegue a lo asincrono", RegisterUser);
+    try {
+        const response = yield call(() => axios.post(URL_DEPLOY + "/user", RegisterUser));
+        console.log(response.data)
+        yield put(postRegisterModalSuccess((response).data));
+    } catch (error) {
+        console.log(error);      
+    }
+};
+
 
 
 
@@ -70,5 +85,6 @@ export function* watchFetchPostSaga(){
     yield takeEvery(GET_INFO_USER, asyncInfoUser)
     yield takeEvery(POST_USER, asyncPostUser)
     yield takeEvery(PROFILE_ID, getProfileByID)
+    yield takeEvery(POST_REGISTER_MODAL, asyncPostRegisterModal)
    
 }

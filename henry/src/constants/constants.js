@@ -61,8 +61,12 @@ export const POST_ID_FOLLOW = 'POST_ID_FOLLOW';
 export const POST_ID_FOLLOW_BUSS = 'POST_ID_FOLLOW_BUSS';
 
 
+export const URL_DEPLOY = 'http://localhost:3001/api';
+
 
 export const PROFILE_SUCCESS= 'PROFILE_SUCCESS';
 export const PROFILE_ID='PROFILE_ID';
 export const URL_PROFILE= 'http://localhost:3001/user/';
 
+export const POST_REGISTER_MODAL = "POST_REGISTER_MODAL";
+export const POST_REGISTER_MODAL_SUCCESS = "POST_REGISTER_MODAL_SUCCESS";
