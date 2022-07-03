@@ -10,11 +10,11 @@ import {VscGithubInverted} from 'react-icons/all';
 import { useJwt } from "react-jwt";
 import { setLogout } from "../../../reducer/actions/actionPost";
 import LoginGithub from 'react-login-github';
+import GoogleLog from "./googleLogin";
 
 const onSuccess = response => console.log(response);
 const onFailure = response => console.error(response);
 
-import GoogleLog from "./googleLogin";
 
 export default function LoginPage(){
     const navigate= useNavigate();
