@@ -65,19 +65,19 @@ export default function LoginPage(){
         console.log("Encoded JWT ID token" + response.credential);
       }
       
-      useEffect(() => {
-        /* global google */
-        google.accounts.id.initialize({
+    //   useEffect(() => {
+    //     /* global google */
+    //     // google.accounts.id.initialize({
           
-          client_id:"49386310605-t1sf3e31jfe1li9cprtcr3dslrddop1h.apps.googleusercontent.com",
-          callback: handleCallbackResponse
-        });
+    //     //   client_id:"49386310605-t1sf3e31jfe1li9cprtcr3dslrddop1h.apps.googleusercontent.com",
+    //     //   callback: handleCallbackResponse
+    //     });
       
-        // google.accounts.id.renderButton(
-        //   document.getElementById("signInDiv"),
-        //   {theme: "outline", size: "small"}
-        // );
-      },[]);
+    //     // google.accounts.id.renderButton(
+    //     //   document.getElementById("signInDiv"),
+    //     //   {theme: "outline", size: "small"}
+    //     // );
+    //   },[]);
     
 
    

@@ -9,5 +9,4 @@ export default function ButtonPremium(){
             <Link to='/premium'><button>Ser Premium</button></Link>
         </div>
     )
-
 }
