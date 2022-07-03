@@ -7,6 +7,7 @@ import {BodyStudentsWallCard} from "../../Home/HomeStyles/HomePublicationCard.js
 import {DivFiltros } from "../WorkWall/WorkWall.js";
 
 export default function StudentsWall () {
+    
     const estudiantes = useSelector(state => state.fetchBusinessReducer.studentsFiltered);
     const dispatch = useDispatch();
 

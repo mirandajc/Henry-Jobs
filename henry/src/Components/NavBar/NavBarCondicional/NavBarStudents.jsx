@@ -15,7 +15,9 @@ export default function StudentsNavBar () {
            
             {
                 logout ?
+                    
                     <div>
+                        {console.log('nav de students')}
                         <div>
                             <ButtonHome />
                         </div>

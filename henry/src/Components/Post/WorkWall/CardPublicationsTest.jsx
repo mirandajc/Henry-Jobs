@@ -2,9 +2,18 @@ import React from "react";
 import ubicacion from "../../images/ubicacion.png";
 import {Video ,ComponentCard , DatosProyect, ButtonTecnologies, ButtonLight, ComponentDatos , Date} from '../../Home/HomeForStudents/HomeStyled'
 import ReactPlayer from "react-player";
+import { postIdFollow } from "../../../reducer/actions/actionStudents";
+import { useDispatch } from "react-redux";
 
-export default function CardPublicationWorkTest2({ image, name, date, title, summary, video, technologies, backFront, ubication, workModality, english, userName }) {
 
+
+export default function CardPublicationWorkTest2({id, image, name, date, title, summary, video, technologies, backFront, ubication, workModality, english, userName }) {
+
+    const dispatch = useDispatch();
+
+    const handleFollow = () => {
+        dispatch(postIdFollow(id));
+    }
 
     return (
         <ComponentCard>
@@ -37,6 +46,10 @@ export default function CardPublicationWorkTest2({ image, name, date, title, sum
                 <ButtonLight>
                     <p>{english}</p>
                 </ButtonLight>
+                <ButtonLight>
+                    <button onClick={() => handleFollow()}>Follow</button>
+                </ButtonLight>
+                
             </div>           
             </div>
             </ComponentDatos>

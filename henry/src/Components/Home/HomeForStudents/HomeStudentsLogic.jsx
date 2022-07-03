@@ -9,7 +9,7 @@ import { ContenedorStudents } from "./HomeStyled"
 //Feed del alumno con pyublicaciones 
 export default function HomeStudentsLogic() {
 
-    const publicaciones = useSelector((state) => state.fetchStudentsReducer.AllPublications);
+    const publicaciones = useSelector((state) => state.fetchStudentsReducer.AllPublicationsFollows);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -34,6 +34,7 @@ export default function HomeStudentsLogic() {
                     workModality={e.workModality}  
                     english={e.languages} 
                     lastname={e.posterUser.lastName}
+                    id={e.posterUser._id}
                 />)
             }
 

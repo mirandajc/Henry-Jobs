@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CardPublicationsAll from "./CardPublicationsTest";
-import { Link } from "react-router-dom"
+import { getPublicationStudents } from "../../../reducer/actions/actionBusiness";
 
 
 export default function HomeBusinessLogic() {
+
   const dispatch = useDispatch();
-  const allPublications = useSelector(
-    (state) => state.fetchBusinessReducer.allPublications2
-  );
+  const allPublications = useSelector((state) => state.fetchBusinessReducer.allPublications);
+    
+  useEffect(() => {
+    dispatch(getPublicationStudents());
+  },[])
+
+
   
 
   return (

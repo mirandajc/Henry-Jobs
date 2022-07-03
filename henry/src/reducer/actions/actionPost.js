@@ -4,7 +4,7 @@ import {
     POST_USER,
     POST_USER_SUCCESS,
     SET_LOGOUT,
-    POST_ID_FOLLOW
+ 
 } from "../../constants/constants";
 
 
@@ -44,13 +44,6 @@ export function postUser(user){
 export function postUserSuccess(payload){
     return{
         type: POST_USER_SUCCESS,
-        payload
-    }
-}
-
-export function postIdFollow(payload){
-    return {
-        type: POST_ID_FOLLOW,
         payload
     }
 }

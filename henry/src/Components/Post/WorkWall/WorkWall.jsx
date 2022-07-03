@@ -111,8 +111,7 @@ export default function WorkWall(){
                 return <option>{e}</option>
             })}
             </select> 
-
-            {console.log("COMPONENTE", business)}
+            
             </DivFiltros>
 
             {/* <NavWall/> */} 
@@ -132,6 +131,7 @@ export default function WorkWall(){
                         workModality={e.workModality}
                         english={e.languages}
                         username={e.userName}
+                        id={e.posterUser._id}
 
 
                     />

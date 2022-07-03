@@ -1,16 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "./Logo/logo";
 import { NavbarS, NavButton } from "./NavStyles/navbar";
 import BusinessNavBar from "./NavBarCondicional/NavBarBusiness";
 import StudentsNavBar from "./NavBarCondicional/NavBarStudents";
 import StaffNavBar from "./NavBarCondicional/StaffNavBar";
 import LoginApi from "./buttons/LoginApi";
+import { useSelector } from "react-redux";
+import { useJwt } from "react-jwt";
+
+
 
 export default function Navbar() {
 
-  const tal = localStorage.getItem('TK')
-  const userType = JSON.parse(tal);
-  
+  const logout = useSelector((state) => state.fetchPostReducer.response);
+
+  const { decodedToken, isExpided } = useJwt(logout);
+  const respuesta = decodedToken
 
   return (
     <NavbarS>
@@ -18,20 +23,31 @@ export default function Navbar() {
         <Logo />
       </div>
 
-      <LoginApi/>
-     
+      <LoginApi />
+
       <NavButton>
 
         {
 
-        userType.type === 1 || userType.type === 2 ? <StudentsNavBar />
+          respuesta === null ? null :
 
-        : 
-        userType.type === 5 || userType.type === 4 ? <BusinessNavBar />
+            respuesta.type === 1 || respuesta.type === 2 ?
 
-        : 
-        <StaffNavBar />
-        
+              <StudentsNavBar />
+
+              :
+              
+              respuesta.type === 5 || respuesta.type === 4 ?
+
+                <BusinessNavBar />
+
+                :
+
+                respuesta.type === 3 ?
+
+                  <StaffNavBar />
+
+                  : null
         }
 
       </NavButton>

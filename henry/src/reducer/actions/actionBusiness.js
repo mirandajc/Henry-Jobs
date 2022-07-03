@@ -9,7 +9,8 @@ import {
     GET_ALL_STUDENTS_SUCCESS,
     SHOW_FILTER,
     GET_PUBLICAT_WORKMODALITY,
-    SET_STARS_ORDER
+    SET_STARS_ORDER,
+    POST_ID_FOLLOW_BUSS
 } from "../../constants/constants";
 
 export function getPublicationStudents () {
@@ -17,6 +18,13 @@ export function getPublicationStudents () {
         type: GET_PUBLICATION_STUDENTS
     }
 };
+
+export function postIdFollowBuss(payload){
+    return {
+        type: POST_ID_FOLLOW_BUSS,
+        payload
+    }
+}
 
 export function getPublicationStudentsSuccess (payload) {
     return {

@@ -12,6 +12,7 @@ import {
 
 const initialState = {
     AllPublications:[],
+    AllPublicationsFollows:[],
     userFollows: ['62bc9dff5c41483e313e899a','62bc9dff5c41483e313e899ab','62bc9dff5c41483e313e899ac','62bc9dff5c41483e313e899ad','62bc9dff5c41483e313e899ae'],
     busPublication:[],
     publicationsFiltered:[],
@@ -28,16 +29,17 @@ const fetchStudentsReducer = (state = initialState, action) => {
     switch (action.type) {
         
         case GET_PUBLICATIONS_BUSINESS_SUCCESS:
-
+            let all = action.payload.reverse();
             let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id))
             let response = fol1.reverse();
-            let responseBusiness = fol1.filter(e => e.posterUser.userTypes === 4 || e.posterUser.userTypes === 5);
+            let responseBusiness = all.filter(e => e.posterUser.userTypes === 4 || e.posterUser.userTypes === 5);
 
             return {
                 ...state,
-                AllPublications: response,
+                AllPublications: all,
                 busPublication: responseBusiness,
-                publicationsFiltered: responseBusiness
+                publicationsFiltered: responseBusiness,
+                AllPublicationsFollows: response,
             }
         case POST_ID_FOLLOW:
             let respon = state.userFollows

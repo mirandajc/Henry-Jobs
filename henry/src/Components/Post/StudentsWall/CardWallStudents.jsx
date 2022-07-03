@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   PublicationCard,
   PictureCont,
@@ -12,8 +12,11 @@ import {
 import { Link } from "react-router-dom";
 import Star from '../../images/Star.png';
 import Ubicacion from "../../images/ubicacion.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postIdFollow } from "../../../reducer/actions/actionStudents";
+import { postIdFollowBuss } from "../../../reducer/actions/actionBusiness";
+
+
 
 
 export default function CardWallStudents({name,lastname,email,technologies,otherstudies,banner,english,
@@ -25,11 +28,20 @@ export default function CardWallStudents({name,lastname,email,technologies,other
 
       const dispatch = useDispatch();
 
-      const handleFollow = () => {
-        dispatch(postIdFollow(id));
-        
-      }
+      const tal = localStorage.getItem('TK')
+      const userType = JSON.parse(tal);
 
+
+      
+      const handleFollow = () => {
+        if(userType.type === 1 || userType.type === 2){
+          dispatch(postIdFollow(id));   
+        }
+        if(userType.type === 4 || userType.type === 5){
+          dispatch(postIdFollowBuss(id)); 
+        }
+      }
+    
 
   return (
       <PublicationCard> 
@@ -95,10 +107,13 @@ export default function CardWallStudents({name,lastname,email,technologies,other
               <p>INGLES {english}</p>
              
             </ButonGrey>
+            {
+              userType.type !== 3 ?
             <ButonGrey>
              
               <button onClick={() => handleFollow()}>Follow</button>
-            </ButonGrey>
+            </ButonGrey> : null
+            }
             </div> 
             
           </DetailPost>

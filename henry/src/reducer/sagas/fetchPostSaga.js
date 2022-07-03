@@ -23,7 +23,6 @@ let userInfo = {
 //axios.defaults.headers.post['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`;
 
 function* asyncInfoUser (value) {
-    console.log(value);
     try {
         // const response = yield call(() => axios(URL_PEDIDO_USER+value)); // TODAVIA NO CONOCEMOS LA RUTA
                                                                             // llevar mail y password al back

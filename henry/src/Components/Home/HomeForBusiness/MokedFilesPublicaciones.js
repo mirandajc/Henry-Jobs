@@ -39,8 +39,6 @@ export const mokedFilesPostBusiness = [ // NO BORRAR
 ]
 
 
-var idpubl =[]
-
 var idusuariosquesigo = ['62bc9dff5c41483e313e899a','62bc9dff5c41483e313e899ab','62bc9dff5c41483e313e899ac','62bc9dff5c41483e313e899ad','62bc9dff5c41483e313e899ae']
 
 export const Alumnos = [{ // NO BORRAR
