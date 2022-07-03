@@ -45,11 +45,7 @@ export const GET_INFO_USER_SUCCESS = "GET_INFO_USER_SUCCESS";
 
 export const POST_USER= 'POST_USER';
 export const POST_USER_SUCCESS='POST_USER_SUCCESS';
-<<<<<<< HEAD
 export const URL_POST='https://henryjob.herokuapp.com/api/signin';
-=======
-export const URL_POST='http://localhost:3001/signin';
->>>>>>> 60f14ed6598fd4715ff4206672b5ad7a5c0aff3b
 
 export const HENRY_LOGO ='https://blog.soyhenry.com/content/images/2021/03/151211491_440151970756357_8005198803636550092_o.jpg';
 export const SHOW_FILTER = "SHOW_FILTER";
@@ -71,15 +67,8 @@ export const URL_DEPLOY = 'https://henryjob.herokuapp.com/api';
 
 export const PROFILE_SUCCESS= 'PROFILE_SUCCESS';
 export const PROFILE_ID='PROFILE_ID';
-<<<<<<< HEAD
+
 export const URL_PROFILE= 'https://henryjob.herokuapp.com/api/user/';
-
-export const POST_REGISTER_MODAL = "POST_REGISTER_MODAL";
-export const POST_REGISTER_MODAL_SUCCESS = "POST_REGISTER_MODAL_SUCCESS";
-
-export const POST_UPDATE_USER = 'POST_UPDATE_USER';
-=======
-export const URL_PROFILE= 'http://localhost:3001/user/';
 
 export const POST_REGISTER_MODAL = "POST_REGISTER_MODAL";
 export const POST_REGISTER_MODAL_SUCCESS = "POST_REGISTER_MODAL_SUCCESS";
@@ -88,4 +77,3 @@ export const SET_DEV_TYPE_AND_TECH = "SET_DEV_TYPE_AND_TECH";
 export const SET_LOCATION_ENG_STUDY = "SET_LOCATION_ENG_STUDY";
 export const SET_RECRUITER_INFO = "SET_RECRUITER_INFO";
 export const SET_BUSINESS_INFO = "SET_BUSINESS_INFO";
->>>>>>> 60f14ed6598fd4715ff4206672b5ad7a5c0aff3b
