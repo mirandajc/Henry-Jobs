@@ -11,7 +11,11 @@ import { useJwt } from "react-jwt";
 import { setLogout } from "../../../reducer/actions/actionPost";
 import LoginGithub from 'react-login-github';
 import GoogleLog from "./googleLogin";
+<<<<<<< HEAD
 
+=======
+import { ButtonGoogle } from "../LoginStyles/logstyle";
+>>>>>>> b06e60961ebb91c3172f7a832f2f9929b335618c
 const onSuccess = response => console.log(response);
 const onFailure = response => console.error(response);
 
@@ -102,16 +106,18 @@ export default function LoginPage(){
                         <GoogleLog/>
                     </div>
                     <div>
-                        <VscGithubInverted className="another"
-                        />
+                        {/* <VscGithubInverted className="another"
+                        /> */}
                         <LoginGithub 
                 clientId='8eccabf164d5d88227d5'
                 render={(renderProp) => (
-                    <button 
+                    <ButtonGoogle 
                     onClick={renderProp.onClick}
                     disabled={renderProp.disabled}
                     >
-                    </button>
+                        <VscGithubInverted className="goo"
+                        />
+                    </ButtonGoogle>
                     )}
                     onSuccess={onSuccess}
                     onFailure={onFailure}
