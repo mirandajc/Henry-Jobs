@@ -1,24 +1,9 @@
-export const storage= {
-    id:'',
-    posterUser:{
-        userTypes:'',
-        lenguages:'',
-        otherStudies:'',
-        tecnologias:'',
-        location:{
-            country:'',
-            province:'',
-            city:''
-        },
-        backfront:'',
-        instancia:'',
-        follow:[],
-        id:'',
-        firstName:'',
-        lastName:'',
-        email:'',
-        password:''
+// import React,{useState} from "react";
+// import { useJwt } from "react-jwt";
 
-    }
 
-}
+// const token= localStorage.getItem('codedTK');
+// console.log(token)
+// const{decodedToken, isExpired}= useJwt(token);
+// localStorage.setItem(decodedToken,'decodedToken')
+

@@ -14,8 +14,8 @@ import {
 } from "../../constants/constants";
 
 const initialState = {
-    user: 'business', //seteado manualmente, tiene que traer que pido de usuario somos al momento de log
-    userFollows: [1,4,2,5,6,7,3], // seteado manualmente,despues va a tener que traer el array de id de personas o empresas que seguimos
+    user: 'Business', //seteado manualmente, tiene que traer que pido de usuario somos al momento de log
+    userFollows: ['62bc9dff5c41483e313e899a','62bc9dff5c41483e313e899ab','62bc9dff5c41483e313e899ac','62bc9dff5c41483e313e899ad','62bc9dff5c41483e313e899ae'], // seteado manualmente,despues va a tener que traer el array de id de personas o empresas que seguimos
     pokemon: [],
     loading: false,
     error: {},
@@ -25,7 +25,8 @@ const initialState = {
     allStudentsAz: [],
     allStudentsZa: [],
     allStudentsHighScore: [],
-    userRegister: false
+    userRegister: false,
+    isPremium: false
 };
 
 const fetchDataReducer = (state = initialState, action) => {
@@ -33,7 +34,8 @@ const fetchDataReducer = (state = initialState, action) => {
         case GET_INFO_USER_SUCCES:
             return { // aca hay que traer y setear todo lo que queramos del usuario
                 ...state,
-                userRegister: action.payload
+                userRegister: action.payload.register,
+                /* isPremium: action.payload.premium */
             }
         case SET_REGISTER_TRUE_SUCCES:
             return {

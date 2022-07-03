@@ -5,7 +5,7 @@ export const NavbarS= styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
-background-color: none;
+background-color: black;
 color: white;
 width:100%;
 
@@ -15,7 +15,9 @@ width:100%;
 export const NavButton= styled.div`
 display: flex;
 justify-content: space-between;
-width: 50%;
+width: 100%;
+height: auto;
+
 
 button{
    

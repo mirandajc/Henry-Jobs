@@ -1,9 +1,14 @@
 import {take,call, all, spawn} from 'redux-saga/effects';
-import {watchFetchDataSaga} from './fetchDataSaga';
+import { watchFetchStudentsSaga } from './fetchStudentsSaga';
+import { watchFetchBusinessSaga } from './fetchBusinessSaga'
+import { watchFetchPostSaga } from './fetchPostSaga';
+import {watchFetchSaffSaga} from './fetchStaffSaga';
 
 export function* RootSaga(){
     yield all([
-        spawn(watchFetchDataSaga),
-    
+        spawn(watchFetchStudentsSaga),
+        spawn(watchFetchPostSaga),
+        spawn(watchFetchBusinessSaga),
+        spawn(watchFetchSaffSaga)
     ])
 }

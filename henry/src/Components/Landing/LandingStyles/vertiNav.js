@@ -25,7 +25,11 @@ margin-bottom: 1em;
 .icon{
     width:50%;
     h
-    margin: 4rem
+    margin: 4rem;
+    transition: width 0.3s ease;
+    &: hover {
+        width: 80%;
+    }
 }
 .cohete{
     width:30%;

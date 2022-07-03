@@ -15,7 +15,7 @@ export default function AboutAs() {
         <ContenedorAbout>
           <Card>
             <div className="contenedor">
-                <img src={jocelyn} className='imagencasco'/>
+                <img src={jocelyn} className='imagencasco' alt="Jocelyn" />
                 <span>
                     <h1>Jocelyn Miranda</h1>
                     <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
@@ -33,7 +33,7 @@ export default function AboutAs() {
                 </div>
             </div>
             <div className="contenedor">
-                <img src={rene} className='imagencasco'/>
+                <img src={rene} className='imagencasco' alt="rene"/>
                 <span>
                     <h1>Rene Cadena</h1>
                     <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
@@ -48,7 +48,7 @@ export default function AboutAs() {
                 </span>
             </div>
             <div className="contenedor">
-                <img src={tomi} className='imagencasco'/>
+                <img src={tomi} className='imagencasco' alt="tomas"/>
                 <span>
                     <h1>Tomas Aguerri</h1>
                     <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
@@ -63,7 +63,7 @@ export default function AboutAs() {
                 </span>
             </div>
             <div className="contenedor">
-                <img src={gabi} className='imagencasco'/>
+                <img src={gabi} className='imagencasco' alt="gabi"/>
                 <span>
                     <h1>Gabriel Cavasso</h1>
                     <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
@@ -78,7 +78,7 @@ export default function AboutAs() {
                 </span>
             </div>
             <div className="contenedor">
-                <img src={nahuel} className='imagencasco'/>
+                <img src={nahuel} className='imagencasco' alt="nahuel"/>
                 <span>
                     <h1>Nahuel Cempellin</h1>
                     <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
@@ -93,7 +93,7 @@ export default function AboutAs() {
                 </span>
             </div>
             <div className="contenedor">
-                <img src={lucho} className='imagencasco'/>
+                <img src={lucho} className='imagencasco' alt="luciano"/>
                 <span>
                     <h1>Luciano Dorregaray</h1>
                     <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
@@ -108,7 +108,7 @@ export default function AboutAs() {
                 </span>
             </div>
             <div className="contenedor">
-                <img src={laura} className='imagencasco'/>
+                <img src={laura} className='imagencasco' alt="laura"/>
                 <span>
                     <h1>Laura Surimi</h1>
                     <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>

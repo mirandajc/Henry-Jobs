@@ -1,9 +1,16 @@
 import {combineReducers} from 'redux';
-import fetchDataReducer from './fetchDataReducer';
+import fetchStudentsReducer from './fetchStudentsReducer';
+import fetchInfoUserReducer from './fetchInfoUserReducer';
+import fetchBusinessReducer from './fetchBusinessReducer';
+import fetchPostReducer from './fetchPostReducer';
+import fetchStaffReducer from './fetchStaffReducer';
 
 const RootReducer= combineReducers({
-    fetchDataReducer,
-    
+    fetchStudentsReducer,
+    fetchInfoUserReducer,
+    fetchBusinessReducer,
+    fetchPostReducer,
+    fetchStaffReducer
 });
 
 

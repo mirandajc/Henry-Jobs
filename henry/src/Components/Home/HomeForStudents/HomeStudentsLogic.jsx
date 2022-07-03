@@ -1,26 +1,43 @@
-import React from "react";
-import HomeStudentsCard from "./HomeStudentsCard";
-import { usePagination } from 'use-pagination-hook';
+import React, { useEffect } from "react";
+import { SiAlgolia } from "react-icons/si";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import CardPublicationWorkTest from "./CardPublicationsTest";
+import {  getPublicationsBusiness } from '../../../reducer/actions/actionStudents'
+import { ContenedorStudents } from "./HomeStyled"
 
-
+//Feed del alumno con pyublicaciones 
 export default function HomeStudentsLogic() {
 
-    const { current, pages, display, next, previous } = usePagination({ items: 'hola' , size: 2 }); //hola reemplazar por el array a renderizar
+    const publicaciones = useSelector((state) => state.fetchStudentsReducer.AllPublicationsFollows);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getPublicationsBusiness());
+    }, []);
+
 
     return (
-        <div>
-            
+        <ContenedorStudents>
+            {
+                publicaciones.map(e => <CardPublicationWorkTest
+                    image={e.posterUser.profileImage} 
+                    lastName={e.posterUser.lastName}
+                    name={e.posterUser.name} 
+                    date={e.date}  
+                    title={e.proyectTittle}  
+                    summary={e.text}  
+                    video={e.imgVideo}  
+                    technologies={e.technologies}  
+                    backFront={e.backFront}  
+                    ubication={e.country}  
+                    workModality={e.workModality}  
+                    english={e.languages} 
+                    lastname={e.posterUser.lastName}
+                    id={e.posterUser._id}
+                />)
+            }
 
-            <p>Page {current} of {pages}</p>
-            <ul>
-                {
-                    display.map(e => <HomeStudentsCard />)
-                }
-            </ul>
-            <button disabled={current === 1} onClick={previous}>Previous Page</button>
-            <button disabled={current === pages} onClick={next}>Next Page</button>
-            <p>{current}</p>
-
-        </div>
-    )
-}
+        </ContenedorStudents>
+    );
+};

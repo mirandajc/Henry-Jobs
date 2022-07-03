@@ -227,8 +227,7 @@ div{
 
    
     &: active{
-        box-shadow: box-shadow:
-        7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+        box-shadow: box-shadow:7px 6px 28px 1px rgba(0, 0, 0, 0.24);
       transform: translateY(4px);
     }
 }

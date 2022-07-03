@@ -4,13 +4,15 @@ import { Error } from "../formStyles/formStyles";
 import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} from "../formStyles/lenguajesStyles";
 import { RecruiterCont } from "../formStyles/recruiterForm";
 import { QueryReq, CountryCont, EnglishNv, TercerCont, Studies, InnerStudy, ButtonNex} from "../formStyles/recruiterForm";
-
+import { useDispatch } from 'react-redux';
+import { setRecruiterInfo } from "../../../reducer/actions/actionPost";
 
 
 export default function RecruiterForm ({sumarFase}) {
 
     ///////////////////////////// nombre de empresa para la cual trabaja ////////////////////////////////////////////
-    
+    const dispatch = useDispatch();
+
     const [ name, setName ] = useState("");
     const [ errorName, setErrorName ] = useState("");
 
@@ -73,6 +75,7 @@ export default function RecruiterForm ({sumarFase}) {
             return;
         }
         else{
+            setErrorCountry("");
             setCountry({...country, city: e.target.value});
         }
     };
@@ -133,7 +136,7 @@ export default function RecruiterForm ({sumarFase}) {
             else{
                 if(errorStudy === ""){
                     setStudy([...study, studyInput ]);
-                    setStudyInput = "";                       
+                    setStudyInput("");                      
                 }
             }
         }
@@ -189,6 +192,7 @@ export default function RecruiterForm ({sumarFase}) {
                 otherStudies: study
             };
 
+            dispatch(setRecruiterInfo(info));
 
             return sumarFase();
         }
