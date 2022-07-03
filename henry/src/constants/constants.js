@@ -44,12 +44,7 @@ export const GET_INFO_USER_SUCCESS = "GET_INFO_USER_SUCCESS";
 
 export const POST_USER= 'POST_USER';
 export const POST_USER_SUCCESS='POST_USER_SUCCESS';
-<<<<<<< HEAD
-export const URL_POST= 'http://localhost:3001/signin';
-//'https://henryjob.herokuapp.com/api/signin';
-=======
 export const URL_POST='http://localhost:3001/api/signin';
->>>>>>> Practice
 
 export const HENRY_LOGO ='https://blog.soyhenry.com/content/images/2021/03/151211491_440151970756357_8005198803636550092_o.jpg';
 export const SHOW_FILTER = "SHOW_FILTER";
