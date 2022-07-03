@@ -107,7 +107,6 @@ export default function Languages ({sumarFase}) {
                 if(errorStudy === ""){
                     setStudy([...study, studyInput ]);
                     setStudyInput("");
-                   
                 }
             }
         }

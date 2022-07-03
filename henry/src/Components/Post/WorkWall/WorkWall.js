@@ -17,8 +17,9 @@ align-items: center;
 
 select{
     height: 3rem;
-    border: none;
+    border: 1px solid transparent;
     background: none;
+    select-styles: none;
 }
 button{
     background-color: #040404;

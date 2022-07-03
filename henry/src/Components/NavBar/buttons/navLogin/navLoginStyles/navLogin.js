@@ -33,9 +33,17 @@ export const ContainerProfile= styled.div`
 
 // border: 1px solid yellow;
 
-width:100%;
+width:20%;
 display: flex;
-jusrtify-content: space-evenly;
+jusrtify-content:center;
+
+button{
+    &:active{
+        border:1px solid yellow;
+        color: yellow;
+        background-color: black;
+    }
+}
 
 
 
@@ -53,6 +61,6 @@ export const LoginCont= styled.div`
 
 width: 10%;
 display:flex;
-align-items: flex-end;
-margin-left: 32.5em;
+align-items: center;
+
 `

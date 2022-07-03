@@ -5,8 +5,8 @@ import { ButtonGoogle } from '../LoginStyles/logstyle';
 
 
 const responseGoogle = (response) => {
-  console.log(response);
-  console.log(response.profileObj)
+  // console.log(response);
+  // console.log(response.profileObj)
 }
 
 

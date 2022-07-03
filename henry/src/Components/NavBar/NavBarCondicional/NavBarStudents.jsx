@@ -4,6 +4,9 @@ import ButtonHome from '../buttons/buttonHome'
 import ButtonPerfil from '../buttons/buttonPerfil'
 import ButtonStudentsWall from '../buttons/buttonStudentsWall'
 import { useSelector } from "react-redux";
+import { NavSt,DivContSt } from "./Estilos/navStudent";
+
+
 
 
 export default function StudentsNavBar () {
@@ -11,13 +14,13 @@ export default function StudentsNavBar () {
     const logout = useSelector((state) => state.fetchPostReducer.response);
 
     return(
-        <div>
+        <DivContSt>
            
             {
                 logout ?
                     
-                    <div>
-                        {console.log('nav de students')}
+                    <NavSt>
+                        
                         <div>
                             <ButtonHome />
                         </div>
@@ -33,10 +36,10 @@ export default function StudentsNavBar () {
                         <div>
                             <ButtonPerfil />
                         </div>
-                    </div>
+                    </NavSt>
                     : null
             }
 
-        </div>
+        </DivContSt>
     );
 };

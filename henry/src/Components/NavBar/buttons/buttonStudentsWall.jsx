@@ -6,7 +6,7 @@ export default function ButtonStudentsWall(){
 
     return (
         <div>
-            <Link to='/students'><button>Studentswall</button></Link>
+            <Link to='/students'><button>Alumnos</button></Link>
         </div>
     )
 }
