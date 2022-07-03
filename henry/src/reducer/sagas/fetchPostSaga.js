@@ -33,7 +33,7 @@ function* asyncInfoUser (value) {
 };
 
 function* asyncPostUser (user){
-    console.log(user)
+    
     try{
         const response = yield call(()=>(axios.post(URL_POST, user.payload)));
         // const codedTK= response.data;

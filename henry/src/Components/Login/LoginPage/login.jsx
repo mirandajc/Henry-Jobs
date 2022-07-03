@@ -11,11 +11,7 @@ import { useJwt } from "react-jwt";
 import { setLogout } from "../../../reducer/actions/actionPost";
 import LoginGithub from 'react-login-github';
 import GoogleLog from "./googleLogin";
-<<<<<<< HEAD
-
-=======
 import { ButtonGoogle } from "../LoginStyles/logstyle";
->>>>>>> b06e60961ebb91c3172f7a832f2f9929b335618c
 const onSuccess = response => console.log(response);
 const onFailure = response => console.error(response);
 
@@ -37,23 +33,24 @@ export default function LoginPage(){
 
     const {decodedToken, isExpided}= useJwt(res);
     
+
+  
     const TK= decodedToken;
     localStorage.setItem('TK', JSON.stringify(TK));
     //localStorage.setItem('nombre del item que quiero guardar' item que guardo)
     const token= localStorage.getItem('TK');
     //localStorage.getItem('nombre del item que me traigo')
     const usedTk= JSON.parse(token);
-    console.log(usedTk);
+    
     
 
  
     useEffect(()=>{
-        if(TK){
+        if(TK !== null){
             
             navigate('/home')
         }
-        console.log(res)
-        console.log(TK)
+        
 
         return()=>{} 
     },[TK])
