@@ -11,7 +11,11 @@ import { useJwt } from "react-jwt";
 import { setLogout } from "../../../reducer/actions/actionPost";
 import LoginGithub from 'react-login-github';
 import GoogleLog from "./googleLogin";
+<<<<<<< HEAD
 import { ButtonGoogle } from "../LoginStyles/logstyle";
+=======
+
+>>>>>>> Practice
 const onSuccess = response => console.log(response);
 const onFailure = response => console.error(response);
 
