@@ -26,10 +26,12 @@ import LoginCard from "./Components/Login/LoginPage/loginCard";
 import RegisterPage from "./Components/Login/registerPage/registerPage";
 import StudentsWall from "./Components/Post/StudentsWall/StudentsWall";
 import WorkWall from "./Components/Post/WorkWall/WorkWall.jsx";
-
+import GithubLog from "./Components/Login/LoginPage/githubLogin";
 
 
 function App() {
+
+
   return (
     <div className="body">
       <Navbar/>
@@ -55,6 +57,8 @@ function App() {
       <Route path="/hc" element={<Faq/>}/>
       <Route path="/workwall" element={<WorkWall />}/>
       <Route path="/students" element={<StudentsWall />} />
+      <Route path="/GithubLog" element={<GithubLog/>} />
+
     </Routes>
     <Footer/>
     </div>

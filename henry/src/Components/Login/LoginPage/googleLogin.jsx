@@ -38,7 +38,7 @@ export default function GoogleLog(){
     render={ renderProps=>(
       <ButtonGoogle onClick={renderProps.onClick} disabled={renderProps.disabled}><FcGoogle className='goo'/> </ButtonGoogle>
     )}
-   
+    
     buttonText="Login"
     onSuccess={responseGoogle}
     onFailure={responseGoogle}
