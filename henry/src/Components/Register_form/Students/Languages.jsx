@@ -3,9 +3,7 @@ import { countries } from "../gistfile1.json";
 import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} from "../formStyles/lenguajesStyles";
 import { Error } from "../formStyles/formStyles";
 import { useDispatch } from "react-redux";
-
-// hacer funcion de handle
-// hacer verificaciones
+import { setLocationEnglishStudy } from "../../../reducer/actions/actionPost";
 
 export default function Languages ({sumarFase}) {
     
@@ -54,7 +52,7 @@ export default function Languages ({sumarFase}) {
     
     //V2
     const [ nivel, setNivel ] = useState("");
-    const [ errorNivel, setErrorNivel ] = useState("")
+    const [ errorNivel, setErrorNivel ] = useState("");
     
     const selectIngles = (e) => {
         let lvl = e.target.value;
@@ -137,6 +135,8 @@ export default function Languages ({sumarFase}) {
                     languages: nivel,
                     otherStudies: study
                 };
+
+                dispatch(setLocationEnglishStudy(info));
 
                 return sumarFase();
             }
