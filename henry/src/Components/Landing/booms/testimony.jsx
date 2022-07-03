@@ -9,7 +9,7 @@ export default function Testimony(){
     const bussinesArray= Bussines;
     return(
         <TestimonyDiv>
-             <img src={albo}/>
+             <img src={albo} alt='testimonio-albo'/>
             {/* <TittleTestimony>
                
             <h1>EMPRESAS QUE NOS ELIGEN</h1>

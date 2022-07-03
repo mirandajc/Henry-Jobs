@@ -1,10 +1,23 @@
 import React from "react";
-import LoginApi from "../buttons/LoginApi";
+import { useSelector } from "react-redux";
+import ButtonHome from "../buttons/buttonHome";
 
 export default function StaffNavBar () {
+
+    const logout = useSelector((state) => state.fetchPostReducer.response);
+
+    
     return(
         <div>
-            <LoginApi />
+        
+            {
+                logout ?
+                    <div>
+                       <ButtonHome/>
+                    </div>
+                    : null
+            }
+
         </div>
     );
 };

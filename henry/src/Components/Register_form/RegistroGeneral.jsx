@@ -79,9 +79,6 @@ export default function RegistroGeneral () {
             if(!datos.nombre){
                 return setError({...error, errorNombre: "Debes ingresar un nombre!"});
             }
-            else if(!datos.apellido){
-                return setError({...error, errorApellido: "Debes ingresar un apellido"});
-            }
             else if(!datos.email){
                 return setError({...error, errorEmail: "Debes ingresar un email"});
             }

@@ -1,49 +1,54 @@
 import React, { useEffect } from "react";
-import { useAuth0 } from '@auth0/auth0-react';
-import NavLoginTrue from "./navLogin/navLogintrue";
-import { ProfileNav, ContainerProfile, ButtonDiv, LoginCont } from './navLogin/navLoginStyles/navLogin';
+import {  ContainerProfile, LoginCont } from './navLogin/navLoginStyles/navLogin';
 import { useDispatch, useSelector } from "react-redux";
 import {useNavigate} from 'react-router-dom';
+import { setLogout } from "../../../reducer/actions/actionPost";
+
+
+
 
 export default function LoginApi() {
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0();
+    const logout= useSelector((state)=> state.fetchPostReducer.response);
+    
 
-    const userRegister = useSelector((state) => state.fetchInfoUserReducer.isRegistered);
 
     const register =()=>{
         navigate('/login')
     }
+    
+    const Logout=()=>{
+       
+        dispatch(setLogout())
+        localStorage.removeItem('TK')
+        localStorage.clear()
+        navigate('/')
 
-    // useEffect(() => {
-    // }, [])
+    }
+
+
+    // const tal= localStorage.getItem('TK') TRAE UN ITEM DEL STORAGE
+    // const SetearItem=localStorage.setItem(tal,'tal') SETEA UN ITEM DEL STORAGE
+    // localStorage.clear() LIMPIA TODO EL STORAGE
+    // localStorage.removeItem('nombre de item') REMUEVE UN ITEM ESPECIFICO DEL STORAGE
+    // const token= JSON.parse(tal) PARSEO EL ITEM A FORMA DE OBJETO
 
     return (
         <ContainerProfile>
-            {
-                
-                    isAuthenticated ?
-                        isLoading ?
-                            <div>Loading</div>
-                            :
-                            <ProfileNav>
-                                {console.log(user)}
-                                <NavLoginTrue name={user.name} email={user.email} />
-
-                                <ButtonDiv>
-                                    <button onClick={() => logout({ returnTo: window.location.origin })} >Logout</button>
-                                </ButtonDiv>
-
-                            </ProfileNav>
-                        :
-                        <LoginCont>
-
-                            <button onClick={() => register()}>Login</button>
-                        </LoginCont>
-
+                <LoginCont>
+                    
+    {
+        logout?
+        <button onClick={()=>Logout()}>Logout</button>
+        :
+        <button onClick={() => register()}>Login</button>
+    }
                         
-            }
+                        
+                    
+                </LoginCont>
         </ContainerProfile>
     )
 }

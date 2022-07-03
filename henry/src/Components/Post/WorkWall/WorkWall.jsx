@@ -4,7 +4,7 @@ import { getPublicationEnglish, getPublicationsBusiness, getPublicationsDevType,
 import NavWall from "./navBarWall";
 import {idiomas, allCountries, DevType, technologies, workModal} from "../StudentsWall/select"
 import CardPublicationWorkTest2 from "./CardPublicationsTest";
-
+import {Componente, DivFiltros} from "./WorkWall.js"
 
 //Este componente va a renderizar las publicaciones de empresas y reclutadores
 
@@ -19,7 +19,7 @@ export default function WorkWall(){
     }, [])
 
     const techSelection = (e) => {
-        if(e.target.value === "Tecnologías"){
+        if(e.target.value === "TECNOLOGIAS"){
             dispatch(getPublicationsTechnologies(""))
             dispatch(ShowFilter())
         }
@@ -30,7 +30,7 @@ export default function WorkWall(){
     }
 
     const englishSelection = (e) => {
-        if(e.target.value === "Nivel de Inglés"){
+        if(e.target.value === "NIVEL DE INGLES"){
             dispatch(getPublicationEnglish(""))
             dispatch(ShowFilter())
         }
@@ -41,7 +41,7 @@ export default function WorkWall(){
     }
 
     const workModalSelection = (e) => {
-        if(e.target.value === "Modalidad"){
+        if(e.target.value === "MODALIDAD"){
             dispatch(getWorkModality(""))
             dispatch(ShowFilter())
         }
@@ -52,7 +52,7 @@ export default function WorkWall(){
     }
 
     const countrySelection = (e) => {
-        if(e.target.value === "País"){
+        if(e.target.value === "PAIS"){
             dispatch(getPublicationUbication(""))
             dispatch(ShowFilter())
         }
@@ -63,7 +63,7 @@ export default function WorkWall(){
     }
 
     const devTypeSelection = (e) => {
-        if(e.target.value === "Desarrollador"){
+        if(e.target.value === "DESARROLLO"){
             dispatch(getPublicationsDevType(""))
             dispatch(ShowFilter())
         }
@@ -75,43 +75,44 @@ export default function WorkWall(){
 
 
     return(
-        <div>
+        <Componente>
+            <DivFiltros>
             <select onChange={(e) => techSelection(e)}>
-                <option>Tecnologías</option>
+                <option>TECNOLOGIAS</option>
             {technologies.map(e => {
                 return <option>{e}</option>
             })}
             </select>
 
             <select onChange={(e) => englishSelection(e)}>
-                <option>Nivel de Inglés</option>
+                <option>NIVEL DE INGLES</option>
             {idiomas.map(e => {
                 return <option>{e}</option>
             })}
             </select> 
 
             <select onChange={(e) => workModalSelection(e)}>
-                <option>Modalidad</option>
+                <option>MODALIDAD</option>
             {workModal.map(e => {
                 return <option>{e}</option>
             })}
             </select> 
 
             <select onChange={(e) => countrySelection(e)}>
-                <option>País</option>
+                <option>PAIS</option>
             {allCountries.map(e => {
                 return <option>{e}</option>
             })}
             </select> 
 
             <select onChange={(e) => devTypeSelection(e)}>
-                <option>Desarrollador</option>
+                <option>DESARROLLO</option>
             {DevType.map(e => {
                 return <option>{e}</option>
             })}
             </select> 
-
-            {console.log("COMPONENTE", business)}
+            
+            </DivFiltros>
 
             {/* <NavWall/> */} 
             {                  /*  ACTUALIZAR/MODIFICAR LA TARJETA QUE MUESTRA LAS PUBLICACIONES DE EMPRESAS
@@ -130,12 +131,12 @@ export default function WorkWall(){
                         workModality={e.workModality}
                         english={e.languages}
                         username={e.userName}
+                        id={e.posterUser._id}
 
 
                     />
                 ))
             }
-
-        </div>
+        </Componente>
     )
 }

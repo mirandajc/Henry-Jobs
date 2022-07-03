@@ -21,7 +21,6 @@ import Booms from "./Components/Landing/booms/booms";
 import Contact from "./Components/Landing/Footer/Contact";
 import Faq from "./Components/Landing/Footer/Faq";
 import Footer from "./Components/Landing/Footer/Footer";
-import WorkWall from './Components/Post/WorkWall/WorkWall';
 import LoginPage from "./Components/Login/LoginPage/login";
 import LoginCard from "./Components/Login/LoginPage/loginCard";
 import RegisterPage from "./Components/Login/registerPage/registerPage";
@@ -31,6 +30,8 @@ import Paypal1 from "./Components/Paypal/Paypal1";
 import Paypal2 from "./Components/Paypal/Paypal2";
 import Paypal3 from "./Components/Paypal/Paypal3";
 import CardPremium from "./Components/SerPremium/CardPremium"
+import WorkWall from "./Components/Post/WorkWall/WorkWall.jsx";
+
 
 
 function App() {
