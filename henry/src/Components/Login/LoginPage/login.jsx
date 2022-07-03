@@ -9,7 +9,6 @@ import {FcGoogle} from 'react-icons/fc'
 import {VscGithubInverted} from 'react-icons/all';
 import { useJwt } from "react-jwt";
 import { setLogout } from "../../../reducer/actions/actionPost";
-// import LoginGithub from 'react-login-github';
 import GoogleLog from "./googleLogin"; 
 import GithubLog from "./githubLogin";
 import { ButtonGoogle } from "../LoginStyles/logstyle";
@@ -74,10 +73,10 @@ export default function LoginPage(){
           callback: handleCallbackResponse
         });
       
-        google.accounts.id.renderButton(
-          document.getElementById("signInDiv"),
-          {theme: "outline", size: "small"}
-        );
+        // google.accounts.id.renderButton(
+        //   document.getElementById("signInDiv"),
+        //   {theme: "outline", size: "small"}
+        // );
       },[]);
     
 
@@ -117,34 +116,14 @@ export default function LoginPage(){
                 </div>
                 <div className="other">
                     <div id="signInDiv" >
-                        {/* <FcGoogle className="another"/> */}
-                        <GoogleLog/>
+                        <FcGoogle className="another"/>
+                        {/* <GoogleLog/> */}
                     </div>
                     <div>
-                        <GithubLog/>
-                        {/* <VscGithubInverted className="another"
-                        /> */}
-<<<<<<< HEAD
-                  
-=======
-                        <LoginGithub 
-                clientId='8eccabf164d5d88227d5'
-                render={(renderProp) => (
-                    <ButtonGoogle 
-                    onClick={renderProp.onClick}
-                    disabled={renderProp.disabled}
-                    >
-                        <VscGithubInverted className="goo"
-                        />
-                    </ButtonGoogle>
-                    )}
-                    onSuccess={onSuccess}
-                    onFailure={onFailure}
-                    cookiePolicy='single_host_origin'
-                />
+                        {/* <GithubLog/> */}
                         <VscGithubInverted className="another"
                         />
->>>>>>> e7018b2b1891d8b28c1fc885be8ea9f6146be970
+                  
                     </div>
                 </div>
                 <div>
