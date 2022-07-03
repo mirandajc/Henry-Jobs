@@ -12,6 +12,10 @@ export default function HomeBusinessLogic() {
   useEffect(() => {
     dispatch(getPublicationStudents());
   },[])
+  useEffect(() => {
+    console.log(allPublications)
+  },[allPublications])
+
 
 
   

@@ -34,7 +34,6 @@ const fetchBusinessReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case GET_PUBLICATION_STUDENTS_SUCCESS:
-        
         let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id))
         let pubStu = fol1.filter(e => e.posterUser.userTypes === 1 || e.posterUser.userTypes === 2)
         let response = pubStu.reverse();

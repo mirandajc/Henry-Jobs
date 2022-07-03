@@ -17,7 +17,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   const { decodedToken, isExpided } = useJwt(logout);
   const respuesta = decodedToken
-
+  
   return (
     <NavbarS>
       <div>

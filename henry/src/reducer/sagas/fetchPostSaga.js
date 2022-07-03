@@ -1,5 +1,6 @@
 import { take, call, all, put, takeEvery, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
+
 import {
     getInfoUserSuccess,
     postRegisterModalSuccess,
@@ -17,7 +18,8 @@ import {
     URL_PROFILE,
     PROFILE_SUCCESS,
     POST_REGISTER_MODAL,
-    URL_DEPLOY
+    URL_DEPLOY,
+    POST_UPDATE_USER
 } from '../../constants/constants';
 
 let userInfo = {
@@ -69,12 +71,12 @@ function* asyncPostRegisterModal(RegisterUser){ // datos del registro modal
     console.log("llegue a lo asincrono", RegisterUser);
     try {
         const response = yield call(() => axios.post(URL_DEPLOY + "/user", RegisterUser));
-        console.log(response.data)
         yield put(postRegisterModalSuccess((response).data));
     } catch (error) {
         console.log(error);      
     }
 };
+
 
 
 

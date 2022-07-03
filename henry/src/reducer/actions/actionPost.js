@@ -8,6 +8,7 @@ import {
     URL_PROFILE,
     PROFILE_SUCCESS,
     POST_REGISTER_MODAL,
+    POST_UPDATE_USER,
     POST_REGISTER_MODAL_SUCCESS
  
 } from "../../constants/constants";
@@ -85,3 +86,5 @@ export function postRegisterModalSuccess(payload){
         payload
     };
 };
+
+
