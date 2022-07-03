@@ -10,6 +10,11 @@ export default function ButtonPerfil(props){
     const dispatch= useDispatch();
     const user= useSelector((state)=> state.fetchPostReducer.response);
     
+   /*  const dispatch= useDispatch();
+    const userID= useSelector((state)=> state.fetchPostSaga.response);
+    console.log(userID) */
+
+    
 
     const { decodedToken, isExpided } = useJwt(user);
     const respuesta = decodedToken;
