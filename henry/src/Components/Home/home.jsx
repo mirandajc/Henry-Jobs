@@ -4,6 +4,8 @@ import HomeForStaff from "./HomeForStaff/HomeForStaff";
 import HomeBusinessLogic from "./HomeForBusiness/HomeBusinessLogic";
 import HomeStudentsLogic from "./HomeForStudents/HomeStudentsLogic";
 import { getInfoUser } from "../../reducer/actions/actionPost";
+import UserForm from "../Register_form/completeForm";
+
 
 export default function Home() {
 
@@ -41,7 +43,11 @@ export default function Home() {
 
                 :
                 
-                null
+                userType.type === 0 ? 
+                
+                <UserForm/> 
+                
+                :null
                 
             }
 

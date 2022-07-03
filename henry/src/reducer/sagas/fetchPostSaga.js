@@ -42,6 +42,7 @@ function* asyncInfoUser (value) {
 function* asyncPostUser (user){
     
     try{
+        console.log('hola rey')
         const response = yield call(()=>(axios.post(URL_POST, user.payload)));
         // const codedTK= response.data;
         // localStorage.setItem('codedTK',JSON.stringify(codedTK));
@@ -69,7 +70,6 @@ function* asyncPostRegisterModal(RegisterUser){ // datos del registro modal
     console.log("llegue a lo asincrono", RegisterUser);
     try {
         const response = yield call(() => axios.post(URL_DEPLOY + "/user", RegisterUser));
-        console.log(RegisterUser)
         console.log(response.data)
         yield put(postRegisterModalSuccess((response).data));
     } catch (error) {

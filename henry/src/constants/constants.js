@@ -44,7 +44,7 @@ export const GET_INFO_USER_SUCCESS = "GET_INFO_USER_SUCCESS";
 
 export const POST_USER= 'POST_USER';
 export const POST_USER_SUCCESS='POST_USER_SUCCESS';
-export const URL_POST='https://henryjob.herokuapp.com/api/signin';
+export const URL_POST='http://localhost:3001/api/signin';
 
 export const HENRY_LOGO ='https://blog.soyhenry.com/content/images/2021/03/151211491_440151970756357_8005198803636550092_o.jpg';
 export const SHOW_FILTER = "SHOW_FILTER";
@@ -61,7 +61,7 @@ export const POST_ID_FOLLOW = 'POST_ID_FOLLOW';
 export const POST_ID_FOLLOW_BUSS = 'POST_ID_FOLLOW_BUSS';
 
 
-export const URL_DEPLOY = 'https://henryjob.herokuapp.com/api';
+export const URL_DEPLOY = 'http://localhost:3001/api';
 
 
 export const PROFILE_SUCCESS= 'PROFILE_SUCCESS';
