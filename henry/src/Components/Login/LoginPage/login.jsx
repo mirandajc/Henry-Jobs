@@ -9,11 +9,11 @@ import {FcGoogle} from 'react-icons/fc'
 import {VscGithubInverted} from 'react-icons/all';
 import { useJwt } from "react-jwt";
 import { setLogout } from "../../../reducer/actions/actionPost";
-import LoginGithub from 'react-login-github';
-/* import GoogleLog from "./googleLogin"; */
+// import LoginGithub from 'react-login-github';
+import GoogleLog from "./googleLogin"; 
+import GithubLog from "./githubLogin";
 import { ButtonGoogle } from "../LoginStyles/logstyle";
-const onSuccess = response => console.log(response);
-const onFailure = response => console.error(response);
+
 
 
 export default function LoginPage(){
@@ -100,26 +100,13 @@ export default function LoginPage(){
                 <div className="other">
                     <div>
                         {/* <FcGoogle className="another"/> */}
-                        {/* <GoogleLog/> */}
+                        <GoogleLog/>
                     </div>
                     <div>
+                        <GithubLog/>
                         {/* <VscGithubInverted className="another"
                         /> */}
-                        <LoginGithub 
-                clientId='8eccabf164d5d88227d5'
-                render={(renderProp) => (
-                    <ButtonGoogle 
-                    onClick={renderProp.onClick}
-                    disabled={renderProp.disabled}
-                    >
-                        <VscGithubInverted className="goo"
-                        />
-                    </ButtonGoogle>
-                    )}
-                    onSuccess={onSuccess}
-                    onFailure={onFailure}
-                    cookiePolicy='single_host_origin'
-                />
+                  
                     </div>
                 </div>
                 <div>

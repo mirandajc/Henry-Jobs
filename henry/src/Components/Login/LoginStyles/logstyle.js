@@ -186,3 +186,12 @@ height: 3.5em;
 }
 
 `
+
+
+export const ButtonGH= styled.button`
+
+border: 1px solid red;
+
+color: white;
+
+`

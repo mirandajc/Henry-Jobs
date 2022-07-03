@@ -4,7 +4,7 @@ export default function Ads() {
     return(
         <>
             
-            <h1>messi el rey</h1>
+            <h1>PROXIMAMENTE ANUNCIOS!!!!!!</h1>
             
         </>
     )
