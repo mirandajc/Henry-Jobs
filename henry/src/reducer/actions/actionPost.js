@@ -4,8 +4,30 @@ import {
     POST_USER,
     POST_USER_SUCCESS,
     SET_LOGOUT,
+    PROFILE_ID,
+    URL_PROFILE,
+    PROFILE_SUCCESS
  
 } from "../../constants/constants";
+
+
+export function profileSuccess(response){
+    return{
+        type: PROFILE_SUCCESS,
+        payload: response
+    }
+}
+
+
+export function profileID(id){
+    
+    return{
+        type:PROFILE_ID,
+        payload: id
+
+    }
+}
+
 
 
 export function getInfoUser (value) {

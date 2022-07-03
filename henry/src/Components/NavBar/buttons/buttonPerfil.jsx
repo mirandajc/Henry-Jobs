@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { useJwt } from "react-jwt";
-
+import { profileID } from "../../../reducer/actions/actionPost";
 
 export default function ButtonPerfil(props){
     const navigate= useNavigate();
@@ -18,7 +18,7 @@ export default function ButtonPerfil(props){
 
     const { decodedToken, isExpided } = useJwt(user);
     const respuesta = decodedToken;
-    const[puto, setPuto]=useState('')
+    const[id, setId]=useState('')
 
 
     // const token= localStorage.getItem('TK');
@@ -28,16 +28,19 @@ export default function ButtonPerfil(props){
     
     useEffect(()=>{
         
-        if(respuesta !== null) setPuto(respuesta.id);
+        if(respuesta !== null) setId(respuesta.id);
+       
        
     },[respuesta])
     
-    
+        function handleID(){
+            dispatch(profileID(id))
+        }
 
     return(
         <div>
-            <Link to={`/profile/${puto}`}>
-                <button >My Profile</button>
+            <Link to={`/profile/${id}`}>
+                <button onClick={handleID} >My Profile</button>
             </Link>
         </div>
     )

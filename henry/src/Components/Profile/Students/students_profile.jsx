@@ -10,9 +10,9 @@ import { useParams } from "react-router-dom";
 
 export default function StudentsProfile(){
 
-    const { name , lastName } = useParams;
+    // const { name , lastName } = useParams;
 
-    console.log(name, lastName)
+   
 
     return(
         <StudentProf>
