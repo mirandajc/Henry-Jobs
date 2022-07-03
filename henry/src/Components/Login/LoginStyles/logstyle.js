@@ -170,3 +170,19 @@ height:50%;
 
 
 `
+
+export const ButtonGoogle= styled.button`
+
+background-color: transparent;
+border:none;
+padding:0;
+border-radius: 50%;
+width: 3.5em;
+height: 3.5em;
+
+
+.goo{
+    font-size: 2em;
+}
+
+`
