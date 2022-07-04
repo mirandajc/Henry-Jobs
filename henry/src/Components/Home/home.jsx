@@ -8,17 +8,9 @@ import UserForm from "../Register_form/completeForm";
 
 
 export default function Home() {
-
-
-    const dispatch= useDispatch();
     
     const tal = localStorage.getItem('TK')
     const userType = JSON.parse(tal);
-
-
-     useEffect(()=>{
-        dispatch(getInfoUser())
-    },[])
 
     return(
 

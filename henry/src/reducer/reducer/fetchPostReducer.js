@@ -25,13 +25,6 @@ const initialState = {
 
 const fetchPostReducer = (state = initialState, action) => {
     switch (action.type) {
-       /*  case GET_INFO_USER_SUCCES:
-            return { 
-                ...state,
-                userRegister: action.payload
-            }*/
-
-
             case PROFILE_SUCCESS:
                 
                 return{

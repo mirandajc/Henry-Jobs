@@ -2,44 +2,20 @@ import { take, call, all, put, takeEvery, takeLatest } from 'redux-saga/effects'
 import axios from 'axios';
 
 import {
-    getInfoUserSuccess,
     postRegisterModalSuccess,
     postUserSuccess,
     profileSuccess,
 } from '../actions/actionPost';
 import { 
-    GET_INFO_USER, 
-    URL_PEDIDO_USER,
     POST_USER,
-    POST_USER_SUCCESS,
     URL_POST,
-    SET_LOGOUT,
     PROFILE_ID,
     URL_PROFILE,
-    PROFILE_SUCCESS,
     POST_REGISTER_MODAL,
     URL_DEPLOY,
     UPDATE_USER
 } from '../../constants/constants';
 
-let userInfo = {
-    userType: 1,
-    premium: true,
-    isRegistered: true,
-};
-
-
-//axios.defaults.headers.post['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`;
-
-function* asyncInfoUser (value) {
-    try {
-        // const response = yield call(() => axios(URL_PEDIDO_USER+value)); // TODAVIA NO CONOCEMOS LA RUTA
-                                                                            // llevar mail y password al back
-        yield put(getInfoUserSuccess(userInfo, value)); // response.data
-    } catch (error) {
-        console.log(error);
-    }
-};
 
 function* asyncPostUser (user){
     
@@ -89,10 +65,7 @@ function* asyncUpdateUser (objetoGlobal){
 
 
 
-
-
 export function* watchFetchPostSaga(){
-    yield takeEvery(GET_INFO_USER, asyncInfoUser)
     yield takeEvery(POST_USER, asyncPostUser)
     yield takeEvery(PROFILE_ID, getProfileByID)
     yield takeEvery(POST_REGISTER_MODAL, asyncPostRegisterModal)
