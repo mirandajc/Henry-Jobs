@@ -127,9 +127,16 @@ export function setBusinessInfo(payload){
     };
 };
 
-export function updateUser(payload, id){
+/* export function updateUser(payload, id){
     return {
         type: UPDATE_USER,
         payload: [payload, id]
     };
-};
+}; */
+
+export function updateUser(payload){
+    return{
+        type: UPDATE_USER,
+        payload
+    }
+}
