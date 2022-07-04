@@ -105,9 +105,9 @@ export function setBusinessInfo(payload){
 };
 
 
-export function updateUser(payload){
+export function updateUser(objeto){
     return{
         type: UPDATE_USER,
-        payload
+        payload: objeto
     }
 }

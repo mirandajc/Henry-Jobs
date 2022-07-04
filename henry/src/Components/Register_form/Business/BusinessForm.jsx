@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { countries } from "../gistfile1.json";
 import { Error } from "../formStyles/formStyles";
 import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} from "../formStyles/lenguajesStyles";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setBusinessInfo } from "../../../reducer/actions/actionPost.js";
+import { useJwt } from "react-jwt";
 
 
 export default function BusinessForm ({sumarFase}) {
     const dispatch = useDispatch();
+
 
     ///////////////////////////// NAME ////////////////////////////////////////////
     ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR
@@ -129,8 +131,6 @@ export default function BusinessForm ({sumarFase}) {
                 location: country,
 
             }
-
-            console.log(info)
             dispatch(setBusinessInfo(info));
             return sumarFase();
         }

@@ -59,14 +59,12 @@ const fetchPostReducer = (state = initialState, action) => {
                 }
             
             case SET_USERTYPE:
-                console.log("set usertype", action.payload)
                 return {
                     ...state,
                     upDateProfile: {...state.upDateProfile, userTypes: action.payload}
                 }
 
             case SET_DEV_TYPE_AND_TECH:
-                console.log("set dev type and tech", action.payload)
                 return {
                     ...state,
                     upDateProfile: {...state.upDateProfile, 

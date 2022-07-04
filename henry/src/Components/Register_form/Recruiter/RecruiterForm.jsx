@@ -1,17 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { countries } from "../gistfile1.json";
 import { Error } from "../formStyles/formStyles";
 import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} from "../formStyles/lenguajesStyles";
 import { RecruiterCont } from "../formStyles/recruiterForm";
 import { QueryReq, CountryCont, EnglishNv, TercerCont, Studies, InnerStudy, ButtonNex} from "../formStyles/recruiterForm";
-import { useDispatch } from 'react-redux';
-import { setRecruiterInfo } from "../../../reducer/actions/actionPost";
+import { useDispatch, useSelector } from 'react-redux';
+import { setRecruiterInfo, updateUser } from "../../../reducer/actions/actionPost";
+import { useJwt } from "react-jwt";
 
 
 export default function RecruiterForm ({sumarFase}) {
+    const dispatch = useDispatch();
+    const logout = useSelector((state) => state.fetchPostReducer.response);
+    const { decodedToken, isExpided } = useJwt(logout);
+    const respuesta = decodedToken
+    const ObjetoGlobal = useSelector(state => state.fetchPostReducer.upDateProfile);
+    const Actualizacion = useSelector(state => state.fetchPostReducer.upDateProfile.country);
+    const [ id, setId ] = useState("")
+
+    useEffect(() => {
+        if(respuesta !== null){
+            setId(respuesta.id);
+        }
+    }, [respuesta]);
+
+    useEffect(() => {
+        if(Actualizacion !== ""){
+            let elobjeto = {
+                objeto: ObjetoGlobal,
+                identificador: id
+            };
+
+            dispatch(updateUser(elobjeto))
+            return sumarFase();
+        }
+    }, [Actualizacion])
 
     ///////////////////////////// nombre de empresa para la cual trabaja ////////////////////////////////////////////
-    const dispatch = useDispatch();
 
     const [ name, setName ] = useState("");
     const [ errorName, setErrorName ] = useState("");
@@ -193,8 +218,6 @@ export default function RecruiterForm ({sumarFase}) {
             };
 
             dispatch(setRecruiterInfo(info));
-
-            return sumarFase();
         }
     };
 
