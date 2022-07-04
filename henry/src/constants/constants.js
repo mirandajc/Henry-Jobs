@@ -19,10 +19,7 @@ export const SET_REGISTER_TRUE_SUCCES = 'SET_REGISTER_TRUE_SUCCES';
 export const GET_PUBLICATIONS_BUSINESS = 'GET_PUBLICATIONS_BUSINESS'; 
 export const GET_PUBLICATIONS_BUSINESS_SUCCESS = 'GET_PUBLICATIONS_BUSINESS_SUCCESS';
 export const URL_PEDIDO = "https://henryjob.herokuapp.com/api/user" // reemplazar por la ruta de pedidos de publicaciones de empresas
-<<<<<<< HEAD
-=======
 export const URL_PEDIDO_POSTS = "https://henryjob.herokuapp.com/api/post"
->>>>>>> ae8c9ef762cc73a31a799a1931b37964a6bb19bb
 export const GET_PUBLICATIONS_TECHNOLOGIES = "GET_PUBLICATIONS_TECHNOLOGIES";
 export const GET_PUBLICATIONS_DEVTYPE = "GET_PUBLICATIONS_DEVTYPE";
 export const GET_PUBLICATIONS_ENGLISH = "GET_PUBLICATIONS_ENGLISH";
