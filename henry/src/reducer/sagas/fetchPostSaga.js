@@ -5,6 +5,7 @@ import {
     postRegisterModalSuccess,
     postUserSuccess,
     profileSuccess,
+    updateUserSuccess
 } from '../actions/actionPost';
 import { 
     POST_USER,
@@ -57,7 +58,7 @@ function* asyncUpdateUser (objeto){
     try {
         console.log("objeto global", objeto.payload);
         const response = yield call(() => axios.put(URL_DEPLOY + `/user/${objeto.payload.identificador}`, objeto.payload.objeto))
-        console.log("response", response.data)
+        yield put(updateUserSuccess(response.data))
     } catch (error) {
         console.log(error);
     }
