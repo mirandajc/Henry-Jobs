@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React,{useEffect, useState} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import HomeForStaff from "./HomeForStaff/HomeForStaff";
 import HomeBusinessLogic from "./HomeForBusiness/HomeBusinessLogic";
@@ -11,31 +11,40 @@ export default function Home() {
     
     const tal = localStorage.getItem('TK')
     const userType = JSON.parse(tal);
+    const [userT, setUserT] = useState('');
+
+    useEffect(()=> {
+        if(userType !== null){
+            setUserT(userType.type)
+        }
+
+    },[userType])
+
 
     return(
 
         <div>
 
             {   
-                userType.type === 4 || userType.type === 5 ?
+                userT === 4 || userT === 5 ?
                 
                 <HomeBusinessLogic/>
 
                 : 
                 
-                userType.type === 1 || userType.type === 2? 
+                userT === 1 || userT === 2? 
 
                 <HomeStudentsLogic/>
 
                 :
 
-                userType.type === 3 ?
+                userT === 3 ?
 
                 <HomeForStaff/>
 
                 :
                 
-                userType.type === 0 ? 
+                userT === 0 ? 
                 
                 <UserForm/> 
                 

@@ -25,7 +25,7 @@ export default function RecruiterForm ({sumarFase}) {
     }, [respuesta]);
 
     useEffect(() => {
-        if(Actualizacion !== ""){
+        if(Actualizacion !== ""  || Actualizacion.length){
             let elobjeto = {
                 objeto: ObjetoGlobal,
                 identificador: id

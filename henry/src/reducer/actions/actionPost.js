@@ -12,7 +12,8 @@ import {
     SET_LOCATION_ENG_STUDY,
     SET_RECRUITER_INFO,
     SET_BUSINESS_INFO,
-    UPDATE_USER
+    UPDATE_USER,
+    UPDATE_USER_SUCCESS
  
 } from "../../constants/constants";
 
@@ -109,5 +110,12 @@ export function updateUser(objeto){
     return{
         type: UPDATE_USER,
         payload: objeto
+    }
+}
+
+export function updateUserSuccess(payload) {
+    return{
+        type: UPDATE_USER_SUCCESS,
+        payload: payload
     }
 }
