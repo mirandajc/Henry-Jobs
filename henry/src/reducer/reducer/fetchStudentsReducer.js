@@ -13,7 +13,7 @@ import {
 const initialState = {
     AllPublications:[],
     AllPublicationsFollows:[],
-    userFollows: ['62bc9dff5c41483e313e899a','62bc9dff5c41483e313e899ab','62bc9dff5c41483e313e899ac','62bc9dff5c41483e313e899ad','62bc9dff5c41483e313e899ae'],
+    userFollows: [],
     busPublication:[],
     publicationsFiltered:[],
     filtrosos: {
@@ -31,8 +31,9 @@ const fetchStudentsReducer = (state = initialState, action) => {
         case GET_PUBLICATIONS_BUSINESS_SUCCESS:
             let all = action.payload.reverse();
             let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id))
-            let response = fol1.reverse();
+            let response = fol1.reverse(); // usuarios que sigo
             let responseBusiness = all.filter(e => e.posterUser.userTypes === 4 || e.posterUser.userTypes === 5);
+            console.log('soy respuesta de business',responseBusiness)
 
             return {
                 ...state,

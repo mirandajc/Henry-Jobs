@@ -1,23 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { countries } from "../gistfile1.json";
 import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} from "../formStyles/lenguajesStyles";
 import { Error } from "../formStyles/formStyles";
-import { useDispatch } from "react-redux";
-import { setLocationEnglishStudy } from "../../../reducer/actions/actionPost";
+import { useDispatch, useSelector } from "react-redux";
+import { setLocationEnglishStudy, updateUser } from "../../../reducer/actions/actionPost";
+import { useJwt } from "react-jwt";
 
 export default function Languages ({sumarFase}) {
+    const logout = useSelector((state) => state.fetchPostReducer.response);
+    const { decodedToken, isExpided } = useJwt(logout);
+    const respuesta = decodedToken
     
     /////////////////////////    COUNTRY & CITY    //////////////////////////////
 
     const dispatch = useDispatch();
+    const mandarAccion = useSelector(state => state.fetchPostReducer.upDateProfile.otherStudies);
+    const objetoGlobal = useSelector(state => state.fetchPostReducer.upDateProfile);
 
+    useEffect(() => {
+        if(mandarAccion.length >= 1){
+            dispatch(updateUser(objetoGlobal, respuesta.id));
+            return sumarFase();
+        }
+    }, [mandarAccion]);
+    
     const [ country, setCountry ] = useState({
         country: "",
         city: ""
     });
 
     const [ errorCountry, setErrorCountry ] = useState("");
-
+    
     const [ allCities, setAllCities ] = useState([]); 
     // aca se guardan las opciones que mostrará la seleccion de ciudades segun el país seleccionado
     
@@ -68,7 +81,7 @@ export default function Languages ({sumarFase}) {
     
     //////////////////////////    OTROS ESTUDIOS      ///////////////////////////////
 
-
+    
     const [ studyInput, setStudyInput ] = useState("");
     const [ study, setStudy ] = useState([]); // Arreglo de strings, que son los estudios.
     const [ errorStudy, setErrorStudy ] = useState(''); // verificaciones.
@@ -129,7 +142,7 @@ export default function Languages ({sumarFase}) {
                 setErrorNivel("")
             }
             if(!errorCountry && !errorStudy && !errorNivel){
-
+                
                 const info = {
                     location: country,
                     languages: nivel,
@@ -137,8 +150,6 @@ export default function Languages ({sumarFase}) {
                 };
 
                 dispatch(setLocationEnglishStudy(info));
-
-                return sumarFase();
             }
         }
     };
