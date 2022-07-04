@@ -13,7 +13,7 @@ import {
 const initialState = {
     AllPublications:[],
     AllPublicationsFollows:[],
-    userFollows: [],
+    userFollows: ['62c1101218635d7fac41dcf1','62c110e018635d7fac41dcf8'],
     busPublication:[],
     publicationsFiltered:[],
     filtrosos: {
