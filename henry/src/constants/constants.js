@@ -70,3 +70,4 @@ export const URL_PROFILE= 'http://localhost:3001/user/';
 
 export const POST_REGISTER_MODAL = "POST_REGISTER_MODAL";
 export const POST_REGISTER_MODAL_SUCCESS = "POST_REGISTER_MODAL_SUCCESS";
+export const SET_BUSINESS_INFO = "SET_BUSINESS_INFO";
