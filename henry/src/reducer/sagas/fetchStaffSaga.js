@@ -1,21 +1,20 @@
 import { take, call, all, put, takeEvery, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
-import { mokedFilesPostBusiness, Alumnos } from '../../Components/Home/HomeForBusiness/MokedFilesPublicaciones';
 import {
     getInfoForStaffSuccess
 } from '../actions/actionStaff';
 
 import {
-    GET_INFO_FOR_STAFF
+    GET_INFO_FOR_STAFF,
+    URL_PEDIDO
 } from '../../constants/constants';
 
 
 function* asynGetInfoForStaff () {
     try {
-        // const responseUsers = yield call(()=> axios.get(URL_PEDIDO)) todos los users
-        // const responsePubli = yield call(()=> axios.get(URL_PEDIDO)) todas las publicaciones
-        // yield put(getInfoForStaffSuccess({users: responseUsers, publications: responsePubli})) // reemplazar por response.data
-        yield put(getInfoForStaffSuccess({users: Alumnos, publications: mokedFilesPostBusiness})) // ELIMINAR ESTA LINEA
+        const responseUsers = yield call(()=> axios.get(URL_PEDIDO+'/user'))
+        const responsePubli = yield call(()=> axios.get(URL_PEDIDO+'/post'))
+        yield put(getInfoForStaffSuccess({users: responseUsers.data, publications: responsePubli.data})) // reemplazar por response.data
     } catch (error) {
         console.log(error);
     }
