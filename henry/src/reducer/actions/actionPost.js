@@ -9,12 +9,12 @@ import {
     PROFILE_SUCCESS,
     POST_REGISTER_MODAL,
     POST_REGISTER_MODAL_SUCCESS,
-/*     SET_USERTYPE,
+    SET_USERTYPE,
     SET_DEV_TYPE_AND_TECH,
     SET_LOCATION_ENG_STUDY,
-    SET_RECRUITER_INFO, */
-  /*   SET_BUSINESS_INFO,
-    UPDATE_USER */
+    SET_RECRUITER_INFO, 
+    SET_BUSINESS_INFO,
+    UPDATE_USER 
  
 } from "../../constants/constants";
 
@@ -91,15 +91,18 @@ export function postRegisterModalSuccess(payload){
         payload
     };
 };
-/* 
-export function setUserType(payload){
+
+ 
+/* export function setUserType(payload){
     return {
         type: SET_USERTYPE,
         payload
     };
 }; */
 
-/* export function setDevTypeAndTech(payload){
+
+
+export function setDevTypeAndTech(payload){
     return {
         type: SET_DEV_TYPE_AND_TECH,
         payload
@@ -118,14 +121,17 @@ export function setRecruiterInfo(payload){
         type: SET_RECRUITER_INFO,
         payload
     };
-}; */
+};
 
 /* export function setBusinessInfo(payload){
     return {
         type: SET_BUSINESS_INFO,
         payload
     };
-};
+}; */
+
+
+
 
 
 export function updateUser(payload){
@@ -133,4 +139,4 @@ export function updateUser(payload){
         type: UPDATE_USER,
         payload
     }
-} */
+}

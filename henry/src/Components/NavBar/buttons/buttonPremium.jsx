@@ -6,8 +6,7 @@ export default function ButtonPremium(){
 
     return(
         <div>
-            <Link to='/premium'><button>Ser Premium</button></Link>
+            <Link to="/premium"><button>Ser Premium</button></Link>
         </div>
     )
-
 }

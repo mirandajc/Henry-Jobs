@@ -5,6 +5,7 @@ import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} f
 import { RecruiterCont } from "../formStyles/recruiterForm";
 import { QueryReq, CountryCont, EnglishNv, TercerCont, Studies, InnerStudy, ButtonNex} from "../formStyles/recruiterForm";
 import { useDispatch } from 'react-redux';
+import { setRecruiterInfo } from "../../../reducer/actions/actionPost";
 
 
 export default function RecruiterForm ({sumarFase}) {
@@ -135,7 +136,7 @@ export default function RecruiterForm ({sumarFase}) {
             else{
                 if(errorStudy === ""){
                     setStudy([...study, studyInput ]);
-                    setStudyInput = "";                       
+                    setStudyInput("");                      
                 }
             }
         }
@@ -190,6 +191,8 @@ export default function RecruiterForm ({sumarFase}) {
                 languages: nivel,
                 otherStudies: study
             };
+
+           /*  dispatch(setRecruiterInfo(info)); */
 
             return sumarFase();
         }

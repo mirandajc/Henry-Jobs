@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AlumnCont } from "../formStyles/faceAlumn";
 import { Switch, Error } from "../formStyles/formStyles";
+import { setUserType } from "../../../reducer/actions/actionPost";
 
 
 export default function Instance({sumarFase,instancia, setInstancia}) {
   let navigate = useNavigate();
+  const dispatch = useDispatch();
   const [ instance, setInstance ] = useState("");
   const [ error, setError ] = useState("");
 
@@ -17,7 +20,12 @@ export default function Instance({sumarFase,instancia, setInstancia}) {
     }
     else{
       setError("");
-      const userType = instance; // PG O GRADUATE
+      if(instance === "PG"){
+        /* dispatch(setUserType(1)); */
+      }
+      else if(instance === "Graduate"){
+       /*  dispatch(setUserType(2)); */
+      }
       sumarFase();
     }
   };

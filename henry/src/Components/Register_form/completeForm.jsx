@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FormDiv,Switch,Error} from "./formStyles/formStyles";
-
-
+import { setUserType } from "../../reducer/actions/actionPost";
+import { useDispatch } from "react-redux";
 
 export default function UserForm() {
   let navigate = useNavigate();
+  const dispatch = useDispatch();
   const [ whoIam, setwhoIam ] = useState("");
   const [ error, setError ] = useState("");
 
@@ -51,18 +52,20 @@ export default function UserForm() {
     else{
       setError("");
       if(whoIam === "Student"){
-        //manejar info(GUARDAR)
         navigate("/register/alumno", { replace:true });
       }
       else if(whoIam === "Business"){
         //manejar info y hacer ruta de registro de empresa
+        /* dispatch(setUserType(5)); */
         navigate("/register/business", { replace:true });
       }
       else if(whoIam === "Recruiter"){
         // manejar info y hacer ruta de registro de reclutador
+        /* dispatch(setUserType(4)); */
         navigate("/register/recruiter", { replace:true });
       }
       else{
+      /*   dispatch(setUserType(3)); */
         navigate("/register/staff", { replace: true });
       }
     }
