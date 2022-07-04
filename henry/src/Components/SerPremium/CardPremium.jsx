@@ -49,7 +49,7 @@ export default function PremiumCard () {
             <p class="cSharp">
             - Con el último plan podrás: <br/><br/>
              . Acceder a la mayor exposición de la plataforma <br/>
-             . Tener un pibito gratis por año xdxd <br/>
+             <br/>
             </p>
             <Link to="/checkout3"><button>Premium</button></Link>
           </div>
