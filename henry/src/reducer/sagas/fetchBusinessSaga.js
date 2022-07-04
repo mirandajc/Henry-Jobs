@@ -14,7 +14,7 @@ import {
 
 function* asyncGetPublicationStudents () {
     try {
-        const response = yield call(()=> axios.get(URL_PEDIDO))
+        const response = yield call(()=> axios.get(URL_PEDIDO+'/post'))
         yield put(getPublicationStudentsSuccess(response.data)) // reemplazar por response.data
     } catch (error) {
         console.log(error);
@@ -23,7 +23,7 @@ function* asyncGetPublicationStudents () {
 
 function* asyncGetAllStudents () {
     try { 
-        const response = yield call(()=> axios.get(URL_PEDIDO)) // REEMPLAZAR POR LA RUTA QUE TRAE ESTUDIANTES
+        const response = yield call(()=> axios.get(URL_PEDIDO+'/user')) // REEMPLAZAR POR LA RUTA QUE TRAE ESTUDIANTES
         yield put(getAllStudentsSuccess(response.data)) // reemplazar por response.data  
     } catch (error) {
         console.log(error);

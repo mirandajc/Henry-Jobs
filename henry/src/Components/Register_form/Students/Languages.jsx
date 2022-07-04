@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLocationEnglishStudy, updateUser } from "../../../reducer/actions/actionPost";
 import { useJwt } from "react-jwt";
 
+
 export default function Languages ({sumarFase}) {
     const logout = useSelector((state) => state.fetchPostReducer.response);
     const { decodedToken, isExpided } = useJwt(logout);
@@ -17,12 +18,12 @@ export default function Languages ({sumarFase}) {
     const mandarAccion = useSelector(state => state.fetchPostReducer.upDateProfile.otherStudies);
     const objetoGlobal = useSelector(state => state.fetchPostReducer.upDateProfile);
 
-    useEffect(() => {
+    /* useEffect(() => {
         if(mandarAccion.length >= 1){
             dispatch(updateUser(objetoGlobal, respuesta.id));
             return sumarFase();
         }
-    }, [mandarAccion]);
+    }, [mandarAccion]); */
     
     const [ country, setCountry ] = useState({
         country: "",

@@ -8,7 +8,7 @@ import {
 
 const initialState = {
   allPublications: [],
-  userFollows: [/* '62bc9dff5c41483e313e899a','62bc9dff5c41483e313e899ab','62bc9dff5c41483e313e899ac','62bc9dff5c41483e313e899ad','62bc9dff5c41483e313e899ae' */],
+  userFollows: [],
   studentsFiltered: { render:[], filt: ''},
   publicatShow: [],
   allStudents: [],
