@@ -4,13 +4,13 @@ import { mokedFilesPostBusiness, mokedFilesStudens, Alumnos } from '../../Compon
 import {
     getPublicationStudentsSuccess,
     getAllStudentsSuccess, 
-    postIdFollowBusssSuccess
+    postIdFollowBusssSuccess,
+    getMyPublicationsSuccess
 } from '../actions/actionBusiness';
 
 import {
     GET_ALL_STUDENTS,
-    GET_PUBLICATION_STUDENTS, URL_PEDIDO,
-    POST_ID_FOLLOW_BUSS
+    GET_PUBLICATION_STUDENTS, URL_PEDIDO,GET_MY_PUBLICATIONS, URL_PEDIDO_POSTS,SET_APPLICANT,POST_ID_FOLLOW_BUSS
 } from '../../constants/constants';
 
 
@@ -41,10 +41,21 @@ function* asyncPostIdFollowBuss (obj) {
     }
 }
 
+function* asyncGetMyPublications (id) {
+    try {
+        const response = yield call(() => axios.get(URL_PEDIDO_POSTS))
+        yield put(getMyPublicationsSuccess(response.data, id.payload))
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 
 
 export function* watchFetchBusinessSaga(){
     yield takeEvery(GET_PUBLICATION_STUDENTS, asyncGetPublicationStudents)
     yield takeLatest(GET_ALL_STUDENTS, asyncGetAllStudents)
     yield takeEvery(POST_ID_FOLLOW_BUSS ,asyncPostIdFollowBuss)
+    yield takeEvery(GET_MY_PUBLICATIONS, asyncGetMyPublications)
+    /* yield takeEvery(SET_APPLICANT, asyncSetApplicant) */
 }

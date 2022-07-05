@@ -15,14 +15,10 @@ export default function Home() {
 
     useEffect(()=> {
         if(userType !== null){
-            console.log(userType)
             setUserT(userType.type)
-
         }
 
     },[userType])
-
-
 
 
     return(

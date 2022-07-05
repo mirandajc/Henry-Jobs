@@ -11,7 +11,10 @@ import {
     GET_PUBLICAT_WORKMODALITY,
     SET_STARS_ORDER,
     POST_ID_FOLLOW_BUSS,
-    POST_ID_FOLLOW_BUSS_SUCCESS
+    POST_ID_FOLLOW_BUSS_SUCCESS,
+    GET_MY_PUBLICATIONS,
+    GET_MY_PUBLICATIONS_SUCCESS,
+    SET_APPLICANT
 } from "../../constants/constants";
 
 export function getPublicationStudents () {
@@ -102,5 +105,28 @@ export function showFilter (){
         type: SHOW_FILTER
     }
 }
+
+/////////////////// CONTACT WALL //////////////////////
+export function getMyPublications(id){
+    return {
+        type: GET_MY_PUBLICATIONS,
+        payload: id
+    };
+};
+
+export function getMyPublicationsSuccess(payload, id){
+    return {
+        type: GET_MY_PUBLICATIONS_SUCCESS,
+        payload,
+        id: id
+    };
+};
+
+export function setApplicant(value){
+    return {
+        type: SET_APPLICANT,
+        value
+    };
+};
 
 

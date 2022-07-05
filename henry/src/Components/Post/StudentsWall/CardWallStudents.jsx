@@ -15,6 +15,7 @@ import Ubicacion from "../../images/ubicacion.png";
 import { useDispatch, useSelector } from "react-redux";
 import { postIdFollow } from "../../../reducer/actions/actionStudents";
 import { postIdFollowBuss } from "../../../reducer/actions/actionBusiness";
+import { profileID } from "../../../reducer/actions/actionPost";
 
 
 
@@ -46,8 +47,8 @@ export default function CardWallStudents({ name, lastname, email, technologies, 
             </PictureCont>
             <div className="datos">
               <div className="nombre">
-                <Link to={`/profile/${userName}`}>
-                  <h3>{name + " " + lastname}</h3>
+                <Link to={`/profile/${id}`}>
+                    <h3>{name + " " + lastname}</h3>
                 </Link>
               </div>
               <div className="ubicacion">

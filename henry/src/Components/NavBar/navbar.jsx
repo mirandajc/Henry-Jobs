@@ -13,8 +13,16 @@ import RegistroGeneral from "../Register_form/RegistroGeneral";
 
 export default function Navbar() {
 
-  const tal = localStorage.getItem('TK')
-  const userType = JSON.parse(tal);
+  /* const logout = useSelector((state) => state.fetchPostReducer.response);
+  const navigate = useNavigate();
+  const { decodedToken, isExpided } = useJwt(logout);
+  const respuesta = decodedToken */
+  
+
+
+    const tal = localStorage.getItem('TK')
+    const respuesta = JSON.parse(tal);
+
 
   return (
     <NavbarS>
@@ -28,25 +36,25 @@ export default function Navbar() {
 
         {
 
-          userType === null ? null :
+          respuesta === null ? null :
 
-          userType.type === 1 || userType.type === 2 ?
+            respuesta.type === 1 || respuesta.type === 2 ?
 
               <StudentsNavBar />
 
               :
               
-              userType.type === 5 || userType.type === 4 ?
+              respuesta.type === 5 || respuesta.type === 4 ?
 
                 <BusinessNavBar />
 
                 :
 
-                userType.type === 3 ?
+                respuesta.type === 3 ?
 
                   <StaffNavBar />
 
-                  : userType.type === 0 ?
+                  : respuesta.type === 0 ?
 
                     null 
 
