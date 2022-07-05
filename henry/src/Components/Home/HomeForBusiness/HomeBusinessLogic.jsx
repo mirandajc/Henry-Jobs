@@ -13,13 +13,6 @@ export default function HomeBusinessLogic() {
     dispatch(getPublicationStudents());
   },[])
   
-  useEffect(() => {
-    console.log(allPublications)
-  },[allPublications])
-
-
-
-  
 
   return (
     <div>

@@ -27,15 +27,20 @@ import RegisterPage from "./Components/Login/registerPage/registerPage";
 import StudentsWall from "./Components/Post/StudentsWall/StudentsWall";
 import WorkWall from "./Components/Post/WorkWall/WorkWall.jsx";
 import GithubLog from "./Components/Login/LoginPage/githubLogin";
-
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import PremiumCard from "./Components/SerPremium/CardPremium";
+import Paypal1 from "./Components/Paypal/Paypal1";
+import Paypal2 from "./Components/Paypal/Paypal2";
+import Paypal3 from "./Components/Paypal/Paypal3";
 
 function App() {
 
 
   return (
     <div className="body">
-      <Navbar/>
-      
+
+<PayPalScriptProvider options={{ "client-id": "AXPShqBccR4QiyF7mu71oQ5YyXGRc55iuxpne90670XTqGDWN9dLrtNR6gRDn-fOMv6LtMxW8JStMVx0" }} >
+  <Navbar/>
     <Routes>
       <Route path="/" element={<Landing/>}/>//ususario logeado no!
       <Route path='/login' element={<LoginCard/>}/>//ususario logeado no!
@@ -58,9 +63,13 @@ function App() {
       <Route path="/workwall" element={<WorkWall />}/>
       <Route path="/students" element={<StudentsWall />} />
       <Route path="/GithubLog" element={<GithubLog/>} />
-
+      <Route path="/premium" element={<PremiumCard/>} />
+      <Route path="/checkout1" element={<Paypal1 />} />
+      <Route path="/checkout2" element={<Paypal2 />} />
+      <Route path="/checkout3" element={<Paypal3 />} />
     </Routes>
     <Footer/>
+      </PayPalScriptProvider>
     </div>
   );
 };

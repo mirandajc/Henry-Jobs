@@ -1,5 +1,5 @@
 import {
-    POST_USER, POST_USER_SUCCESS,SET_LOGOUT,PROFILE_SUCCESS, POST_REGISTER_MODAL_SUCCESS,SET_USERTYPE,SET_DEV_TYPE_AND_TECH, SET_LOCATION_ENG_STUDY, SET_RECRUITER_INFO,SET_BUSINESS_INFO
+    POST_USER, POST_USER_SUCCESS,SET_LOGOUT,PROFILE_SUCCESS, POST_REGISTER_MODAL_SUCCESS,SET_USERTYPE,SET_DEV_TYPE_AND_TECH, SET_LOCATION_ENG_STUDY, SET_RECRUITER_INFO,SET_BUSINESS_INFO,UPDATE_USER_SUCCESS
 
 } from "../../constants/constants";
 
@@ -25,13 +25,11 @@ const initialState = {
 
 const fetchPostReducer = (state = initialState, action) => {
     switch (action.type) {
-       /*  case GET_INFO_USER_SUCCES:
-            return { 
-                ...state,
-                userRegister: action.payload
-            }*/
-
-
+            case UPDATE_USER_SUCCESS: 
+                return{
+                    ...state,
+                     // ojo
+                }
             case PROFILE_SUCCESS:
                 
                 return{
@@ -66,14 +64,12 @@ const fetchPostReducer = (state = initialState, action) => {
                 }
             
             case SET_USERTYPE:
-                console.log("set usertype", action.payload)
                 return {
                     ...state,
                     upDateProfile: {...state.upDateProfile, userTypes: action.payload}
                 }
 
             case SET_DEV_TYPE_AND_TECH:
-                console.log("set dev type and tech", action.payload)
                 return {
                     ...state,
                     upDateProfile: {...state.upDateProfile, 
