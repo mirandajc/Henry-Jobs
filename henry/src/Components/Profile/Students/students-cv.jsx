@@ -2,14 +2,24 @@ import React,{useEffect} from "react";
 import {CV, CvCont, Instancia, Acerca, Publicaciones, Tecnologias, OtrosStudy} from '../profileStyles/studentCV';
 import MostrarMas from "./showMore";
 import Carrousell from "./Carrousell";
+import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { useJwt } from "react-jwt";
 
-export default function StudentCV({otherStudies,technologies}){
+
+export default function StudentCV({otherStudies,technologies, id}){
     
-    
-    
+    const logout = useSelector((state) => state.fetchPostReducer.response);
+    const { decodedToken, isExpided } = useJwt(logout);
+    const respuesta = decodedToken
+
     useEffect(()=>{
 
     },[otherStudies])
+
+    useEffect(() => {
+        console.log(respuesta);
+    }, [respuesta])
     
     
     return(
@@ -58,7 +68,15 @@ export default function StudentCV({otherStudies,technologies}){
             </Acerca>
             <Publicaciones>
                 <h3>Publicaciones:  FALTAAA</h3>
-                <Carrousell /> 
+                {
+                    respuesta.type === 1 || respuesta.type === 2 ?
+                    <Link to={`/myapplications`}><h3>Ver mis postulaciones</h3></Link>
+                    :
+                    respuesta.type === 4 || respuesta.type === 5 ?
+                    <Link to={`/mypublications/${id}`}><h3>Ver todas las publicaciones</h3></Link>
+                    : null
+                }
+                <Carrousell id={id}/> 
             </Publicaciones>
         </CV>
     )

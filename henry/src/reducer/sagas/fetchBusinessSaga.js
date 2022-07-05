@@ -3,12 +3,13 @@ import axios from 'axios';
 import { mokedFilesPostBusiness, mokedFilesStudens, Alumnos } from '../../Components/Home/HomeForBusiness/MokedFilesPublicaciones';
 import {
     getPublicationStudentsSuccess,
-    getAllStudentsSuccess 
+    getAllStudentsSuccess, 
+    getMyPublicationsSuccess
 } from '../actions/actionBusiness';
 
 import {
     GET_ALL_STUDENTS,
-    GET_PUBLICATION_STUDENTS, URL_PEDIDO,
+    GET_PUBLICATION_STUDENTS, URL_PEDIDO,GET_MY_PUBLICATIONS, URL_PEDIDO_POSTS,SET_APPLICANT
 } from '../../constants/constants';
 
 
@@ -30,9 +31,20 @@ function* asyncGetAllStudents () {
     }
 };
 
+function* asyncGetMyPublications (id) {
+    try {
+        const response = yield call(() => axios.get(URL_PEDIDO_POSTS))
+        yield put(getMyPublicationsSuccess(response.data, id.payload))
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 
 
 export function* watchFetchBusinessSaga(){
     yield takeEvery(GET_PUBLICATION_STUDENTS, asyncGetPublicationStudents)
     yield takeLatest(GET_ALL_STUDENTS, asyncGetAllStudents)
+    yield takeEvery(GET_MY_PUBLICATIONS, asyncGetMyPublications)
+    yield takeEvery(SET_APPLICANT, asyncSetApplicant)
 }

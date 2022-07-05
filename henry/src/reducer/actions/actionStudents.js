@@ -7,7 +7,7 @@ import {
     GET_PUBLICATIONS_ENGLISH,
     GET_PUBLICATIONS_UBICATION,
     SHOW_FILTER,
-    POST_ID_FOLLOW
+    POST_ID_FOLLOW,
 } from "../../constants/constants";
 
 export function getPublicationsBusiness(){
@@ -68,7 +68,8 @@ export function postIdFollow(payload){
     return {
         type: POST_ID_FOLLOW,
         payload
-    }
-}
+    };
+};
+
 
 

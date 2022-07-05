@@ -4,6 +4,7 @@ import {Video ,ComponentCard , DatosProyect, ButtonTecnologies, ButtonLight, Com
 import ReactPlayer from "react-player";
 import { postIdFollow } from "../../../reducer/actions/actionStudents";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 
@@ -21,7 +22,7 @@ export default function CardPublicationWorkTest2({id, image, name, date, title, 
             <div className="Imagen-And-Name">
             <img src={image} alt={`${name} Image`} />
                 <div className="Contenedor-Name-Ubicacion">
-                    <h3>{name}</h3>
+                    <Link to={`/profile/${id}`}><h3>{name}</h3></Link>
                     <span className="ContenedorUbicacion">
                     <img src={ubicacion} alt='icon-ubicacion' className="imagenUbicacion"/>
                     <p>{ubication}</p>

@@ -1,13 +1,14 @@
 import { 
     GET_PUBLICATION_STUDENTS_SUCCESS,GET_PUBLICAT_TECHNOLOGIES, GET_PUBLICAT_ENGLISH, 
     GET_PUBLICAT_UBICATION, GET_PUBLICAT_DEVTYPE,
-    GET_ALL_STUDENTS_SUCCESS,SHOW_FILTER,GET_PUBLICAT_WORKMODALITY,SET_STARS_ORDER,POST_ID_FOLLOW_BUSS
+    GET_ALL_STUDENTS_SUCCESS,SHOW_FILTER,GET_PUBLICAT_WORKMODALITY,SET_STARS_ORDER,POST_ID_FOLLOW_BUSS,GET_MY_PUBLICATIONS_SUCCESS
 } from "../../constants/constants";
 
 
 
 const initialState = {
   allPublications: [],
+  myPublications: [],
   userFollows: ['62c1101218635d7fac41dcf1','62c110e018635d7fac41dcf8'],
   studentsFiltered: { render:[], filt: ''},
   publicatShow: [],
@@ -32,6 +33,14 @@ const initialState = {
 
 const fetchBusinessReducer = (state = initialState, action) => {
   switch (action.type) {
+
+    case GET_MY_PUBLICATIONS_SUCCESS :
+        let pubs = action.payload.filter(e => e.posterUser._id === action.id);
+        console.log("MP", pubs)
+        return {
+            ...state,
+            myPublications: pubs
+        };
 
     case GET_PUBLICATION_STUDENTS_SUCCESS:
         let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id))
