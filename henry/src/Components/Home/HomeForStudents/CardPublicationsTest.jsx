@@ -1,12 +1,12 @@
 import React from "react";
-import {Video ,ComponentCard , DatosProyect, ButtonTecnologies, ButtonLight, ComponentDatos , Date} from './HomeStyled';
+import {Video ,ComponentCard , DatosProyect, ButtonTecnologies, ButtonLight, ComponentDatos , Date,MuchoTexto} from './HomeStyled';
 import ReactPlayer from "react-player";
 import ubicacion from "../../images/ubicacion.png"
 import { postIdFollow } from "../../../reducer/actions/actionStudents";
 import { useDispatch } from "react-redux";
+import {AiOutlinePlus} from 'react-icons/ai'
 
-
-export default function CardPublicationWorkTest({ id,image, name, date, title, summary, video, technologies, backFront, ubication, workModality, english, userName, lastname }) {
+export default function CardPublicationWorkTest({ id,image, name, date, title, summary, video, technologies, backFront, ubication, workModality, english, userName, lastname, text }) {
 // viene publicacion de empresas y alumnos mix
 
     const dispatch = useDispatch();
@@ -21,7 +21,10 @@ export default function CardPublicationWorkTest({ id,image, name, date, title, s
         <ComponentCard>
             <ComponentDatos>
             <div className="Imagen-And-Name">
-            <img src={image} alt={`${name} Image`} />
+
+            <div className="ImgCont">
+            <img src={`${image.secure_url}`} alt={`${name} Image`} />
+            </div>
                 <div className="Contenedor-Name-Ubicacion">
                     <h3>{name} {lastname}</h3>
                     <span className="ContenedorUbicacion">
@@ -30,6 +33,9 @@ export default function CardPublicationWorkTest({ id,image, name, date, title, s
                     </span>
                 </div>
             </div>
+            <MuchoTexto>
+                <p>{text}</p>
+            </MuchoTexto>
             <DatosProyect>
                 <h4>{title}</h4>
                 <p>{summary}</p>
@@ -48,9 +54,11 @@ export default function CardPublicationWorkTest({ id,image, name, date, title, s
                 <ButtonLight>
                     <p>{english}</p>
                 </ButtonLight>
-                <ButtonLight>
-                    <button onClick={() => handleFollow()}>Follow</button>
-                </ButtonLight>
+                <div >
+                    <button onClick={() => handleFollow()}>
+                        <AiOutlinePlus className="plus"/>
+                    </button>
+                </div>
                 
             </div>           
             </div>

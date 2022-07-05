@@ -4,6 +4,9 @@ import { useSelector } from "react-redux";
 import ButtonStudentsWall from '../buttons/buttonStudentsWall'
 import ButtonHome from "../buttons/buttonHome";
 import ButtonPerfil from "../buttons/buttonPerfil";
+import { DivContSt,  NavSt } from "./Estilos/navStudent";
+
+
 
 export default function BusinessNavBar() {
 
@@ -12,10 +15,10 @@ export default function BusinessNavBar() {
     let isPremium = false;
 
     return (
-        <div>
+        <DivContSt>
             {
                 logout ?
-                    <div>
+                    <NavSt>
                         <div>
                             <ButtonHome />
                         </div>
@@ -30,10 +33,10 @@ export default function BusinessNavBar() {
                         {
                             !isPremium ? <ButtonPremium /> : null
                         }
-                    </div>
+                    </NavSt>
                     : null
             }
 
-        </div>
+        </DivContSt>
     );
 };

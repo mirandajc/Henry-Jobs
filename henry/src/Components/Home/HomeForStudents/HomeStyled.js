@@ -93,9 +93,7 @@ export const ButtonLight = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    margin-top: 0.5rem;
+    
 
     p{
         color: #1A1B1E !important;
@@ -119,19 +117,60 @@ justify-content: space-evenly;
 }
 .TechnologiesAndOthers{
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
     flex-wrap: wrap;
+    
+
+    // .button{
+    //     width:2em;
+    //     height:2em;
+    //     border-radius: 50%;
+        
+        button{
+            width:2em;
+            height:2em;
+            border-radius: 50%;
+            cursor: pointer;
+            &:active{
+                background-color: black;
+                .plus{
+                    color: yellow;
+                }
+            }
+        }
+        .plus{
+
+        }
+    }
 }
 .Imagen-And-Name{
-    margin: 1rem;
+    margin-top:0.5em;
+    margin-left: 0.5em;
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    .ImgCont{
+        
+        width:3em;
+        height:3em;
+        border-radius:50%;
+        border:1px solid yellow;
+        overflow:hidden;
+        margin-right:1em;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            width:100%;
+            height: 100%;
+            
+        }
+    }
 }
-img{
-    width:15%;
-    margin-right: 0.5rem;
-}
+
+
 p{
     display: flex;
     margin: 0;
@@ -167,5 +206,18 @@ export const Date = styled.div`
     background-color: #121213;
     justify-content: space-between;
     box-shadow: -1px -1px 5px 1px #303030;
+
+`
+
+export const MegaCont= styled.div`
+border: 1px solid yellow;
+
+
+
+`
+
+export const MuchoTexto= styled.div`
+
+
 
 `

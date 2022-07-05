@@ -19,6 +19,7 @@ export default function StudentCompletePage() {
         if(userProfile.name !== undefined) {
             setRenderi(true)
         }
+        
     }, [userProfile])
 
 
@@ -31,15 +32,16 @@ export default function StudentCompletePage() {
             <CompleteProfile>
                 <StudentsProfile 
                 backFront={userProfile.backFront}
-                banner={userProfile.banner}
+                banner={userProfile.banner.secure_url}
                 country={userProfile.country}
                 curriculumCounter={userProfile.curriculumCounter}
                 email={userProfile.email}
                 lastName={userProfile.lastName}
                 name={userProfile.name}
-                profileImage={userProfile.profileImage}
+                profileImage={userProfile.profileImage.secure_url}
                 
                  />
+                 {console.log(userProfile)}
                         <StudentCV
                             technologies={userProfile.technologies}
                             otherStudies={userProfile.otherStudies}
