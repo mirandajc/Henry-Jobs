@@ -12,8 +12,8 @@ import { setLogout } from "../../../reducer/actions/actionPost";
 import GoogleLog from "./googleLogin"; 
 import GithubLog from "./githubLogin";
 import { ButtonGoogle } from "../LoginStyles/logstyle";
-
-
+import { getStudentsByEmail } from "../../../reducer/actions/actionStudents";
+import { getBusinessByEmail } from "../../../reducer/actions/actionBusiness";
 
 export default function LoginPage(){
     const navigate= useNavigate();
@@ -46,7 +46,8 @@ export default function LoginPage(){
  
     useEffect(()=>{
         if(TK !== null){
-            
+            dispatch(getStudentsByEmail(user.email));
+            dispatch(getBusinessByEmail(user.email));
             navigate('/home')
         }
         
@@ -58,8 +59,6 @@ export default function LoginPage(){
        if(user.email && user.password){
         //  dispatch(setLogout(true))
          dispatch(postUser(user));
-         dispatch(getStudentsByEmail(user.email));
-         dispatch(getBusinessByEmail(user.email));
        }
     }
     const handleCallbackResponse = (response) => {

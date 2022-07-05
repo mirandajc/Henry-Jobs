@@ -15,7 +15,8 @@ import {
     GET_MY_PUBLICATIONS,
     GET_MY_PUBLICATIONS_SUCCESS,
     SET_APPLICANT,
-    GET_BUSINESS_BY_EMAIL
+    GET_BUSINESS_BY_EMAIL,
+    GET_BUSINESS_BY_EMAIL_SUCCESS
 } from "../../constants/constants";
 
 export function getPublicationStudents () {
@@ -134,6 +135,13 @@ export function getBusinessByEmail (email) {
     return {
         type: GET_BUSINESS_BY_EMAIL,
         email
+    };
+};
+
+export function getBusinessByEmailSuccess (payload) {
+    return {
+        type: GET_BUSINESS_BY_EMAIL_SUCCESS,
+        payload
     };
 };
 

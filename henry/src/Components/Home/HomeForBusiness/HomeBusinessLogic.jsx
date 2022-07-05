@@ -16,7 +16,9 @@ export default function HomeBusinessLogic() {
 
   return (
     <div>
-      
+      {
+       console.log("Esto es Business Home") 
+      }
       {allPublications.map((e) => {
         return(
         <div>

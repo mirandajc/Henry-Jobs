@@ -7,10 +7,12 @@ import {
     GET_PUBLICATIONS_ENGLISH,
     GET_PUBLICATIONS_UBICATION,
     SHOW_FILTER,
-    POST_ID_FOLLOW_SUCCESS
+    POST_ID_FOLLOW_SUCCESS,
+    GET_STUDENTS_BY_EMAIL_SUCCESS
 } from "../../constants/constants";
 
 const initialState = {
+    infoUserStudent: [],
     AllPublications:[],
     AllPublicationsFollows:[],
     userFollows: [],
@@ -27,6 +29,13 @@ const initialState = {
 
 const fetchStudentsReducer = (state = initialState, action) => {
     switch (action.type) {
+
+        case GET_STUDENTS_BY_EMAIL_SUCCESS:
+            console.log("reducer", action.payload)
+            return {
+                ...state,
+                infoUserStudent: action.payload
+            };
         
         case GET_PUBLICATIONS_BUSINESS_SUCCESS:
             let all = action.payload.reverse();

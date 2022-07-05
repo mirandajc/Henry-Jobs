@@ -8,7 +8,9 @@ import {
     GET_PUBLICATIONS_UBICATION,
     SHOW_FILTER,
     POST_ID_FOLLOW,
-    POST_ID_FOLLOW_SUCCESS
+    POST_ID_FOLLOW_SUCCESS,
+    GET_STUDENTS_BY_EMAIL,
+    GET_STUDENTS_BY_EMAIL_SUCCESS
 } from "../../constants/constants";
 
 export function getPublicationsBusiness(){
@@ -79,5 +81,19 @@ export function postIdFollowSuccess(payload){
         payload,
     }
 }
+
+export function getStudentsByEmail(email){
+    return {
+        type: GET_STUDENTS_BY_EMAIL,
+        email
+    };
+};
+
+export function getStudentsByEmailSuccess(payload){
+    return {
+        type: GET_STUDENTS_BY_EMAIL_SUCCESS,
+        payload,
+    };
+};
 
 

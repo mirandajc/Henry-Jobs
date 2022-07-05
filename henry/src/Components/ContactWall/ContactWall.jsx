@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getMyPublications } from "../../reducer/actions/actionBusiness";
 import PublicationCard from "./CardPublicacionDePerfil";
+
 
 
 export default function ContactWall() {

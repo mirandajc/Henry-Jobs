@@ -1,12 +1,13 @@
 import { 
     GET_PUBLICATION_STUDENTS_SUCCESS,GET_PUBLICAT_TECHNOLOGIES, GET_PUBLICAT_ENGLISH, 
-    GET_PUBLICAT_UBICATION, GET_PUBLICAT_DEVTYPE,
+    GET_PUBLICAT_UBICATION, GET_PUBLICAT_DEVTYPE,GET_BUSINESS_BY_EMAIL_SUCCESS,
     GET_ALL_STUDENTS_SUCCESS,SHOW_FILTER,GET_PUBLICAT_WORKMODALITY,SET_STARS_ORDER,POST_ID_FOLLOW_BUSS_SUCCESS,GET_MY_PUBLICATIONS_SUCCESS
 } from "../../constants/constants";
 
 
 
 const initialState = {
+  infoUserBusiness: [],  
   allPublications: [],
   userFollows: [],
   studentsFiltered: { render:[], filt: ''},
@@ -41,6 +42,13 @@ const fetchBusinessReducer = (state = initialState, action) => {
             myPublications: pubs
         };
 
+    case GET_BUSINESS_BY_EMAIL_SUCCESS:
+        console.log(action.payload)
+        return {
+            ...state,
+            infoUserBusiness: action.payload
+        };
+
     case GET_PUBLICATION_STUDENTS_SUCCESS:
         let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id))
         let pubStu = fol1.filter(e => e.posterUser.userTypes === 1 || e.posterUser.userTypes === 2)
@@ -59,6 +67,7 @@ const fetchBusinessReducer = (state = initialState, action) => {
         };
 
     case POST_ID_FOLLOW_BUSS_SUCCESS:
+        console.log("follow",action.payload)
         return {
             ...state,
             userFollows: action.payload

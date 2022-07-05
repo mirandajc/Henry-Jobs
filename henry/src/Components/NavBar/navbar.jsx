@@ -13,15 +13,15 @@ import RegistroGeneral from "../Register_form/RegistroGeneral";
 
 export default function Navbar() {
 
-  /* const logout = useSelector((state) => state.fetchPostReducer.response);
-  const navigate = useNavigate();
-  const { decodedToken, isExpided } = useJwt(logout);
-  const respuesta = decodedToken */
-  
+  const tal = localStorage.getItem('TK')
+  const userType = JSON.parse(tal);
+  const [userT, setUserT] = useState('');
 
-
-    const tal = localStorage.getItem('TK')
-    const respuesta = JSON.parse(tal);
+  useEffect(()=> {
+      if(userType.type !== null){
+          setUserT(userType.type)
+      }
+  },[userType])
 
 
   return (
@@ -36,25 +36,23 @@ export default function Navbar() {
 
         {
 
-          respuesta === null ? null :
-
-            respuesta.type === 1 || respuesta.type === 2 ?
+          userT === 1 || userT === 2 ?
 
               <StudentsNavBar />
 
               :
               
-              respuesta.type === 5 || respuesta.type === 4 ?
+              userT === 5 || userT === 4 ?
 
                 <BusinessNavBar />
 
                 :
 
-                respuesta.type === 3 ?
+                userT === 3 ?
 
                   <StaffNavBar />
 
-                  : respuesta.type === 0 ?
+                  : userT === 0 ?
 
                     null 
 

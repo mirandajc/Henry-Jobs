@@ -5,11 +5,12 @@ import {
     getPublicationStudentsSuccess,
     getAllStudentsSuccess, 
     postIdFollowBusssSuccess,
-    getMyPublicationsSuccess
+    getMyPublicationsSuccess,
+    getBusinessByEmailSuccess
 } from '../actions/actionBusiness';
 
 import {
-    GET_ALL_STUDENTS,
+    GET_ALL_STUDENTS,GET_BUSINESS_BY_EMAIL,
     GET_PUBLICATION_STUDENTS, URL_PEDIDO,GET_MY_PUBLICATIONS, URL_PEDIDO_POSTS,SET_APPLICANT,POST_ID_FOLLOW_BUSS
 } from '../../constants/constants';
 
@@ -34,7 +35,7 @@ function* asyncGetAllStudents () {
 
 function* asyncPostIdFollowBuss (obj) {
     try {
-        const response = yield call(()=> axios.put(/* URL_PEDIDO */'http://localhost:3002/api'+'/follow/'+obj.payload, obj.obj)) // REEMPLAZAR POR LA RUTA QUE TRAE ESTUDIANTES
+        const response = yield call(()=> axios.put(URL_PEDIDO +'/follow/'+obj.payload, obj.obj))
         yield put(postIdFollowBusssSuccess(response.data)) // reemplazar por response.data      
     } catch (error) {
         console.log(error)
@@ -50,6 +51,15 @@ function* asyncGetMyPublications (id) {
     }
 };
 
+function* asyncGetBusinessByEmail (email) {
+    try {
+        const response = yield call(() => axios.get(URL_PEDIDO + `/mail?email=${email.email}`))
+        yield put(getBusinessByEmailSuccess(response.data));
+    } catch (error) {
+        console.log(error)
+    }
+};
+
 
 
 export function* watchFetchBusinessSaga(){
@@ -58,4 +68,5 @@ export function* watchFetchBusinessSaga(){
     yield takeEvery(POST_ID_FOLLOW_BUSS ,asyncPostIdFollowBuss)
     yield takeEvery(GET_MY_PUBLICATIONS, asyncGetMyPublications)
     /* yield takeEvery(SET_APPLICANT, asyncSetApplicant) */
+    yield takeLatest(GET_BUSINESS_BY_EMAIL, asyncGetBusinessByEmail);
 }

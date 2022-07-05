@@ -18,6 +18,7 @@ export default function HomeStudentsLogic() {
 
     return (
         <ContenedorStudents>
+            {console.log("Esto es Student Home") }
             {
                 publicaciones.map(e => <CardPublicationWorkTest
                     image={e.posterUser.profileImage} 

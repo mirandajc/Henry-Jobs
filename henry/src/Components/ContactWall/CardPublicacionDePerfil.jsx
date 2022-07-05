@@ -1,13 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getAllStudents } from "../../reducer/actions/actionBusiness";
-
+import { getAllStudents, setApplicant } from "../../reducer/actions/actionBusiness";
 
 export default function PublicationCard ({idEmpresa, email, text, date, applicants}) {
-
     const dispatch = useDispatch();
-
     useEffect(() => {
         dispatch(getAllStudents());
     },[]);
