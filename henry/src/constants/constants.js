@@ -59,7 +59,9 @@ export const STAFF_SHOW_ORDER = "STAFF_SHOW_ORDER";
 export const SET_LOGOUT='SET_LOGOUT';
 
 export const POST_ID_FOLLOW = 'POST_ID_FOLLOW';
+export const POST_ID_FOLLOW_SUCCESS = 'POST_ID_FOLLOW_SUCCESS';
 export const POST_ID_FOLLOW_BUSS = 'POST_ID_FOLLOW_BUSS';
+export const POST_ID_FOLLOW_BUSS_SUCCESS = 'POST_ID_FOLLOW_BUSS_SUCCESS';
 
 
 export const URL_DEPLOY = 'https://henryjob.herokuapp.com/api';

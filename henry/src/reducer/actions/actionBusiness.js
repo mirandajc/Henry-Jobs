@@ -10,7 +10,8 @@ import {
     SHOW_FILTER,
     GET_PUBLICAT_WORKMODALITY,
     SET_STARS_ORDER,
-    POST_ID_FOLLOW_BUSS
+    POST_ID_FOLLOW_BUSS,
+    POST_ID_FOLLOW_BUSS_SUCCESS
 } from "../../constants/constants";
 
 export function getPublicationStudents () {
@@ -19,10 +20,18 @@ export function getPublicationStudents () {
     }
 };
 
-export function postIdFollowBuss(payload){
+export function postIdFollowBuss(payload, obj){
     return {
         type: POST_ID_FOLLOW_BUSS,
-        payload
+        payload,
+        obj
+    }
+}
+
+export function postIdFollowBusssSuccess(payload){
+    return {
+        type: POST_ID_FOLLOW_BUSS_SUCCESS,
+        payload,
     }
 }
 

@@ -7,7 +7,8 @@ import {
     GET_PUBLICATIONS_ENGLISH,
     GET_PUBLICATIONS_UBICATION,
     SHOW_FILTER,
-    POST_ID_FOLLOW
+    POST_ID_FOLLOW,
+    POST_ID_FOLLOW_SUCCESS
 } from "../../constants/constants";
 
 export function getPublicationsBusiness(){
@@ -64,10 +65,18 @@ export function ShowFilter(){
     }
 };
 
-export function postIdFollow(payload){
+export function postIdFollow(payload, obj){
     return {
         type: POST_ID_FOLLOW,
-        payload
+        payload,
+        obj
+    }
+}
+
+export function postIdFollowSuccess(payload){
+    return {
+        type: POST_ID_FOLLOW_SUCCESS,
+        payload,
     }
 }
 

@@ -11,8 +11,12 @@ export default function CardPublicationWorkTest2({id, image, name, date, title, 
 
     const dispatch = useDispatch();
 
+
+    const tal = localStorage.getItem('TK')
+    const userType = JSON.parse(tal);
+
     const handleFollow = () => {
-        dispatch(postIdFollow(id));
+        dispatch(postIdFollow(id, { id: userType.id }));
     }
 
     return (

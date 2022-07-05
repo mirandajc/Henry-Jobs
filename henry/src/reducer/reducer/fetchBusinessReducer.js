@@ -1,14 +1,14 @@
 import { 
     GET_PUBLICATION_STUDENTS_SUCCESS,GET_PUBLICAT_TECHNOLOGIES, GET_PUBLICAT_ENGLISH, 
     GET_PUBLICAT_UBICATION, GET_PUBLICAT_DEVTYPE,
-    GET_ALL_STUDENTS_SUCCESS,SHOW_FILTER,GET_PUBLICAT_WORKMODALITY,SET_STARS_ORDER,POST_ID_FOLLOW_BUSS
+    GET_ALL_STUDENTS_SUCCESS,SHOW_FILTER,GET_PUBLICAT_WORKMODALITY,SET_STARS_ORDER, POST_ID_FOLLOW_BUSS_SUCCESS
 } from "../../constants/constants";
 
 
 
 const initialState = {
   allPublications: [],
-  userFollows: ['62c1101218635d7fac41dcf1','62c110e018635d7fac41dcf8'],
+  userFollows: [],
   studentsFiltered: { render:[], filt: ''},
   publicatShow: [],
   allStudents: [],
@@ -50,18 +50,10 @@ const fetchBusinessReducer = (state = initialState, action) => {
             studentsFiltered: {...state, render: responseAlumnos}
         };
 
-    case POST_ID_FOLLOW_BUSS:
-        let respon = state.userFollows
-        if(state.userFollows.includes(action.payload)) {
-            respon = state.userFollows.filter(e => e !== action.payload)
-        }
-        if(!state.userFollows.includes(action.payload)) {
-            respon.push(action.payload)
-        }
-        console.log(respon)
+    case POST_ID_FOLLOW_BUSS_SUCCESS:
         return {
             ...state,
-            userFollows: respon
+            userFollows: action.payload
         }
 
     ////////////////////////////////////////////////////////////////////////// CASOS DE FILTRADO //////
