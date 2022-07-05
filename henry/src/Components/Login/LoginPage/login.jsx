@@ -58,6 +58,8 @@ export default function LoginPage(){
        if(user.email && user.password){
         //  dispatch(setLogout(true))
          dispatch(postUser(user));
+         dispatch(getStudentsByEmail(user.email));
+         dispatch(getBusinessByEmail(user.email));
        }
     }
     const handleCallbackResponse = (response) => {

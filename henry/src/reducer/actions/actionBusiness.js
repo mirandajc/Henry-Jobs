@@ -14,7 +14,8 @@ import {
     POST_ID_FOLLOW_BUSS_SUCCESS,
     GET_MY_PUBLICATIONS,
     GET_MY_PUBLICATIONS_SUCCESS,
-    SET_APPLICANT
+    SET_APPLICANT,
+    GET_BUSINESS_BY_EMAIL
 } from "../../constants/constants";
 
 export function getPublicationStudents () {
@@ -126,6 +127,13 @@ export function setApplicant(value){
     return {
         type: SET_APPLICANT,
         value
+    };
+};
+
+export function getBusinessByEmail (email) {
+    return {
+        type: GET_BUSINESS_BY_EMAIL,
+        email
     };
 };
 
