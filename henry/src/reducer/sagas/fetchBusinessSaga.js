@@ -10,7 +10,7 @@ import {
 } from '../actions/actionBusiness';
 
 import {
-    GET_ALL_STUDENTS,GET_BUSINESS_BY_EMAIL,
+    GET_ALL_STUDENTS,GET_BUSINESS_BY_EMAIL,SEND_NUDES,
     GET_PUBLICATION_STUDENTS, URL_PEDIDO,GET_MY_PUBLICATIONS, URL_PEDIDO_POSTS,SET_APPLICANT,POST_ID_FOLLOW_BUSS
 } from '../../constants/constants';
 
@@ -60,6 +60,16 @@ function* asyncGetBusinessByEmail (email) {
     }
 };
 
+function* asyncSendNudes (obj) {
+    try { 
+        // pasar obj a url 
+        // const response = yield call(() => axios.put(URL_PEDIDO + `/mail?email=${email.email}`))
+        // mandar nuevamente la accion de get publicaciones
+    } catch (error) {
+        console.log(error)
+    }
+};
+
 
 
 export function* watchFetchBusinessSaga(){
@@ -68,5 +78,6 @@ export function* watchFetchBusinessSaga(){
     yield takeEvery(POST_ID_FOLLOW_BUSS ,asyncPostIdFollowBuss)
     yield takeEvery(GET_MY_PUBLICATIONS, asyncGetMyPublications)
     /* yield takeEvery(SET_APPLICANT, asyncSetApplicant) */
-    yield takeLatest(GET_BUSINESS_BY_EMAIL, asyncGetBusinessByEmail);
+    yield takeLatest(GET_BUSINESS_BY_EMAIL, asyncGetBusinessByEmail)
+    yield takeEvery(SEND_NUDES, asyncSendNudes)
 }

@@ -10,7 +10,8 @@ import {
     POST_ID_FOLLOW,
     POST_ID_FOLLOW_SUCCESS,
     GET_STUDENTS_BY_EMAIL,
-    GET_STUDENTS_BY_EMAIL_SUCCESS
+    GET_STUDENTS_BY_EMAIL_SUCCESS,
+    POSTULARSE
 } from "../../constants/constants";
 
 export function getPublicationsBusiness(){
@@ -93,6 +94,13 @@ export function getStudentsByEmailSuccess(payload){
     return {
         type: GET_STUDENTS_BY_EMAIL_SUCCESS,
         payload,
+    };
+};
+
+export function postularse (obj, id){
+    return {
+        type: POSTULARSE,
+        payload: [obj, id]
     };
 };
 

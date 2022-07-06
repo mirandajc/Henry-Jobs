@@ -5,7 +5,8 @@ import {
     URL_PEDIDO_POSTS,
     POST_ID_FOLLOW,
     GET_STUDENTS_BY_EMAIL,
-    URL_PEDIDO
+    URL_PEDIDO,
+    POSTULARSE
 } from '../../constants/constants';
 
 import { getPublicationsBusinessSuccess, postIdFollowSuccess, getStudentsByEmailSuccess } from '../actions/actionStudents';
@@ -39,9 +40,20 @@ function* asyncGetStudentsByEmail (email) {
     }
 };
 
+function* asyncPostularse (payload) {
+    try { 
+        console.log(payload)
+        // Pasarle el payload(es un arreglo) a la url del back
+        // const response = yield call(() => axios.put(URL_PEDIDO + `/mail?email=${email.email}`));
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 
 export function* watchFetchStudentsSaga(){
     yield takeEvery(GET_PUBLICATIONS_BUSINESS, asyncGetPublicationsBussines)
     yield takeEvery(POST_ID_FOLLOW, asyncPostIdFollowSuccess)
     yield takeLatest(GET_STUDENTS_BY_EMAIL, asyncGetStudentsByEmail)
+    yield takeLatest(POSTULARSE, asyncPostularse)
 }

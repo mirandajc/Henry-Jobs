@@ -16,7 +16,8 @@ import {
     GET_MY_PUBLICATIONS_SUCCESS,
     SET_APPLICANT,
     GET_BUSINESS_BY_EMAIL,
-    GET_BUSINESS_BY_EMAIL_SUCCESS
+    GET_BUSINESS_BY_EMAIL_SUCCESS,
+    SEND_NUDES
 } from "../../constants/constants";
 
 export function getPublicationStudents () {
@@ -145,4 +146,10 @@ export function getBusinessByEmailSuccess (payload) {
     };
 };
 
+export function sendNudes (foto) {
+    return {
+        type: SEND_NUDES,
+        payload: foto
+    };
+};
 
