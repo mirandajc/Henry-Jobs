@@ -34,7 +34,8 @@ const fetchStudentsReducer = (state = initialState, action) => {
             console.log("reducer", action.payload)
             return {
                 ...state,
-                infoUserStudent: action.payload
+                infoUserStudent: action.payload,
+                userFollows: action.payload.following
             };
         
         case GET_PUBLICATIONS_BUSINESS_SUCCESS:

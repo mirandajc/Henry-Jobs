@@ -46,7 +46,8 @@ const fetchBusinessReducer = (state = initialState, action) => {
         console.log(action.payload)
         return {
             ...state,
-            infoUserBusiness: action.payload
+            infoUserBusiness: action.payload,
+            userFollows: action.payload.following
         };
 
     case GET_PUBLICATION_STUDENTS_SUCCESS:
@@ -70,7 +71,8 @@ const fetchBusinessReducer = (state = initialState, action) => {
         console.log("follow",action.payload)
         return {
             ...state,
-            userFollows: action.payload
+            userFollows: action.payload,
+            
         }
 
     ////////////////////////////////////////////////////////////////////////// CASOS DE FILTRADO //////
