@@ -35,7 +35,7 @@ function* asyncGetAllStudents () {
 
 function* asyncPostIdFollowBuss (obj) {
     try {
-        const response = yield call(()=> axios.put(/* URL_PEDIDO */'http://localhost:3001/api' +'/follow/'+obj.payload, obj.obj))
+        const response = yield call(()=> axios.put(URL_PEDIDO +'/follow/'+obj.payload, obj.obj))
         yield put(postIdFollowBusssSuccess(response.data)) // reemplazar por response.data      
     } catch (error) {
         console.log(error)
