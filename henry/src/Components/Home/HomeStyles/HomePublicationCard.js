@@ -131,9 +131,15 @@ width: 3em;
 height: 3em;
 border-radius: 50%;
 overflow: hidden;
+border: 1px solid yellow;
+
 
 img{
     width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content: center;
 }
 
 `
@@ -269,10 +275,19 @@ div{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    margin: 0.5rem;
+    justify-content: space-around;
+    // margin: 0.5rem;
+   
 }
+
+.contenedorPost{
+    // border: 1px solid red;
+    width:50%;
+    margin-bottom: 1em;
+}
+
 span{
+    
     border: 2px solid #5D5F66;
     box-shadow: -1px -1px 5px 1px rgba(248,247,242,0.13);
     border-radius: 12px;
@@ -281,9 +296,9 @@ span{
     padding-left: 0.2rem;
     height: 26px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    margin: 0.5rem;
+    // margin: 0.5rem;
 
     }
     
@@ -319,5 +334,32 @@ img{
    width: 25%;
     padding: none;
 }
+
+`
+
+
+export const ButtonCont= styled.div`
+// border: 1px solid yellow;
+width:50%;
+margin-bottom: 1em;
+.plus{
+    width:2em;
+    height:2em;
+    border-radius: 50%;
+    overflow:hidden;
+    button{
+        width:100%;
+        border-radius:50%;
+
+        &:active{
+            background-color: black;
+            border:1px solid yellow;
+            .plusd{
+                color:yellow;
+            }
+        }
+    }
+}
+
 
 `

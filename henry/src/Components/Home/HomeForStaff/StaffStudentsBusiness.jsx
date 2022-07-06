@@ -1,4 +1,8 @@
 import React, { useEffect, useState} from "react";
+import { CardStudentsStaff } from "./StaffStyles/staffStudentCards";
+import {MdLocationPin} from 'react-icons/all'
+import {AiFillStar} from 'react-icons/ai'
+
 
 export default function StaffStudentsBusiness ({name, profileImage, lastname, userName, email, country, city, stars, curriculumCounter}){
 
@@ -10,17 +14,24 @@ export default function StaffStudentsBusiness ({name, profileImage, lastname, us
     // ¿ el staff a necesitar entrar al perfil del user para ver las publicaciones de solo ese user ?
 
     return(
-        <div>
+        <CardStudentsStaff>
+        <div className="cont">
             {
                 lastname ?
                 // Link al perfil con userName?
-                <div>
+                <div >
+                    <div className="name">
+                        <div className="imgCont">
                     <img src={profileImage} width={"25px"} height={"25px"} />
-                    <h2>{name} {lastname}</h2>
-                    <h3>{city} {country}</h3>
+                        </div>
+                    <div className="detail">
+                    <h3>{name} {lastname}</h3>
+                    <p><MdLocationPin/> {city} {country}</p>
+                    </div>
+                    </div>
                     <h4>{email}</h4>
                     <h4>Curriculums enviados este mes: {curriculumCounter}</h4>
-                    <h4>HenryStars: {stars}</h4>
+                    <h4><AiFillStar/> {stars}</h4>
                 </div>
                 
                 :
@@ -34,5 +45,6 @@ export default function StaffStudentsBusiness ({name, profileImage, lastname, us
                 </div>
             }
         </div>
+        </CardStudentsStaff>
     );
 };

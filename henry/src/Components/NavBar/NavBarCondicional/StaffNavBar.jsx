@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import ButtonHome from "../buttons/buttonHome";
+import { StaffNavCont } from "../../Home/HomeForStaff/StaffStyles/staffStyles";
+
 
 export default function StaffNavBar () {
 
@@ -8,7 +10,7 @@ export default function StaffNavBar () {
 
     
     return(
-        <div>
+        <StaffNavCont>
         
             {
                 logout ?
@@ -18,6 +20,6 @@ export default function StaffNavBar () {
                     : null
             }
 
-        </div>
+        </StaffNavCont>
     );
 };

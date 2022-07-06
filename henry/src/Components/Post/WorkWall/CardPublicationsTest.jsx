@@ -4,7 +4,7 @@ import {Video ,ComponentCard , DatosProyect, ButtonTecnologies, ButtonLight, Com
 import ReactPlayer from "react-player";
 import { postIdFollow } from "../../../reducer/actions/actionStudents";
 import { useDispatch } from "react-redux";
-
+import{AiOutlinePlus} from 'react-icons/ai'
 
 
 export default function CardPublicationWorkTest2({id, image, name, date, title, summary, video, technologies, backFront, ubication, workModality, english, userName }) {
@@ -19,7 +19,9 @@ export default function CardPublicationWorkTest2({id, image, name, date, title, 
         <ComponentCard>
            <ComponentDatos>
             <div className="Imagen-And-Name">
+                <div className="ImgCont">
             <img src={image} alt={`${name} Image`} />
+                </div>
                 <div className="Contenedor-Name-Ubicacion">
                     <h3>{name}</h3>
                     <span className="ContenedorUbicacion">
@@ -46,13 +48,17 @@ export default function CardPublicationWorkTest2({id, image, name, date, title, 
                 <ButtonLight>
                     <p>{english}</p>
                 </ButtonLight>
-                <ButtonLight>
-                    <button onClick={() => handleFollow()}>Follow</button>
-                </ButtonLight>
+                
+                    <button onClick={() => handleFollow()}><AiOutlinePlus className="plus"/></button>
+                
                 
             </div>           
             </div>
             </ComponentDatos>
+
+            {
+                
+                video!== null? 
             <Video>
                 <ReactPlayer
                         url={video}
@@ -67,6 +73,8 @@ export default function CardPublicationWorkTest2({id, image, name, date, title, 
                         <p>{date}</p>
                         </Date>
             </Video>
+            : null
+            }
         </ComponentCard>
     )
 }
