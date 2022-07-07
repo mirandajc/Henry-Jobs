@@ -7,7 +7,8 @@ import {
   InnerPost,
   DetailPost,
   ContenedorCard,
-  ButonGrey
+  ButonGrey,
+  ButtonCont
 } from "../../Home/HomeStyles/HomePublicationCard";
 import { Link } from "react-router-dom";
 import Star from '../../images/Star.png';
@@ -16,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { postIdFollow } from "../../../reducer/actions/actionStudents";
 import { postIdFollowBuss } from "../../../reducer/actions/actionBusiness";
 import { profileID } from "../../../reducer/actions/actionPost";
+import {AiOutlinePlus} from 'react-icons/ai';
 
 
 
@@ -69,49 +71,50 @@ export default function CardWallStudents({ name, lastname, email, technologies, 
         {technologies && backFront ? (
           <DetailPost>
             <div className="contenedorPost">
-              {technologies.map(tec => {
-                return (
-                  <span>
-                    <p>{tec}</p>
-                  </span>
-                )
-              }
+              {technologies.map( tec =>
+                { return (
+                  
+                      <span>
+                        <p>{tec}</p>
+                      </span>
+                       
+                )}
+            )} 
+            {otherstudies.map(studie => 
+                    { return (
+                      <span>
+                        <p>{studie}</p>
+                      </span>
+                )}
               )}
-              {otherstudies.map(studie => {
-                return (
-                  <span>
-                    <p>{studie}</p>
-                  </span>
-                )
-              }
-              )}
+           
+            </div> 
+            
+            <ButtonCont>  
+            <ButonGrey>
+              <p>{backFront}</p>
+            </ButonGrey>
+            <ButonGrey>
+              <p>{stars}</p>
 
+              <img src={Star} alt='start'/>
+            </ButonGrey> 
+            <ButonGrey>
+              <p> {workModality}</p>
+            </ButonGrey>
+            <ButonGrey>
+              <p>{english}</p>
+             
+            </ButonGrey>
+            {
+              userType.type !== 3 ?
+            <div className="plus">
+                <button onClick={() => handleFollow()}><AiOutlinePlus className="plusd"/></button>
             </div>
-
-            <div>
-              <ButonGrey>
-                <p>{backFront}</p>
-              </ButonGrey>
-              <ButonGrey>
-                <p>{stars}</p>
-                <img src={Star} alt='start' />
-              </ButonGrey>
-              <ButonGrey>
-                <p> {workModality}</p>
-              </ButonGrey>
-              <ButonGrey>
-                <p>INGLES {english}</p>
-
-              </ButonGrey>
-              {
-                userType.type !== 3 ?
-                  <ButonGrey>
-
-                    <button onClick={() => handleFollow()}>Follow</button>
-                  </ButonGrey> : null
-              }
-            </div>
-
+            : null
+            }
+            </ButtonCont> 
+            
           </DetailPost>
         ) : (
           " "

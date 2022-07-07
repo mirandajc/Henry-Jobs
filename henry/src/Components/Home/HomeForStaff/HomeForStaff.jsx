@@ -3,6 +3,10 @@ import StaffStudentsBusiness from "./StaffStudentsBusiness";
 import StaffPublications from "./StaffPublications";
 import { getInfoForStaff, ordenarAlumnos, getStudentDetail, staffShowOrder } from "../../../reducer/actions/actionStaff";
 import { useDispatch, useSelector } from "react-redux";
+import { NavStaff, ContStafHome } from "./StaffStyles/staffStyles";
+import { GridStudent } from "./StaffStyles/staffStudentCards";
+
+
 
 export default function HomeForStaff(){
   
@@ -54,12 +58,13 @@ export default function HomeForStaff(){
 
 
     return (
-        <div>
+        <ContStafHome>
+            <NavStaff>
             <button value={"Alumnos"} onClick={(e) => handleClick(e.target.value)}>Alumnos</button>
             <button value={"AlumnosPub"} onClick={(e) => handleClick(e.target.value)}>Publicaciones de Alumnos</button>
             <button value={"Empresas"} onClick={(e) => handleClick(e.target.value)}>Empresas</button>
             <button value={"EmpresasPub"} onClick={(e) => handleClick(e.target.value)}>Publicaciones de Empresas</button>
-            
+            </NavStaff>
             { renderizar === "Alumnos" ?
                 <div>
                 <input value ={buscador} onChange={(e) => handleChange(e.target.value)}/>
@@ -78,13 +83,17 @@ export default function HomeForStaff(){
 
             {
                 renderizar === "Alumnos" ? 
-                alumnos.renderizar.map(e => <StaffStudentsBusiness name={e.name} profileImage={e.profileImage.secure_url} lastname={e.lastName} userName={e.userName} email={e.email} country={e.country} city={e.city} stars={e.stars} curriculumCounter={e.curriculumCounter}/>) :
+                alumnos.renderizar.map(e => 
+                
+                <StaffStudentsBusiness name={e.name} profileImage={e.profileImage.secure_url} lastname={e.lastName} userName={e.userName} email={e.email} country={e.country} city={e.city} stars={e.stars} curriculumCounter={e.curriculumCounter}/>
+               
+                ) :
                 renderizar === "Empresas" ? empresas.map(e => <StaffStudentsBusiness name={e.name} profileImage={e.profileImage.secure_url} userName={e.userName} email={e.email} country={e.country} city={e.city} />) :
                 renderizar === "AlumnosPub" ? <StaffPublications /> :
                 renderizar === "EmpresasPub" ? <StaffPublications /> :
                 null // Agregar algo: Bienvenido al panel de controls de staff, apreta un boton para visualizar el contenido
             }
 
-        </div>
+        </ContStafHome>
     )
 }

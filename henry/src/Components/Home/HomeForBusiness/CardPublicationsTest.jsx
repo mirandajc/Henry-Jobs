@@ -1,9 +1,9 @@
 import React from "react";
-
+import { CardBussines } from "../bussinesStyles/bussines";
 
 export default function CardPublicationsAll({ image, name, lastname, date, title, video, likes, technologies, backFront, ubication, workModality, english, text }) {
   return (
-    <div>
+    <CardBussines>
       {!lastname ? /////////////////////////////// Publicaciones de empresas  /////////////////////////
         <div>
           <img src={image} alt={`${name} Image`} />
@@ -63,6 +63,6 @@ export default function CardPublicationsAll({ image, name, lastname, date, title
           <div>{video}</div>
         </div>
       }
-    </div>
+    </CardBussines>
   );
 }

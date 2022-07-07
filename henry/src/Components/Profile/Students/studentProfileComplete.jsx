@@ -5,6 +5,11 @@ import StudentsProfile from "./students_profile";
 import StudentCV from "./students-cv";
 import { CompleteProfile } from "../profileStyles/StudentComplete";
 import { profileID } from "../../../reducer/actions/actionPost";
+import { ContStudentCo } from "../profileStyles/studentProfile";
+
+
+
+
 
 export default function StudentCompletePage() {
 
@@ -19,38 +24,52 @@ export default function StudentCompletePage() {
         if(userProfile.name !== undefined) {
             setRenderi(true)
         }
+<<<<<<< HEAD
         dispatch(profileID(id));
+=======
+        
+>>>>>>> Estilos
     }, [userProfile])
 
 
     return (
         
-        <div>
+        <ContStudentCo>
         {
             renderi
             ?
             <CompleteProfile>
                 <StudentsProfile 
                 backFront={userProfile.backFront}
-                banner={userProfile.banner}
+                banner={userProfile.banner.secure_url}
                 country={userProfile.country}
                 curriculumCounter={userProfile.curriculumCounter}
                 email={userProfile.email}
                 lastName={userProfile.lastName}
                 name={userProfile.name}
-                profileImage={userProfile.profileImage}
+                profileImage={userProfile.profileImage.secure_url}
+                stars={userProfile.stars}
+                userType={userProfile.userType}
+                id={userProfile._id}
+                followers={userProfile.followers}
+                following={userProfile.following}
                 
                  />
+                 {console.log(userProfile)}
                         <StudentCV
                             technologies={userProfile.technologies}
                             otherStudies={userProfile.otherStudies}
+<<<<<<< HEAD
                             id={id}
+=======
+                            acercaDe={userProfile.acercaDe}
+>>>>>>> Estilos
                         />
                         </CompleteProfile>
 
         : null
             }
-        </div>
+        </ContStudentCo>
 
     )
 

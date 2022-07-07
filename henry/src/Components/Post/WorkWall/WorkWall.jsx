@@ -122,9 +122,12 @@ export default function WorkWall(){
             {/* <NavWall/> */} 
             {                  /*  ACTUALIZAR/MODIFICAR LA TARJETA QUE MUESTRA LAS PUBLICACIONES DE EMPRESAS
                                     USAR COMO REFERENCIA MOCKEDFILES => mokedFilesPostBusiness */
-                business.map((e)=> (
+                                   
+                business.map((e)=>
+                (
+                    
                     <CardPublicationWorkTest2
-                        image={e.posterUser.frofileImage}
+                        image={e.posterUser.profileImage.secure_url}
                         name={e.posterUser.name}
                         date={e.date}
                         title={e.proyectTittle}

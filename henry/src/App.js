@@ -5,13 +5,10 @@ import Navbar from "./Components/NavBar/navbar";
 import './App.css';
 import Home from "./Components/Home/home";
 import StudentCompletePage from "./Components/Profile/Students/studentProfileComplete";
-import StudentCV from "./Components/Profile/Students/students-cv";
-import StudentsProfile from "./Components/Profile/Students/students_profile";
 import UserForm from "./Components/Register_form/completeForm";
 import RegisterAlumn from "./Components/Register_form/RegisterAlumn";
 import RegisterRecruiter from "./Components/Register_form/Recruiter/RegisterRecruiter";
 import DetailStudent from "./Components/Home/HomeForBusiness/DetailStudents";
-import ProfileLogic from "./Components/Profile/ProfileLogic";
 import RegisterBusiness from "./Components/Register_form/Business/RegisterBusiness";
 import RegisterStaff from "./Components/Register_form/Staff/RegisterStaff";
 import Proyects from "./Components/Proyects/Proyects";
@@ -21,7 +18,6 @@ import Booms from "./Components/Landing/booms/booms";
 import Contact from "./Components/Landing/Footer/Contact";
 import Faq from "./Components/Landing/Footer/Faq";
 import Footer from "./Components/Landing/Footer/Footer";
-import LoginPage from "./Components/Login/LoginPage/login";
 import LoginCard from "./Components/Login/LoginPage/loginCard";
 import RegisterPage from "./Components/Login/registerPage/registerPage";
 import StudentsWall from "./Components/Post/StudentsWall/StudentsWall";
@@ -34,6 +30,9 @@ import Paypal2 from "./Components/Paypal/Paypal2";
 import Paypal3 from "./Components/Paypal/Paypal3";
 import ContactWall from "./Components/ContactWall/ContactWall";
 import Applications from "./Components/ContactWall/Applications/Applications";
+import EditModal from "./Components/Profile/editModal";
+
+
 
 function App() {
 
@@ -71,6 +70,7 @@ function App() {
       <Route path="/checkout1" element={<Paypal1 />} />
       <Route path="/checkout2" element={<Paypal2 />} />
       <Route path="/checkout3" element={<Paypal3 />} />
+      <Route path="/EditProfile" element={<EditModal />} />
     </Routes>
     <Footer/>
       </PayPalScriptProvider>
