@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ubicacion from "../../images/ubicacion.png";
 import { Video, ComponentCard, DatosProyect, ButtonTecnologies, ButtonLight, ComponentDatos, Date } from '../../Home/HomeForStudents/HomeStyled'
 import ReactPlayer from "react-player";
@@ -14,6 +14,7 @@ export default function CardPublicationWorkTest2({ id, publicacionID, image, nam
     const tal = localStorage.getItem('TK')
     const userType = JSON.parse(tal);
     const foll = useSelector((state) => state.fetchStudentsReducer.userFollows);
+    const [ cartel, setCartel ] = useState(false)
 
     useEffect(() => {
         dispatch(getPublicationsBusiness());
@@ -25,15 +26,17 @@ export default function CardPublicationWorkTest2({ id, publicacionID, image, nam
 
     const handlePostulation = () => {
         let pubId = publicacionID;
+        
         let obj = {
             userId: userType.id,
             name: userType.name + " " + userType.lastname,
             step: "pendiente",
             showBusiness: true,
-            showStudent: true
         };
-
+        
+        console.log("objeto", obj, "pubId", pubId)
         dispatch(postularse(obj, pubId))
+        setCartel(true);
     };
 
     return (
@@ -98,6 +101,7 @@ export default function CardPublicationWorkTest2({ id, publicacionID, image, nam
                     </Video>
                     : null
             }
+            {cartel && <span>Postulación enviada con éxito</span>}
             <button onClick={handlePostulation}>Postularse</button>
         </ComponentCard>
     )

@@ -43,9 +43,10 @@ function* asyncGetStudentsByEmail (email) {
 
 function* asyncPostularse (payload) {
     try { 
-        console.log(payload)
+        console.log("postularseee", payload)
         // Pasarle el payload(es un arreglo) a la url del back
-        // const response = yield call(() => axios.put(URL_PEDIDO + `/mail?email=${email.email}`));
+        const response = yield call(() => axios.put(URL_PEDIDO + `/${payload[1]}`, payload[0]));
+        console.log(response.data);
     } catch (error) {
         console.log(error);
     }
