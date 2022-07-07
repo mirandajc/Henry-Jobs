@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ubicacion from "../../images/ubicacion.png";
 import { Video, ComponentCard, DatosProyect, ButtonTecnologies, ButtonLight, ComponentDatos, Date } from '../../Home/HomeForStudents/HomeStyled'
 import ReactPlayer from "react-player";
-import { postIdFollow, postularse } from "../../../reducer/actions/actionStudents";
-import { useDispatch } from "react-redux";
+import { getPublicationsBusiness, postIdFollow, postularse } from "../../../reducer/actions/actionStudents";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { AiOutlinePlus } from 'react-icons/ai'
 
@@ -11,10 +11,13 @@ import { AiOutlinePlus } from 'react-icons/ai'
 export default function CardPublicationWorkTest2({ id, publicacionID, image, name, date, title, summary, video, technologies, backFront, ubication, workModality, english, userName }) {
 
     const dispatch = useDispatch();
-
-
     const tal = localStorage.getItem('TK')
     const userType = JSON.parse(tal);
+    const foll = useSelector((state) => state.fetchStudentsReducer.userFollows);
+
+    useEffect(() => {
+        dispatch(getPublicationsBusiness());
+    }, [foll]);
 
     const handleFollow = () => {
         dispatch(postIdFollow(id, { id: userType.id }));
@@ -22,7 +25,6 @@ export default function CardPublicationWorkTest2({ id, publicacionID, image, nam
 
     const handlePostulation = () => {
         let pubId = publicacionID;
-
         let obj = {
             userId: userType.id,
             name: userType.name + " " + userType.lastname,
@@ -67,8 +69,10 @@ export default function CardPublicationWorkTest2({ id, publicacionID, image, nam
                         <ButtonLight>
                             <p>{english}</p>
                         </ButtonLight>
-
-                        <button onClick={() => handleFollow()}><AiOutlinePlus className="plus" /></button>
+                        {
+                            userType.id === id ? null :
+                                <button onClick={() => handleFollow()}>{/* <AiOutlinePlus className="plus" /> */}{foll.includes(id) ? <p>-</p> : <p>+</p>}</button>
+                        }
 
 
                     </div>

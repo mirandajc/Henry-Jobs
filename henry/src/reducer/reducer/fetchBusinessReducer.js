@@ -36,14 +36,12 @@ const fetchBusinessReducer = (state = initialState, action) => {
 
     case GET_MY_PUBLICATIONS_SUCCESS :
         let pubs = action.payload.filter(e => e.posterUser._id === action.id);
-        console.log("MP", pubs)
         return {
             ...state,
             myPublications: pubs
         };
 
     case GET_BUSINESS_BY_EMAIL_SUCCESS:
-        console.log(action.payload)
         return {
             ...state,
             infoUserBusiness: action.payload,
@@ -52,8 +50,8 @@ const fetchBusinessReducer = (state = initialState, action) => {
 
     case GET_PUBLICATION_STUDENTS_SUCCESS:
         let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id))
-        let pubStu = fol1.filter(e => e.posterUser.userTypes === 1 || e.posterUser.userTypes === 2)
-        let response = pubStu.reverse();
+        let response = fol1.reverse();
+        console.log('soy las pub de los que seguis',response.length)
         return { 
             ...state, 
             allPublications: response,
@@ -68,7 +66,6 @@ const fetchBusinessReducer = (state = initialState, action) => {
         };
 
     case POST_ID_FOLLOW_BUSS_SUCCESS:
-        console.log("follow",action.payload)
         return {
             ...state,
             userFollows: action.payload,

@@ -18,18 +18,12 @@ export default function StudentCompletePage() {
     const userProfile = useSelector((state) => state.fetchPostReducer.responseProfile)
     const [renderi, setRenderi] = useState(false);
 
-    // console.log(userProfile)
-
     useEffect(() => {
         if(userProfile.name !== undefined) {
             setRenderi(true)
         }
-<<<<<<< HEAD
-        dispatch(profileID(id));
-=======
-        
->>>>>>> Estilos
-    }, [userProfile])
+        dispatch(profileID(id));  
+    }, [])
 
 
     return (
@@ -59,11 +53,8 @@ export default function StudentCompletePage() {
                         <StudentCV
                             technologies={userProfile.technologies}
                             otherStudies={userProfile.otherStudies}
-<<<<<<< HEAD
                             id={id}
-=======
                             acercaDe={userProfile.acercaDe}
->>>>>>> Estilos
                         />
                         </CompleteProfile>
 

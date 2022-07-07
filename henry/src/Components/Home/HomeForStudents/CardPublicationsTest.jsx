@@ -5,6 +5,7 @@ import ubicacion from "../../images/ubicacion.png"
 import { postIdFollow } from "../../../reducer/actions/actionStudents";
 import { useDispatch } from "react-redux";
 import {AiOutlinePlus} from 'react-icons/ai'
+import { postIdFollowBuss } from "../../../reducer/actions/actionBusiness";
 
 export default function CardPublicationWorkTest({ id,image, name, date, title, summary, video, technologies, backFront, ubication, workModality, english, userName, lastname, text }) {
 // viene publicacion de empresas y alumnos mix
@@ -15,9 +16,13 @@ export default function CardPublicationWorkTest({ id,image, name, date, title, s
     const userType = JSON.parse(tal);
 
     const handleFollow = () => {
-        dispatch(postIdFollow(id, { id: userType.id }));
-    }
-
+        if (userType.type === 1 || userType.type === 2) {
+            dispatch(postIdFollow(id, { id: userType.id }));
+        }
+        if (userType.type === 4 || userType.type === 5) {
+          dispatch(postIdFollowBuss(id, { id: userType.id }));
+        }
+      }
 
 
     return (

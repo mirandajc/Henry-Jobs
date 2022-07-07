@@ -6,16 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useJwt } from "react-jwt";
 
-<<<<<<< HEAD
-=======
-export default function StudentCV({otherStudies,technologies,acercaDe}){
-    
-    
-    
-    useEffect(()=>{
->>>>>>> Estilos
 
-export default function StudentCV({ otherStudies, technologies, id }) {
+export default function StudentCV({ otherStudies, technologies, id , acercaDe}) {
 
     const tal = localStorage.getItem('TK')
     const userType = JSON.parse(tal);
@@ -62,12 +54,10 @@ export default function StudentCV({ otherStudies, technologies, id }) {
             </CvCont>
 
             <Acerca>
-<<<<<<< HEAD
                 <h3>Acerca De: FALTAAAA</h3>
                 <MostrarMas />
-=======
                 {
-                    acercaDe.length > 258? (
+                    acercaDe !== undefined && acercaDe.length > 258? (
                 <div className="text">
                 <h3>Acerca De:</h3>
                <MostrarMas acerca={acercaDe}/>
@@ -80,7 +70,6 @@ export default function StudentCV({ otherStudies, technologies, id }) {
                 </div>
                 }
                 
->>>>>>> Estilos
             </Acerca>
             <Publicaciones>
                 <h3>Publicaciones:  FALTAAA</h3>

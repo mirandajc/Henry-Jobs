@@ -14,10 +14,10 @@ import { Link } from "react-router-dom";
 import Star from '../../images/Star.png';
 import Ubicacion from "../../images/ubicacion.png";
 import { useDispatch, useSelector } from "react-redux";
-import { postIdFollow } from "../../../reducer/actions/actionStudents";
-import { postIdFollowBuss } from "../../../reducer/actions/actionBusiness";
+import { getPublicationsBusiness, postIdFollow } from "../../../reducer/actions/actionStudents";
+import { getPublicationStudents, postIdFollowBuss } from "../../../reducer/actions/actionBusiness";
 import { profileID } from "../../../reducer/actions/actionPost";
-import {AiOutlinePlus} from 'react-icons/ai';
+import { AiOutlinePlus } from 'react-icons/ai';
 
 
 
@@ -25,9 +25,21 @@ import {AiOutlinePlus} from 'react-icons/ai';
 export default function CardWallStudents({ name, lastname, email, technologies, otherstudies, banner, english, backFront, workModality, ubication, city, profileImage, userName, stars, id }) {
 
   const dispatch = useDispatch();
-
   const tal = localStorage.getItem('TK')
   const userType = JSON.parse(tal);
+  const foll = useSelector((state) => state.fetchStudentsReducer.userFollows);
+  const foll2 = useSelector((state) => state.fetchBusinessReducer.userFollows);
+
+  useEffect(() => {
+    if (userType.type === 1 || userType.type === 2) {
+      dispatch(getPublicationStudents())
+      console.log(foll)
+    }
+    if (userType.type === 4 || userType.type === 5) {
+      dispatch(getPublicationsBusiness());
+      console.log(foll2)
+    }
+  }, [foll, foll2]);
 
   const handleFollow = () => {
     if (userType.type === 1 || userType.type === 2) {
@@ -50,7 +62,7 @@ export default function CardWallStudents({ name, lastname, email, technologies, 
             <div className="datos">
               <div className="nombre">
                 <Link to={`/profile/${id}`}>
-                    <h3>{name + " " + lastname}</h3>
+                  <h3>{name + " " + lastname}</h3>
                 </Link>
               </div>
               <div className="ubicacion">
@@ -71,50 +83,62 @@ export default function CardWallStudents({ name, lastname, email, technologies, 
         {technologies && backFront ? (
           <DetailPost>
             <div className="contenedorPost">
-              {technologies.map( tec =>
-                { return (
-                  
-                      <span>
-                        <p>{tec}</p>
-                      </span>
-                       
-                )}
-            )} 
-            {otherstudies.map(studie => 
-                    { return (
-                      <span>
-                        <p>{studie}</p>
-                      </span>
-                )}
-              )}
-           
-            </div> 
-            
-            <ButtonCont>  
-            <ButonGrey>
-              <p>{backFront}</p>
-            </ButonGrey>
-            <ButonGrey>
-              <p>{stars}</p>
+              {technologies.map(tec => {
+                return (
 
-              <img src={Star} alt='start'/>
-            </ButonGrey> 
-            <ButonGrey>
-              <p> {workModality}</p>
-            </ButonGrey>
-            <ButonGrey>
-              <p>{english}</p>
-             
-            </ButonGrey>
-            {
-              userType.type !== 3 ?
-            <div className="plus">
-                <button onClick={() => handleFollow()}><AiOutlinePlus className="plusd"/></button>
+                  <span>
+                    <p>{tec}</p>
+                  </span>
+
+                )
+              }
+              )}
+              {otherstudies.map(studie => {
+                return (
+                  <span>
+                    <p>{studie}</p>
+                  </span>
+                )
+              }
+              )}
+
             </div>
-            : null
-            }
-            </ButtonCont> 
-            
+
+            <ButtonCont>
+              <ButonGrey>
+                <p>{backFront}</p>
+              </ButonGrey>
+              <ButonGrey>
+                <p>{stars}</p>
+
+                <img src={Star} alt='start' />
+              </ButonGrey>
+              <ButonGrey>
+                <p> {workModality}</p>
+              </ButonGrey>
+              <ButonGrey>
+                <p>{english}</p>
+
+              </ButonGrey>
+              {
+                userType.type !== 3 ?
+                  <div className="plus">
+                    {
+                      id === userType.id ? null :
+                        <button onClick={() => handleFollow()}>{/* <AiOutlinePlus className="plusd"/> */}
+                          {
+                            userType.type === 1 || userType.type === 2 ?
+                            foll.includes(id) ? <p>-</p> : <p>+</p>
+                            : foll2.includes(id) ? <p>-</p> : <p>+</p>
+                          }
+
+                        </button>
+                    }
+                  </div>
+                  : null
+              }
+            </ButtonCont>
+
           </DetailPost>
         ) : (
           " "
