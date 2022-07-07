@@ -12,6 +12,10 @@ export default function Languages ({sumarFase}) {
     const { decodedToken, isExpided } = useJwt(logout);
     const respuesta = decodedToken
     
+    const dispatch = useDispatch();
+    const mandarAccion = useSelector(state => state.fetchPostReducer.upDateProfile.country);
+    const objetoGlobal = useSelector(state => state.fetchPostReducer.upDateProfile);
+    
     useEffect(() => {
         console.log("estoy en el useEffect")
         if(mandarAccion.length >= 1){
@@ -24,9 +28,6 @@ export default function Languages ({sumarFase}) {
     
     /////////////////////////    COUNTRY & CITY    //////////////////////////////
 
-    const dispatch = useDispatch();
-    const mandarAccion = useSelector(state => state.fetchPostReducer.upDateProfile.country);
-    const objetoGlobal = useSelector(state => state.fetchPostReducer.upDateProfile);
 
     
     const [ country, setCountry ] = useState({
