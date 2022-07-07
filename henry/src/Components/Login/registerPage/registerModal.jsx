@@ -121,7 +121,7 @@ export default function RegisterCard(){
                     };
 
                     console.log("|||||HENRY_STAFF|||||", USER);
-                    // dispatch(postRegisterModal(USER)); TOOMMMEEEEEE
+                    dispatch(postRegisterModal(USER));
                     navigate("/login");
                 }
                 else {
