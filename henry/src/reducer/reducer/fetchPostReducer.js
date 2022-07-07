@@ -109,8 +109,14 @@ const fetchPostReducer = (state = initialState, action) => {
                 return {
                     ...state,
                     upDateProfile: {...state.upDateProfile,
+                        country: action.payload.location.country,
+                        city: action.payload.location.city,
+                        cuit: action.payload.cuit,
+                        currentJob:{
+                            date: action.payload.age
+                        }
                 }
-            }
+            };
             
         default: 
         return {

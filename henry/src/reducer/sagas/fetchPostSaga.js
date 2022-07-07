@@ -17,11 +17,10 @@ import {
     UPDATE_USER
 } from '../../constants/constants';
 
-
 function* asyncPostUser (user){
     
     try{
-        const response = yield call(()=>(axios.post(URL_POST, user.payload)));
+        const response = yield call(() => (axios.post(URL_POST, user.payload)));
         // const codedTK= response.data;
         // localStorage.setItem('codedTK',JSON.stringify(codedTK));
         
