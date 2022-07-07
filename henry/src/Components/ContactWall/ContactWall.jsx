@@ -13,6 +13,7 @@ export default function ContactWall() {
   useEffect(() => {
     dispatch(getMyPublications(id));
   }, []);
+ 
 
     // => Agregar el botón "POSTULARSE" 
     // en las publicaciones de empresas y recruiter
@@ -28,11 +29,12 @@ export default function ContactWall() {
       {
         publicactions && publicactions.map(e => 
           <PublicationCard 
-          idEmpresa={e.posterUser._id} 
+          
           email={e.email}
           text={e.text}
           date={e.date}
           applicants={e.applicants}
+          idPublicacion={e._id} 
           />)
         }
     </div>

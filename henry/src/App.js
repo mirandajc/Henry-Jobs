@@ -57,7 +57,7 @@ function App() {
       <Route path='/perfil' element={<StudentCompletePage/>}/> //solo acceso a edit al usuairo propietario
       <Route path="/proyects" element={<Proyects/>}/>
       <Route path="/mypublications/:id" element={<ContactWall />} />
-      <Route path="/myapplications" element={<Applications />} />
+      <Route path="/myapplications/:id" element={<Applications />} />
       <Route path="/about-as" element={<AboutAs/>}/>
       <Route path="/ads" element={<Ads/>}/>
       <Route path="/booms" element={<Booms/>}/>

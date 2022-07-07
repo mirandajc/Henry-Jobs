@@ -75,7 +75,7 @@ export default function StudentCV({ otherStudies, technologies, id , acercaDe}) 
                 <h3>Publicaciones:  FALTAAA</h3>
                 {
                     userType.type === 1 || userType.type === 2 ?
-                        <Link to={`/myapplications`}><h3>Ver mis postulaciones</h3></Link>
+                        <Link to={`/myapplications/${id}`}><h3>Ver mis postulaciones</h3></Link>
                         :
                         userType.type === 4 || userType.type === 5 ?
                             <Link to={`/mypublications/${id}`}><h3>Ver todas las publicaciones</h3></Link>

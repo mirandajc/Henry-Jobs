@@ -2,14 +2,15 @@ import { take, call, all, put, takeEvery, takeLatest } from 'redux-saga/effects'
 import axios from 'axios';
 import {  
     GET_PUBLICATIONS_BUSINESS,
-    URL_PEDIDO_POSTS,
     POST_ID_FOLLOW,
     GET_STUDENTS_BY_EMAIL,
     URL_PEDIDO,
-    POSTULARSE
+    GET_MY_APPLICAT,
+    POSTULARSE,
+    URL_PEDIDO_POSTS
 } from '../../constants/constants';
 
-import { getPublicationsBusinessSuccess, postIdFollowSuccess, getStudentsByEmailSuccess } from '../actions/actionStudents';
+import { getPublicationsBusinessSuccess, postIdFollowSuccess, getStudentsByEmailSuccess, getMyApplicatSuccess } from '../actions/actionStudents';
 
 //import actions 
 
@@ -50,10 +51,20 @@ function* asyncPostularse (payload) {
     }
 };
 
+function* asyncGetMyApplicat (payload) {
+    try { 
+        const response = yield call(() => axios.get(URL_PEDIDO_POSTS));
+        yield put(getMyApplicatSuccess(response.data, payload.id))
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 
 export function* watchFetchStudentsSaga(){
     yield takeEvery(GET_PUBLICATIONS_BUSINESS, asyncGetPublicationsBussines)
     yield takeEvery(POST_ID_FOLLOW, asyncPostIdFollowSuccess)
     yield takeLatest(GET_STUDENTS_BY_EMAIL, asyncGetStudentsByEmail)
     yield takeLatest(POSTULARSE, asyncPostularse)
+    yield takeEvery(GET_MY_APPLICAT, asyncGetMyApplicat)
 }

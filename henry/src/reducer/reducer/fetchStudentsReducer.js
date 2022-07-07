@@ -8,13 +8,15 @@ import {
     GET_PUBLICATIONS_UBICATION,
     SHOW_FILTER,
     POST_ID_FOLLOW_SUCCESS,
-    GET_STUDENTS_BY_EMAIL_SUCCESS
+    GET_STUDENTS_BY_EMAIL_SUCCESS,
+    GET_MY_APPLICAT_SUCCESS
 } from "../../constants/constants";
 
 const initialState = {
     infoUserStudent: [],
     AllPublications:[],
     AllPublicationsFollows:[],
+    myApp: [],
     userFollows: [],
     busPublication:[],
     publicationsFiltered:[],
@@ -30,8 +32,15 @@ const initialState = {
 const fetchStudentsReducer = (state = initialState, action) => {
     switch (action.type) {
 
+        case GET_MY_APPLICAT_SUCCESS:
+            let id = action.id;
+            let post = action.payload.filter(e => e.applicants.includes(id))
+            return {
+                ...state,
+                myApp: post
+            };
+
         case GET_STUDENTS_BY_EMAIL_SUCCESS:
-            console.log("reducer", action.payload)
             return {
                 ...state,
                 infoUserStudent: action.payload,

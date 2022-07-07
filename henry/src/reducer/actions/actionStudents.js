@@ -11,7 +11,9 @@ import {
     POST_ID_FOLLOW_SUCCESS,
     GET_STUDENTS_BY_EMAIL,
     GET_STUDENTS_BY_EMAIL_SUCCESS,
-    POSTULARSE
+    POSTULARSE,
+    GET_MY_APPLICAT_SUCCESS,
+    GET_MY_APPLICAT
 } from "../../constants/constants";
 
 export function getPublicationsBusiness(){
@@ -104,4 +106,20 @@ export function postularse (obj, id){
     };
 };
 
+export function getMyApplicat(id) {
+    return{
+        type: GET_MY_APPLICAT,
+        id
+
+    }
+}
+
+export function getMyApplicatSuccess(payload, id) {
+    console.log(payload, id)
+    return{
+        type: GET_MY_APPLICAT_SUCCESS,
+        payload,
+        id
+    }
+}
 

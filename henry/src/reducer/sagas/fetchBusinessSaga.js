@@ -6,7 +6,8 @@ import {
     getAllStudentsSuccess, 
     postIdFollowBusssSuccess,
     getMyPublicationsSuccess,
-    getBusinessByEmailSuccess
+    getBusinessByEmailSuccess,
+    sendNudesSuccess
 } from '../actions/actionBusiness';
 
 import {
@@ -60,11 +61,10 @@ function* asyncGetBusinessByEmail (email) {
     }
 };
 
-function* asyncSendNudes (obj) {
+function* asyncSendNudes (payload) {
     try { 
-        // pasar obj a url 
-        // const response = yield call(() => axios.put(URL_PEDIDO + `/mail?email=${email.email}`))
-        // mandar nuevamente la accion de get publicaciones
+       const response = yield call(() => axios.put(URL_PEDIDO + payload.idp ,payload.payload))
+       yield put(sendNudesSuccess(response.data));
     } catch (error) {
         console.log(error)
     }

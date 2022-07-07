@@ -17,7 +17,8 @@ import {
     SET_APPLICANT,
     GET_BUSINESS_BY_EMAIL,
     GET_BUSINESS_BY_EMAIL_SUCCESS,
-    SEND_NUDES
+    SEND_NUDES,
+    SEND_NUDE_SUCCESS
 } from "../../constants/constants";
 
 export function getPublicationStudents () {
@@ -146,10 +147,19 @@ export function getBusinessByEmailSuccess (payload) {
     };
 };
 
-export function sendNudes (foto) {
+export function sendNudes (obj, idp) {
+    console.log('soy la axion',obj,idp)
     return {
         type: SEND_NUDES,
-        payload: foto
+        payload: obj,
+        idp
     };
 };
+
+export function sendNudesSuccess (payload) {
+    return{
+        type: SEND_NUDE_SUCCESS,
+        payload
+    }
+}
 
