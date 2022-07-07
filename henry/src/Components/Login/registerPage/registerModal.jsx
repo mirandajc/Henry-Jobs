@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { CardRegister } from "../LoginStyles/registerStyle";
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { postRegisterModal } from "../../../reducer/actions/actionPost";
+
 
 export default function RegisterCard(){
     // Falta hacer validacion del campo de EMAIl
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     
     /////////////////////// ESTADOS DE DATOS ////////////////////////////////////////
 
@@ -86,6 +88,8 @@ export default function RegisterCard(){
         setDatos({...datos, contraseña: e.target.value});
     };
 
+    //////////////////////////////////////// SUBMIT ////////////////////////////////////////////////
+
     const handleSubmit = () => {
         if(error.errorApellido || error.errorContraseña || error.errorEmail || error.errorNombre || error.errorUsername){
             return;
@@ -105,15 +109,33 @@ export default function RegisterCard(){
             }
             else{
                 //mandar el objeto
-                const USER = {
-                    userName: datos.username,
-                    lastName: datos.apellido,
-                    name: datos.nombre,
-                    email: datos.email,
-                    password: datos.contraseña,
-                };
-                console.log("enviando usuario", USER)
-                dispatch(postRegisterModal(USER));
+                const correo = /[^@ \t\r\n]+@soyhenry\.com/           
+                if(correo.test(datos.email)){
+                    let USER = {
+                        userName: datos.username,
+                        lastName: datos.apellido,
+                        name: datos.nombre,
+                        email: datos.email,
+                        password: "722HJ227",
+                        userTypes: 3
+                    };
+
+                    console.log("|||||HENRY_STAFF|||||", USER);
+                    // dispatch(postRegisterModal(USER)); TOOMMMEEEEEE
+                    navigate("/login");
+                }
+                else {
+                    let USER = {
+                        userName: datos.username,
+                        lastName: datos.apellido,
+                        name: datos.nombre,
+                        email: datos.email,
+                        password: datos.contraseña,
+                    };
+                    console.log("enviando usuario", USER)
+                    dispatch(postRegisterModal(USER));
+                    navigate("/login");
+                }
             }
         }
     };
