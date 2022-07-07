@@ -28,6 +28,9 @@ import PremiumCard from "./Components/SerPremium/CardPremium";
 import Paypal1 from "./Components/Paypal/Paypal1";
 import Paypal2 from "./Components/Paypal/Paypal2";
 import Paypal3 from "./Components/Paypal/Paypal3";
+import EditModal from "./Components/Profile/editModal";
+
+
 
 function App() {
 
@@ -63,6 +66,7 @@ function App() {
       <Route path="/checkout1" element={<Paypal1 />} />
       <Route path="/checkout2" element={<Paypal2 />} />
       <Route path="/checkout3" element={<Paypal3 />} />
+      <Route path="/EditProfile" element={<EditModal />} />
     </Routes>
     <Footer/>
       </PayPalScriptProvider>

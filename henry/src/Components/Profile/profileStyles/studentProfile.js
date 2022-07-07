@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+
+export const ContStudentCo= styled.div`
+
+width: 100%;
+min-height: 100vh;
+
+`
+
+
 export const StudentProf= styled.div`
 
 
@@ -14,7 +23,7 @@ margin-top: -17em;
 export const ProfCont= styled.div`
 
 
-// border: 1px solid yellow;
+border-bottom: 3px solid yellow;
 margin-top: -30em;
 border-radius: 10px;
 box-shadow: 6px 7px 5px 0px rgb(255 255 255 / 75%);
@@ -132,17 +141,32 @@ p{
 // }
 
 
+.star{
+    margin-right: 0.5em;
+}
+
 `
 
 
 export const P= styled.div`
 width: 100%;
 
-// border-bottom: 0.1px solid black;
+display: flex;
+align-items: center;
+justify-content: space-around;
+
 p{
     // font-family:AVENIR LIGHT;
     font-size: 1em;
     margin-left: 1em;
+    color:hsl(0deg 0% 0%);
+}
+
+.cont{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 `
@@ -246,4 +270,40 @@ div{
     color: #d64d4d;
    
 }
+`
+
+
+export const Edit= styled.div`
+
+position: absolute;
+
+margin-top:0.5em;
+margin-left: 16em;
+width:2em;
+height: 2em;
+overflow: hidden;
+border-radius: 50%;
+
+
+box-shadow: 6px 5px 5px 0px rgb(0 0 0 / 75%);
+-webkit-box-shadow: 3px 2px 5px 0px rgb(0 0 0 / 75%);
+-moz-box-shadow: 6px 5px 5px 0px rgba(0,0,0,0.75);
+background-color: transparent;
+
+
+
+display: flex; 
+align-items: center;
+justify-content: center;
+
+&: active{
+    box-shadow: box-shadow:7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+  transform: translateY(4px);
+}
+
+.edit{
+    color: yellow;
+    font-size: 1em;
+}
+
 `

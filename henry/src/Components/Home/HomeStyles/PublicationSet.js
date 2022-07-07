@@ -7,7 +7,7 @@ border-top: 1px solid yellow;
 border-end-end-radius: 1rem;
 border-end-start-radius: 1rem;
 background-color: hsl(228deg 8% 12%);
-width: 25%;
+width: 40%;
 height: auto;
 margin-bottom: 4em;
 
@@ -34,8 +34,13 @@ margin-top: 1em;
     width: 3em;
     height: 3em;
     overflow: hidden;
+
+    display: flex;
+    align-items:center;
+    justify-content: center;
     img{
         width:100%;
+        height:100%;
     }
 
     
@@ -44,6 +49,12 @@ margin-top: 1em;
 `
 
 export const Public= styled.div`
+
+
+width:55%;
+display:flex;
+align-items: center;
+justify-content: center;
 
 input{
     padding: 1em;

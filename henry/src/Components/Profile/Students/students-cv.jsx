@@ -3,7 +3,7 @@ import {CV, CvCont, Instancia, Acerca, Publicaciones, Tecnologias, OtrosStudy} f
 import MostrarMas from "./showMore";
 import Carrousell from "./Carrousell";
 
-export default function StudentCV({otherStudies,technologies}){
+export default function StudentCV({otherStudies,technologies,acercaDe}){
     
     
     
@@ -53,8 +53,20 @@ export default function StudentCV({otherStudies,technologies}){
             </CvCont>
 
             <Acerca>
-                <h3>Acerca De: FALTAAAA</h3>
-               <MostrarMas/>
+                {
+                    acercaDe.length > 258? (
+                <div className="text">
+                <h3>Acerca De:</h3>
+               <MostrarMas acerca={acercaDe}/>
+               </div>
+                    )
+                :
+                <div className="text">
+                    <h3>Acerca De:</h3>
+                    <p>{acercaDe}</p>
+                </div>
+                }
+                
             </Acerca>
             <Publicaciones>
                 <h3>Publicaciones:  FALTAAA</h3>
