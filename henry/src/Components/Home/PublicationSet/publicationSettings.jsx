@@ -6,8 +6,10 @@ import {FiVideo} from 'react-icons/fi';
 import {RiArticleLine} from 'react-icons/all';
 import {SiBitcoinsv} from 'react-icons/all';
 import { profileID } from "../../../reducer/actions/actionPost";
-import { postPublication } from "../../../reducer/actions/actionStudents";
+import { getPublicationsBusiness, postPublication } from "../../../reducer/actions/actionStudents";
 import { technologies } from "../../Post/StudentsWall/select"
+import { getPublicationStudents } from "../../../reducer/actions/actionBusiness";
+
 
 
 
@@ -62,7 +64,12 @@ export default function PubliSettings(props){
                 imgVideo: video || foto,
             };
     
-            dispatch(postPublication(obj))
+            dispatch(postPublication(obj));
+            dispatch(getPublicationsBusiness(usUserId));
+            
+            setInput("");
+            setFoto("");
+            setVideo("");
         }
         else{
             const obj = {
@@ -74,8 +81,20 @@ export default function PubliSettings(props){
                 technologies: tags.technologies,
                 backFront: tags.backFront,
             };
-            
-            dispatch(postPublication(obj))
+
+            dispatch(postPublication(obj));
+            dispatch(getPublicationStudents(usUserId));
+
+            setInput("");
+            setFoto("");
+            setVideo("");
+            setTags({
+                ...tags,
+                workModality:"",
+                languages:"",
+                technologies:[],
+                backFront:"",
+            });
         }
     };
 
@@ -160,7 +179,13 @@ export default function PubliSettings(props){
                 {tags.technologies.map(e => {return(
                     <div><p>{e}</p><button onClick={() => borrarTech(e)}>X</button></div>
                 )}) }
-                <select onChange={(e) => setTags({...tags, technologies: [...tags.technologies, e.target.value] })}>
+                <select onChange={(e) => {
+                    if(tags.technologies.includes(e)){
+                        return
+                    }
+                    else{
+                        return setTags({...tags, technologies: [...tags.technologies, e.target.value] })}
+                    }}>
                     <option value={""}>Selecciona tecnologías</option>
                     { technologies.map(e => <option>{e}</option>) }
                 </select>
