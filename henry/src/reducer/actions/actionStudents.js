@@ -13,7 +13,8 @@ import {
     GET_STUDENTS_BY_EMAIL_SUCCESS,
     POSTULARSE,
     GET_MY_APPLICAT_SUCCESS,
-    GET_MY_APPLICAT
+    GET_MY_APPLICAT,
+    POST_PUBLICATION_STU
 } from "../../constants/constants";
 
 export function getPublicationsBusiness(){
@@ -122,4 +123,11 @@ export function getMyApplicatSuccess(payload, id) {
         id
     }
 }
+
+export function postPublication (payload) {
+    return {
+        type: POST_PUBLICATION_STU,
+        payload
+    };
+};
 

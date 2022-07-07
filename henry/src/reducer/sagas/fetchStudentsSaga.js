@@ -7,7 +7,8 @@ import {
     URL_PEDIDO,
     GET_MY_APPLICAT,
     POSTULARSE,
-    URL_PEDIDO_POSTS
+    URL_PEDIDO_POSTS,
+    POST_PUBLICATION_STU
 } from '../../constants/constants';
 
 import { getPublicationsBusinessSuccess, postIdFollowSuccess, getStudentsByEmailSuccess, getMyApplicatSuccess } from '../actions/actionStudents';
@@ -61,6 +62,17 @@ function* asyncGetMyApplicat (payload) {
     }
 };
 
+function* asyncPostPublicationStu (payload) {
+    console.log(payload);
+    try {
+        const response = yield call(() => axios.post(URL_PEDIDO_POSTS, payload.payload))
+        console.log(response);
+
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 
 export function* watchFetchStudentsSaga(){
     yield takeEvery(GET_PUBLICATIONS_BUSINESS, asyncGetPublicationsBussines)
@@ -68,4 +80,5 @@ export function* watchFetchStudentsSaga(){
     yield takeLatest(GET_STUDENTS_BY_EMAIL, asyncGetStudentsByEmail)
     yield takeLatest(POSTULARSE, asyncPostularse)
     yield takeEvery(GET_MY_APPLICAT, asyncGetMyApplicat)
+    yield takeEvery(POST_PUBLICATION_STU, asyncPostPublicationStu)
 }
