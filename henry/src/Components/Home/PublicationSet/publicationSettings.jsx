@@ -20,7 +20,6 @@ export default function PubliSettings(props){
     const user= localStorage.getItem('TK');
     const usUser= JSON.parse(user);
     const usUserId= usUser.id
-    console.log(usUserId);
     const type = usUser.type;
 
     useEffect(()=>{

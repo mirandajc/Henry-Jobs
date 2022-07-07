@@ -33,11 +33,9 @@ export default function CardWallStudents({ name, lastname, email, technologies, 
   useEffect(() => {
     if (userType.type === 1 || userType.type === 2) {
       dispatch(getPublicationStudents())
-      console.log(foll)
     }
     if (userType.type === 4 || userType.type === 5) {
       dispatch(getPublicationsBusiness());
-      console.log(foll2)
     }
   }, [foll, foll2]);
 

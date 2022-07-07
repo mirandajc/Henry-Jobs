@@ -16,10 +16,10 @@ import {
 } from '../../constants/constants';
 
 
-function* asyncGetPublicationStudents () {
+function* asyncGetPublicationStudents (payload) {
     try {
         const response = yield call(()=> axios.get(URL_PEDIDO+'/post'))
-        yield put(getPublicationStudentsSuccess(response.data)) // reemplazar por response.data
+        yield put(getPublicationStudentsSuccess(response.data, payload)) // reemplazar por response.data
     } catch (error) {
         console.log(error);
     }

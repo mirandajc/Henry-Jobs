@@ -49,7 +49,7 @@ const fetchStudentsReducer = (state = initialState, action) => {
         
         case GET_PUBLICATIONS_BUSINESS_SUCCESS:
             let all = action.payload.reverse();
-            let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id))
+            let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id) || action.id.includes(e.posterUser._id))
             let response = fol1.reverse(); // usuarios que sigo
             let responseBusiness = all.filter(e => e.posterUser.userTypes === 4 || e.posterUser.userTypes === 5);
 

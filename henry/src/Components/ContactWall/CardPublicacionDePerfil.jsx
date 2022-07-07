@@ -84,7 +84,7 @@ export default function PublicationCard(props) {
                             <br></br>
                             {stepActualizado ? stepActualizado : e.step}
                             <Link to={`/profile/${e.userId}`}><button>Ver Perfil</button></Link>
-                            {e.step === "pending" ?
+                            {e.step === "pendiente" ?
                                 showStep ?
                                     <div>
                                         <button value={e.userId + ' ' + e.name + ' ' + props.idPublicacion} onClick={(event) => handlePost(event)}>Aceptar postulante</button>
