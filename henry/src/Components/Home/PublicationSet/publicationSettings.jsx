@@ -63,7 +63,7 @@ export default function PubliSettings(props){
                 text: input,
                 imgVideo: video || foto,
             };
-    
+
             dispatch(postPublication(obj));
             dispatch(getPublicationsBusiness(usUserId));
             
