@@ -117,7 +117,7 @@ export default function RegisterCard(){
                         name: datos.nombre,
                         email: datos.email,
                         password: "722HJ227",
-                        userType: 3
+                        userTypes: 3
                     };
 
                     console.log("|||||HENRY_STAFF|||||", USER);
