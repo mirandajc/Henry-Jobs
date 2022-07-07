@@ -10,10 +10,21 @@ export default function HomeBusinessLogic() {
   const dispatch = useDispatch();
   const allPublications = useSelector((state) => state.fetchBusinessReducer.allPublications);
   const foll = useSelector((state) => state.fetchBusinessReducer.userFollows);
+
+  const tal = localStorage.getItem('TK')
+  const userType = JSON.parse(tal);
+  const [userId, setUserT] = useState('');
+
+  useEffect(()=> {
+      if(userType !== null){
+          setUserT(userType.id)
+      }
+  },[userType])
     
   useEffect(() => {
-    dispatch(getPublicationStudents());
-    console.log('soy lo que seguis',foll)
+    if(userId !== '') {
+      dispatch(getPublicationStudents(userId));
+    }
   },[foll])
 
   return (

@@ -14,10 +14,10 @@ import { getPublicationsBusinessSuccess, postIdFollowSuccess, getStudentsByEmail
 
 //import actions 
 
-function* asyncGetPublicationsBussines() {
+function* asyncGetPublicationsBussines(payload) {
     try {
         const response= yield call(()=>axios.get(URL_PEDIDO_POSTS)) 
-        yield put(getPublicationsBusinessSuccess(response.data)) 
+        yield put(getPublicationsBusinessSuccess(response.data, payload)) 
     } catch (error) {
         console.log(error) 
     }

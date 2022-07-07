@@ -49,9 +49,8 @@ const fetchBusinessReducer = (state = initialState, action) => {
         };
 
     case GET_PUBLICATION_STUDENTS_SUCCESS:
-        let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id))
+        let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id) || action.id.includes(e.posterUser._id))
         let response = fol1.reverse();
-        console.log('soy las pub de los que seguis',response.length)
         return { 
             ...state, 
             allPublications: response,

@@ -21,9 +21,10 @@ import {
     SEND_NUDE_SUCCESS
 } from "../../constants/constants";
 
-export function getPublicationStudents () {
+export function getPublicationStudents (payload) {
     return {
-        type: GET_PUBLICATION_STUDENTS
+        type: GET_PUBLICATION_STUDENTS,
+        payload
     }
 };
 
@@ -42,10 +43,12 @@ export function postIdFollowBusssSuccess(payload){
     }
 }
 
-export function getPublicationStudentsSuccess (payload) {
+export function getPublicationStudentsSuccess (payload, id) {
+
     return {
         type: GET_PUBLICATION_STUDENTS_SUCCESS,
-        payload
+        payload,
+        id: id.payload
     }
 };
 

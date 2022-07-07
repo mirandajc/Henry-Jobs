@@ -16,16 +16,18 @@ import {
     GET_MY_APPLICAT
 } from "../../constants/constants";
 
-export function getPublicationsBusiness(){
+export function getPublicationsBusiness(payload){
     return {
-        type: GET_PUBLICATIONS_BUSINESS
+        type: GET_PUBLICATIONS_BUSINESS,
+        payload
     }
 };
 
-export function getPublicationsBusinessSuccess(payload){
+export function getPublicationsBusinessSuccess(payload, id){
     return {
         type: GET_PUBLICATIONS_BUSINESS_SUCCESS,
-        payload
+        payload,
+        id: id.payload
     }
 };
 
