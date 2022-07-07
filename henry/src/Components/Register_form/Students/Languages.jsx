@@ -15,12 +15,14 @@ export default function Languages ({sumarFase}) {
     /////////////////////////    COUNTRY & CITY    //////////////////////////////
 
     const dispatch = useDispatch();
-    const mandarAccion = useSelector(state => state.fetchPostReducer.upDateProfile.otherStudies);
+    const mandarAccion = useSelector(state => state.fetchPostReducer.upDateProfile.country);
     const objetoGlobal = useSelector(state => state.fetchPostReducer.upDateProfile);
 
     useEffect(() => {
         if(mandarAccion.length >= 1){
-            dispatch(updateUser(objetoGlobal, respuesta.id));
+            console.log("final de registro", objetoGlobal, respuesta.id)
+            dispatch(updateUser([objetoGlobal, respuesta.id]));
+
             return sumarFase();
         }
     }, [mandarAccion]);

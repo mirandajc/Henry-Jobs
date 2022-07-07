@@ -54,8 +54,9 @@ function* asyncPostRegisterModal(RegisterUser){ // datos del registro modal
 
 function* asyncUpdateUser (objeto){
     try {
-        console.log("objeto global", objeto.payload);
-        const response = yield call(() => axios.put(URL_DEPLOY + `/user/${objeto.payload.identificador}`, objeto.payload.objeto))
+        console.log("pegandole al back", objeto);
+        const response = yield call(() => axios.put(URL_DEPLOY + `/user/${objeto.payload[1]}`, objeto.payload[0]))
+        console.log("Respuesta del back",response.data)
         yield put(updateUserSuccess(response.data))
     } catch (error) {
         console.log(error);

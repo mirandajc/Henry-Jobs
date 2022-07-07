@@ -1,9 +1,15 @@
 import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { CompleteStudentCont } from "./formStyles/completeStudent";
 
 export default function RegisterCompleted () {
     const name= 'luchosrl';
+    const info = useSelector(state => state.fetchPostReducer.upDateProfile);
+
+    useEffect(() => {
+        
+    },[]);
 
     // CUANDO TERMINA EL REGISTRO, SE HACE UN AUTOLOGIN ? O EL USUARIO TIENE QUE LOGEARSE ?
     // EL CODIGO DE ABAJO ESTA HECHO COMO UN AUTOLOGIN

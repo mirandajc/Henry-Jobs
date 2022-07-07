@@ -18,7 +18,7 @@ export default function Navbar() {
   const [userT, setUserT] = useState('');
 
   useEffect(()=> {
-      if(userType.type !== null){
+      if(userType !== null){
           setUserT(userType.type)
       }
   },[userType])
