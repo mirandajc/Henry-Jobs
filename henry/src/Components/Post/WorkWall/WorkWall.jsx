@@ -137,6 +137,7 @@ export default function WorkWall(){
                         english={e.languages}
                         username={e.userName}
                         id={e.posterUser._id}
+                        publicacionID={e._id}
 
 
                     />

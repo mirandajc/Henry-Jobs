@@ -7,7 +7,11 @@ import {
     GET_PUBLICATIONS_ENGLISH,
     GET_PUBLICATIONS_UBICATION,
     SHOW_FILTER,
-    POST_ID_FOLLOW
+    POST_ID_FOLLOW,
+    POST_ID_FOLLOW_SUCCESS,
+    GET_STUDENTS_BY_EMAIL,
+    GET_STUDENTS_BY_EMAIL_SUCCESS,
+    POSTULARSE
 } from "../../constants/constants";
 
 export function getPublicationsBusiness(){
@@ -64,11 +68,40 @@ export function ShowFilter(){
     }
 };
 
-export function postIdFollow(payload){
+export function postIdFollow(payload, obj){
     return {
         type: POST_ID_FOLLOW,
-        payload
+        payload,
+        obj
     }
 }
+
+export function postIdFollowSuccess(payload){
+    return {
+        type: POST_ID_FOLLOW_SUCCESS,
+        payload,
+    }
+}
+
+export function getStudentsByEmail(email){
+    return {
+        type: GET_STUDENTS_BY_EMAIL,
+        email
+    };
+};
+
+export function getStudentsByEmailSuccess(payload){
+    return {
+        type: GET_STUDENTS_BY_EMAIL_SUCCESS,
+        payload,
+    };
+};
+
+export function postularse (obj, id){
+    return {
+        type: POSTULARSE,
+        payload: [obj, id]
+    };
+};
 
 

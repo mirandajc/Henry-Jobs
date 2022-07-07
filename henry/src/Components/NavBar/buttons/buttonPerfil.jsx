@@ -13,7 +13,9 @@ export default function ButtonPerfil(props){
     const[id, setId]=useState('')
 
     useEffect(()=>{
-        if(respuesta !== null) setId(respuesta.id);
+        if(respuesta !== null){
+            setId(respuesta.id);
+        } 
     },[respuesta])
     
     const handleID = function(){

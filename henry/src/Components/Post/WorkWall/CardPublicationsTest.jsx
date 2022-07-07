@@ -2,18 +2,37 @@ import React from "react";
 import ubicacion from "../../images/ubicacion.png";
 import {Video ,ComponentCard , DatosProyect, ButtonTecnologies, ButtonLight, ComponentDatos , Date} from '../../Home/HomeForStudents/HomeStyled'
 import ReactPlayer from "react-player";
-import { postIdFollow } from "../../../reducer/actions/actionStudents";
+import { postIdFollow, postularse } from "../../../reducer/actions/actionStudents";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 
-export default function CardPublicationWorkTest2({id, image, name, date, title, summary, video, technologies, backFront, ubication, workModality, english, userName }) {
+export default function CardPublicationWorkTest2({id, publicacionID, image, name, date, title, summary, video, technologies, backFront, ubication, workModality, english, userName }) {
 
     const dispatch = useDispatch();
 
+
+    const tal = localStorage.getItem('TK')
+    const userType = JSON.parse(tal);
+
     const handleFollow = () => {
-        dispatch(postIdFollow(id));
+        dispatch(postIdFollow(id, { id: userType.id }));
     }
+
+    const handlePostulation = () => {
+        let pubId = publicacionID;
+        
+        let obj = {
+            userId: userType.id,
+            name: userType.name + " " + userType.lastname,
+            step: "pendiente",
+            showBusiness: true,
+            showStudent: true
+        };
+
+        dispatch(postularse(obj, pubId))
+    };
 
     return (
         <ComponentCard>
@@ -21,7 +40,7 @@ export default function CardPublicationWorkTest2({id, image, name, date, title, 
             <div className="Imagen-And-Name">
             <img src={image} alt={`${name} Image`} />
                 <div className="Contenedor-Name-Ubicacion">
-                    <h3>{name}</h3>
+                    <Link to={`/profile/${id}`}><h3>{name}</h3></Link>
                     <span className="ContenedorUbicacion">
                     <img src={ubicacion} alt='icon-ubicacion' className="imagenUbicacion"/>
                     <p>{ubication}</p>
@@ -67,6 +86,7 @@ export default function CardPublicationWorkTest2({id, image, name, date, title, 
                         <p>{date}</p>
                         </Date>
             </Video>
+            <button onClick={handlePostulation}>Postularse</button>
         </ComponentCard>
     )
 }

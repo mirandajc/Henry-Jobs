@@ -35,8 +35,6 @@ function* asyncPostUser (user){
 function* getProfileByID(id){
     try{
         const response= yield call(()=>axios.get(URL_PROFILE+`${id.payload}`))
-        console.log(response)
-        
         yield put(profileSuccess(response.data))
 
     }catch(error){

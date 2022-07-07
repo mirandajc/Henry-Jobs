@@ -7,13 +7,15 @@ import {
     GET_PUBLICATIONS_ENGLISH,
     GET_PUBLICATIONS_UBICATION,
     SHOW_FILTER,
-    POST_ID_FOLLOW
+    POST_ID_FOLLOW_SUCCESS,
+    GET_STUDENTS_BY_EMAIL_SUCCESS
 } from "../../constants/constants";
 
 const initialState = {
+    infoUserStudent: [],
     AllPublications:[],
     AllPublicationsFollows:[],
-    userFollows: ['62c1101218635d7fac41dcf1','62c110e018635d7fac41dcf8'],
+    userFollows: [],
     busPublication:[],
     publicationsFiltered:[],
     filtrosos: {
@@ -27,6 +29,14 @@ const initialState = {
 
 const fetchStudentsReducer = (state = initialState, action) => {
     switch (action.type) {
+
+        case GET_STUDENTS_BY_EMAIL_SUCCESS:
+            console.log("reducer", action.payload)
+            return {
+                ...state,
+                infoUserStudent: action.payload,
+                userFollows: action.payload.following
+            };
         
         case GET_PUBLICATIONS_BUSINESS_SUCCESS:
             let all = action.payload.reverse();
@@ -41,18 +51,10 @@ const fetchStudentsReducer = (state = initialState, action) => {
                 publicationsFiltered: responseBusiness,
                 AllPublicationsFollows: response,
             }
-        case POST_ID_FOLLOW:
-            let respon = state.userFollows
-            if(state.userFollows.includes(action.payload)) {
-                respon = state.userFollows.filter(e => e !== action.payload)
-            }
-            if(!state.userFollows.includes(action.payload)) {
-                respon.push(action.payload)
-            }
-            console.log(respon)
+        case POST_ID_FOLLOW_SUCCESS:
             return {
                 ...state,
-                userFollows: respon
+                userFollows: action.payload
             }
         
         case GET_PUBLICATIONS_TECHNOLOGIES:
