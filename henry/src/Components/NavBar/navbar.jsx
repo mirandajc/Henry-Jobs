@@ -16,7 +16,10 @@ export default function Navbar() {
   const logout = useSelector((state) => state.fetchPostReducer.response);
   const navigate = useNavigate();
   const { decodedToken, isExpided } = useJwt(logout);
-  const respuesta = decodedToken
+  const respuesta = decodedToken;
+  const[render, setRender]= useState(false);
+
+  
   
   return (
     <NavbarS>
