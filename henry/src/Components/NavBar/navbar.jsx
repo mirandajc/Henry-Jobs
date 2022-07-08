@@ -14,10 +14,21 @@ import { getStudentsByEmail } from "../../reducer/actions/actionStudents";
 
 export default function Navbar() {
 
+<<<<<<< HEAD
   const actualizar = useSelector((state) => state.fetchPostReducer.buggati)
   const [userT, setUserT] = useState('');
   const [ nav, setNav ] = useState(true);
 
+=======
+  const logout = useSelector((state) => state.fetchPostReducer.response);
+  const navigate = useNavigate();
+  const { decodedToken, isExpided } = useJwt(logout);
+  const respuesta = decodedToken;
+  const[render, setRender]= useState(false);
+
+  
+  
+>>>>>>> Estilos
   const tal = localStorage.getItem('TK')
   const userType = JSON.parse(tal);
   
