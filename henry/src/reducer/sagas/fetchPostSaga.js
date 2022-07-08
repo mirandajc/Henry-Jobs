@@ -17,11 +17,10 @@ import {
     UPDATE_USER
 } from '../../constants/constants';
 
-
 function* asyncPostUser (user){
     
     try{
-        const response = yield call(()=>(axios.post(URL_POST, user.payload)));
+        const response = yield call(() => (axios.post(URL_POST, user.payload)));
         // const codedTK= response.data;
         // localStorage.setItem('codedTK',JSON.stringify(codedTK));
         
@@ -35,8 +34,6 @@ function* asyncPostUser (user){
 function* getProfileByID(id){
     try{
         const response= yield call(()=>axios.get(URL_PROFILE+`${id.payload}`))
-        console.log(response)
-        
         yield put(profileSuccess(response.data))
 
     }catch(error){
@@ -56,8 +53,9 @@ function* asyncPostRegisterModal(RegisterUser){ // datos del registro modal
 
 function* asyncUpdateUser (objeto){
     try {
-        console.log("objeto global", objeto.payload);
-        const response = yield call(() => axios.put(URL_DEPLOY + `/user/${objeto.payload.identificador}`, objeto.payload.objeto))
+        console.log("pegandole al back", objeto);
+        const response = yield call(() => axios.put(URL_DEPLOY + `/user/${objeto.payload[1]}`, objeto.payload[0]))
+        console.log("Respuesta del back",response.data)
         yield put(updateUserSuccess(response.data))
     } catch (error) {
         console.log(error);

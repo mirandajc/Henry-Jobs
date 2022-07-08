@@ -85,12 +85,19 @@ export default function HomeForStaff(){
                 renderizar === "Alumnos" ? 
                 alumnos.renderizar.map(e => 
                 
-                <StaffStudentsBusiness name={e.name} profileImage={e.profileImage.secure_url} lastname={e.lastName} userName={e.userName} email={e.email} country={e.country} city={e.city} stars={e.stars} curriculumCounter={e.curriculumCounter}/>
+                <StaffStudentsBusiness name={e.name} 
+                // profileImage={e.profileImage.secure_url} 
+                lastname={e.lastName} userName={e.userName} email={e.email} country={e.country} city={e.city} stars={e.stars} curriculumCounter={e.curriculumCounter}/>
                
                 ) :
-                renderizar === "Empresas" ? empresas.map(e => <StaffStudentsBusiness name={e.name} profileImage={e.profileImage.secure_url} userName={e.userName} email={e.email} country={e.country} city={e.city} />) :
-                renderizar === "AlumnosPub" ? <StaffPublications /> :
-                renderizar === "EmpresasPub" ? <StaffPublications /> :
+                renderizar === "Empresas" ? empresas.map(e => <StaffStudentsBusiness name={e.name} 
+                    // profileImage={e.profileImage.secure_url} 
+                    userName={e.userName} email={e.email} country={e.country} city={e.city} />) :
+                renderizar === "AlumnosPub" ? alumnosPub.map( e => <StaffPublications 
+                    name={e.posterUser.name} lastname={e.posterUser.lastName} email={e.posterUser.email}  text={e.text} video={e.imgVideo}
+                />) 
+                :
+                renderizar === "EmpresasPub" ? empresasPub.map(e => <StaffPublications techonologies={e.technologies} name={e.posterUser.name} email={e.posterUser.email} country={e.country} text={e.text} workModal={e.workModality}/>) :
                 null // Agregar algo: Bienvenido al panel de controls de staff, apreta un boton para visualizar el contenido
             }
 

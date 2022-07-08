@@ -11,7 +11,7 @@ export default function MostrarMas(acercaDe){
 
 
         
-        <p className="read-more-wrap">{acercaDe.acerca[0 , 258]}<span className="read-more-target"> {acercaDe.acerca[259 , -1]}</span></p>
+        <p className="read-more-wrap">{acercaDe.acerca !== undefined && acercaDe.acerca[0 , 258]}<span className="read-more-target"> {acercaDe.acerca !== undefined && acercaDe.acerca[259 , -1]}</span></p>
         
         <label for="post-1" className="read-more-trigger"></label>
       </div>

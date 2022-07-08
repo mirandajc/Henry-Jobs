@@ -28,6 +28,8 @@ import PremiumCard from "./Components/SerPremium/CardPremium";
 import Paypal1 from "./Components/Paypal/Paypal1";
 import Paypal2 from "./Components/Paypal/Paypal2";
 import Paypal3 from "./Components/Paypal/Paypal3";
+import ContactWall from "./Components/ContactWall/ContactWall";
+import Applications from "./Components/ContactWall/Applications/Applications";
 import EditModal from "./Components/Profile/editModal";
 
 
@@ -54,6 +56,8 @@ function App() {
       <Route path='/profile/:id' element={<StudentCompletePage/>}/>//preguntar a rene
       <Route path='/perfil' element={<StudentCompletePage/>}/> //solo acceso a edit al usuairo propietario
       <Route path="/proyects" element={<Proyects/>}/>
+      <Route path="/mypublications/:id" element={<ContactWall />} />
+      <Route path="/myapplications/:id" element={<Applications />} />
       <Route path="/about-as" element={<AboutAs/>}/>
       <Route path="/ads" element={<Ads/>}/>
       <Route path="/booms" element={<Booms/>}/>

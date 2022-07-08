@@ -1,17 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { mokedFilesPublicaciones } from "../../Home/HomeForBusiness/MokedFilesPublicaciones";
 import PublicacionesCards from "./PublicacionesCard";
 import Arrow from '../../images/Arrow/atras.png'
 import { PublicArrowRight, PublicArrowLeft } from "../profileStyles/studentCV";
 import ArrowR from '../../images/adelante.png'
 import { SlyderCont } from "./cardStyles/PublicacionCard";
+import { useSelector, useDispatch} from "react-redux"
 
 
-export default function Carrousell () {
+export default function Carrousell ({id}) {
+    const allPublicaciones = useSelector((state) => state.fetchStudentsReducer.AllPublications);
 
     const [ current, setCurrent ] = useState(0);
-    const publicaciones = mokedFilesPublicaciones; // publicaciones es un arreglo que se obtiene de la db ?
-    const length = publicaciones.length; // 7
+    const [ pub, setPubs ] = useState([]);
+
+    useEffect(() => {
+        if(allPublicaciones.length > 0){
+            setPubs(allPublicaciones);
+        }
+    }, [allPublicaciones]);
+
+
+    const publicaciones = pub.filter(e => e.posterUser._id === id);
+    const length = publicaciones.length
 
     const next = () => {
         setCurrent(current===length -1 ? 0: current+1);

@@ -21,9 +21,9 @@ export default function LoginApi() {
     
     const Logout=()=>{
        
+        // localStorage.removeItem('TK')
+        localStorage.clear('TK')
         dispatch(setLogout())
-        localStorage.removeItem('TK')
-        localStorage.clear()
         navigate('/')
 
     }

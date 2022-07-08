@@ -16,26 +16,26 @@ export default function UserForm() {
         setwhoIam(e.target.value);
         document.getElementById('Recruiter').checked = false;
         document.getElementById('Business').checked = false;
-        document.getElementById('Staff').checked = false;
+        // document.getElementById('Staff').checked = false;
       }
       if(e.target.value === "Business"){
         setwhoIam(e.target.value);
         document.getElementById('Recruiter').checked = false;
         document.getElementById('Student').checked = false;
-        document.getElementById('Staff').checked = false;
+        // document.getElementById('Staff').checked = false;
       }
       if(e.target.value === "Recruiter"){
         setwhoIam(e.target.value);
         document.getElementById('Student').checked = false;
         document.getElementById('Business').checked = false;
-        document.getElementById('Staff').checked = false;
+        // document.getElementById('Staff').checked = false;
       }
-      if(e.target.value === "Staff"){
-        setwhoIam(e.target.value);
-        document.getElementById('Student').checked = false;
-        document.getElementById('Business').checked = false;
-        document.getElementById('Recruiter').checked = false;
-      }
+      // if(e.target.value === "Staff"){
+      //   setwhoIam(e.target.value);
+      //   document.getElementById('Student').checked = false;
+      //   document.getElementById('Business').checked = false;
+      //   document.getElementById('Recruiter').checked = false;
+      // }
     }
     else{
       setwhoIam("");
@@ -64,10 +64,10 @@ export default function UserForm() {
         dispatch(setUserType(4));
         navigate("/register/recruiter", { replace:true });
       }
-      else{
-        dispatch(setUserType(3));
-        navigate("/register/staff", { replace: true });
-      }
+      // else{
+      //   dispatch(setUserType(3));
+      //   navigate("/register/staff", { replace: true });
+      // }
     }
   };
 
@@ -109,7 +109,7 @@ export default function UserForm() {
         </Switch>
       </div>
 
-      <div>
+      {/* <div>
         <label>Henry Staff</label>
         
 
@@ -119,7 +119,7 @@ export default function UserForm() {
          <span className="slider round"></span>
         </label>
         </Switch>
-      </div>
+      </div> */}
 
       {error && <Error>{error}😡</Error>}
 

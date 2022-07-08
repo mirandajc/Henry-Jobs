@@ -3,24 +3,30 @@ import { countries } from "../gistfile1.json";
 import { Error } from "../formStyles/formStyles";
 import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} from "../formStyles/lenguajesStyles";
 import { useDispatch, useSelector } from "react-redux";
-import { setBusinessInfo } from "../../../reducer/actions/actionPost.js";
+import { setBusinessInfo, updateUser } from "../../../reducer/actions/actionPost.js";
 import { useJwt } from "react-jwt";
 
-
 export default function BusinessForm ({sumarFase}) {
+    const logout = useSelector((state) => state.fetchPostReducer.response);
+    const { decodedToken, isExpided } = useJwt(logout);
+    const respuesta = decodedToken
+
+    const mandarAccion = useSelector(state => state.fetchPostReducer.upDateProfile.country);
+    const objetoGlobal = useSelector(state => state.fetchPostReducer.upDateProfile);
+
+    useEffect(() => {
+        if(mandarAccion.length >= 1){
+            console.log("final de registro", objetoGlobal, respuesta.id)
+            dispatch(updateUser([objetoGlobal, respuesta.id]));
+
+            return sumarFase();
+        }
+    }, [mandarAccion]);
+    
+    
+    
+    
     const dispatch = useDispatch();
-
-
-    ///////////////////////////// NAME ////////////////////////////////////////////
-    ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR
-    // const [ name, setName ] = useState(""); ///// NO DESCOMENTAR ///// NO DESCOMENTAR
-    // const [ nameError, setNameError ] = useState(""); ///// NO DESCOMENTAR
-    ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR
-    // const handleName = (e) => { ///// NO DESCOMENTAR ///// NO DESCOMENTAR
-    //     setName(e.target.value); ///// NO DESCOMENTAR ///// NO DESCOMENTAR
-    // }; ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR
-    ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR ///// NO DESCOMENTAR
-    ///////////////////////////// AGE /////////////////////////////////////////////
 
     const [ age, setAge ] = useState("");
     const [ errorAge, setErrorAge ] = useState("");
@@ -132,7 +138,6 @@ export default function BusinessForm ({sumarFase}) {
 
             }
             dispatch(setBusinessInfo(info));
-            return sumarFase();
         }
     };
 

@@ -10,26 +10,45 @@ import {
     SHOW_FILTER,
     GET_PUBLICAT_WORKMODALITY,
     SET_STARS_ORDER,
-    POST_ID_FOLLOW_BUSS
+    POST_ID_FOLLOW_BUSS,
+    POST_ID_FOLLOW_BUSS_SUCCESS,
+    GET_MY_PUBLICATIONS,
+    GET_MY_PUBLICATIONS_SUCCESS,
+    SET_APPLICANT,
+    GET_BUSINESS_BY_EMAIL,
+    GET_BUSINESS_BY_EMAIL_SUCCESS,
+    SEND_NUDES,
+    SEND_NUDE_SUCCESS
 } from "../../constants/constants";
 
-export function getPublicationStudents () {
+export function getPublicationStudents (payload) {
     return {
-        type: GET_PUBLICATION_STUDENTS
+        type: GET_PUBLICATION_STUDENTS,
+        payload
     }
 };
 
-export function postIdFollowBuss(payload){
+export function postIdFollowBuss(payload, obj){
     return {
         type: POST_ID_FOLLOW_BUSS,
-        payload
+        payload,
+        obj
     }
 }
 
-export function getPublicationStudentsSuccess (payload) {
+export function postIdFollowBusssSuccess(payload){
+    return {
+        type: POST_ID_FOLLOW_BUSS_SUCCESS,
+        payload,
+    }
+}
+
+export function getPublicationStudentsSuccess (payload, id) {
+
     return {
         type: GET_PUBLICATION_STUDENTS_SUCCESS,
-        payload
+        payload,
+        id: id.payload
     }
 };
 
@@ -94,4 +113,56 @@ export function showFilter (){
     }
 }
 
+/////////////////// CONTACT WALL //////////////////////
+export function getMyPublications(id){
+    return {
+        type: GET_MY_PUBLICATIONS,
+        payload: id
+    };
+};
+
+export function getMyPublicationsSuccess(payload, id){
+    return {
+        type: GET_MY_PUBLICATIONS_SUCCESS,
+        payload,
+        id: id
+    };
+};
+
+export function setApplicant(value){
+    return {
+        type: SET_APPLICANT,
+        value
+    };
+};
+
+export function getBusinessByEmail (email) {
+    return {
+        type: GET_BUSINESS_BY_EMAIL,
+        email
+    };
+};
+
+export function getBusinessByEmailSuccess (payload) {
+    return {
+        type: GET_BUSINESS_BY_EMAIL_SUCCESS,
+        payload
+    };
+};
+
+export function sendNudes (obj, idp) {
+    console.log('soy la axion',obj,idp)
+    return {
+        type: SEND_NUDES,
+        payload: obj,
+        idp
+    };
+};
+
+export function sendNudesSuccess (payload) {
+    return{
+        type: SEND_NUDE_SUCCESS,
+        payload
+    }
+}
 

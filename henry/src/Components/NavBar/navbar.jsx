@@ -21,6 +21,17 @@ export default function Navbar() {
 
   
   
+  const tal = localStorage.getItem('TK')
+  const userType = JSON.parse(tal);
+  const [userT, setUserT] = useState('');
+
+  useEffect(()=> {
+      if(userType !== null){
+          setUserT(userType.type)
+      }
+  },[userType])
+
+
   return (
     <NavbarS>
       <div>
@@ -33,25 +44,23 @@ export default function Navbar() {
 
         {
 
-          respuesta === null ? null :
-
-            respuesta.type === 1 || respuesta.type === 2 ?
+          userT === 1 || userT === 2 ?
 
               <StudentsNavBar />
 
               :
               
-              respuesta.type === 5 || respuesta.type === 4 ?
+              userT === 5 || userT === 4 ?
 
                 <BusinessNavBar />
 
                 :
 
-                respuesta.type === 3 ?
+                userT === 3 ?
 
                   <StaffNavBar />
 
-                  : respuesta.type === 0 ?
+                  : userT === 0 ?
 
                     null 
 

@@ -18,11 +18,6 @@ export default function WorkWall(){
         dispatch(getPublicationsBusiness())
     }, [])
 
-    useEffect(() => {
-        console.log(business)
-    }, [business])
-
-
     const techSelection = (e) => {
         if(e.target.value === "TECNOLOGIAS"){
             dispatch(getPublicationsTechnologies(""))
@@ -140,6 +135,7 @@ export default function WorkWall(){
                         english={e.languages}
                         username={e.userName}
                         id={e.posterUser._id}
+                        publicacionID={e._id}
 
 
                     />

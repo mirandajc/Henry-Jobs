@@ -18,8 +18,8 @@ export const SET_REGISTER_TRUE_SUCCES = 'SET_REGISTER_TRUE_SUCCES';
 
 export const GET_PUBLICATIONS_BUSINESS = 'GET_PUBLICATIONS_BUSINESS'; 
 export const GET_PUBLICATIONS_BUSINESS_SUCCESS = 'GET_PUBLICATIONS_BUSINESS_SUCCESS';
-export const URL_PEDIDO = "https://henryjob.herokuapp.com/api" // reemplazar por la ruta de pedidos de publicaciones de empresas
-export const URL_PEDIDO_POSTS = "https://henryjob.herokuapp.com/api/post"
+export const URL_PEDIDO = "http://henryjob.herokuapp.com/api" // reemplazar por la ruta de pedidos de publicaciones de empresas
+export const URL_PEDIDO_POSTS = "http://henryjob.herokuapp.com/api/post"
 export const GET_PUBLICATIONS_TECHNOLOGIES = "GET_PUBLICATIONS_TECHNOLOGIES";
 export const GET_PUBLICATIONS_DEVTYPE = "GET_PUBLICATIONS_DEVTYPE";
 export const GET_PUBLICATIONS_ENGLISH = "GET_PUBLICATIONS_ENGLISH";
@@ -45,7 +45,7 @@ export const GET_INFO_USER_SUCCESS = "GET_INFO_USER_SUCCESS";
 
 export const POST_USER= 'POST_USER';
 export const POST_USER_SUCCESS='POST_USER_SUCCESS';
-export const URL_POST='https://henryjob.herokuapp.com/api/signin';
+export const URL_POST='http://henryjob.herokuapp.com/api/signin';
 
 export const HENRY_LOGO ='https://blog.soyhenry.com/content/images/2021/03/151211491_440151970756357_8005198803636550092_o.jpg';
 export const SHOW_FILTER = "SHOW_FILTER";
@@ -59,16 +59,18 @@ export const STAFF_SHOW_ORDER = "STAFF_SHOW_ORDER";
 export const SET_LOGOUT='SET_LOGOUT';
 
 export const POST_ID_FOLLOW = 'POST_ID_FOLLOW';
+export const POST_ID_FOLLOW_SUCCESS = 'POST_ID_FOLLOW_SUCCESS';
 export const POST_ID_FOLLOW_BUSS = 'POST_ID_FOLLOW_BUSS';
+export const POST_ID_FOLLOW_BUSS_SUCCESS = 'POST_ID_FOLLOW_BUSS_SUCCESS';
 
 
-export const URL_DEPLOY = 'https://henryjob.herokuapp.com/api';
+export const URL_DEPLOY = 'http://henryjob.herokuapp.com/api';
 
 
 export const PROFILE_SUCCESS= 'PROFILE_SUCCESS';
 export const PROFILE_ID='PROFILE_ID';
 
-export const URL_PROFILE= 'https://henryjob.herokuapp.com/api/user/';
+export const URL_PROFILE= 'http://henryjob.herokuapp.com/api/user/';
 
 export const POST_REGISTER_MODAL = "POST_REGISTER_MODAL";
 export const POST_REGISTER_MODAL_SUCCESS = "POST_REGISTER_MODAL_SUCCESS";
@@ -79,3 +81,17 @@ export const SET_RECRUITER_INFO = "SET_RECRUITER_INFO";
 export const SET_BUSINESS_INFO = "SET_BUSINESS_INFO";
 export const UPDATE_USER = "UPDATE_USER";
 export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS';
+export const GET_MY_PUBLICATIONS = "GET_MY_PUBLICATIONS";
+export const GET_MY_PUBLICATIONS_SUCCESS = 'GET_MY_PUBLICATIONS_SUCCESS';
+export const SET_APPLICANT = "SET_APPLICANT";
+export const GET_BUSINESS_BY_EMAIL = "GET_BUSINESS_BY_EMAIL";
+export const GET_BUSINESS_BY_EMAIL_SUCCESS = "GET_BUSINESS_BY_EMAIL_SUCCESS";
+export const GET_STUDENTS_BY_EMAIL = "GET_BUSINESS_BY_EMAIL";
+export const GET_STUDENTS_BY_EMAIL_SUCCESS = "GET_BUSINESS_BY_EMAIL_SUCCESS";
+export const SEND_NUDES = "SEND_NUDES";
+export const SEND_NUDE_SUCCESS = "SEND_NUDE_SUCCESS";
+export const POSTULARSE = "POSTULARSE";
+export const GET_MY_APPLICAT_SUCCESS = "GET_MY_APPLICAT_SUCCESS";
+export const GET_MY_APPLICAT = "GET_MY_APPLICAT";
+export const POST_PUBLICATION_STU = "POST_PUBLICATION_STU";
+

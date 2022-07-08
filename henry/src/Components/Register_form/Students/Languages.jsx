@@ -12,18 +12,23 @@ export default function Languages ({sumarFase}) {
     const { decodedToken, isExpided } = useJwt(logout);
     const respuesta = decodedToken
     
-    /////////////////////////    COUNTRY & CITY    //////////////////////////////
-
     const dispatch = useDispatch();
-    const mandarAccion = useSelector(state => state.fetchPostReducer.upDateProfile.otherStudies);
+    const mandarAccion = useSelector(state => state.fetchPostReducer.upDateProfile.country);
     const objetoGlobal = useSelector(state => state.fetchPostReducer.upDateProfile);
-
+    
     useEffect(() => {
+        console.log("estoy en el useEffect")
         if(mandarAccion.length >= 1){
-            dispatch(updateUser(objetoGlobal, respuesta.id));
+            console.log("final de registro", objetoGlobal, respuesta.id)
+            dispatch(updateUser([objetoGlobal, respuesta.id]));
+
             return sumarFase();
         }
     }, [mandarAccion]);
+    
+    /////////////////////////    COUNTRY & CITY    //////////////////////////////
+
+
     
     const [ country, setCountry ] = useState({
         country: "",

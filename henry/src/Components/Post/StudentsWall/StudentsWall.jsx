@@ -136,7 +136,6 @@ export default function StudentsWall () {
 
             
             {estudiantes.render.map(e => {
-                console.log(e)
                 return(
                    
                         <CardWallStudents  // REEMPLAZAR POR UNA TARJETA DE ALUMNOS
@@ -156,7 +155,7 @@ export default function StudentsWall () {
                         userName={e.userName}
                         stars={e.stars}
                         id={e._id}
-                        profileImage={e.profileImage.secure_url}
+                        /* profileImage={e.profileImage.secure_url} */
                         />
                     
                 )
