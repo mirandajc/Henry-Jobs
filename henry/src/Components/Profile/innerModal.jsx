@@ -14,27 +14,49 @@ const [input,setInput]= useState('');
 const [inputd,setInputd]= useState('');
 const [ allCities, setAllCities ] = useState([]); 
 
-function handlePicture(e){
-    e.preventDefault();
-    console.log(e.target.value)
-    setInput(e.target.value);
 
-    if(input.length >0){
-        console.log(input.length)
-        setFoto(true)
-    }
-}
+const [edituser, setEditUser]= useState({
+    username: {},
+    id:'',
+    email:'',
+    profileImage: {},
+    technologies:[],
+    country:{},
+    languages:'',
+    otherStudies:[],
+    banner:{},
+    acercaDe:''
 
-function handleBanner(e){
-    e.preventDefault();
-    console.log(e.target.value)
-    setInputd(e.target.value);
+})
 
-    if(inputd.length >0){
-        console.log(inputd.length)
-        setFoto(true)
-    }
-}
+
+
+
+
+
+
+
+// function handlePicture(e){
+//     e.preventDefault();
+//     console.log(e.target.value)
+//     setInput(e.target.value);
+
+//     if(input.length >0){
+//         console.log(input.length)
+//         setFoto(true)
+//     }
+// }
+
+// function handleBanner(e){
+//     e.preventDefault();
+//     console.log(e.target.value)
+//     setInputd(e.target.value);
+
+//     if(inputd.length >0){
+//         console.log(inputd.length)
+//         setFoto(true)
+//     }
+// }
 
     return(
         <InnerModal>
