@@ -46,7 +46,8 @@ export default function LoginPage(){
 
  
     useEffect(()=>{
-        if(TK !== null){
+        if(TK !== null){ 
+            dispatch(buggNav());
             dispatch(getStudentsByEmail(user.email));
             dispatch(getBusinessByEmail(user.email));
             navigate('/home')
@@ -59,7 +60,7 @@ export default function LoginPage(){
      function handlerLogin (){
        if(user.email && user.password){
         //  dispatch(setLogout(true))
-            dispatch(buggNav());
+           
             dispatch(postUser(user));
        }
     }
