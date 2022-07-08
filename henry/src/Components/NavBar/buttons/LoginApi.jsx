@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {  ContainerProfile, LoginCont } from './navLogin/navLoginStyles/navLogin';
 import { useDispatch, useSelector } from "react-redux";
 import {useNavigate} from 'react-router-dom';
@@ -6,27 +6,32 @@ import { setLogout } from "../../../reducer/actions/actionPost";
 
 
 
-
 export default function LoginApi() {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const logout= useSelector((state)=> state.fetchPostReducer.response);
-    
-
+    const [userT, setUserT] = useState(false);
+    const tal = localStorage.getItem('TK')
+    const userType = JSON.parse(tal);
 
     const register =()=>{
         navigate('/login')
     }
     
     const Logout=()=>{
-       
-        // localStorage.removeItem('TK')
         localStorage.clear('TK')
         dispatch(setLogout())
         navigate('/')
-
     }
+
+    useEffect(() => {
+        if(userType === null){
+            setUserT(false)
+        }   
+        if(userType !== null) {
+            setUserT(true)
+        }
+    })
 
 
     // const tal= localStorage.getItem('TK') TRAE UN ITEM DEL STORAGE
@@ -40,9 +45,12 @@ export default function LoginApi() {
                 <LoginCont>
                     
     {
-        logout?
+        userT ?
+
         <button onClick={()=>Logout()}>Logout</button>
+        
         :
+        
         <button onClick={() => register()}>Login</button>
     }
                         

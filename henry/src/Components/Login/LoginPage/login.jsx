@@ -121,7 +121,7 @@ export default function LoginPage(){
                 <div className="other">
                     <div id="signInDiv" >
                         <FcGoogle className="another"/>
-                        {/* <GoogleLog/> */}
+                        <GoogleLog/>
                     </div>
                     <div>
                         {/* <GithubLog/> */}

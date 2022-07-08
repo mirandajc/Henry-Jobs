@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./cardpremium.css";
 
+
 export default function PremiumCard () {
+
+
+  const [userT, setUserT] = useState();
+
+  const tal = localStorage.getItem('TK')
+  const userType = JSON.parse(tal);
+    
+  useEffect(() => {
+    if(userType !== undefined && userType !== null){
+      setUserT(userType.id)
+    } 
+  },[userType])
+
+
+
   return (
     <div class="container">
       <div class="card">
@@ -22,7 +38,7 @@ export default function PremiumCard () {
           <h2>01</h2>
         </div>
       </div>
-
+{/* 
       <div class="card">
         <div class="face face1">
           <div class="content">
@@ -57,7 +73,7 @@ export default function PremiumCard () {
         <div class="face face2">
           <h2>03</h2>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

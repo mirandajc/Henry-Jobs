@@ -14,7 +14,9 @@ import {
     POSTULARSE,
     GET_MY_APPLICAT_SUCCESS,
     GET_MY_APPLICAT,
-    POST_PUBLICATION_STU
+    POST_PUBLICATION_STU,
+    GET_PREMIUM_BUSINESS,
+    GET_PREMIUM_BUSINESS_SUCCESS
 } from "../../constants/constants";
 
 export function getPublicationsBusiness(payload){
@@ -132,3 +134,15 @@ export function postPublication (payload) {
     };
 };
 
+export function getPremiumBusiness () {
+    return {
+        type: GET_PREMIUM_BUSINESS
+    }
+}
+
+export function getPremiumBusinessSuccess (payload) {
+    return {
+        type: GET_PREMIUM_BUSINESS_SUCCESS,
+        payload
+    }
+}

@@ -14,7 +14,8 @@ import {
     SET_BUSINESS_INFO,
     UPDATE_USER,
     UPDATE_USER_SUCCESS,
-    BUGG_NAV
+    BUGG_NAV,
+    SET_PREMIUM
  
 } from "../../constants/constants";
 
@@ -124,5 +125,12 @@ export function updateUserSuccess(payload) {
 export function buggNav(){
     return {
         type: BUGG_NAV
+    }
+}
+
+export function setPremium(payload){
+    return {
+        type: SET_PREMIUM,
+        payload
     }
 }

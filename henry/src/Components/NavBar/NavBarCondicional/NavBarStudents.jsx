@@ -33,10 +33,7 @@ export default function StudentsNavBar () {
                         <div>
                             <ButtonWorkWall />
                         </div>
-                         <div>
-                            <ButtonPremium/>
-                         </div>
-
+        
                         <div>
                             <ButtonPerfil />
                         </div>

@@ -39,7 +39,6 @@ export default function PublicationCard(props) {
         let obj = {
             step: valor,
             showBusiness: true,
-            showStudent: true,
             userId: id,
             name: name
         };
@@ -57,7 +56,6 @@ export default function PublicationCard(props) {
         let obj = {
             step: step,
             showBusiness: false,
-            showStudent: true,
             userId: id,
             name: name
         };

@@ -8,10 +8,12 @@ import {
     GET_MY_APPLICAT,
     POSTULARSE,
     URL_PEDIDO_POSTS,
-    POST_PUBLICATION_STU
+    POST_PUBLICATION_STU,
+    GET_PREMIUM_BUSINESS,
+    URL_DEPLOY
 } from '../../constants/constants';
 
-import { getPublicationsBusinessSuccess, postIdFollowSuccess, getStudentsByEmailSuccess, getMyApplicatSuccess } from '../actions/actionStudents';
+import { getPublicationsBusinessSuccess, postIdFollowSuccess, getStudentsByEmailSuccess, getMyApplicatSuccess, getPremiumBusinessSuccess } from '../actions/actionStudents';
 
 //import actions 
 
@@ -44,9 +46,7 @@ function* asyncGetStudentsByEmail (email) {
 
 function* asyncPostularse (payload) {
     try { 
-        console.log("postularseee", payload)
-        // Pasarle el payload(es un arreglo) a la url del back
-        const response = yield call(() => axios.put(URL_PEDIDO + `/${payload[1]}`, payload[0]));
+        const response = yield call(() => axios.put(URL_PEDIDO_POSTS + `/${payload[1]}`, payload[0]));
         console.log(response.data);
     } catch (error) {
         console.log(error);
@@ -73,6 +73,16 @@ function* asyncPostPublicationStu (payload) {
     }
 };
 
+function* asyncGetPremiumBusiness () {
+    try {
+        const response = yield call(() => axios.get(URL_DEPLOY+'/user'))
+        yield put(getPremiumBusinessSuccess(response.data))
+
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 
 export function* watchFetchStudentsSaga(){
     yield takeEvery(GET_PUBLICATIONS_BUSINESS, asyncGetPublicationsBussines)
@@ -81,4 +91,5 @@ export function* watchFetchStudentsSaga(){
     yield takeLatest(POSTULARSE, asyncPostularse)
     yield takeEvery(GET_MY_APPLICAT, asyncGetMyApplicat)
     yield takeEvery(POST_PUBLICATION_STU, asyncPostPublicationStu)
+    yield takeEvery(GET_PREMIUM_BUSINESS, asyncGetPremiumBusiness)
 }
