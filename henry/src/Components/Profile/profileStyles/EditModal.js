@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 export const ModalEdit= styled.div`
-border: 1px solid yellow;
+
 
 width: 100%;
 min-height:300vh;
@@ -180,6 +180,7 @@ flex-direction: column;
 
 
 input{
+    width:80%;
     padding: 1em;
     border-radius: 10px;
     border:1px solid black;
@@ -224,9 +225,15 @@ width: 100%;
 display: flex;
 align-items:center;
 justify-content: space-around;
+flex-direction: column;
 
+
+div{
+    width:100%;
+}
 
 select{
+    width:80%;
     padding: 1em;
     border: 1px solid black;
     border-radius: 10px;
