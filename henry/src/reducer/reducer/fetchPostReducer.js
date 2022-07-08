@@ -14,6 +14,7 @@ const initialState = {
         country:'',
         city:'',
         languages:'',
+        profileImage:{secure_url:''},
         otherStudies:[],
         currentJob:{name:'',date:'',job:''},
         backFront:'',

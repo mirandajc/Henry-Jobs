@@ -9,7 +9,8 @@ import {
     SHOW_FILTER,
     POST_ID_FOLLOW_SUCCESS,
     GET_STUDENTS_BY_EMAIL_SUCCESS,
-    GET_MY_APPLICAT_SUCCESS
+    GET_MY_APPLICAT_SUCCESS,
+    GET_PREMIUM_BUSINESS_SUCCESS
 } from "../../constants/constants";
 
 const initialState = {
@@ -17,6 +18,7 @@ const initialState = {
     AllPublications:[],
     AllPublicationsFollows:[],
     myApp: [],
+    usersPremium: [],
     userFollows: [],
     busPublication:[],
     publicationsFiltered:[],
@@ -31,6 +33,13 @@ const initialState = {
 
 const fetchStudentsReducer = (state = initialState, action) => {
     switch (action.type) {
+        case GET_PREMIUM_BUSINESS_SUCCESS:
+            let userp = action.payload.filter(e => e.premium === true)
+            let bussprem = userp.filter(e => e.userTypes === 4 || e.userTypes === 5 )
+            return {
+                ...state,
+                usersPremium: bussprem
+            }
 
         case GET_MY_APPLICAT_SUCCESS:
             let id = action.id;
