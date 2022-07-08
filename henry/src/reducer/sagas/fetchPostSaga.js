@@ -15,7 +15,8 @@ import {
     POST_REGISTER_MODAL,
     URL_DEPLOY,
     UPDATE_USER,
-    GOOGLE_LOGIN
+    GOOGLE_LOGIN,
+    SET_PREMIUM,
 } from '../../constants/constants';
 
 function* asyncPostUser (user){
@@ -54,9 +55,7 @@ function* asyncPostRegisterModal(RegisterUser){ // datos del registro modal
 
 function* asyncUpdateUser (objeto){
     try {
-        console.log("pegandole al back", objeto);
         const response = yield call(() => axios.put(URL_DEPLOY + `/user/${objeto.payload[1]}`, objeto.payload[0]))
-        console.log("Respuesta del back",response.data)
         yield put(updateUserSuccess(response.data))
     } catch (error) {
         console.log(error);
@@ -68,6 +67,17 @@ function* asyncLoginWithGoogle (payload){
         console.log("Estoy en sagas mi rey", payload.payload);
         // const response = yield call()
         // manejar response(loginWithGoogleSuccess(response.data)) hacer success
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+function* asyncSetPremium (payload){
+    console.log(payload)
+    try {
+        /* const response = yield call(() => axios.put(URL_DEPLOY + `/user/${objeto.payload[1]}`, objeto.payload[0]))
+        yield put(updateUserSuccess(response.data)) */
     } catch (error) {
         console.log(error);
     }
@@ -81,4 +91,5 @@ export function* watchFetchPostSaga(){
     yield takeEvery(POST_REGISTER_MODAL, asyncPostRegisterModal)
     yield takeEvery(UPDATE_USER, asyncUpdateUser)
     yield takeEvery(GOOGLE_LOGIN, asyncLoginWithGoogle)
+    yield takeEvery(SET_PREMIUM, asyncSetPremium)
 }

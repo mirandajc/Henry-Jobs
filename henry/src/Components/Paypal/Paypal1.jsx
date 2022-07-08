@@ -1,8 +1,16 @@
 import { PayPalButtons } from "@paypal/react-paypal-js";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PremiumCard from "../SerPremium/CardPremium";
+import { useDispatch } from "react-redux";
+import { setPremium } from "../../reducer/actions/actionPost";
+
+
 
 export default function Paypal1() {
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
 
   return (
@@ -29,7 +37,10 @@ export default function Paypal1() {
           return actions.order.capture().then((details) => {
             console.log("esto es details de onApprove -> ", details)
             const name = details.payer.name.given_name;
-          alert(`Transaction completed by ${name}`);
+            alert(`Transacción realizada con exito, seras rediccerionado automaticamente. Reinicia sesion para ver los cambios :)` );
+            /* dispatch(setPremium(userT)); */
+            setTimeout(() => navigate('/home'), 5000)
+
           });
         }}
         onCancel={(data) => {

@@ -6,6 +6,7 @@ import { loginWithGoogle } from "../../../reducer/actions/actionPost";
 
 const App = () => {
   const dispatch = useDispatch();
+  
   const googlebuttonref = useRef();
   const [user, setuser] = useState(false);
   const onGoogleSignIn = (user) => {
@@ -43,22 +44,11 @@ const App = () => {
   });
 
   return (
-    <div
-      style={{
-        // display: "flex",
-        // justifyContent: "center",
-        // alignItems: "center",
-        // height: "100vh",
-      }}
-    >
+    <div>
       {!user && <div ref={googlebuttonref}></div>}
       {user && (
         <div>
           {console.log(user)}
-          <h1>{user.name}</h1>
-          <img src={user.picture} alt="profile" />
-          <p>{user.email}</p>
-
           <button
             onClick={() => {
               setuser(false);
