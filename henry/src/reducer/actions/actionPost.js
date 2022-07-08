@@ -14,7 +14,8 @@ import {
     SET_BUSINESS_INFO,
     UPDATE_USER,
     UPDATE_USER_SUCCESS,
-    BUGG_NAV
+    BUGG_NAV,
+    GOOGLE_LOGIN
  
 } from "../../constants/constants";
 
@@ -124,5 +125,12 @@ export function updateUserSuccess(payload) {
 export function buggNav(){
     return {
         type: BUGG_NAV
-    }
-}
+    };
+};
+
+export function loginWithGoogle(obj) {
+    return {
+        type: GOOGLE_LOGIN,
+        payload: obj
+    };
+};

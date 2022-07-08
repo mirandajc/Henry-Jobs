@@ -14,6 +14,7 @@ import GithubLog from "./githubLogin";
 import { ButtonGoogle } from "../LoginStyles/logstyle";
 import { getStudentsByEmail } from "../../../reducer/actions/actionStudents";
 import { getBusinessByEmail } from "../../../reducer/actions/actionBusiness";
+import App from "../hooks/app"
 
 
 export default function LoginPage(){
@@ -117,11 +118,11 @@ export default function LoginPage(){
 
                 <div className="second">
                     <p>Or signIn with</p>
+                        <App />
                 </div>
                 <div className="other">
                     <div id="signInDiv" >
                         <FcGoogle className="another"/>
-                        {/* <GoogleLog/> */}
                     </div>
                     <div>
                         {/* <GithubLog/> */}

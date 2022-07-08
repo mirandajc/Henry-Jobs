@@ -14,7 +14,8 @@ import {
     URL_PROFILE,
     POST_REGISTER_MODAL,
     URL_DEPLOY,
-    UPDATE_USER
+    UPDATE_USER,
+    GOOGLE_LOGIN
 } from '../../constants/constants';
 
 function* asyncPostUser (user){
@@ -62,6 +63,16 @@ function* asyncUpdateUser (objeto){
     }
 };
 
+function* asyncLoginWithGoogle (payload){
+    try {
+        console.log("Estoy en sagas mi rey", payload.payload);
+        // const response = yield call()
+        // manejar response(loginWithGoogleSuccess(response.data)) hacer success
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 
 
 export function* watchFetchPostSaga(){
@@ -69,4 +80,5 @@ export function* watchFetchPostSaga(){
     yield takeEvery(PROFILE_ID, getProfileByID)
     yield takeEvery(POST_REGISTER_MODAL, asyncPostRegisterModal)
     yield takeEvery(UPDATE_USER, asyncUpdateUser)
+    yield takeEvery(GOOGLE_LOGIN, asyncLoginWithGoogle)
 }
