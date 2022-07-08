@@ -30,6 +30,12 @@ export default function HomeStudentsLogic() {
           }
     }, [foll]);
 
+    useEffect(() => {
+        if(userId !== '') {
+            dispatch(getPublicationsBusiness(userId));
+          }
+    }, [userId]);
+
 
     return (
         <ContenedorStudents>

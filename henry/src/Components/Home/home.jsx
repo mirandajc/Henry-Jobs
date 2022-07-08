@@ -12,16 +12,15 @@ import { ContSetting, HomeCont } from "./PublicationSet/SetCont/styleContsHome";
 
 export default function Home() {
     
+    const [userT, setUserT] = useState('');
     const tal = localStorage.getItem('TK')
     const userType = JSON.parse(tal);
-    const [userT, setUserT] = useState('');
 
     useEffect(()=> {
         if(userType !== null){
             setUserT(userType.type)
         }
-
-    },[userType])
+    },[tal])
 
 
     return(
@@ -31,6 +30,8 @@ export default function Home() {
             
 
             {   
+                userT === '' ? null :
+
                 userT === 4 || userT === 5 ?
             
                 <ContSetting>

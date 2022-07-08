@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch} from "react-redux"
 import { getPublicationEnglish, getPublicationsBusiness, getPublicationsDevType, getPublicationsTechnologies, getPublicationUbication, getWorkModality, ShowFilter } from "../../../reducer/actions/actionStudents";
 import NavWall from "./navBarWall";
@@ -15,8 +15,12 @@ export default function WorkWall(){
     const business = useSelector((state) => state.fetchStudentsReducer.publicationsFiltered);
 
     useEffect(() => {
-        dispatch(getPublicationsBusiness())
+        if(!business.length){
+            console.log('hago algo')
+            dispatch(getPublicationsBusiness('123123123123'))
+        }
     }, [])
+
 
     const techSelection = (e) => {
         if(e.target.value === "TECNOLOGIAS"){
@@ -75,7 +79,11 @@ export default function WorkWall(){
 
 
     return(
+
+       
+
         <Componente>
+
             <DivFiltros>
             <select onChange={(e) => techSelection(e)}>
                 <option>TECNOLOGIAS</option>
@@ -142,5 +150,6 @@ export default function WorkWall(){
                 ))
             }
         </Componente>
+       
     )
 }

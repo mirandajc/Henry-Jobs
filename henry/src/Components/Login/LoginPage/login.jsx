@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
-import { postUser } from "../../../reducer/actions/actionPost";
+import { buggNav, postUser } from "../../../reducer/actions/actionPost";
 import { HENRY_LOGO } from "../../../constants/constants";
 import { ConteinLogin } from "../LoginStyles/logstyle";
 import {FcGoogle} from 'react-icons/fc'
@@ -14,6 +14,7 @@ import GithubLog from "./githubLogin";
 import { ButtonGoogle } from "../LoginStyles/logstyle";
 import { getStudentsByEmail } from "../../../reducer/actions/actionStudents";
 import { getBusinessByEmail } from "../../../reducer/actions/actionBusiness";
+
 
 export default function LoginPage(){
     const navigate= useNavigate();
@@ -58,7 +59,8 @@ export default function LoginPage(){
      function handlerLogin (){
        if(user.email && user.password){
         //  dispatch(setLogout(true))
-         dispatch(postUser(user));
+            dispatch(buggNav());
+            dispatch(postUser(user));
        }
     }
     const handleCallbackResponse = (response) => {

@@ -13,7 +13,8 @@ import {
     SET_RECRUITER_INFO,
     SET_BUSINESS_INFO,
     UPDATE_USER,
-    UPDATE_USER_SUCCESS
+    UPDATE_USER_SUCCESS,
+    BUGG_NAV
  
 } from "../../constants/constants";
 
@@ -117,5 +118,11 @@ export function updateUserSuccess(payload) {
     return{
         type: UPDATE_USER_SUCCESS,
         payload: payload
+    }
+}
+
+export function buggNav(){
+    return {
+        type: BUGG_NAV
     }
 }

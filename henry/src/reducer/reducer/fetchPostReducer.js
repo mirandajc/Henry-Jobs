@@ -1,5 +1,5 @@
 import {
-    POST_USER, POST_USER_SUCCESS,SET_LOGOUT,PROFILE_SUCCESS, POST_REGISTER_MODAL_SUCCESS,SET_USERTYPE,SET_DEV_TYPE_AND_TECH, SET_LOCATION_ENG_STUDY, SET_RECRUITER_INFO,SET_BUSINESS_INFO,UPDATE_USER_SUCCESS
+    BUGG_NAV, POST_USER, POST_USER_SUCCESS,SET_LOGOUT,PROFILE_SUCCESS, POST_REGISTER_MODAL_SUCCESS,SET_USERTYPE,SET_DEV_TYPE_AND_TECH, SET_LOCATION_ENG_STUDY, SET_RECRUITER_INFO,SET_BUSINESS_INFO,UPDATE_USER_SUCCESS
 
 } from "../../constants/constants";
 
@@ -8,6 +8,7 @@ const initialState = {
     response:[],
     responseProfile:[],
     log: false,
+    buggati: false,
     upDateProfile: {
         userTypes:'',
         country:'',
@@ -25,6 +26,11 @@ const initialState = {
 
 const fetchPostReducer = (state = initialState, action) => {
     switch (action.type) {
+            case BUGG_NAV:
+                return{
+                    ...state,
+                    buggati: !state.buggati
+                }
             case UPDATE_USER_SUCCESS: 
                 return{
                     ...state,

@@ -5,24 +5,29 @@ import BusinessNavBar from "./NavBarCondicional/NavBarBusiness";
 import StudentsNavBar from "./NavBarCondicional/NavBarStudents";
 import StaffNavBar from "./NavBarCondicional/StaffNavBar";
 import LoginApi from "./buttons/LoginApi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useJwt } from "react-jwt";
 import { Link, useNavigate } from "react-router-dom";
 import RegistroGeneral from "../Register_form/RegistroGeneral";
+import { getStudentsByEmail } from "../../reducer/actions/actionStudents";
 
 
 export default function Navbar() {
 
+  const actualizar = useSelector((state) => state.fetchPostReducer.buggati)
+  const [userT, setUserT] = useState('');
+  const [ nav, setNav ] = useState(true);
+
   const tal = localStorage.getItem('TK')
   const userType = JSON.parse(tal);
-  const [userT, setUserT] = useState('');
-
-  useEffect(()=> {
-      if(userType !== null){
-          setUserT(userType.type)
-      }
-  },[userType])
-
+  
+  useEffect(() => {  
+    if(userType !== null){
+      setUserT(userType.type)
+    } else {
+      setNav(!nav)
+    }
+  }, [actualizar, nav])
 
   return (
     <NavbarS>
@@ -30,18 +35,17 @@ export default function Navbar() {
         <Logo />
       </div>
 
-     
-
       <NavButton>
 
         {
+          userT === '' ? null :
 
-          userT === 1 || userT === 2 ?
+            userT === 1 || userT === 2 ?
 
               <StudentsNavBar />
 
               :
-              
+
               userT === 5 || userT === 4 ?
 
                 <BusinessNavBar />
@@ -54,9 +58,9 @@ export default function Navbar() {
 
                   : userT === 0 ?
 
-                    null 
+                    null
 
-                  : null
+                    : null
         }
 
       </NavButton>

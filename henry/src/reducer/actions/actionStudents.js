@@ -118,7 +118,6 @@ export function getMyApplicat(id) {
 }
 
 export function getMyApplicatSuccess(payload, id) {
-    console.log(payload, id)
     return{
         type: GET_MY_APPLICAT_SUCCESS,
         payload,

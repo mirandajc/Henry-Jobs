@@ -27,6 +27,12 @@ export default function HomeBusinessLogic() {
     }
   },[foll])
 
+  useEffect(() => {
+    if(userId !== '') {
+      dispatch(getPublicationStudents(userId));
+    }
+  },[userId])
+
   return (
     <CardContainer>
       

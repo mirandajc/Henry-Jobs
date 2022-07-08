@@ -4,22 +4,24 @@ import { Link } from "react-router-dom";
 import { useJwt } from "react-jwt";
 import { profileID } from "../../../reducer/actions/actionPost";
 
-export default function ButtonPerfil(props){
+export default function ButtonPerfil(){
     
     const dispatch= useDispatch();
-    const user = useSelector((state)=> state.fetchPostReducer.response);
-    const { decodedToken, isExpided } = useJwt(user);
-    const respuesta = decodedToken;
     const[id, setId]=useState('')
+    
+    const tal = localStorage.getItem('TK')
+    const userType = JSON.parse(tal);
 
     useEffect(()=>{
-        if(respuesta !== null){
-            setId(respuesta.id);
+        if(userType !== null){
+            setId(userType.id);
         } 
-    },[respuesta])
+    },[tal])
     
     const handleID = function(){
-        dispatch(profileID(id))
+        if(userType.id !== undefined){
+            dispatch(profileID(userType.id))
+        }
     }
 
     return(
