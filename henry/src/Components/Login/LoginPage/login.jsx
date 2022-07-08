@@ -123,10 +123,6 @@ export default function LoginPage(){
                 <div className="other">
                     <div id="signInDiv" >
                         <FcGoogle className="another"/>
-<<<<<<< HEAD
-=======
-                        <GoogleLog/>
->>>>>>> 646a3a210e5691941c7cde53666ba2a98e116cd3
                     </div>
                     <div>
                         {/* <GithubLog/> */}
