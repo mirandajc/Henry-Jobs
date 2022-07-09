@@ -153,7 +153,6 @@ export function getBusinessByEmailSuccess (payload) {
 };
 
 export function sendNudes (obj, idp) {
-    console.log('soy la axion',obj,idp)
     return {
         type: SEND_NUDES,
         payload: obj,

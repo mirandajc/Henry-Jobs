@@ -65,6 +65,7 @@ export default function PublicationCard(props) {
 
     return (
         <div>
+            <button>Borrar publicacion</button>
             <div>{props.email}</div>
             <div>{props.date}</div>
             <div>{props.text}</div>

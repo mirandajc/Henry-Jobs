@@ -19,8 +19,7 @@ export default function ContactWall() {
     // en las publicaciones de empresas y recruiter
     // si sos estudiante.
   
-  const publicactions = Publicaciones
-  // useSelector(state => state.fetchBusinessReducer.myPublications);
+  const publicactions = useSelector(state => state.fetchBusinessReducer.myPublications);
 
   // ESTE COMPONENTE RENDERIZA TODAS LAS PUBLICACIONES PARA VER POSTULANTES
 
