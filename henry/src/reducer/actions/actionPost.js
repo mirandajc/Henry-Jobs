@@ -16,7 +16,8 @@ import {
     UPDATE_USER_SUCCESS,
     BUGG_NAV,
     GOOGLE_LOGIN,
-    SET_PREMIUM
+    SET_PREMIUM,
+    SET_GOOGLE_USER
  
 } from "../../constants/constants";
 
@@ -140,6 +141,13 @@ export function loginWithGoogle(obj) {
 export function setPremium(payload){
     return {
         type: SET_PREMIUM,
+        payload
+    }
+}
+
+export function setGoogleUser(payload){
+    return {
+        type: SET_GOOGLE_USER,
         payload
     }
 }

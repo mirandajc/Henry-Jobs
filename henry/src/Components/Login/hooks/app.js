@@ -1,34 +1,41 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useScript } from "../hooks/useScript";
 import jwt_deocde from "jwt-decode";
-import { useDispatch } from "react-redux";
-import { loginWithGoogle } from "../../../reducer/actions/actionPost";
+import { useDispatch, useSelector } from "react-redux";
+import { loginWithGoogle, setGoogleUser } from "../../../reducer/actions/actionPost";
 
 const App = () => {
   const dispatch = useDispatch();
-  
+
   const googlebuttonref = useRef();
-  const [user, setuser] = useState(false);
+
+  let USER = useSelector(state => state.fetchPostReducer.GOOGLEUSER);
+
   const onGoogleSignIn = (user) => {
     let userCred = user.credential;
     let payload = jwt_deocde(userCred);
     console.log(payload);
-    setuser(payload);
+
+    // accion que lleve el payload al reduccer
+    dispatch(setGoogleUser(payload))
+
   };
 
   useEffect(() => {
-    if (user !== undefined) {
+    if (USER !== undefined) {
       let obj = {
-        userName: user.name,
-        name: user.given_name,
-        lastName: user.family_name,
-        email: user.email,
+        userName: USER.name,
+        name: USER.given_name,
+        lastName: USER.family_name,
+        email: USER.email,
         password: "123456789",
       };
 
-      dispatch(loginWithGoogle(obj))
+      dispatch(loginWithGoogle(obj));
+      console.log("El objeto USER",USER);
+      
     }
-  }, [user]);
+  }, [USER]);
 
   useScript("https://accounts.google.com/gsi/client", () => {
     window.google.accounts.id.initialize({
@@ -45,13 +52,13 @@ const App = () => {
 
   return (
     <div>
-      {!user && <div ref={googlebuttonref}></div>}
-      {user && (
+      {!USER && <div ref={googlebuttonref}></div>}
+      {USER && (
         <div>
-          {console.log(user)}
+          {console.log(USER)}
           <button
             onClick={() => {
-              setuser(false);
+                dispatch(setGoogleUser(false));
             }}
           >
             Logout
