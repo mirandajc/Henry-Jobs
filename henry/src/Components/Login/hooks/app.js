@@ -10,7 +10,7 @@ const App = () => {
   const googlebuttonref = useRef();
 
   let USER = useSelector(state => state.fetchPostReducer.GOOGLEUSER);
-
+  
   const onGoogleSignIn = (user) => {
     let userCred = user.credential;
     let payload = jwt_deocde(userCred);
