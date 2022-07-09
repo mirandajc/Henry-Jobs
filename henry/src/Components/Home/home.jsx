@@ -12,6 +12,7 @@ import CarruPremiumBusiness from "./carruPremiumBusiness";
 
 export default function Home() {
     
+    const [userI, setUserI] = useState('');
     const [userT, setUserT] = useState('');
     const tal = localStorage.getItem('TK')
     const userType = JSON.parse(tal);
@@ -19,6 +20,7 @@ export default function Home() {
     useEffect(()=> {
         if(userType !== null){
             setUserT(userType.type)
+            setUserI(userType.id)
         }
     },[tal])
 
@@ -36,7 +38,7 @@ export default function Home() {
             
                 <ContSetting>
                 <PubliSettings/> 
-                <HomeBusinessLogic/>
+                <HomeBusinessLogic id={userI}/>
                 </ContSetting>
                 : 
                 
@@ -44,7 +46,7 @@ export default function Home() {
 
                 <ContSetting>
                 <PubliSettings/> 
-                <HomeStudentsLogic/>
+                <HomeStudentsLogic id={userI}/>
                 </ContSetting>
                 :
 

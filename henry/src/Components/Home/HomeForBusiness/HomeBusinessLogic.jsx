@@ -1,37 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPublicationStudents } from "../../../reducer/actions/actionBusiness";
+import { getPublicationStudents, traerFollowing } from "../../../reducer/actions/actionBusiness";
 import { CardContainer, CardCont2 } from "../bussinesStyles/bussines";
 import CardPublicationWorkTest from "../HomeForStudents/CardPublicationsTest";
 
 
-export default function HomeBusinessLogic() {
+export default function HomeBusinessLogic({id}) {
 
   const dispatch = useDispatch();
   const allPublications = useSelector((state) => state.fetchBusinessReducer.allPublications);
   const foll = useSelector((state) => state.fetchBusinessReducer.userFollows);
-
-  const tal = localStorage.getItem('TK')
-  const userType = JSON.parse(tal);
-  const [userId, setUserT] = useState('');
-
-  useEffect(()=> {
-      if(userType !== null){
-          setUserT(userType.id)
-      }
-  },[userType])
     
   useEffect(() => {
-    if(userId !== '') {
-      dispatch(getPublicationStudents(userId));
-    }
+    dispatch(traerFollowing(id));
+  },[])
+
+  useEffect(() => {
+      dispatch(getPublicationStudents(id));
   },[foll])
 
   useEffect(() => {
-    if(userId !== '') {
-      dispatch(getPublicationStudents(userId));
-    }
-  },[userId])
+      dispatch(getPublicationStudents(id));
+  },[])
 
   return (
     <CardContainer>

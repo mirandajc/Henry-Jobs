@@ -1,7 +1,7 @@
 import { 
     GET_PUBLICATION_STUDENTS_SUCCESS,GET_PUBLICAT_TECHNOLOGIES, GET_PUBLICAT_ENGLISH, SEND_NUDE_SUCCESS,
     GET_PUBLICAT_UBICATION, GET_PUBLICAT_DEVTYPE,GET_BUSINESS_BY_EMAIL_SUCCESS,
-    GET_ALL_STUDENTS_SUCCESS,SHOW_FILTER,GET_PUBLICAT_WORKMODALITY,SET_STARS_ORDER,POST_ID_FOLLOW_BUSS_SUCCESS,GET_MY_PUBLICATIONS_SUCCESS
+    GET_ALL_STUDENTS_SUCCESS,SHOW_FILTER,GET_PUBLICAT_WORKMODALITY,SET_STARS_ORDER,POST_ID_FOLLOW_BUSS_SUCCESS,GET_MY_PUBLICATIONS_SUCCESS, TRAER_FOLLOWING_SUCCESS
 } from "../../constants/constants";
 
 
@@ -33,7 +33,12 @@ const initialState = {
 
 const fetchBusinessReducer = (state = initialState, action) => {
   switch (action.type) {
+    case TRAER_FOLLOWING_SUCCESS :
 
+    return {
+        ...state,
+        userFollows: action.payload.following
+    }
     case GET_MY_PUBLICATIONS_SUCCESS :
         let pubs = action.payload.filter(e => e.posterUser._id === action.id);
         return {

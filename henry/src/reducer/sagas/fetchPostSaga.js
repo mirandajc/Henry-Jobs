@@ -25,7 +25,6 @@ function* asyncPostUser (user){
         const response = yield call(() => (axios.post(URL_POST, user.payload)));
         // const codedTK= response.data;
         // localStorage.setItem('codedTK',JSON.stringify(codedTK));
-        
         yield put(postUserSuccess(response.data))
     }catch(error){
         console.log(error)
@@ -89,7 +88,7 @@ function* asyncLoginWithGoogle (payload){
 function* asyncSetPremium (payload){
     console.log(payload)
     try {
-        /* const response = yield call(() => axios.put(URL_DEPLOY + `/user/${objeto.payload[1]}`, objeto.payload[0]))
+        /* const response = yield call(() => axios.put(URL_DEPLOY + `/user/${objeto.payload[1]}`, {premium : true}))
         yield put(updateUserSuccess(response.data)) */
     } catch (error) {
         console.log(error);

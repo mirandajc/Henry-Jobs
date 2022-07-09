@@ -2,16 +2,24 @@ import React, { useEffect, useState} from "react";
 import { CardStudentsStaff } from "./StaffStyles/staffStudentCards";
 import {MdLocationPin} from 'react-icons/all'
 import {AiFillStar} from 'react-icons/ai'
+import { useDispatch } from "react-redux";
+import { userDelete } from "../../../reducer/actions/actionStaff";
 
 
-export default function StaffStudentsBusiness ({name, profileImage, lastname, userName, email, country, city, stars, curriculumCounter}){
+export default function StaffStudentsBusiness ({ id ,name, profileImage, lastname, userName, email, country, city, stars, curriculumCounter}){
 
     //////////////////////////////////// AGREGAR ESTILOS ////////////////////////////////////////
     // Estas son tarjetas que se van a renderizar juntas en la pantalla principal del staff
     // a primera vista contienen la info necesaria para el Staff
     // idea de Luciano: tarjeta vertical tipo app del clima con un grid
+
+    const dispatch = useDispatch();
     
     // ¿ el staff a necesitar entrar al perfil del user para ver las publicaciones de solo ese user ?
+
+    const handleDelete = () => {
+        dispatch(userDelete(id))
+    }
 
     return(
         <CardStudentsStaff>
@@ -25,7 +33,7 @@ export default function StaffStudentsBusiness ({name, profileImage, lastname, us
                     <img src={profileImage} width={"25px"} height={"25px"} />
                         </div>
                     <div className="detail">
-                    <h3>{name} {lastname}</h3>
+                    <h3>{name} {userName}</h3>
                     <p><MdLocationPin/> {city} {country}</p>
                     </div>
                     </div>
@@ -44,6 +52,7 @@ export default function StaffStudentsBusiness ({name, profileImage, lastname, us
                     <h4>{email}</h4>
                 </div>
             }
+            <button onClick={() => handleDelete()}>Borrar Usuario</button>
         </div>
         </CardStudentsStaff>
     );

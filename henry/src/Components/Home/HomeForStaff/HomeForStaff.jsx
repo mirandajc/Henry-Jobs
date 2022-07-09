@@ -59,6 +59,7 @@ export default function HomeForStaff(){
 
     return (
         <ContStafHome>
+            {console.log(alumnos.renderizar)}
             <NavStaff>
             <button value={"Alumnos"} onClick={(e) => handleClick(e.target.value)}>Alumnos</button>
             <button value={"AlumnosPub"} onClick={(e) => handleClick(e.target.value)}>Publicaciones de Alumnos</button>
@@ -87,12 +88,12 @@ export default function HomeForStaff(){
                 
                 <StaffStudentsBusiness name={e.name} 
                 // profileImage={e.profileImage.secure_url} 
-                lastname={e.lastName} userName={e.userName} email={e.email} country={e.country} city={e.city} stars={e.stars} curriculumCounter={e.curriculumCounter}/>
+                lastname={e.lastName} id={e._id} userName={e.userName} email={e.email} country={e.country} city={e.city} stars={e.stars} curriculumCounter={e.curriculumCounter}/>
                
                 ) :
                 renderizar === "Empresas" ? empresas.map(e => <StaffStudentsBusiness name={e.name} 
                     // profileImage={e.profileImage.secure_url} 
-                    userName={e.userName} email={e.email} country={e.country} city={e.city} />) :
+                    userName={e.userName} email={e.email} country={e.country} city={e.city} id={e._id} />) :
                 renderizar === "AlumnosPub" ? alumnosPub.map( e => <StaffPublications 
                     name={e.posterUser.name} lastname={e.posterUser.lastName} email={e.posterUser.email}  text={e.text} video={e.imgVideo}
                 />) 

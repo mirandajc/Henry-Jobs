@@ -18,7 +18,9 @@ import {
     GET_BUSINESS_BY_EMAIL,
     GET_BUSINESS_BY_EMAIL_SUCCESS,
     SEND_NUDES,
-    SEND_NUDE_SUCCESS
+    SEND_NUDE_SUCCESS,
+    TRAER_FOLLOWING,
+    TRAER_FOLLOWING_SUCCESS
 } from "../../constants/constants";
 
 export function getPublicationStudents (payload) {
@@ -162,6 +164,20 @@ export function sendNudes (obj, idp) {
 export function sendNudesSuccess (payload) {
     return{
         type: SEND_NUDE_SUCCESS,
+        payload
+    }
+}
+
+export function traerFollowing (payload) {
+    return{
+        type: TRAER_FOLLOWING,
+        payload
+    }
+}
+
+export function traerFollowingSuccess (payload) {
+    return{
+        type: TRAER_FOLLOWING_SUCCESS,
         payload
     }
 }

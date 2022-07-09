@@ -10,7 +10,8 @@ import {
     POST_ID_FOLLOW_SUCCESS,
     GET_STUDENTS_BY_EMAIL_SUCCESS,
     GET_MY_APPLICAT_SUCCESS,
-    GET_PREMIUM_BUSINESS_SUCCESS
+    GET_PREMIUM_BUSINESS_SUCCESS,
+    TRAER_FOLLOWING_STUD
 } from "../../constants/constants";
 
 const initialState = {
@@ -31,8 +32,15 @@ const initialState = {
     }
 };
 
+
+
 const fetchStudentsReducer = (state = initialState, action) => {
     switch (action.type) {
+        case TRAER_FOLLOWING_STUD:
+            return{
+                ...state,
+                userFollows: action.payload.following
+            }
         case GET_PREMIUM_BUSINESS_SUCCESS:
             let userp = action.payload.filter(e => e.premium === true)
             let bussprem = userp.filter(e => e.userTypes === 4 || e.userTypes === 5 )
@@ -43,10 +51,14 @@ const fetchStudentsReducer = (state = initialState, action) => {
 
         case GET_MY_APPLICAT_SUCCESS:
             let id = action.id;
-            let post = action.payload.filter(e => e.applicants.includes(id))
+            let respondido = []
+            for (let i = 0; i < action.payload.length; i++) {
+                action.payload[i].applicants.filter(e => e.userId === id &&
+                respondido.push(action.payload[i]))
+            } 
             return {
                 ...state,
-                myApp: post
+                myApp: respondido
             };
 
         case GET_STUDENTS_BY_EMAIL_SUCCESS:
@@ -59,7 +71,7 @@ const fetchStudentsReducer = (state = initialState, action) => {
         case GET_PUBLICATIONS_BUSINESS_SUCCESS:
             let all = action.payload.reverse();
             let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id) || action.id.includes(e.posterUser._id))
-            let response = fol1.reverse(); // usuarios que sigo
+            let response = fol1.reverse(); // usuarios que sigo incluido yo
             let responseBusiness = all.filter(e => e.posterUser.userTypes === 4 || e.posterUser.userTypes === 5);
 
             return {
