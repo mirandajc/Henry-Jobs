@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {  ContainerProfile, LoginCont } from './navLogin/navLoginStyles/navLogin';
 import { useDispatch, useSelector } from "react-redux";
 import {useNavigate} from 'react-router-dom';
-import { setLogout } from "../../../reducer/actions/actionPost";
+import { setGoogleUser, setLogout } from "../../../reducer/actions/actionPost";
 
 
 
@@ -21,6 +21,7 @@ export default function LoginApi() {
     const Logout=()=>{
         localStorage.clear('TK')
         dispatch(setLogout())
+        dispatch(setGoogleUser(false));
         navigate('/')
     }
 

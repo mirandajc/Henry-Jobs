@@ -58,13 +58,13 @@ const App = () => {
       {USER && (
         <div>
           {console.log(USER)}
-          <button
+          {/* <button
             onClick={() => {
                 dispatch(setGoogleUser(false));
             }}
           >
             Logout
-          </button>
+          </button> */}
         </div>
       )}
     </div>

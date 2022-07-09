@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import {
     postRegisterModalSuccess,
+    postUser,
     postUserSuccess,
     profileSuccess,
     updateUserSuccess
@@ -20,7 +21,8 @@ import {
 } from '../../constants/constants';
 
 function* asyncPostUser (user){
-    
+    console.log("llegue aca", user.payload)
+
     try{
         const response = yield call(() => (axios.post(URL_POST, user.payload)));
         // const codedTK= response.data;
@@ -64,20 +66,34 @@ function* asyncUpdateUser (objeto){
 function* asyncLoginWithGoogle (payload){
     try {
         console.log("0. Estoy en sagas mi rey", payload.payload);
+
         const response = yield call(() => axios.post(URL_DEPLOY + "/user", payload));
-        console.log("1. Soy el response antes del NEXT", response.data)
+
+        console.log("1. Soy el response antes del NEXT", response.data);
+
         if(response.data === "next"){
             const user = yield call(() => axios.get(URL_DEPLOY + `/mail?email=${payload.payload.email}`));
             console.log("2. Soy el user en NEXT", user.data);
             //setear user en el response del postReducer
-            yield put(postUserSuccess(user.data));
+
+            let obj = {
+                email: user.data.email,
+                password: "123456789"
+            }
+
+            yield put(postUser(obj));
             
         }
         else{
            //si no existe => response.data usuario completo
            console.log("3. soy el de google creado", response.data);
            // response.data => al response del postReducer
-           yield put(postUserSuccess(response.data));
+           let obj = {
+            email: response.data.email,
+            password: "123456789"
+        }
+
+           yield put(postUser(obj));
         }
     }
     catch(error){
