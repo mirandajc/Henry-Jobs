@@ -29,6 +29,8 @@ const App = () => {
         lastName: USER.family_name,
         email: USER.email,
         password: "123456789",
+        profileImage:{secure_url:"https://res.cloudinary.com/noisybrain-cloud/image/upload/v1657222048/HenryJobs/profileImage_iptpub.jpg"},
+        banner:{secure_url:"https://res.cloudinary.com/noisybrain-cloud/image/upload/v1657222059/HenryJobs/banner_pogdok.jpg"}
       };
 
       dispatch(loginWithGoogle(obj));
