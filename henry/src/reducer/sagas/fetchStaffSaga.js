@@ -6,7 +6,9 @@ import {
 
 import {
     GET_INFO_FOR_STAFF,
-    URL_PEDIDO
+    URL_PEDIDO,
+    URL_PROFILE,
+    USER_DELETE
 } from '../../constants/constants';
 
 
@@ -14,14 +16,25 @@ function* asynGetInfoForStaff () {
     try {
         const responseUsers = yield call(()=> axios.get(URL_PEDIDO+'/user'))
         const responsePubli = yield call(()=> axios.get(URL_PEDIDO+'/post'))
+        console.log(responseUsers.data, responsePubli.data)
         yield put(getInfoForStaffSuccess({users: responseUsers.data, publications: responsePubli.data})) // reemplazar por response.data
     } catch (error) {
         console.log(error);
     }
 };
 
+function* asyncUserDelete (payload) {
+    try {
+        const resp = yield call(() => axios.delete(URL_PROFILE + payload.payload))
+        console.log(resp);
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 
 export function* watchFetchSaffSaga(){
     yield takeEvery(GET_INFO_FOR_STAFF, asynGetInfoForStaff)
+    yield takeEvery(USER_DELETE, asyncUserDelete)
 }

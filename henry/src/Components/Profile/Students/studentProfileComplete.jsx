@@ -17,25 +17,24 @@ export default function StudentCompletePage() {
     const dispatch = useDispatch();
     const userProfile = useSelector((state) => state.fetchPostReducer.responseProfile)
     const [renderi, setRenderi] = useState(false);
-    const [ idRey , setIdRey ] = useState('')
 
     useEffect(() => {
         if(userProfile.name !== undefined) { 
             setRenderi(true)
-        } else {
-            dispatch(profileID(idRey));  
+        } 
+        if(id){
+            dispatch(profileID(id));  
         }
-    }, [idRey])
+        
+    }, [id])
+
 
     useEffect(() => {
         if(userProfile.name !== undefined){
             setRenderi(true)
         }
-    },[userProfile.name])
+    },[userProfile])
 
-    useEffect(() => {
-        setIdRey(id)
-    },[id])
 
     return (
         

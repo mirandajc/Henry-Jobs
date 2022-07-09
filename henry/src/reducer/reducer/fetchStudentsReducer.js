@@ -43,10 +43,14 @@ const fetchStudentsReducer = (state = initialState, action) => {
 
         case GET_MY_APPLICAT_SUCCESS:
             let id = action.id;
-            let post = action.payload.filter(e => e.applicants.includes(id))
+            let respondido = []
+            for (let i = 0; i < action.payload.length; i++) {
+                action.payload[i].applicants.filter(e => e.userId === id &&
+                respondido.push(action.payload[i]))
+            } 
             return {
                 ...state,
-                myApp: post
+                myApp: respondido
             };
 
         case GET_STUDENTS_BY_EMAIL_SUCCESS:
