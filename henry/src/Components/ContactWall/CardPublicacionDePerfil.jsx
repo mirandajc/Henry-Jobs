@@ -7,9 +7,9 @@ import { sendNudes } from "../../reducer/actions/actionBusiness";
 export default function PublicationCard(props) {
 
     const dispatch = useDispatch();
-    const [shown, setShown] = useState(true)
-    const [showStep, setShownStep] = useState(true)
-    const [stepActualizado, setStepActualizado] = useState(false)
+    const [shown, setShown] = useState(true);
+    const [showStep, setShownStep] = useState(true);
+    const [stepActualizado, setStepActualizado] = useState(false);
 
     useEffect(() => {
         dispatch(getAllStudents());
@@ -42,8 +42,8 @@ export default function PublicationCard(props) {
             userId: id,
             name: name
         };
-        setStepActualizado(valor)
-        setShownStep(false)
+        setStepActualizado(valor);
+        setShownStep(false);
         dispatch(sendNudes(obj, idp));
     };
 
@@ -60,7 +60,7 @@ export default function PublicationCard(props) {
             name: name
         };
         setShown(false);
-        dispatch(sendNudes(obj, idp))
+        dispatch(sendNudes(obj, idp));
     };
 
     return (
