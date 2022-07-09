@@ -41,7 +41,7 @@ export default function BusinessNavBar() {
                         {
                             prem === undefined ? null :
 
-                            prem ? <ButtonPremium /> : null // negar despues
+                            !prem ? <ButtonPremium /> : null // negar despues
                         }
                     </NavSt>
                     : null

@@ -73,10 +73,10 @@ function* asyncLoginWithGoogle (payload){
 }
 
 function* asyncSetPremium (payload){
-    console.log(payload)
     try {
-        /* const response = yield call(() => axios.put(URL_DEPLOY + `/user/${objeto.payload[1]}`, {premium : true}))
-        yield put(updateUserSuccess(response.data)) */
+        const response = yield call(() => axios.put(URL_DEPLOY + `/user/${payload.payload}`, payload.payload))
+        console.log(response)
+        yield put(updateUserSuccess(response.data))
     } catch (error) {
         console.log(error);
     }

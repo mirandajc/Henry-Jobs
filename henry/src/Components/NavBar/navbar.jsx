@@ -27,7 +27,7 @@ export default function Navbar() {
     } else {
       setNav(!nav)
     }
-  }, [actualizar, nav])
+  }, [actualizar])
 
   return (
     <NavbarS>
