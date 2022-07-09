@@ -69,7 +69,12 @@ export default function PublicationCard(props) {
 
     return (
         <div>
+            {
+            props.botonDelete ?
             <button onClick={borrarPublicacion}>Borrar publicacion</button>
+            : 
+            null
+            }
             <div>{props.email}</div>
             <div>{props.date}</div>
             <div>{props.text}</div>
