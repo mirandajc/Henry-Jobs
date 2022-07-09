@@ -63,9 +63,22 @@ function* asyncUpdateUser (objeto){
 
 function* asyncLoginWithGoogle (payload){
     try {
-        console.log("Estoy en sagas mi rey", payload.payload);
-        // const response = yield call()
-        // manejar response(loginWithGoogleSuccess(response.data)) hacer success
+        console.log("0. Estoy en sagas mi rey", payload.payload);
+        const response = yield call(() => axios.post(URL_DEPLOY + "/user", payload));
+        console.log("1. Soy el response antes del NEXT", response.data)
+        if(response.data === "next"){
+            const user = yield call(() => axios.get(URL_DEPLOY + `/mail?email=${payload.payload.email}`));
+            console.log("2. Soy el user en NEXT", user.data);
+            //setear user en el response del postReducer
+            yield put(postUserSuccess(user.data));
+            
+        }
+        else{
+           //si no existe => response.data usuario completo
+           console.log("3. soy el de google creado", response.data);
+           // response.data => al response del postReducer
+           yield put(postUserSuccess(response.data));
+        }
     }
     catch(error){
         console.log(error);

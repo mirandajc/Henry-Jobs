@@ -18,8 +18,8 @@ export const SET_REGISTER_TRUE_SUCCES = 'SET_REGISTER_TRUE_SUCCES';
 
 export const GET_PUBLICATIONS_BUSINESS = 'GET_PUBLICATIONS_BUSINESS'; 
 export const GET_PUBLICATIONS_BUSINESS_SUCCESS = 'GET_PUBLICATIONS_BUSINESS_SUCCESS';
-export const URL_PEDIDO = "http://localhost:3001/api" // reemplazar por la ruta de pedidos de publicaciones de empresas
-export const URL_PEDIDO_POSTS = "http://localhost:3001/api/post"
+export const URL_PEDIDO = "http://henryjob.herokuapp.com/api" // reemplazar por la ruta de pedidos de publicaciones de empresas
+export const URL_PEDIDO_POSTS = "http://henryjob.herokuapp.com/api/post"
 export const GET_PUBLICATIONS_TECHNOLOGIES = "GET_PUBLICATIONS_TECHNOLOGIES";
 export const GET_PUBLICATIONS_DEVTYPE = "GET_PUBLICATIONS_DEVTYPE";
 export const GET_PUBLICATIONS_ENGLISH = "GET_PUBLICATIONS_ENGLISH";
@@ -45,7 +45,7 @@ export const GET_INFO_USER_SUCCESS = "GET_INFO_USER_SUCCESS";
 
 export const POST_USER= 'POST_USER';
 export const POST_USER_SUCCESS='POST_USER_SUCCESS';
-export const URL_POST='http://localhost:3001/api/signin';
+export const URL_POST='http://henryjob.herokuapp.com/api/signin';
 
 export const HENRY_LOGO ='https://blog.soyhenry.com/content/images/2021/03/151211491_440151970756357_8005198803636550092_o.jpg';
 export const SHOW_FILTER = "SHOW_FILTER";
@@ -64,13 +64,13 @@ export const POST_ID_FOLLOW_BUSS = 'POST_ID_FOLLOW_BUSS';
 export const POST_ID_FOLLOW_BUSS_SUCCESS = 'POST_ID_FOLLOW_BUSS_SUCCESS';
 
 
-export const URL_DEPLOY = 'http://localhost:3001/api';
+export const URL_DEPLOY = 'http://henryjob.herokuapp.com/api';
 
 
 export const PROFILE_SUCCESS= 'PROFILE_SUCCESS';
 export const PROFILE_ID='PROFILE_ID';
 
-export const URL_PROFILE= 'http://localhost:3001/api/user/';
+export const URL_PROFILE= 'http://henryjob.herokuapp.com/api/user/';
 
 export const POST_REGISTER_MODAL = "POST_REGISTER_MODAL";
 export const POST_REGISTER_MODAL_SUCCESS = "POST_REGISTER_MODAL_SUCCESS";
