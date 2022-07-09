@@ -14,13 +14,13 @@ import {
 import {
     GET_ALL_STUDENTS,GET_BUSINESS_BY_EMAIL,SEND_NUDES,
     GET_PUBLICATION_STUDENTS, URL_PEDIDO,GET_MY_PUBLICATIONS, URL_PEDIDO_POSTS,SET_APPLICANT,POST_ID_FOLLOW_BUSS,
-    TRAER_FOLLOWING
+    TRAER_FOLLOWING, BORRAR_PUBLICACIONES
 } from '../../constants/constants';
 
 
 function* asyncGetPublicationStudents (payload) {
     try {
-        const response = yield call(()=> axios.get(URL_PEDIDO+'/post'))
+        const response = yield call(()=> axios.get(URL_PEDIDO + '/post'))
         yield put(getPublicationStudentsSuccess(response.data, payload)) // reemplazar por response.data
     } catch (error) {
         console.log(error);
@@ -82,6 +82,16 @@ function* asyncTraerFollowing (payload) {
     }
 };
 
+function* asyncBorrarPublicacion (payload) {
+    try {
+        console.log("soy el payload de borrar", payload.payload);
+        const response = yield call(() => axios.delete(URL_PEDIDO_POSTS + `/${payload.payload}`));
+        console.log("soy la respuesta", response.data)
+    } catch (error) {
+        console.log(error);
+    };
+};
+
 
 
 export function* watchFetchBusinessSaga(){
@@ -93,4 +103,5 @@ export function* watchFetchBusinessSaga(){
     yield takeLatest(GET_BUSINESS_BY_EMAIL, asyncGetBusinessByEmail)
     yield takeEvery(SEND_NUDES, asyncSendNudes)
     yield takeEvery(TRAER_FOLLOWING, asyncTraerFollowing)
+    yield takeEvery(BORRAR_PUBLICACIONES, asyncBorrarPublicacion)
 }
