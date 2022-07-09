@@ -9,17 +9,17 @@ import { Publicaciones } from "./ApplicantMokedFiles";
 export default function ContactWall() {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const publicactions = useSelector(state => state.fetchBusinessReducer.myPublications);
   
   useEffect(() => {
     dispatch(getMyPublications(id));
-  }, []);
+  }, [publicactions]);
  
 
     // => Agregar el botón "POSTULARSE" 
     // en las publicaciones de empresas y recruiter
     // si sos estudiante.
   
-  const publicactions = useSelector(state => state.fetchBusinessReducer.myPublications);
 
   // ESTE COMPONENTE RENDERIZA TODAS LAS PUBLICACIONES PARA VER POSTULANTES
 
