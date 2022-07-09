@@ -63,7 +63,7 @@ function* asyncGetBusinessByEmail (email) {
 
 function* asyncSendNudes (payload) {
     try { 
-       const response = yield call(() => axios.put(URL_PEDIDO_POSTS+'/apply/'+payload.idp , payload.payload))
+       const response = yield call(() => axios.put(URL_PEDIDO_POSTS +'/apply/'+ payload.idp , payload.payload))
        yield put(sendNudesSuccess(response.data));
     } catch (error) {
         console.log(error)

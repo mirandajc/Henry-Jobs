@@ -16,7 +16,7 @@ const App = () => {
     let payload = jwt_deocde(userCred);
     console.log(payload);
 
-    // accion que lleve el payload al reduccer
+    // accion que lleve el payload al reducer
     dispatch(setGoogleUser(payload))
 
   };
