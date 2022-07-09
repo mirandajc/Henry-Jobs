@@ -39,6 +39,7 @@ export default function CardWallStudents({ name, lastname, email, technologies, 
     }
   }, [foll, foll2]);
 
+
   const handleFollow = () => {
     if (userType.type === 1 || userType.type === 2) {
       dispatch(postIdFollow(id, { id: userType.id }));

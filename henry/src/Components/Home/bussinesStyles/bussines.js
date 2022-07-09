@@ -14,6 +14,7 @@ export const CardContainer= styled.div`
 width: 100%;
 min-height: 120vh;
 
+border: 1px solid white;
 
 
 `

@@ -5,13 +5,8 @@ import {useNavigate} from 'react-router-dom';
 import { buggNav, postUser } from "../../../reducer/actions/actionPost";
 import { HENRY_LOGO } from "../../../constants/constants";
 import { ConteinLogin } from "../LoginStyles/logstyle";
-import {FcGoogle} from 'react-icons/fc'
-import {VscGithubInverted} from 'react-icons/all';
 import { useJwt } from "react-jwt";
-import { setLogout } from "../../../reducer/actions/actionPost";
 import GoogleLog from "./googleLogin"; 
-import GithubLog from "./githubLogin";
-import { ButtonGoogle } from "../LoginStyles/logstyle";
 import { getStudentsByEmail } from "../../../reducer/actions/actionStudents";
 import { getBusinessByEmail } from "../../../reducer/actions/actionBusiness";
 

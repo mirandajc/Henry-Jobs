@@ -169,7 +169,7 @@ export default function PubliSettings(props){
 
                 
                 <select onChange={(e) => setTags({...tags, languages: e.target.value })}>
-                    <option value={""}>Nivel de inglés</option>
+                    <option value={""}>Inglés</option>
                     <option>A0</option>
                     <option>A1</option>
                     <option>A2</option>

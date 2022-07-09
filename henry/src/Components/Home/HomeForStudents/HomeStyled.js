@@ -28,7 +28,7 @@ border-top: 1px solid yellow;
 display: flex;
 background-color: #1A1B1E;
 width: 50%;
-height: 15rem;
+min-height: 5em;
 border-radius: 1rem;
 flex-direction: row;
 flex-wrap: nowrap;
@@ -36,19 +36,24 @@ align-content: space-around;
 margin: 2rem;
 align-items: center;
 
-p{
-    margin-left: 0.5rem;
-    font-size: 11px;
-    text-align: justify;
-    margin-right: 3rem;
-}
+// p{
+//     margin-left: 0.5rem;
+//     font-size: 11px;
+//     text-align: justify;
+//     margin-right: 3rem;
+
+    
+// }
 `
 
 export const DatosProyect = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0.5rem;
-
+    
+    min-width:50%;
+    min-height: 3em;
+    overflow:hidden;
 h4{
     font-weight: 200;
     color: white;
@@ -56,7 +61,11 @@ h4{
     margin: 0;
 }
 p{
-    color: white !important;
+    height: 100%;
+    width:100%;
+    color: white;
+    
+    text-align: left;
 }
 
 `
@@ -120,6 +129,14 @@ justify-content: space-evenly;
     justify-content: space-around;
     flex-wrap: wrap;
     
+.bitt{
+    
+    width: 100%;
+    display: flex;
+     align-items: center;
+     justify-content: space-around;
+}
+
 
     // .button{
     //     width:2em;

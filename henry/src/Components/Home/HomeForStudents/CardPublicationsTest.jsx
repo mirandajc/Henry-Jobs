@@ -10,6 +10,9 @@ import { postIdFollowBuss } from "../../../reducer/actions/actionBusiness";
 export default function CardPublicationWorkTest({ id, image, name, date, title, summary, video, technologies, backFront, ubication, workModality, english, userName, lastname, text }) {
     // viene publicacion de empresas y alumnos mix
 
+
+
+    console.log(summary)
     const dispatch = useDispatch();
 
     const tal = localStorage.getItem('TK')
@@ -49,19 +52,41 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
                     <p>{summary}</p>
                 </DatosProyect>
                 <div>
+
+                    
                     <div className="TechnologiesAndOthers">
-                        {
+                        { technologies.length > 1?
                             technologies.map(e => <ButtonTecnologies>{e}</ButtonTecnologies>)
+                            :
+                            null
                         }
+
+                        {
+                            backFront !== undefined?
+
+                        <div className="bitt">    
                         <ButtonLight>
                             <p>{backFront}</p>
                         </ButtonLight>
+
+                        {
+                            workModality !== undefined?
                         <ButtonLight>
                             <p>{workModality}</p>
                         </ButtonLight>
+                        : null
+                        }
+                        {
+                            english !== undefined?
                         <ButtonLight>
                             <p>{english}</p>
                         </ButtonLight>
+                        :null
+                        }
+                        </div>
+                            :
+                            null
+                        }
                         {
                             id === userType.id ? null :
                                 <div >
@@ -74,7 +99,9 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
                     </div>
                 </div>
             </ComponentDatos>
-            <Video>
+          {
+            video.length > 1?    
+          <Video>
                 <ReactPlayer
                     url={video}
                     className='video'
@@ -88,6 +115,9 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
                     <p>{date}</p>
                 </Date>
             </Video>
+            :
+            null
+            }
         </ComponentCard>
     )
 }
