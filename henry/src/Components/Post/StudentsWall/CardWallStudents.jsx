@@ -37,16 +37,20 @@ export default function CardWallStudents({ name, lastname, email, technologies, 
     if (userType.type === 4 || userType.type === 5) {
       dispatch(traerFollowingStud(userType.id));
     }
-  },[])
+  }, [])
+
+  useEffect(() => {
+    if (userType.type === 4 || userType.type === 5) {
+      dispatch(traerFollowingStud(userType.id));
+    }
+  }, [foll2])
 
   useEffect(() => {
     if (userType.type === 1 || userType.type === 2) {
-      dispatch(getPublicationStudents(userType.id))
+      dispatch(traerFollowing(userType.id));
     }
-    if (userType.type === 4 || userType.type === 5) {
-      dispatch(getPublicationsBusiness(userType.id));
-    }
-  }, [foll, foll2]);
+  }, [foll])
+
 
 
   const handleFollow = () => {
@@ -136,8 +140,8 @@ export default function CardWallStudents({ name, lastname, email, technologies, 
                         <button onClick={() => handleFollow()}>{/* <AiOutlinePlus className="plusd"/> */}
                           {
                             userType.type === 1 || userType.type === 2 ?
-                            foll.includes(id) ? <p>-</p> : <p>+</p>
-                            : foll2.includes(id) ? <p>-</p> : <p>+</p>
+                              foll.includes(id) ? <p>-</p> : <p>+</p>
+                              : foll2.includes(id) ? <p>-</p> : <p>+</p>
                           }
 
                         </button>

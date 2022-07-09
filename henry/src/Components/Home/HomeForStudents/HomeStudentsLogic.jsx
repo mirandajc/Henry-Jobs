@@ -12,9 +12,6 @@ export default function HomeStudentsLogic({ id }) {
     const foll = useSelector((state) => state.fetchStudentsReducer.userFollows);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(traerFollowingStud(id));
-    }, [])
 
     useEffect(() => {
         dispatch(getPublicationsBusiness(id));
