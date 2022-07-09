@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import {useParams, Link} from 'react-router-dom';
 import { InnerModal, EditCloseButton, Fotos, NameLast, RedesEdit, Cont2, SelectorCou, Foto1,Foto2,TecOther, AboutAs  } from "./profileStyles/EditModal";
 import {MdOutlineInsertPhoto} from 'react-icons/all';
 import {BsGithub, BsLinkedin}from 'react-icons/bs';
@@ -9,6 +10,7 @@ import {countries} from '../Register_form/gistfile1.json';
 export default function InnModal(){
 //nombre, banner, fotoperfil, ubicacion, github, linkedin, mail,instancia, tecnologias, otros estudios, acercaDE, favoritos
 
+const {id}= useParams();
 const [foto, setFoto]= useState(false);
 const [input,setInput]= useState('');
 const [inputd,setInputd]= useState('');
@@ -60,9 +62,13 @@ const [edituser, setEditUser]= useState({
 
     return(
         <InnerModal>
+            
             <EditCloseButton>
+            <Link to={`/profile/${id}`}>
                 <button>X</button>
+                </Link>
             </EditCloseButton>
+            
             <Fotos>
                 <div className="cont">
                     <h3>Foto de perfil:</h3>

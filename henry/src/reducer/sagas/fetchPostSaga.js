@@ -15,7 +15,9 @@ import {
     POST_REGISTER_MODAL,
     URL_DEPLOY,
     UPDATE_USER,
-    SET_PREMIUM
+    SET_PREMIUM,
+    EDIT_PROFILE,
+    PROFILE_EDIT_URL
 } from '../../constants/constants';
 
 function* asyncPostUser (user){
@@ -62,14 +64,25 @@ function* asyncUpdateUser (objeto){
 };
 
 function* asyncSetPremium (payload){
-    console.log(payload)
+    
     try {
-        /* const response = yield call(() => axios.put(URL_DEPLOY + `/user/${objeto.payload[1]}`, objeto.payload[0]))
-        yield put(updateUserSuccess(response.data)) */
+        const response = yield call(() => axios.put(URL_DEPLOY + `/user/${payload.payload}`, payload.payload))
+        console.log(response)
+        // yield put(updateUserSuccess(response.data)) 
     } catch (error) {
         console.log(error);
     }
 };
+
+function* asyncEditProfile(payload){
+    //AGREGAR OBJ DE PERFIL
+    try{
+        const response= yield call(()=> axios.put(PROFILE_EDIT_URL+ `${payload.payload}`))
+
+    }catch(error){
+        console.log(error)
+    }
+}
 
 
 
@@ -79,4 +92,5 @@ export function* watchFetchPostSaga(){
     yield takeEvery(POST_REGISTER_MODAL, asyncPostRegisterModal)
     yield takeEvery(UPDATE_USER, asyncUpdateUser)
     yield takeEvery(SET_PREMIUM, asyncSetPremium)
+    yield takeEvery(EDIT_PROFILE, asyncEditProfile)
 }

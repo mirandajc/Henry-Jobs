@@ -120,15 +120,15 @@ export default function LoginPage(){
                 </div>
                 <div className="other">
                     <div id="signInDiv" >
-                        <FcGoogle className="another"/>
+                        {/* <FcGoogle className="another"/> */}
                         <GoogleLog/>
                     </div>
-                    <div>
+                    {/* <div> */}
                         {/* <GithubLog/> */}
-                        <VscGithubInverted className="another"
-                        />
+                        {/* <VscGithubInverted className="another"
+                        /> */}
                   
-                    </div>
+                    {/* </div> */}
                 </div>
                 <div>
                 </div>

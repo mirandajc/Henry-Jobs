@@ -15,7 +15,8 @@ import {
     UPDATE_USER,
     UPDATE_USER_SUCCESS,
     BUGG_NAV,
-    SET_PREMIUM
+    SET_PREMIUM,
+    EDIT_PROFILE
  
 } from "../../constants/constants";
 
@@ -129,8 +130,19 @@ export function buggNav(){
 }
 
 export function setPremium(payload){
+    
     return {
         type: SET_PREMIUM,
-        payload
+        payload : payload
+    }
+}
+
+
+export function EditProfile(payload){
+
+    return{
+        type: EDIT_PROFILE,
+        payload: payload
+
     }
 }

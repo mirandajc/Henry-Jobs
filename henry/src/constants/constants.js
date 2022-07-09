@@ -99,3 +99,5 @@ export const GET_PREMIUM_BUSINESS = "GET_PREMIUM_BUSINESS";
 export const GET_PREMIUM_BUSINESS_SUCCESS = "GET_PREMIUM_BUSINESS_SUCCESS";
 export const SET_PREMIUM = "SET_PREMIUM";
 
+export const EDIT_PROFILE= 'EDIT_PROFILE';
+export const PROFILE_EDIT_URL='http://henryjob.herokuapp.com/api/user/';
