@@ -16,7 +16,9 @@ import {
     UPDATE_USER_SUCCESS,
     BUGG_NAV,
     SET_PREMIUM,
-    EDIT_PROFILE
+    EDIT_PROFILE,
+    GOOGLE_LOGIN,
+    SET_GOOGLE_USER
  
 } from "../../constants/constants";
 
@@ -126,8 +128,16 @@ export function updateUserSuccess(payload) {
 export function buggNav(){
     return {
         type: BUGG_NAV
-    }
-}
+    };
+};
+
+export function loginWithGoogle(obj) {
+    return {
+        type: GOOGLE_LOGIN,
+        payload: obj
+    };
+};
+
 
 export function setPremium(payload){
     
@@ -144,5 +154,12 @@ export function EditProfile(payload){
         type: EDIT_PROFILE,
         payload: payload
 
+    }
+}
+
+export function setGoogleUser(payload){
+    return {
+        type: SET_GOOGLE_USER,
+        payload
     }
 }

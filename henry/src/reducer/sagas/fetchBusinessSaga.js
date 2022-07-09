@@ -7,12 +7,14 @@ import {
     postIdFollowBusssSuccess,
     getMyPublicationsSuccess,
     getBusinessByEmailSuccess,
-    sendNudesSuccess
+    sendNudesSuccess,
+    traerFollowingSuccess
 } from '../actions/actionBusiness';
 
 import {
     GET_ALL_STUDENTS,GET_BUSINESS_BY_EMAIL,SEND_NUDES,
-    GET_PUBLICATION_STUDENTS, URL_PEDIDO,GET_MY_PUBLICATIONS, URL_PEDIDO_POSTS,SET_APPLICANT,POST_ID_FOLLOW_BUSS
+    GET_PUBLICATION_STUDENTS, URL_PEDIDO,GET_MY_PUBLICATIONS, URL_PEDIDO_POSTS,SET_APPLICANT,POST_ID_FOLLOW_BUSS,
+    TRAER_FOLLOWING
 } from '../../constants/constants';
 
 
@@ -35,6 +37,7 @@ function* asyncGetAllStudents () {
 };
 
 function* asyncPostIdFollowBuss (obj) {
+    console.log(obj,'soy obj')
     try {
         const response = yield call(()=> axios.put(URL_PEDIDO +'/follow/'+obj.payload, obj.obj))
         yield put(postIdFollowBusssSuccess(response.data)) // reemplazar por response.data      
@@ -63,8 +66,17 @@ function* asyncGetBusinessByEmail (email) {
 
 function* asyncSendNudes (payload) {
     try { 
-       const response = yield call(() => axios.put(URL_PEDIDO_POSTS+'/apply/'+payload.idp , payload.payload))
+       const response = yield call(() => axios.put(URL_PEDIDO_POSTS +'/apply/'+ payload.idp , payload.payload))
        yield put(sendNudesSuccess(response.data));
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+function* asyncTraerFollowing (payload) {
+    try { 
+       const response = yield call(() => axios.put(URL_PEDIDO+'/user/'+payload.payload))
+       yield put(traerFollowingSuccess(response.data));
     } catch (error) {
         console.log(error)
     }
@@ -80,4 +92,5 @@ export function* watchFetchBusinessSaga(){
     /* yield takeEvery(SET_APPLICANT, asyncSetApplicant) */
     yield takeLatest(GET_BUSINESS_BY_EMAIL, asyncGetBusinessByEmail)
     yield takeEvery(SEND_NUDES, asyncSendNudes)
+    yield takeEvery(TRAER_FOLLOWING, asyncTraerFollowing)
 }

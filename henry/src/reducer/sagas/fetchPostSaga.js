@@ -17,7 +17,9 @@ import {
     UPDATE_USER,
     SET_PREMIUM,
     EDIT_PROFILE,
-    PROFILE_EDIT_URL
+    PROFILE_EDIT_URL,
+    GOOGLE_LOGIN,
+    
 } from '../../constants/constants';
 
 function* asyncPostUser (user){
@@ -26,7 +28,6 @@ function* asyncPostUser (user){
         const response = yield call(() => (axios.post(URL_POST, user.payload)));
         // const codedTK= response.data;
         // localStorage.setItem('codedTK',JSON.stringify(codedTK));
-        
         yield put(postUserSuccess(response.data))
     }catch(error){
         console.log(error)
@@ -63,6 +64,17 @@ function* asyncUpdateUser (objeto){
     }
 };
 
+function* asyncLoginWithGoogle (payload){
+    try {
+        console.log("Estoy en sagas mi rey", payload.payload);
+        // const response = yield call()
+        // manejar response(loginWithGoogleSuccess(response.data)) hacer success
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
 function* asyncSetPremium (payload){
     
     try {
@@ -91,6 +103,7 @@ export function* watchFetchPostSaga(){
     yield takeEvery(PROFILE_ID, getProfileByID)
     yield takeEvery(POST_REGISTER_MODAL, asyncPostRegisterModal)
     yield takeEvery(UPDATE_USER, asyncUpdateUser)
+    yield takeEvery(GOOGLE_LOGIN, asyncLoginWithGoogle)
     yield takeEvery(SET_PREMIUM, asyncSetPremium)
     yield takeEvery(EDIT_PROFILE, asyncEditProfile)
 }

@@ -3,7 +3,8 @@ import {
     GET_INFO_FOR_STAFF_SUCCESS,
     GET_STUDENT_DETAIL,
     STAFF_ORDER_STUDENTS,
-    STAFF_SHOW_ORDER
+    STAFF_SHOW_ORDER,
+    USER_DELETE
 } from "../../constants/constants";
 
 export function getInfoForStaff () {
@@ -36,5 +37,12 @@ export function ordenarAlumnos (payload) {
 export function staffShowOrder () {
     return {
         type: STAFF_SHOW_ORDER
+    };
+};
+
+export function userDelete (payload) {
+    return {
+        type: USER_DELETE,
+        payload
     };
 };

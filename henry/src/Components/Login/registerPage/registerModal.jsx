@@ -131,6 +131,8 @@ export default function RegisterCard(){
                         name: datos.nombre,
                         email: datos.email,
                         password: datos.contraseña,
+                        profileImage:{secure_url:"https://res.cloudinary.com/noisybrain-cloud/image/upload/v1657222048/HenryJobs/profileImage_iptpub.jpg"},
+                        banner:{secure_url:"https://res.cloudinary.com/noisybrain-cloud/image/upload/v1657222059/HenryJobs/banner_pogdok.jpg"}
                     };
                     console.log("enviando usuario", USER)
                     dispatch(postRegisterModal(USER));

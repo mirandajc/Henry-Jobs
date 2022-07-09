@@ -18,8 +18,8 @@ export const SET_REGISTER_TRUE_SUCCES = 'SET_REGISTER_TRUE_SUCCES';
 
 export const GET_PUBLICATIONS_BUSINESS = 'GET_PUBLICATIONS_BUSINESS'; 
 export const GET_PUBLICATIONS_BUSINESS_SUCCESS = 'GET_PUBLICATIONS_BUSINESS_SUCCESS';
-export const URL_PEDIDO = "http://henryjob.herokuapp.com/api" // reemplazar por la ruta de pedidos de publicaciones de empresas
-export const URL_PEDIDO_POSTS = "http://henryjob.herokuapp.com/api/post"
+export const URL_PEDIDO = "http://localhost:3001/api" // reemplazar por la ruta de pedidos de publicaciones de empresas
+export const URL_PEDIDO_POSTS = "http://localhost:3001/api/post"
 export const GET_PUBLICATIONS_TECHNOLOGIES = "GET_PUBLICATIONS_TECHNOLOGIES";
 export const GET_PUBLICATIONS_DEVTYPE = "GET_PUBLICATIONS_DEVTYPE";
 export const GET_PUBLICATIONS_ENGLISH = "GET_PUBLICATIONS_ENGLISH";
@@ -64,7 +64,7 @@ export const POST_ID_FOLLOW_BUSS = 'POST_ID_FOLLOW_BUSS';
 export const POST_ID_FOLLOW_BUSS_SUCCESS = 'POST_ID_FOLLOW_BUSS_SUCCESS';
 
 
-export const URL_DEPLOY = 'http://henryjob.herokuapp.com/api';
+export const URL_DEPLOY = 'http://localhost:3001/api';
 
 
 export const PROFILE_SUCCESS= 'PROFILE_SUCCESS';
@@ -95,9 +95,18 @@ export const GET_MY_APPLICAT_SUCCESS = "GET_MY_APPLICAT_SUCCESS";
 export const GET_MY_APPLICAT = "GET_MY_APPLICAT";
 export const POST_PUBLICATION_STU = "POST_PUBLICATION_STU";
 export const BUGG_NAV = "BUGG_NAV";
+export const GOOGLE_LOGIN = "GOOGLE_LOGIN";
+export const GOOGLE_LOGIN_SUCCESS = "GOOGLE_LOGIN_SUCCESS";
+
 export const GET_PREMIUM_BUSINESS = "GET_PREMIUM_BUSINESS";
 export const GET_PREMIUM_BUSINESS_SUCCESS = "GET_PREMIUM_BUSINESS_SUCCESS";
 export const SET_PREMIUM = "SET_PREMIUM";
+export const SET_GOOGLE_USER = "SET_GOOGLE_USER";
+export const USER_DELETE = "USER_DELETE";
+export const TRAER_FOLLOWING = "TRAER_FOLLOWING";
+export const TRAER_FOLLOWING_SUCCESS = "TRAER_FOLLOWING_SUCCESS";
+export const TRAER_FOLLOWING_STUD = "TRAER_FOLLOWING_STUD";
+export const TRAER_FOLLOWING_STUD_SUCCESS = "TRAER_FOLLOWING_STUD_SUCCESS";
 
 export const EDIT_PROFILE= 'EDIT_PROFILE';
 export const PROFILE_EDIT_URL='http://henryjob.herokuapp.com/api/user/';

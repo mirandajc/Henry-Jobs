@@ -15,8 +15,8 @@ export default function Applications() {
     // este muro muestra las publicaciones
     
     useEffect(() => {
-        dispatch(getMyApplicat(id))
-    },[])
+        dispatch(getMyApplicat(id));
+    },[]);
 
     return (
 

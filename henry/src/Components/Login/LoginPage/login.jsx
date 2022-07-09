@@ -9,6 +9,7 @@ import { useJwt } from "react-jwt";
 import GoogleLog from "./googleLogin"; 
 import { getStudentsByEmail } from "../../../reducer/actions/actionStudents";
 import { getBusinessByEmail } from "../../../reducer/actions/actionBusiness";
+import App from "../hooks/app"
 
 
 export default function LoginPage(){
@@ -112,6 +113,7 @@ export default function LoginPage(){
 
                 <div className="second">
                     <p>Or signIn with</p>
+                        <App />
                 </div>
                 <div className="other">
                     <div id="signInDiv" >
