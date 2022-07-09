@@ -135,7 +135,7 @@ export default function StudentsWall () {
             </DivFiltros>
 
             
-            {estudiantes.render.map(e => {
+            {estudiantes && estudiantes.render.map(e => {
                 return(
                    
                         <CardWallStudents  // REEMPLAZAR POR UNA TARJETA DE ALUMNOS

@@ -1,40 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CardPublicationWorkTest from "./CardPublicationsTest";
-import { getPublicationsBusiness } from '../../../reducer/actions/actionStudents'
+import { getPublicationsBusiness, traerFollowingStud } from '../../../reducer/actions/actionStudents'
 import { ContenedorStudents } from "./HomeStyled"
 
 
 //Feed del alumno con pyublicaciones 
-export default function HomeStudentsLogic() {
+export default function HomeStudentsLogic({ id }) {
 
     const publicaciones = useSelector((state) => state.fetchStudentsReducer.AllPublicationsFollows);
     const foll = useSelector((state) => state.fetchStudentsReducer.userFollows);
     const dispatch = useDispatch();
 
-
-    const tal = localStorage.getItem('TK')
-    const userType = JSON.parse(tal);
-    const [userId, setUserT] = useState('');
+    useEffect(() => {
+        dispatch(traerFollowingStud(id));
+    }, [])
 
     useEffect(() => {
-        if (userType !== null) {
-            setUserT(userType.id)
-        }
-    }, [userType])
-
-    
-    useEffect(() => {
-        if(userId !== '') {
-            dispatch(getPublicationsBusiness(userId));
-          }
+        dispatch(getPublicationsBusiness(id));
     }, [foll]);
 
     useEffect(() => {
-        if(userId !== '') {
-            dispatch(getPublicationsBusiness(userId));
-          }
-    }, [userId]);
+        dispatch(getPublicationsBusiness(id));
+    }, []);
 
 
     return (

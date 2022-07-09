@@ -17,7 +17,7 @@ export default function CardPublicationWorkTest2({ id, publicacionID, image, nam
     const [ cartel, setCartel ] = useState(false)
 
     useEffect(() => {
-        dispatch(getPublicationsBusiness());
+        dispatch(getPublicationsBusiness(userType.id));
     }, [foll]);
 
     const handleFollow = () => {

@@ -14,8 +14,8 @@ import { Link } from "react-router-dom";
 import Star from '../../images/Star.png';
 import Ubicacion from "../../images/ubicacion.png";
 import { useDispatch, useSelector } from "react-redux";
-import { getPublicationsBusiness, postIdFollow } from "../../../reducer/actions/actionStudents";
-import { getPublicationStudents, postIdFollowBuss } from "../../../reducer/actions/actionBusiness";
+import { getPublicationsBusiness, postIdFollow, traerFollowingStud } from "../../../reducer/actions/actionStudents";
+import { getPublicationStudents, postIdFollowBuss, traerFollowing } from "../../../reducer/actions/actionBusiness";
 import { profileID } from "../../../reducer/actions/actionPost";
 import { AiOutlinePlus } from 'react-icons/ai';
 
@@ -32,12 +32,22 @@ export default function CardWallStudents({ name, lastname, email, technologies, 
 
   useEffect(() => {
     if (userType.type === 1 || userType.type === 2) {
-      dispatch(getPublicationStudents())
+      dispatch(traerFollowing(userType.id));
     }
     if (userType.type === 4 || userType.type === 5) {
-      dispatch(getPublicationsBusiness());
+      dispatch(traerFollowingStud(userType.id));
+    }
+  },[])
+
+  useEffect(() => {
+    if (userType.type === 1 || userType.type === 2) {
+      dispatch(getPublicationStudents(userType.id))
+    }
+    if (userType.type === 4 || userType.type === 5) {
+      dispatch(getPublicationsBusiness(userType.id));
     }
   }, [foll, foll2]);
+
 
   const handleFollow = () => {
     if (userType.type === 1 || userType.type === 2) {

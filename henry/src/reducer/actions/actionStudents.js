@@ -16,7 +16,9 @@ import {
     GET_MY_APPLICAT,
     POST_PUBLICATION_STU,
     GET_PREMIUM_BUSINESS,
-    GET_PREMIUM_BUSINESS_SUCCESS
+    GET_PREMIUM_BUSINESS_SUCCESS,
+    TRAER_FOLLOWING_STUD_SUCCESS,
+    TRAER_FOLLOWING_STUD
 } from "../../constants/constants";
 
 export function getPublicationsBusiness(payload){
@@ -143,6 +145,20 @@ export function getPremiumBusiness () {
 export function getPremiumBusinessSuccess (payload) {
     return {
         type: GET_PREMIUM_BUSINESS_SUCCESS,
+        payload
+    }
+}
+
+export function traerFollowingStud (payload) {
+    return {
+        type: TRAER_FOLLOWING_STUD,
+        payload
+    }
+}
+
+export function traerFollowingStudSuccess (payload) {
+    return {
+        type: TRAER_FOLLOWING_STUD_SUCCESS,
         payload
     }
 }
