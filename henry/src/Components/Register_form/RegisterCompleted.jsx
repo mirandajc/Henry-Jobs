@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { setLogout } from "../../reducer/actions/actionPost";
+import { setGoogleUser, setLogout } from "../../reducer/actions/actionPost";
 import { CompleteStudentCont } from "./formStyles/completeStudent";
 
 export default function RegisterCompleted () {
@@ -10,8 +10,9 @@ export default function RegisterCompleted () {
     const info = useSelector(state => state.fetchPostReducer.upDateProfile);
 
     useEffect(() => {
-        localStorage.clear('TK')
-        dispatch(setLogout())
+        localStorage.clear('TK');
+        dispatch(setLogout());
+        dispatch(setGoogleUser(false));
     },[]);
 
     // CUANDO TERMINA EL REGISTRO, SE HACE UN AUTOLOGIN ? O EL USUARIO TIENE QUE LOGEARSE ?
