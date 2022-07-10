@@ -23,18 +23,19 @@ const App = () => {
 
   useEffect(() => {
     if (USER !== undefined) {
+      console.log("soy el objeto USER", USER)
       let obj = {
         userName: USER.name,
         name: USER.given_name,
         lastName: USER.family_name,
         email: USER.email,
         password: "123456789",
-        profileImage:{secure_url:"https://res.cloudinary.com/noisybrain-cloud/image/upload/v1657222048/HenryJobs/profileImage_iptpub.jpg"},
-        banner:{secure_url:"https://res.cloudinary.com/noisybrain-cloud/image/upload/v1657222059/HenryJobs/banner_pogdok.jpg"}
+        profileImage: {secure_url:"https://res.cloudinary.com/noisybrain-cloud/image/upload/v1657222048/HenryJobs/profileImage_iptpub.jpg"},
+        banner: {secure_url:"https://res.cloudinary.com/noisybrain-cloud/image/upload/v1657222059/HenryJobs/banner_pogdok.jpg"}
       };
 
+      console.log("antes de mandar el objeto", obj);
       dispatch(loginWithGoogle(obj));
-      console.log("El objeto USER",USER);
       
     }
   }, [USER]);

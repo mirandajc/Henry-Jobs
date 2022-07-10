@@ -47,7 +47,7 @@ function* getProfileByID(id){
 function* asyncPostRegisterModal(RegisterUser){ // datos del registro modal
     console.log("llegue a lo asincrono", RegisterUser);
     try {
-        const response = yield call(() => axios.post(URL_DEPLOY + "/user", RegisterUser));
+        const response = yield call(() => axios.post(URL_DEPLOY + "/user", RegisterUser.payload));
         yield put(postRegisterModalSuccess((response).data));
     } catch (error) {
         console.log(error);      
@@ -67,10 +67,10 @@ function* asyncLoginWithGoogle (payload){
     try {
         console.log("0. Estoy en sagas mi rey", payload.payload);
 
-        const response = yield call(() => axios.post(URL_DEPLOY + "/user", payload));
-
-        console.log("1. Soy el response antes del NEXT", response.data);
-
+        const response = yield call(() => axios.post(URL_DEPLOY + "/user", payload.payload));
+        console.log("soy la respuesta", response)
+        
+        // console.log("1. Soy el response antes del NEXT", response.data);
         if(response.data === "next"){
             const user = yield call(() => axios.get(URL_DEPLOY + `/mail?email=${payload.payload.email}`));
             console.log("2. Soy el user en NEXT", user.data);

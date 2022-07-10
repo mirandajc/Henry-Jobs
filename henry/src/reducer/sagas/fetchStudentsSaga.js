@@ -21,7 +21,7 @@ import { getPublicationsBusinessSuccess, postIdFollowSuccess, getStudentsByEmail
 function* asyncGetPublicationsBussines(payload) {
     try {
         const response= yield call(()=>axios.get(URL_PEDIDO_POSTS)) 
-        yield put(getPublicationsBusinessSuccess(response.data, payload)) 
+        yield put(getPublicationsBusinessSuccess(response.data, payload)) // <== WorkWall 
     } catch (error) {
         console.log(error) 
     }

@@ -57,7 +57,7 @@ export default function StaffStudentsBusiness ({ id ,name, profileImage, lastnam
                 </div>
             }
             <button onClick={() => handleDelete()}>Borrar Usuario</button>
-            <button onClick={() => handleAdvertencia(email)}>Enviar Advertencia</button>
+            <button onClick={() => handleAdvertencia(id)}>Enviar Advertencia</button>
         </div>
         </CardStudentsStaff>
     );

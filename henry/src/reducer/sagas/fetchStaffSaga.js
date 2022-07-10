@@ -9,7 +9,8 @@ import {
     URL_PEDIDO,
     URL_PROFILE,
     USER_DELETE,
-    SEND_EMAIL
+    SEND_EMAIL,
+    URL_DEPLOY
 } from '../../constants/constants';
 
 
@@ -35,9 +36,9 @@ function* asyncUserDelete (payload) {
 
 function* asyncSendEmail (payload) {
     try {
-        console.log("soy el mail breo", payload.payload);
-        const response = yield call(() => axios.get(URL_PROFILE + `advertencia?mail=${payload.payload}`));
-        console.log(response.data);
+                                                           // /api/advertencia/id
+        const response = yield call(() => axios.get(URL_DEPLOY + `/advertencia/${payload.payload}`));
+        // console.log(response.data);
     } catch (error) {
         console.log(error);
     }
