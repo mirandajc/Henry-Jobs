@@ -51,11 +51,18 @@ const fetchStudentsReducer = (state = initialState, action) => {
 
         case GET_MY_APPLICAT_SUCCESS:
             let id = action.id;
-            let respondido = []
+            let respondido = [];
+            console.log(action.payload)
             for (let i = 0; i < action.payload.length; i++) {
-                action.payload[i].applicants.filter(e => e.userId === id &&
-                respondido.push(action.payload[i]))
+                for(let j = 0; j < action.payload[i].applicants.length; j++){
+                    if(action.payload[i].applicants[j].userId === id){
+                        if(!respondido.includes(action.payload[i])){
+                            respondido.push(action.payload[i]);
+                        }
+                    }
+                }
             } 
+            console.log("soy respondido", respondido)
             return {
                 ...state,
                 myApp: respondido
