@@ -4,7 +4,8 @@ import {
     GET_STUDENT_DETAIL,
     STAFF_ORDER_STUDENTS,
     STAFF_SHOW_ORDER,
-    USER_DELETE
+    USER_DELETE,
+    SEND_EMAIL
 } from "../../constants/constants";
 
 export function getInfoForStaff () {
@@ -44,5 +45,12 @@ export function userDelete (payload) {
     return {
         type: USER_DELETE,
         payload
+    };
+};
+
+export function sendEmail(email){
+    return {
+        type: SEND_EMAIL,
+        payload: email
     };
 };

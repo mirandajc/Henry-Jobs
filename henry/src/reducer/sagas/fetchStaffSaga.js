@@ -8,7 +8,8 @@ import {
     GET_INFO_FOR_STAFF,
     URL_PEDIDO,
     URL_PROFILE,
-    USER_DELETE
+    USER_DELETE,
+    SEND_EMAIL
 } from '../../constants/constants';
 
 
@@ -32,9 +33,20 @@ function* asyncUserDelete (payload) {
     }
 }
 
+function* asyncSendEmail (payload) {
+    try {
+        console.log("soy el mail breo", payload.payload);
+        const response = yield call(() => axios.get(URL_PROFILE + `advertencia?mail=${payload.payload}`));
+        console.log(response.data);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 
 
 export function* watchFetchSaffSaga(){
     yield takeEvery(GET_INFO_FOR_STAFF, asynGetInfoForStaff)
     yield takeEvery(USER_DELETE, asyncUserDelete)
+    yield takeEvery(SEND_EMAIL, asyncSendEmail)
 }
