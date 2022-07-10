@@ -18,8 +18,8 @@ export const SET_REGISTER_TRUE_SUCCES = 'SET_REGISTER_TRUE_SUCCES';
 
 export const GET_PUBLICATIONS_BUSINESS = 'GET_PUBLICATIONS_BUSINESS'; 
 export const GET_PUBLICATIONS_BUSINESS_SUCCESS = 'GET_PUBLICATIONS_BUSINESS_SUCCESS';
-export const URL_PEDIDO = "http://localhost:3001/api" // reemplazar por la ruta de pedidos de publicaciones de empresas
-export const URL_PEDIDO_POSTS = "http://localhost:3001/api/post"
+export const URL_PEDIDO = "http://henryjob.herokuapp.com/api" // reemplazar por la ruta de pedidos de publicaciones de empresas
+export const URL_PEDIDO_POSTS = "http://henryjob.herokuapp.com/api/post"
 export const GET_PUBLICATIONS_TECHNOLOGIES = "GET_PUBLICATIONS_TECHNOLOGIES";
 export const GET_PUBLICATIONS_DEVTYPE = "GET_PUBLICATIONS_DEVTYPE";
 export const GET_PUBLICATIONS_ENGLISH = "GET_PUBLICATIONS_ENGLISH";
@@ -64,7 +64,7 @@ export const POST_ID_FOLLOW_BUSS = 'POST_ID_FOLLOW_BUSS';
 export const POST_ID_FOLLOW_BUSS_SUCCESS = 'POST_ID_FOLLOW_BUSS_SUCCESS';
 
 
-export const URL_DEPLOY = 'http://localhost:3001/api';
+export const URL_DEPLOY = 'http://henryjob.herokuapp.com/api/';
 
 
 export const PROFILE_SUCCESS= 'PROFILE_SUCCESS';
@@ -110,3 +110,5 @@ export const TRAER_FOLLOWING_STUD_SUCCESS = "TRAER_FOLLOWING_STUD_SUCCESS";
 
 export const EDIT_PROFILE= 'EDIT_PROFILE';
 export const PROFILE_EDIT_URL='http://henryjob.herokuapp.com/api/user/';
+
+

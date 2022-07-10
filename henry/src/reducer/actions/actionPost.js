@@ -148,11 +148,13 @@ export function setPremium(payload){
 }
 
 
-export function EditProfile(payload){
+export function EditProfile({id, edituser}){
+   
+
 
     return{
         type: EDIT_PROFILE,
-        payload: payload
+       payload: {id,edituser}
 
     }
 }
@@ -163,3 +165,5 @@ export function setGoogleUser(payload){
         payload
     }
 }
+
+

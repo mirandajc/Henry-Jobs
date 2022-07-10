@@ -29,6 +29,10 @@ const initialState = {
 
 const fetchPostReducer = (state = initialState, action) => {
     switch (action.type) {
+
+
+
+        
             case BUGG_NAV:
                 return{
                     ...state,

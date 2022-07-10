@@ -1,18 +1,18 @@
 import React from "react";
-import { Video, ComponentCard, DatosProyect, ButtonTecnologies, ButtonLight, ComponentDatos, Date, MuchoTexto } from './HomeStyled';
+import {  ComponentCard, Profile, InnerText, Tags, Video } from './HomeStyled';
 import ReactPlayer from "react-player";
-import ubicacion from "../../images/ubicacion.png"
 import { postIdFollow } from "../../../reducer/actions/actionStudents";
 import { useDispatch } from "react-redux";
-import { AiOutlinePlus } from 'react-icons/ai'
+import { AiOutlinePlus } from 'react-icons/ai';
 import { postIdFollowBuss } from "../../../reducer/actions/actionBusiness";
+import {IoLocationSharp} from 'react-icons/all';
 
-export default function CardPublicationWorkTest({ id, image, name, date, title, summary, video, technologies, backFront, ubication, workModality, english, userName, lastname, text }) {
+export default function CardPublicationWorkTest({ id, image, name, date, title, summary, video, technologies, backFront, country, workModality, english, userName, lastname, text }) {
     // viene publicacion de empresas y alumnos mix
 
 
 
-    console.log(summary)
+    // console.log(summary)
     const dispatch = useDispatch();
 
     const tal = localStorage.getItem('TK')
@@ -28,96 +28,63 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
     }
 
 
+
+//id, image, name, date, title, summary, video, technologies, backgront, ubicacion, workModality, english, username, lastname,text
+
     return (
         <ComponentCard>
-            <ComponentDatos>
-                <div className="Imagen-And-Name">
 
-                    <div className="ImgCont">
-                        <img src={`${image.secure_url}`} alt={`${name} Image`} />
+            <Profile>
+                <div className="compPer">
+                <div className="Image">
+                    <img src={image}/>
+                </div>
+                    <div className="namub">
+                    <h3>{name + ' ' + lastname}</h3>
+                    <div className="ub">
+                    <IoLocationSharp className="ubic"/>
+                    <p>{country}</p>
                     </div>
-                    <div className="Contenedor-Name-Ubicacion">
-                        <h3>{name} {lastname}</h3>
-                        <span className="ContenedorUbicacion">
-                            <img src={ubicacion} alt='icon-ubicacion' className="imagenUbicacion" />
-                            <p>{ubication}</p>
-                        </span>
                     </div>
                 </div>
-                <MuchoTexto>
-                    <p>{text}</p>
-                </MuchoTexto>
-                <DatosProyect>
-                    <h4>{title}</h4>
-                    <p>{summary}</p>
-                </DatosProyect>
                 <div>
-
-                    
-                    <div className="TechnologiesAndOthers">
-                        { technologies.length > 1?
-                            technologies.map(e => <ButtonTecnologies>{e}</ButtonTecnologies>)
-                            :
-                            null
-                        }
-
-                        {
-                            backFront !== undefined?
-
-                        <div className="bitt">    
-                        <ButtonLight>
-                            <p>{backFront}</p>
-                        </ButtonLight>
-
-                        {
-                            workModality !== undefined?
-                        <ButtonLight>
-                            <p>{workModality}</p>
-                        </ButtonLight>
-                        : null
-                        }
-                        {
-                            english !== undefined?
-                        <ButtonLight>
-                            <p>{english}</p>
-                        </ButtonLight>
-                        :null
-                        }
-                        </div>
-                            :
-                            null
-                        }
-                        {
-                            id === userType.id ? null :
-                                <div >
-                                    <button onClick={() => handleFollow()}>
-                                        <AiOutlinePlus className="plus" />
-                                    </button>
-                                </div>
-                        }
-
-                    </div>
+                    <p className="Date">10/7/2022</p>
                 </div>
-            </ComponentDatos>
-          {
-            video.length > 1?    
-          <Video>
+            </Profile>
+
+            <InnerText>
+                <div>
+                    <p>{text}</p>
+                </div>
+            </InnerText>
+
+
+            <Tags>
+                {
+                    technologies.map( el=>( <div className="tech"><p>{el}</p></div>))
+                }
+               
+                
+
+            </Tags>
+            <Tags>
+               
+            <div className="tech"><p>{english}</p></div>
+                <div className="tech"><p>{workModality}</p></div>
+                <div className="tech"><p>{backFront}</p></div>
+            </Tags>
+
+            <Video>
                 <ReactPlayer
-                    url={video}
-                    className='video'
-                    playing={false}
-                    width='100%'
-                    height='100%'
-                    volume={null}
+                url={video}
+                className='video'
+                playing={false}
+                width='100%'
+                height={'100%'}
+                volume={null}
                 />
-                <Date>
-                    <p>{title}</p>
-                    <p>{date}</p>
-                </Date>
             </Video>
-            :
-            null
-            }
+        
         </ComponentCard>
     )
 }
