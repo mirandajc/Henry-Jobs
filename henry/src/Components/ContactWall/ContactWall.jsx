@@ -7,19 +7,36 @@ import { Publicaciones } from "./ApplicantMokedFiles";
 
 
 export default function ContactWall() {
+
+  const tal = localStorage.getItem('TK')
+  const userType = JSON.parse(tal);
+
+
   const dispatch = useDispatch();
   const { id } = useParams();
+  const publicactions = useSelector(state => state.fetchBusinessReducer.myPublications);
   
   useEffect(() => {
     dispatch(getMyPublications(id));
-  }, []);
+  }, [publicactions]);
  
+  const [ deletear, setDeletear] = useState();
 
     // => Agregar el botón "POSTULARSE" 
     // en las publicaciones de empresas y recruiter
     // si sos estudiante.
+
+    useEffect(() => {
+      if(userType !== null){
+        if(id !== userType.id){
+          setDeletear(false);
+        }
+        if(id === userType.id){
+          setDeletear(true);
+        }
+      }
+    }, [tal]);
   
-  const publicactions = useSelector(state => state.fetchBusinessReducer.myPublications);
 
   // ESTE COMPONENTE RENDERIZA TODAS LAS PUBLICACIONES PARA VER POSTULANTES
 
@@ -28,7 +45,8 @@ export default function ContactWall() {
       {
         publicactions && publicactions.map(e => 
           <PublicationCard 
-          
+          botonDelete={deletear}
+          posterUser={e.posterUser._id}
           email={e.email}
           text={e.text}
           date={e.date}

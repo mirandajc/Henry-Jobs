@@ -18,7 +18,7 @@ export default function HomeStudentsLogic({ id }) {
 
     useEffect(() => {
         dispatch(getPublicationsBusiness(id));
-    }, []);
+    }, [publicaciones]);
 
 
     return (

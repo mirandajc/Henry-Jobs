@@ -21,7 +21,7 @@ export default function HomeBusinessLogic({id}) {
 
   useEffect(() => {
       dispatch(getPublicationStudents(id));
-  },[])
+  },[allPublications])
 
   return (
     <CardContainer>

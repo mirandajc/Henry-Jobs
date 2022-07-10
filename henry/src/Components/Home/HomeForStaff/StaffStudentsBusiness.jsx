@@ -3,7 +3,7 @@ import { CardStudentsStaff } from "./StaffStyles/staffStudentCards";
 import {MdLocationPin} from 'react-icons/all'
 import {AiFillStar} from 'react-icons/ai'
 import { useDispatch } from "react-redux";
-import { userDelete } from "../../../reducer/actions/actionStaff";
+import { sendEmail, userDelete } from "../../../reducer/actions/actionStaff";
 
 
 export default function StaffStudentsBusiness ({ id ,name, profileImage, lastname, userName, email, country, city, stars, curriculumCounter}){
@@ -19,7 +19,11 @@ export default function StaffStudentsBusiness ({ id ,name, profileImage, lastnam
 
     const handleDelete = () => {
         dispatch(userDelete(id))
-    }
+    };
+
+    const handleAdvertencia = (email) => {
+        dispatch(sendEmail(email));
+    };
 
     return(
         <CardStudentsStaff>
@@ -53,6 +57,7 @@ export default function StaffStudentsBusiness ({ id ,name, profileImage, lastnam
                 </div>
             }
             <button onClick={() => handleDelete()}>Borrar Usuario</button>
+            <button onClick={() => handleAdvertencia(id)}>Enviar Advertencia</button>
         </div>
         </CardStudentsStaff>
     );
