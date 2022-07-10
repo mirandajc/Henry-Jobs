@@ -13,6 +13,8 @@ export default function StaffStudentsBusiness ({ id ,name, profileImage, lastnam
     // a primera vista contienen la info necesaria para el Staff
     // idea de Luciano: tarjeta vertical tipo app del clima con un grid
 
+    const [ cartelMail, setCartelMail ] = useState(false);
+
     const dispatch = useDispatch();
     
     // ¿ el staff a necesitar entrar al perfil del user para ver las publicaciones de solo ese user ?
@@ -23,6 +25,7 @@ export default function StaffStudentsBusiness ({ id ,name, profileImage, lastnam
 
     const handleAdvertencia = (email) => {
         dispatch(sendEmail(email));
+        setCartelMail(true);
     };
 
     return(
@@ -57,6 +60,7 @@ export default function StaffStudentsBusiness ({ id ,name, profileImage, lastnam
                 </div>
             }
             <button onClick={() => handleDelete()}>Borrar Usuario</button>
+            { cartelMail && <span>Correo enviado con éxito!</span>}
             <button onClick={() => handleAdvertencia(id)}>Enviar Advertencia</button>
         </div>
         </CardStudentsStaff>
