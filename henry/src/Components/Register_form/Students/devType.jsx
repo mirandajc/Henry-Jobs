@@ -34,7 +34,6 @@ export default function DevType({sumarFase}) {
   const [ error, setError ] = useState("");
   
   const selectDevType = (e) => {
-    console.log(e.target)
     if(e.target.checked === true){
       if(e.target.value === "Frontend"){
         setDevType(e.target.value);
