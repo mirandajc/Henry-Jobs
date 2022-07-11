@@ -406,9 +406,7 @@ div{
     border-radius: 20px;
     color:#1A1B1E;
     p{
-        display:flex;
-        align-items:center;
-        justify-content:center;
+        
         width: auto;
     }
 }
