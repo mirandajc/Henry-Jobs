@@ -70,9 +70,20 @@ margin-bottom: 5em;
 
 }
 
+.buttonContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    justify-content: space-around;
+}
 
-
-
+.emailCvContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: 1em;
+}
 
 `
 
