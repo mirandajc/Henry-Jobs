@@ -22,7 +22,7 @@ background-color: #1A1B1E;
 width: 50%;
 min-height: 5em;
 border-radius: 1rem;
-
+margin-top: 5em;
 margin-bottom: 5em;
 
 
