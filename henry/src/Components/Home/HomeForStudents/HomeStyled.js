@@ -10,214 +10,175 @@ export const ContenedorStudents = styled.div`
 `
 
 
-export const Video = styled.div`
-width: 50%;
-height: 75%;
-margin: 1rem;
-display: flex;
-justify-content: center;
-flex-direction: column;
 
-.video{
-    box-shadow: -1px -1px 5px 1px #303030;
-}
-`
 
 export const ComponentCard= styled.div`
-border-top: 1px solid yellow;
+border-top: 3px solid yellow;
 display: flex;
+align-items: center;
+justify-content: space-around;
+flex-direction: column;
 background-color: #1A1B1E;
 width: 50%;
-height: 15rem;
+min-height: 5em;
 border-radius: 1rem;
-flex-direction: row;
-flex-wrap: nowrap;
-align-content: space-around;
-margin: 2rem;
-align-items: center;
 
-p{
-    margin-left: 0.5rem;
-    font-size: 11px;
-    text-align: justify;
-    margin-right: 3rem;
-}
-`
+margin-bottom: 5em;
 
-export const DatosProyect = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin: 0.5rem;
 
-h4{
-    font-weight: 200;
-    color: white;
-    font-size: 14px;
-    margin: 0;
-}
-p{
-    color: white !important;
-}
+
+// overflow: hidden;
+
 
 `
 
-export const ButtonTecnologies = styled.div`
-padding-right: 0.5rem;
-padding-left: 0.5rem;
-border: 2px solid #5D5F66;
-box-shadow: -1px -1px 5px 1px rgba(248, 247, 242, 0.13);
-border-radius: 12px;
+
+export const Profile= styled.div`
+
+border-bottom: 0.2px solid #2a2d36 ;
+width: 100%;
+min-height: 4em;
+margin-bottom: 1em;
 display: flex;
-font-weight: 600;
-font-size: 11px;
-text-align: justify;
-color: #5D5F66;
-justify-content: center;
-align-items: center;
-margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    margin-top: 0.5rem;
-`
+ align-items: center;
+ justify-content: space-between;
+ flex-direction: row; 
 
-export const ButtonLight = styled.div`
-    background: #5D5F66;
-    border: 2px solid #5D5F66;
-    border-radius: 12px;
-    width: auto;
-    height: 26px;
+.Date{
+    color:#8e929a;
+    font-size: 0.7em;
+    margin-right: 1em;
+}
+
+h3{
     
-    font-size: 12px;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-    font-weight: 600;
+    &:hover{
+        text-decoration: underline;
+    cursor: pointer;
+}
+}
+.Image{
+    width: 3em;
+    height: 3em;
+    border: 1px solid yellow;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1em;
+    margin-left: 1em;
     display: flex;
+     align-items: center;
+     justify-content:center;
+    img{
+        width: 100%;
+        height: 100%;
+       
+    }
+}
+
+.compPer{
+    display:flex;
     align-items: center;
     justify-content: center;
     
+}
 
-    p{
-        color: #1A1B1E !important;
-    }
-`
-
-export const ComponentDatos = styled.div`
-margin: 1rem;
-width: 50%;
-height: 100%;
-display: flex;
-flex-direction: column;
-flex-wrap: nowrap;
-align-items: stretch;
-justify-content: space-evenly;
-
-.Contenedor-Name-Ubicacion{
+.namub{
     display: flex;
+    algin-items: center;
+    justify-content: center;
     flex-direction: column;
-    align-items: flex-start;
-}
-.TechnologiesAndOthers{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
     
-
-    // .button{
-    //     width:2em;
-    //     height:2em;
-    //     border-radius: 50%;
+   
+    p{
         
-        button{
-            width:2em;
-            height:2em;
-            border-radius: 50%;
-            cursor: pointer;
-            &:active{
-                background-color: black;
-                .plus{
-                    color: yellow;
-                }
-            }
-        }
-        .plus{
-
-        }
+        font-size: 0.7em;
     }
-}
-.Imagen-And-Name{
-    margin-top:0.5em;
-    margin-left: 0.5em;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
 
-    .ImgCont{
+    .ubic{
+        color:#8e929a;
+        font-size: 0.7em;
         
-        width:3em;
-        height:3em;
-        border-radius:50%;
-        border:1px solid yellow;
-        overflow:hidden;
-        margin-right:1em;
+    }
 
+    .ub{
+        margin-top: -2em;
+        
         display: flex;
-        align-items: center;
-        justify-content: center;
-        img{
-            width:100%;
-            height: 100%;
-            
-        }
+         align-items:center;
+         justify-content: flex-start;
+         p{
+            color:#8e929a;
+         }
+         &:hover{
+            text-decoration: underline;
+            cursor:pointer;
+         }
+         
+    }
+    
+}
+
+
+`
+
+export const InnerText= styled.div`
+border-bottom: 0.2px solid #2a2d36 ;
+
+width:100%;
+mih-height: 5em;
+p{
+    margin-left: 3em;
+
+}
+
+`
+
+
+export const Tags= styled.div`
+
+width: 100%;
+min-height: 3em;
+display: flex;
+align-items: center;
+// justify-content: center;
+
+
+.tech{
+    min-width:10%;
+    height: 1.5em;
+    border-radius: 20px;
+    margin-right:.5em;
+    margin-left:.5em;
+    background-color:hsl(222deg 5% 38%);
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    p{
+        margin-left: .5em;
+        margin-right: .5em;
+        width: auto;
+        color:#1A1B1E;
+        font-size: .8em;
     }
 }
 
-
-p{
-    display: flex;
-    margin: 0;
-    font-size: 10px;
-    flex-direction: row;
-    align-items: center;
-    color: #8e929a;
-;
-}
-h3{
-    margin: 0;
-}
-
-.imagenUbicacion{
-    width: 0.5rem !important;
-    height: auto !important;
-    margin: 0.2rem !important;
-}
-
-.ContenedorUbicacion{
-display:flex;
-justify-content: space-around;
-}
 `
-export const Date = styled.div`
-    width: 100%;
-    height: 2rem;
-    display: flex;
-    color: #53555b;
-    border-end-end-radius: 1rem;
-    border-end-start-radius: 1rem;
-    align-items: center;
-    background-color: #121213;
-    justify-content: space-between;
-    box-shadow: -1px -1px 5px 1px #303030;
+
+
+export const Video= styled.div`
+border-bottom: 0.2px solid #2a2d36 ;
+border-top: 0.2px solid #2a2d36 ;
+
+min-height: 20em;
+width: 100%;
 
 `
 
-export const MegaCont= styled.div`
-border: 1px solid yellow;
 
-
-
-`
-
-export const MuchoTexto= styled.div`
-
+export const Footer= styled.div`
+border-top: .2px solid #ffff0094;
+width:100%;
+height: 1em;
 
 
 `

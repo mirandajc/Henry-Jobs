@@ -67,10 +67,10 @@ function App() {
       <Route path="/students" element={<StudentsWall />} />
       <Route path="/GithubLog" element={<GithubLog/>} />
       <Route path="/premium" element={<PremiumCard/>} />
-      <Route path="/checkout1" element={<Paypal1 />} />
+      <Route path="/checkout1/:id" element={<Paypal1 />} />
       <Route path="/checkout2" element={<Paypal2 />} />
       <Route path="/checkout3" element={<Paypal3 />} />
-      <Route path="/EditProfile" element={<EditModal />} />
+      <Route path="/EditProfile/:id" element={<EditModal />} />
     </Routes>
     <Footer/>
       </PayPalScriptProvider>

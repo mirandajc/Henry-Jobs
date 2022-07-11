@@ -1,14 +1,20 @@
 import React,{useState} from "react";
+import {useDispatch} from 'react-redux';
+import {useParams, Link, useNavigate} from 'react-router-dom';
 import { InnerModal, EditCloseButton, Fotos, NameLast, RedesEdit, Cont2, SelectorCou, Foto1,Foto2,TecOther, AboutAs  } from "./profileStyles/EditModal";
 import {MdOutlineInsertPhoto} from 'react-icons/all';
 import {BsGithub, BsLinkedin}from 'react-icons/bs';
 import {SiGmail} from 'react-icons/all';
 import {MdAddAPhoto} from 'react-icons/all';
 import {countries} from '../Register_form/gistfile1.json';
+import { EditProfile } from "../../reducer/actions/actionPost";
 
 export default function InnModal(){
 //nombre, banner, fotoperfil, ubicacion, github, linkedin, mail,instancia, tecnologias, otros estudios, acercaDE, favoritos
 
+const {id}= useParams();
+const dispatch= useDispatch();
+const navigate = useNavigate();
 const [foto, setFoto]= useState(false);
 const [input,setInput]= useState('');
 const [inputd,setInputd]= useState('');
@@ -16,12 +22,19 @@ const [ allCities, setAllCities ] = useState([]);
 
 
 const [edituser, setEditUser]= useState({
-    username: {},
+    
+    nombre:'',
+    apellido:'',
     id:'',
+    redes:{
+        git:'',
+        ln:'',
+        mail:''
+    },
     email:'',
     profileImage: {},
     technologies:[],
-    country:{},
+    country:[],
     languages:'',
     otherStudies:[],
     banner:{},
@@ -31,38 +44,88 @@ const [edituser, setEditUser]= useState({
 
 
 
+function handleChange(e){
+    e.preventDefault()
+    setEditUser({
+        ...edituser,
+        [e.target.name]: e.target.value
+        }
+    )
+
+  
+}
+
+
+function handleRedes(e){
+    e.preventDefault()
+    setEditUser({
+        ...edituser,
+        redes:{ 
+            ...edituser.redes,
+            [e.target.name]: e.target.value
+        }
+    })
+
+    
+}
+
+
+function handleStudio(e){
+    e.preventDefault()
+    setEditUser({
+        ...edituser,
+        [e.target.name]: e.target.value
+        
+    })
+
+    
+}
+
+
+function handleAcercaDe(e){
+    e.preventDefault()
+    setEditUser({
+        ...edituser,
+        [e.target.name]: e.target.value
+        
+    })
+
+    
+}
+
+
+function handleSelect(e){
+    console.log(e.target.value)
+    
+    if(!edituser.country.includes(e.target.value)&& e.target.value !== 'Types'){
+     setInput({
+         ...edituser,
+         country:[ ...edituser.country ,e.target.value]
+     })
+
+    }
+     
+ }
 
 
 
+ function handleSubmit(){
+     dispatch(EditProfile({id,edituser}));
+     navigate(`/profile/${id}`)
+     alert('Cambios guardados!')
+ }
 
 
-// function handlePicture(e){
-//     e.preventDefault();
-//     console.log(e.target.value)
-//     setInput(e.target.value);
-
-//     if(input.length >0){
-//         console.log(input.length)
-//         setFoto(true)
-//     }
-// }
-
-// function handleBanner(e){
-//     e.preventDefault();
-//     console.log(e.target.value)
-//     setInputd(e.target.value);
-
-//     if(inputd.length >0){
-//         console.log(inputd.length)
-//         setFoto(true)
-//     }
-// }
 
     return(
         <InnerModal>
+            
             <EditCloseButton>
+            <Link to={`/profile/${id}`}>
                 <button>X</button>
+                </Link>
             </EditCloseButton>
+            
             <Fotos>
                 <div className="cont">
                     <h3>Foto de perfil:</h3>
@@ -100,7 +163,7 @@ const [edituser, setEditUser]= useState({
                </div>
 
                <div>
-                <button>Gurardar</button>
+                <button onClick={handleSubmit} >Gurardar</button>
                </div>
             </Fotos>
 
@@ -110,11 +173,19 @@ const [edituser, setEditUser]= useState({
             <NameLast>
                 <div>
                     <label>Nombre:</label>
-                    <input placeholder="Nombre"/>
+                    <input
+                     name="nombre"
+                      value={edituser.nombre}placeholder="Nombre"
+                      onChange={(e)=>handleChange(e)}/>
                 </div>
                 <div>
                     <label>Apellido:</label>
-            <input placeholder="Apellido"/>
+            <input
+             name="apellido" 
+             type='text'
+             value={edituser.apellido} placeholder="Apellido"
+             onChange={(e)=>handleChange(e)}
+            />
                 </div>
             </NameLast>
 
@@ -123,7 +194,7 @@ const [edituser, setEditUser]= useState({
             <SelectorCou>
                 <h3>Ubicacion:</h3>
                 <div>
-                <select >
+                <select onChange={(e)=>handleSelect(e)} >
                     <option>Selecciona un País</option>
                     {countries && countries.map(e => {
                         return <option>{e.country}</option>
@@ -142,15 +213,30 @@ const [edituser, setEditUser]= useState({
             <RedesEdit>
             <div>
                 <BsGithub className="gh"/>
-                <input placeholder="GitHub"/>
+                <input 
+                name="git"
+                type='text'
+                value={edituser.redes.git}
+                onChange={(e)=>handleRedes(e)}
+                placeholder="GitHub"/>
             </div>
             <div>
                 <SiGmail className="mail"/>
-            <input placeholder="Mail"/>
+            <input 
+            name="mail"
+            type='text'
+            value={edituser.redes.mail}
+            onChange={(e)=>handleRedes(e)}
+            placeholder="Mail"/>
             </div>
             <div>
             <BsLinkedin className="ln"/>
-            <input placeholder="LinkedIn"/>
+            <input 
+            name="ln"
+            type='text'
+            value={edituser.redes.ln}
+            onChange={(e)=>handleRedes(e)}
+            placeholder="LinkedIn"/>
             </div>
             </RedesEdit>
 
@@ -161,12 +247,22 @@ const [edituser, setEditUser]= useState({
 
             <TecOther>
             <h3>Otros estudios:</h3>
-            <input placeholder="Otros estudios"/>
+            <input 
+            name="otherStudies"
+            type='text'
+            value={edituser.otherStudies}
+            onChange={(e)=>handleStudio(e)}
+            placeholder="Otros estudios"/>
             </TecOther>
 
             <AboutAs>
                 <h3>Acerca de:</h3>
-            <input placeholder="Acerca de"/>
+            <input 
+            name="acercaDe"
+            type='text'
+            value={edituser.acercaDe}
+            onChange={(e)=>handleAcercaDe(e)}
+            placeholder="Acerca de"/>
             </AboutAs>
 
             </Cont2>

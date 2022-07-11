@@ -16,6 +16,16 @@ div{
         text-decoration: none;
         color: white;
     }
+
+
+    button{
+
+        &:hover{
+            text-decoration: underline;
+            cursor: pointer;
+
+        }
+    }
 }
 `
 

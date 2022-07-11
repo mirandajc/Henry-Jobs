@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { SettingsCont, SettingHead, Public, PvSettings } from "../HomeStyles/PublicationSet";
 import {BsImage} from 'react-icons/bs';
 import {FiVideo} from 'react-icons/fi';
-import {RiArticleLine} from 'react-icons/all';
-import {SiBitcoinsv} from 'react-icons/all';
+import { PublicationBussines, DivInput, DivSettings, TechDiv } from "./SetCont/styleBussinesPost";
 import { profileID } from "../../../reducer/actions/actionPost";
 import {  postPublication } from "../../../reducer/actions/actionStudents";
 import { technologies } from "../../Post/StudentsWall/select"
@@ -143,28 +142,33 @@ export default function PubliSettings(){
                 :
                 
                 /////////////////// PUBLICACION DE EMPRESA ///////////////////////
-                <div>
+                <PublicationBussines>
 
+                <DivInput>
                 <input value={input} onChange={(e) => setInput(e.target.value)} placeholder={"Comparte una propuesta de trabajo"}></input>
-                
-                <h2>¿Qué tipo de desarrollador necesitas?</h2>
+                <button onClick={SubmitPublication}>Publicar</button>
+                </DivInput>
+
+
+                <DivSettings>
+                    <div className="Selects">
                 <select onChange={(e) => setTags({...tags, backFront: e.target.value })}>
-                    <option value={""}>Selecciona un tipo de desarrollador</option>
+                    <option value={""}>Developer</option>
                     <option>Frontend</option>
                     <option>Backend</option>
                     <option>Fullstack</option>
                 </select>
 
-                <h2>Modalidad de trabajo desarrollador que necesitas:</h2>
+                
                 <select onChange={(e) => setTags({...tags, workModality: e.target.value })}>
-                    <option value={""}>Seleccionar Modalidad</option>
+                    <option value={""}>Modalidad</option>
                     <option>Remoto</option>
                     <option>Presencial</option>
                 </select>
 
-                <h2>¿Qué nivel de inglés necesitas que tenga el desarrollador?</h2>
+                
                 <select onChange={(e) => setTags({...tags, languages: e.target.value })}>
-                    <option value={""}>Selecciona el nivel de inglés</option>
+                    <option value={""}>Inglés</option>
                     <option>A0</option>
                     <option>A1</option>
                     <option>A2</option>
@@ -173,11 +177,9 @@ export default function PubliSettings(){
                     <option>C1</option>
                     <option>C2</option>
                 </select>
-
-                <h2>¿Qué tecnologías necesitas que tu desarrollador maneje?</h2>
-                {tags.technologies.map(e => {return(
-                    <div><p>{e}</p><button onClick={() => borrarTech(e)}>X</button></div>
-                )}) }
+                
+               
+               
                 <select onChange={(e) => {
                     if(tags.technologies.includes(e)){
                         return
@@ -185,13 +187,29 @@ export default function PubliSettings(){
                     else{
                         return setTags({...tags, technologies: [...tags.technologies, e.target.value] })}
                     }}>
-                    <option value={""}>Selecciona tecnologías</option>
+                    <option value={""}>Tecnologías</option>
                     { technologies.map(e => <option>{e}</option>) }
                 </select>
-                
-                <button onClick={SubmitPublication}>Publicar</button>
 
                 </div>
+                    <div>
+
+                <TechDiv>
+                {tags.technologies.map(e => {return(
+                   
+                   <div>
+                   <p>{e}</p><button onClick={() => borrarTech(e)}>X</button>
+                   </div>
+               
+           )}) }
+           </TechDiv>
+
+           </div>
+                </DivSettings>
+
+               
+
+                </PublicationBussines>
         }
 
 

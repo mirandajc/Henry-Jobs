@@ -1,6 +1,6 @@
 import { PayPalButtons } from "@paypal/react-paypal-js";
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import PremiumCard from "../SerPremium/CardPremium";
 import { useDispatch } from "react-redux";
 import { setPremium } from "../../reducer/actions/actionPost";
@@ -9,6 +9,8 @@ import { setPremium } from "../../reducer/actions/actionPost";
 
 export default function Paypal1() {
 
+  const {id} = useParams();
+ 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -38,7 +40,7 @@ export default function Paypal1() {
             console.log("esto es details de onApprove -> ", details)
             const name = details.payer.name.given_name;
             alert(`Transacción realizada con exito, seras rediccerionado automaticamente. Reinicia sesion para ver los cambios :)` );
-            /* dispatch(setPremium(userT)); */
+             dispatch(setPremium(id)); 
             setTimeout(() => navigate('/home'), 5000)
 
           });

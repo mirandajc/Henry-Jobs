@@ -16,6 +16,7 @@ margin-top: 5em;
 export const HomeCont= styled.div`
 
 
-
+width:100%;
+min-height: 120vh;
 
 `

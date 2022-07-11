@@ -13,7 +13,7 @@ export default function HomeBusinessLogic({id}) {
   const allPublications = useSelector((state) => state.fetchBusinessReducer.allPublications);
   const foll = useSelector((state) => state.fetchBusinessReducer.userFollows);
   const [ load, setLoad ] = useState(true);
-
+    
   useEffect(() => {
     dispatch(traerFollowing(id));
   },[])
@@ -42,7 +42,7 @@ export default function HomeBusinessLogic({id}) {
         <CardCont2>
 
           <CardPublicationWorkTest
-             image={e.posterUser.profileImage} // imagen de usuario
+             image={e.posterUser.profileImage.secure_url} // imagen de usuario
              name={e.posterUser.name}
              lastname={e.posterUser.lastName}
              date={e.date}
@@ -57,6 +57,7 @@ export default function HomeBusinessLogic({id}) {
              english={e.posterUser.languages}
              text={e.text}
              id={e.posterUser._id}
+             country={e.posterUser.country}
 
           
           />

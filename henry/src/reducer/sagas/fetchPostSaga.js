@@ -17,9 +17,12 @@ import {
     POST_REGISTER_MODAL,
     URL_DEPLOY,
     UPDATE_USER,
-    GOOGLE_LOGIN,
     SET_PREMIUM,
-    EMAIL_EXISTE
+    EMAIL_EXISTE,
+    EDIT_PROFILE,
+    PROFILE_EDIT_URL,
+    GOOGLE_LOGIN,
+    
 } from '../../constants/constants';
 
 function* asyncPostUser (user){
@@ -124,6 +127,21 @@ function* asyncEmailExiste (payload) {
     }
 };
 
+function* asyncEditProfile(payload){
+    //AGREGAR OBJ DE PERFIL
+    console.log(payload.payload.id)
+    console.log(payload.payload.edituser)
+    
+
+   
+    try{
+        const response= yield call(()=> axios.put(PROFILE_EDIT_URL+ `${payload.payload.id}`, payload.payload.edituser))
+        console.log(response)
+    }catch(error){
+        console.log(error)
+    }
+}
+
 
 
 export function* watchFetchPostSaga(){
@@ -134,4 +152,5 @@ export function* watchFetchPostSaga(){
     yield takeEvery(GOOGLE_LOGIN, asyncLoginWithGoogle)
     yield takeEvery(SET_PREMIUM, asyncSetPremium)
     yield takeEvery(EMAIL_EXISTE, asyncEmailExiste)
+    yield takeEvery(EDIT_PROFILE, asyncEditProfile)
 }

@@ -8,9 +8,9 @@ import { useJwt } from "react-jwt";
 
 
 export default function Languages ({sumarFase}) {
-    const logout = useSelector((state) => state.fetchPostReducer.response);
-    const { decodedToken, isExpided } = useJwt(logout);
-    const respuesta = decodedToken
+
+    const tal = localStorage.getItem('TK')
+    const userType = JSON.parse(tal);
     
     const dispatch = useDispatch();
     const mandarAccion = useSelector(state => state.fetchPostReducer.upDateProfile.country);
@@ -19,8 +19,7 @@ export default function Languages ({sumarFase}) {
     useEffect(() => {
         console.log("estoy en el useEffect")
         if(mandarAccion.length >= 1){
-            console.log("final de registro", objetoGlobal, respuesta.id)
-            dispatch(updateUser([objetoGlobal, respuesta.id]));
+            dispatch(updateUser([objetoGlobal, userType.id]));
 
             return sumarFase();
         }

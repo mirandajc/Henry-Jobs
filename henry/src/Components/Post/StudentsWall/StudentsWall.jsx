@@ -172,7 +172,7 @@ export default function StudentsWall() {
                                     userName={e.userName}
                                     stars={e.stars}
                                     id={e._id}
-                                /* profileImage={e.profileImage.secure_url} */
+                                    profileImage={e.profileImage.secure_url}
                                 />
 
                             )
