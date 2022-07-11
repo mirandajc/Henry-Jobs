@@ -64,11 +64,7 @@ export const POST_ID_FOLLOW_BUSS = 'POST_ID_FOLLOW_BUSS';
 export const POST_ID_FOLLOW_BUSS_SUCCESS = 'POST_ID_FOLLOW_BUSS_SUCCESS';
 
 
-<<<<<<< HEAD
-export const URL_DEPLOY = 'http://henryjob.herokuapp.com/api/';
-=======
 export const URL_DEPLOY = 'http://henryjob.herokuapp.com/api';
->>>>>>> Practice
 
 
 export const PROFILE_SUCCESS= 'PROFILE_SUCCESS';
