@@ -115,23 +115,13 @@ export default function LoginPage(){
                     <p>Or signIn with</p>
                         <App />
                 </div>
-                <div className="other">
-                    <div id="signInDiv" >
-                        {/* <FcGoogle className="another"/> */}
-                        <GoogleLog/>
-                    </div>
-                    {/* <div> */}
-                        {/* <GithubLog/> */}
-                        {/* <VscGithubInverted className="another"
-                        /> */}
-                  
-                    {/* </div> */}
+             
                 </div>
                 <div>
                 </div>
             </div>
 
-            </div>
+          
             
         </ConteinLogin>
     )

@@ -146,7 +146,7 @@ export default function StudentsWall () {
                         email={e.email}
                         technologies={e.technologies}
                         otherstudies={e.otherStudies}
-                       
+                        text={e.text}
                         // banner={e.banner.secure_url}
                         english={e.languages}
                         backFront={e.backFront}
