@@ -1,4 +1,5 @@
-import React from "react";
+import React,{useState} from "react";
+import {Link} from 'react-router-dom';
 import {  ComponentCard, Profile, InnerText, Tags, Video, Footer } from './HomeStyled';
 import ReactPlayer from "react-player";
 import { postIdFollow } from "../../../reducer/actions/actionStudents";
@@ -6,8 +7,11 @@ import { useDispatch } from "react-redux";
 import { AiOutlinePlus } from 'react-icons/ai';
 import { postIdFollowBuss } from "../../../reducer/actions/actionBusiness";
 import {IoLocationSharp} from 'react-icons/all';
+import { postularse } from "../../../reducer/actions/actionStudents";
 
-export default function CardPublicationWorkTest({ id, image, name, date, title, summary, video, technologies, backFront, country, workModality, english, userName, lastname, text, userTypes }) {
+
+
+export default function CardPublicationWorkTest({ id, image, name, date, title, summary, video, technologies, backFront, country, workModality, english, userName, lastname, text, userTypes, publicacionID}) {
     // viene publicacion de empresas y alumnos mix
 
 
@@ -17,6 +21,8 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
 
     const tal = localStorage.getItem('TK')
     const userType = JSON.parse(tal);
+    const [ cartel, setCartel ] = useState(false)
+
 
     const handleFollow = () => {
         if (userType.type === 1 || userType.type === 2) {
@@ -26,6 +32,23 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
             dispatch(postIdFollowBuss(id, { id: userType.id }));
         }
     }
+
+
+
+    const handlePostulation = () => {
+        let pubId = publicacionID;
+        
+        let obj = {
+            userId: userType.id,
+            name: userType.name + " " + userType.lastname,
+            step: "pendiente",
+            showBusiness: true,
+        };
+        
+        
+        dispatch(postularse(obj, pubId))
+        setCartel(true);
+    };
 
 
 
@@ -43,9 +66,13 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
                     <div className="namub">
                         {
                             userTypes === 5?
+                            <Link to={`/profile/${id}`}>
                             <h3>{name}</h3>
+                            </Link>
                             :
+                            <Link to={`/profile/${id}`}>
                             <h3>{name + ' ' + lastname}</h3>
+                            </Link>
                         }
                     <div className="ub">
                     <IoLocationSharp className="ubic"/>
@@ -109,6 +136,21 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
             :null
             }
 
+
+            {
+                userTypes === 1 || userTypes === 2 ? null :
+
+                userType.type === 4 || userType.type === 5? null:
+                
+                <div>
+                {
+                cartel && 
+                <span>Postulación enviada con éxito</span>
+
+                }
+            <button onClick={handlePostulation}>Postularse</button>
+            </div>
+}
             <Footer>
 
             </Footer>
