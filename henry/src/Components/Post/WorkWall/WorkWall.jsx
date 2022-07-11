@@ -24,6 +24,15 @@ export default function WorkWall(){
     }, [])
 
 
+
+
+
+    
+
+
+
+
+
     const techSelection = (e) => {
         if(e.target.value === "TECNOLOGIAS"){
             dispatch(getPublicationsTechnologies(""))
@@ -150,7 +159,7 @@ export default function WorkWall(){
                         publicacionID={e._id}
                         text={e.text}
                         userTypes={e.posterUser.userTypes}
-
+                       
 
                     />
                 ))

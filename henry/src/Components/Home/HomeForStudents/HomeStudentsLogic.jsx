@@ -38,7 +38,7 @@ console.log('PUBLIC',publicaciones)
                     lastname={e.posterUser.lastName}
                     id={e.posterUser._id}
                     text={e.text}
-                    
+                    userTypes={e.posterUser.userTypes}
                 />)
             }
 
