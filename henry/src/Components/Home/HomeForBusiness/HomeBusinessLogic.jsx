@@ -15,8 +15,6 @@ export default function HomeBusinessLogic({id}) {
     dispatch(traerFollowing(id));
   },[])
 
-
-
   useEffect(() => {
       dispatch(getPublicationStudents(id));
   },[foll])
