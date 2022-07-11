@@ -38,8 +38,9 @@ export default function PubliSettings(){
     /////////////////////////////////// INPUTS DE PUBLICACION ////////////////////////////////
 
     const [ input, setInput ] = useState("");
-    const [ foto, setFoto ] = useState("");
     const [ video, setVideo ] = useState("");
+
+    const [ cartelPub, setCartelPub ] = useState(false);
 
     const [ tags, setTags ] = useState({
         workModality:"",
@@ -61,18 +62,17 @@ export default function PubliSettings(){
             const obj = {
                 posterUser: usUserId,
                 text: input,
-                imgVideo: video || foto,
+                imgVideo: video,
             };      
             dispatch(postPublication(obj));   
             setInput("");
-            setFoto("");
             setVideo("");
         }
         else{
             const obj = {
                 posterUser: usUserId,
                 text: input,
-                imgVideo: video || foto,
+                imgVideo: video,
                 workModality: tags.workModality,
                 languages: tags.languages,
                 technologies: tags.technologies,
@@ -83,7 +83,6 @@ export default function PubliSettings(){
             dispatch(getPublicationStudents(usUserId));
 
             setInput("");
-            setFoto("");
             setVideo("");
             setTags({
                 ...tags,
@@ -93,6 +92,14 @@ export default function PubliSettings(){
                 backFront:"",
             });
         }
+        setCartelPub(true)
+    };
+
+
+    const [ inputVideo, setInputVideo ] = useState(false);
+
+    const activarInput = () => {
+        setInputVideo(!inputVideo);
     };
 
     return(
@@ -116,14 +123,11 @@ export default function PubliSettings(){
                     </SettingHead>
         
                     <PvSettings>
-                        <div>
-                        <BsImage className="foto"/>
-                        <p>Foto</p>
-                        </div>
         
                         <div>
                         <FiVideo className="video"/>
-                        <p>Video</p>
+                        <button onClick={activarInput}>Video</button>
+                        { inputVideo && <input value={video} onChange={(e) => setVideo(e.target.value)} placeholder={"insertar URL"} />}
                         </div>
     
         
@@ -191,6 +195,12 @@ export default function PubliSettings(){
 
                 </div>
         }
+
+
+
+
+        
+        { cartelPub && <span>Tu publicacion es una porquería</span> }
             </SettingsCont>
     )
 }

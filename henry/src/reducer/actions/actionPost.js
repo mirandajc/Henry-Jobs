@@ -17,7 +17,9 @@ import {
     BUGG_NAV,
     GOOGLE_LOGIN,
     SET_PREMIUM,
-    SET_GOOGLE_USER
+    SET_GOOGLE_USER,
+    EMAIL_EXISTE,
+    EMAIL_EXISTE_SUCCESS
  
 } from "../../constants/constants";
 
@@ -151,3 +153,17 @@ export function setGoogleUser(payload){
         payload
     }
 }
+
+export function emailExiste (email){
+    return {
+        type: EMAIL_EXISTE,
+        payload: email
+    };
+};
+
+export function emailExisteSuccess (payload){
+    return {
+        type: EMAIL_EXISTE_SUCCESS,
+        payload
+    };
+};

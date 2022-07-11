@@ -2,6 +2,7 @@ import { take, call, all, put, takeEvery, takeLatest } from 'redux-saga/effects'
 import axios from 'axios';
 
 import {
+    emailExisteSuccess,
     postRegisterModalSuccess,
     postUser,
     postUserSuccess,
@@ -18,6 +19,7 @@ import {
     UPDATE_USER,
     GOOGLE_LOGIN,
     SET_PREMIUM,
+    EMAIL_EXISTE
 } from '../../constants/constants';
 
 function* asyncPostUser (user){
@@ -111,6 +113,17 @@ function* asyncSetPremium (payload){
     }
 };
 
+function* asyncEmailExiste (payload) {
+    try {
+        console.log("antes de lo asinc", payload.payload)
+        const response = yield call(() => axios.get(URL_DEPLOY + `/mail?email=${payload.payload}`));
+        console.log("respuesta de email", response.data)
+        yield put(emailExisteSuccess(response.data));
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 
 
 export function* watchFetchPostSaga(){
@@ -120,4 +133,5 @@ export function* watchFetchPostSaga(){
     yield takeEvery(UPDATE_USER, asyncUpdateUser)
     yield takeEvery(GOOGLE_LOGIN, asyncLoginWithGoogle)
     yield takeEvery(SET_PREMIUM, asyncSetPremium)
+    yield takeEvery(EMAIL_EXISTE, asyncEmailExiste)
 }

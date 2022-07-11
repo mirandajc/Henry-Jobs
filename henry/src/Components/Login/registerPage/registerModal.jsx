@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CardRegister } from "../LoginStyles/registerStyle";
 import {Link, useNavigate} from 'react-router-dom';
-import { useDispatch } from "react-redux";
-import { postRegisterModal } from "../../../reducer/actions/actionPost";
+import { useDispatch, useSelector } from "react-redux";
+import { emailExiste, postRegisterModal } from "../../../reducer/actions/actionPost";
 
 
 export default function RegisterCard(){
@@ -76,6 +76,27 @@ export default function RegisterCard(){
         setDatos({...datos, email: e.target.value});
     };
 
+    //////////////////////// VERIFICAR EMAIL ///////////////////////////////////////
+    const respuestaDeMail = useSelector(state => state.fetchPostReducer.existenciaMail);
+
+    const [ cartel, setCartel ] = useState("");
+
+    const verificarExistencia = (email) => {
+        dispatch(emailExiste(email));
+    };
+
+    useEffect(() => {
+        if(respuestaDeMail !== ""){
+            setCartel("");
+            if(respuestaDeMail !== "disponible"){ /////////////////////// cambiar datos
+                setCartel("Ese email ya existe!");
+            }
+            else{
+                setCartel("Email disponible");
+            }
+        }
+    }, [respuestaDeMail]);
+
     //////////////////////// VALIDACION DE CONTRASEÑAS /////////////////////////////
 
     const validarContraseña = (e) => {
@@ -104,12 +125,19 @@ export default function RegisterCard(){
             else if(!datos.email){
                 return setError({...error, errorEmail: "Debes ingresar un email"});
             }
+            else if(cartel === ""){
+                return setCartel("Debes verificar el email");
+            }
+            else if(cartel === "Ese email ya existe!"){
+                return setCartel("Ese email ya existe!");
+            }
             else if(!datos.contraseña){
                 return setError({...error, errorContraseña: "Debes ingresar una contraseña"});
             }
             else{
                 //mandar el objeto
-                const correo = /[^@ \t\r\n]+@soyhenry\.com/           
+                const correo = /[^@ \t\r\n]+@soyhenry\.com/  
+
                 if(correo.test(datos.email)){
                     let USER = {
                         userName: datos.username,
@@ -153,22 +181,31 @@ export default function RegisterCard(){
             <h1>Registrate! 🚀</h1>
             <div>
                 <input placeholder="Nombre de usuario" value={datos.username} onChange={(e) => validarUsername(e)}/>
+                <br />
                 {error.errorUsername && <span>{ error.errorUsername }</span>}
             </div>
             <div>
                 <input placeholder="Nombre" value={datos.nombre} onChange={(e) => validarNombre(e)}/>
+                <br />
+
                 {error.errorNombre && <span>{ error.errorNombre }</span>}
             </div>
             <div>
                 <input placeholder="Apellido" value={datos.apellido} onChange={(e) => validarApellido(e)}/>
+                <br />
+
                 {error.errorApellido && <span>{ error.errorApellido }</span>}
             </div>
             <div>
                 <input placeholder="Mail" value={datos.email} onChange={(e) => validarEmail(e)}/>
+                <br />
+                {cartel && <span>{cartel}</span>}
                 {error.errorEmail && <span>{ error.errorEmail }</span>}
+                <button onClick={() => verificarExistencia(datos.email)}>Verificar Email</button>
             </div>
             <div>
                 <input placeholder="Contraseña" type='password' value={datos.contraseña} onChange={(e) => validarContraseña(e)}/>
+                <br />
                 {error.errorContraseña && <span>{ error.errorContraseña }</span>} 
             </div>
 
