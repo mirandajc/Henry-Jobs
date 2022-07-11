@@ -5,6 +5,8 @@ import NavWall from "./navBarWall";
 import {idiomas, allCountries, DevType, technologies, workModal} from "../StudentsWall/select"
 import CardPublicationWorkTest2 from "./CardPublicationsTest";
 import {Componente, DivFiltros} from "./WorkWall.js"
+import Loading from "../../Loading/Loading";
+import NoSearchFounds from "../../Loading/NoSearchFounds";
 
 //Este componente va a renderizar las publicaciones de empresas y reclutadores
 
@@ -13,12 +15,17 @@ export default function WorkWall(){
     //REDUCER TRAER LAS DE EMPRESA Y RECLUTADOR
     const dispatch = useDispatch();
     const business = useSelector((state) => state.fetchStudentsReducer.publicationsFiltered);
-
+    const [load, setLoad] = useState(true);
+    
     useEffect(() => {
         if(!business.length){
             console.log('hago algo')
             dispatch(getPublicationsBusiness('123123123123'))
         }
+    }, [])
+
+    useEffect(() => {
+        setTimeout(() => { setLoad(false) }, 1300);
     }, [])
 
 
@@ -125,7 +132,11 @@ export default function WorkWall(){
             {/* <NavWall/> */} 
             {                  /*  ACTUALIZAR/MODIFICAR LA TARJETA QUE MUESTRA LAS PUBLICACIONES DE EMPRESAS
                                     USAR COMO REFERENCIA MOCKEDFILES => mokedFilesPostBusiness */
-                                   
+                   
+                load ? <Loading/> :
+
+                business.length === 0 ? <NoSearchFounds/> :
+            
                 business.map((e)=>
                 (
                     

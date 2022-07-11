@@ -25,9 +25,7 @@ export default function PubliSettings(){
     const type = usUser.type;
 
     useEffect(()=>{
-
         dispatch(profileID(usUserId))
-
     },[])
     useEffect(()=>{
         if(userData.name !== undefined){

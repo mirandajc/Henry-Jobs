@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPublicationStudents, traerFollowing } from "../../../reducer/actions/actionBusiness";
 import { CardContainer, CardCont2 } from "../bussinesStyles/bussines";
 import CardPublicationWorkTest from "../HomeForStudents/CardPublicationsTest";
+import Loading  from '../../Loading/Loading';
+import NoFollowsHome  from '../../Loading/NoFollowsHome';
 
 
 export default function HomeBusinessLogic({id}) {
@@ -10,7 +12,8 @@ export default function HomeBusinessLogic({id}) {
   const dispatch = useDispatch();
   const allPublications = useSelector((state) => state.fetchBusinessReducer.allPublications);
   const foll = useSelector((state) => state.fetchBusinessReducer.userFollows);
-    
+  const [ load, setLoad ] = useState(true);
+
   useEffect(() => {
     dispatch(traerFollowing(id));
   },[])
@@ -19,10 +22,22 @@ export default function HomeBusinessLogic({id}) {
       dispatch(getPublicationStudents(id));
   },[foll])
 
+  useEffect(() => {
+    setTimeout(() => {setLoad(false)}, 2000);     
+  },[])
+
+
+
   return (
     <CardContainer>
       
-      {allPublications.map((e) => {
+      {
+
+      load ? <Loading/> :
+
+      allPublications.length === 0 ? <NoFollowsHome/> :
+      
+      allPublications.map((e) => {
         return(
         <CardCont2>
 
@@ -47,6 +62,7 @@ export default function HomeBusinessLogic({id}) {
           />
         </CardCont2>
         )})}
+
     </CardContainer>
   );
 }
