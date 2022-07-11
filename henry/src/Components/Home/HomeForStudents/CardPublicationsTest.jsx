@@ -7,7 +7,7 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import { postIdFollowBuss } from "../../../reducer/actions/actionBusiness";
 import {IoLocationSharp} from 'react-icons/all';
 
-export default function CardPublicationWorkTest({ id, image, name, date, title, summary, video, technologies, backFront, country, workModality, english, userName, lastname, text }) {
+export default function CardPublicationWorkTest({ id, image, name, date, title, summary, video, technologies, backFront, country, workModality, english, userName, lastname, text, userTypes }) {
     // viene publicacion de empresas y alumnos mix
 
 
@@ -29,7 +29,8 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
 
 
 
-//id, image, name, date, title, summary, video, technologies, backgront, ubicacion, workModality, english, username, lastname,text
+    
+    const Date=date.substr(0,9);
 
     return (
         <ComponentCard>
@@ -40,7 +41,12 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
                     <img src={image}/>
                 </div>
                     <div className="namub">
-                    <h3>{name + ' ' + lastname}</h3>
+                        {
+                            userTypes === 5?
+                            <h3>{name}</h3>
+                            :
+                            <h3>{name + ' ' + lastname}</h3>
+                        }
                     <div className="ub">
                     <IoLocationSharp className="ubic"/>
                     <p>{country}</p>
@@ -48,7 +54,7 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
                     </div>
                 </div>
                 <div>
-                    <p className="Date">10/7/2022</p>
+                    <p className="Date">{Date}</p>
                 </div>
             </Profile>
 

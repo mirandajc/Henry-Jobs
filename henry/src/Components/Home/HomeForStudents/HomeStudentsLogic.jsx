@@ -16,11 +16,14 @@ export default function HomeStudentsLogic({ id }) {
         dispatch(getPublicationsBusiness(id));
     }, [foll]);
 
+
+console.log('PUBLIC',publicaciones)
+
     return (
         <ContenedorStudents>
             {
                 publicaciones.map(e => <CardPublicationWorkTest
-                    image={e.posterUser.profileImage}
+                    image={e.posterUser.profileImage.secure_url}
                     lastName={e.posterUser.lastName}
                     name={e.posterUser.name}
                     date={e.date}
@@ -29,11 +32,13 @@ export default function HomeStudentsLogic({ id }) {
                     video={e.imgVideo}
                     technologies={e.technologies}
                     backFront={e.backFront}
-                    ubication={e.country}
+                    country={e.posterUser.country}
                     workModality={e.workModality}
                     english={e.languages}
                     lastname={e.posterUser.lastName}
                     id={e.posterUser._id}
+                    text={e.text}
+                    
                 />)
             }
 
