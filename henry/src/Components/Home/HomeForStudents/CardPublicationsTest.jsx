@@ -102,7 +102,7 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
                     className='video'
                     playing={false}
                     width='100%'
-                    height={'100%'}
+                    height='100%'
                     volume={null}
                     />
                 </Video>
