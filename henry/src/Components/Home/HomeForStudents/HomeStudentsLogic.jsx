@@ -16,11 +16,6 @@ export default function HomeStudentsLogic({ id }) {
         dispatch(getPublicationsBusiness(id));
     }, [foll]);
 
-    useEffect(() => {
-        dispatch(getPublicationsBusiness(id));
-    }, [publicaciones]);
-
-
     return (
         <ContenedorStudents>
             {

@@ -6,14 +6,14 @@ import {FiVideo} from 'react-icons/fi';
 import {RiArticleLine} from 'react-icons/all';
 import {SiBitcoinsv} from 'react-icons/all';
 import { profileID } from "../../../reducer/actions/actionPost";
-import { getPublicationsBusiness, postPublication } from "../../../reducer/actions/actionStudents";
+import {  postPublication } from "../../../reducer/actions/actionStudents";
 import { technologies } from "../../Post/StudentsWall/select"
 import { getPublicationStudents } from "../../../reducer/actions/actionBusiness";
 
 
 
 
-export default function PubliSettings(props){
+export default function PubliSettings(){
 
     const dispatch= useDispatch()
     const userData= useSelector((state)=> state.fetchPostReducer.responseProfile);
@@ -62,11 +62,8 @@ export default function PubliSettings(props){
                 posterUser: usUserId,
                 text: input,
                 imgVideo: video || foto,
-            };
-
-            dispatch(postPublication(obj));
-            dispatch(getPublicationsBusiness(usUserId));
-            
+            };      
+            dispatch(postPublication(obj));   
             setInput("");
             setFoto("");
             setVideo("");

@@ -15,13 +15,11 @@ export default function HomeBusinessLogic({id}) {
     dispatch(traerFollowing(id));
   },[])
 
-  useEffect(() => {
-      dispatch(getPublicationStudents(id));
-  },[foll])
+
 
   useEffect(() => {
       dispatch(getPublicationStudents(id));
-  },[allPublications])
+  },[foll])
 
   return (
     <CardContainer>
