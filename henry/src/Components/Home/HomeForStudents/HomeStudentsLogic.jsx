@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CardPublicationWorkTest from "./CardPublicationsTest";
 import { getPublicationsBusiness, traerFollowingStud } from '../../../reducer/actions/actionStudents'
 import { ContenedorStudents } from "./HomeStyled"
+import PubliSettings from "../PublicationSet/publicationSettings";
 
 
 //Feed del alumno con pyublicaciones 
@@ -36,7 +37,6 @@ export default function HomeStudentsLogic({ id }) {
                     id={e.posterUser._id}
                 />)
             }
-
         </ContenedorStudents>
     );
 };

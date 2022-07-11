@@ -6,7 +6,7 @@ import {FiVideo} from 'react-icons/fi';
 import {RiArticleLine} from 'react-icons/all';
 import {SiBitcoinsv} from 'react-icons/all';
 import { profileID } from "../../../reducer/actions/actionPost";
-import {  postPublication } from "../../../reducer/actions/actionStudents";
+import {  getPublicationsBusiness, postPublication } from "../../../reducer/actions/actionStudents";
 import { technologies } from "../../Post/StudentsWall/select"
 import { getPublicationStudents } from "../../../reducer/actions/actionBusiness";
 
@@ -80,8 +80,7 @@ export default function PubliSettings(){
             };
 
             dispatch(postPublication(obj));
-            dispatch(getPublicationStudents(usUserId));
-
+            
             setInput("");
             setVideo("");
             setTags({

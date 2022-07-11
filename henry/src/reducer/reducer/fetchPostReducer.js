@@ -16,6 +16,7 @@ const initialState = {
         country:'',
         city:'',
         languages:'',
+        premium: false,
         banner: {secure_url: 'https://res.cloudinary.com/noisybrain-cloud/image/upload/v1657222059/HenryJobs/banner_pogdok.jpg'},
         profileImage: {secure_url:'https://res.cloudinary.com/noisybrain-cloud/image/upload/v1657222048/HenryJobs/profileImage_iptpub.jpg'},
         otherStudies:[],
