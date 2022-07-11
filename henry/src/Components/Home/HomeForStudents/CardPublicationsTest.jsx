@@ -1,5 +1,5 @@
 import React from "react";
-import {  ComponentCard, Profile, InnerText, Tags, Video } from './HomeStyled';
+import {  ComponentCard, Profile, InnerText, Tags, Video, Footer } from './HomeStyled';
 import ReactPlayer from "react-player";
 import { postIdFollow } from "../../../reducer/actions/actionStudents";
 import { useDispatch } from "react-redux";
@@ -59,32 +59,53 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
             </InnerText>
 
 
-            <Tags>
+          { technologies.length >2 ? 
+          <Tags>
                 {
                     technologies.map( el=>( <div className="tech"><p>{el}</p></div>))
                 }
-               
-                
-
             </Tags>
+            :null
+                }
+
+           {    english || workModality || backFront?
             <Tags>
-               
-            <div className="tech"><p>{english}</p></div>
+               {
+                   english?
+                   <div className="tech"><p>{english}</p></div>
+                   :null
+               }
+               {
+                workModality?
                 <div className="tech"><p>{workModality}</p></div>
+                : null
+               }
+               {
+                backFront?
                 <div className="tech"><p>{backFront}</p></div>
+                : null
+               }
             </Tags>
+            :null
+}
+            {
+                video ?
+                <Video>
+                    <ReactPlayer
+                    url={video}
+                    className='video'
+                    playing={false}
+                    width='100%'
+                    height={'100%'}
+                    volume={null}
+                    />
+                </Video>
+            :null
+            }
 
-            <Video>
-                <ReactPlayer
-                url={video}
-                className='video'
-                playing={false}
-                width='100%'
-                height={'100%'}
-                volume={null}
-                />
-            </Video>
-        
+            <Footer>
+
+            </Footer>
         </ComponentCard>
     )
 }

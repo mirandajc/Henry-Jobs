@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const BodyStudentsWallCard= styled.div`
 width: 100%;
-
+min-height: 120vh;
 display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,6 +28,7 @@ export const PublicationCard= styled.div`
     display: flex;
     background-color: #1A1B1E;
     width: 50%;
+    min-height:20em;
     height: 15rem;
     border-radius: 1rem;
     flex-direction: column;
@@ -70,6 +71,8 @@ p{
 
 
 
+
+
 `
 
 export const Detalle= styled.p`
@@ -85,20 +88,53 @@ flex-direction: row;
 justify-content: space-between;
 margin: 0.5rem;
 
+
+
 .imageName{
     display: flex;
-    width: 50%;
+    width: 60%;
     align-items: center;
+    justify-content: space-around;
+   
 }
 .datos{
-    margin: 0.5rem;
+    width:100%;
+    
+   
 }
 .ubicacion{
     display: flex;
     align-items: center;
+    width:100%;
+    margin-top: -1em;
 }
 .nombre{
+    display:flex;
+    align-items:center;
+    justify-contenr: center;
     
+    width:100%;
+    .plus{
+       
+        width:2em;
+        height:2em;
+        border-radius: 50%;
+        overflow:hidden;
+        button{
+            width:100%;
+            border-radius:50%;
+    
+            &:active{
+                background-color: black;
+                border:1px solid yellow;
+                .plusd{
+                    color:yellow;
+                }
+            }
+        }
+    }
+
+
 }
 p{
     display: flex;
@@ -110,7 +146,7 @@ p{
 ;
 }
 h3{
-    margin: 0;
+    margin-right: 1em;
 }
 a{
     text-decoration: none;
@@ -127,12 +163,12 @@ h5{
 `
 
 export const PictureCont= styled.div`
-width: 3em;
+width: 3.5em;
 height: 3em;
 border-radius: 50%;
 overflow: hidden;
 border: 1px solid yellow;
-
+margin-right: 1em;
 
 img{
     width:100%;
@@ -147,7 +183,7 @@ img{
 
 export const InnerPost= styled.div`
 
-// border: 1px solid white;
+border: 1px solid white;
 
 display: flex;
 align-items: center;
@@ -342,24 +378,43 @@ export const ButtonCont= styled.div`
 // border: 1px solid yellow;
 width:50%;
 margin-bottom: 1em;
-.plus{
-    width:2em;
-    height:2em;
-    border-radius: 50%;
-    overflow:hidden;
-    button{
-        width:100%;
-        border-radius:50%;
+`
 
-        &:active{
-            background-color: black;
-            border:1px solid yellow;
-            .plusd{
-                color:yellow;
-            }
-        }
+
+export const Tech= styled.div`
+
+
+width: 100%;
+height: 3em;
+// margin-bottom: .5em;
+display: flex;
+align-items:center;
+justify-content: flex-start;
+overflow: hidden;
+
+div{
+    height:1.5em;
+    width: 10%;
+   
+    margin-right: 1em;
+    margin-left: 1em;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    overflow:hidden;
+    background-color: #5c5f66;
+    border-radius: 20px;
+    color:#1A1B1E;
+    p{
+        
+        width: auto;
     }
 }
 
+`
+
+export const TextP= styled.div`
+
+border-bottom: 0.5px solid hsl(228deg 11% 9%);
 
 `

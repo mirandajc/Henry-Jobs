@@ -20,10 +20,15 @@ export default function HomeBusinessLogic({id}) {
       dispatch(getPublicationStudents(id));
   },[foll])
 
+
+  console.log(allPublications)
   return (
     <CardContainer>
       
-      {allPublications.map((e) => {
+      {
+        
+      allPublications &&
+      allPublications.map((e) => {
         return(
         <CardCont2>
 
