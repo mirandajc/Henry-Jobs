@@ -21,8 +21,7 @@ import {
     EMAIL_EXISTE_SUCCESS,
     EDIT_PROFILE,
     GOOGLE_LOGIN,
-    SET_GOOGLE_USER
- 
+
 } from "../../constants/constants";
 
 
@@ -151,14 +150,10 @@ export function setPremium(payload){
 }
 
 
-export function EditProfile({id, edituser}){
-   
-
-
-    return{
+export function EditProfile({id, edituser}) {
+    return {
         type: EDIT_PROFILE,
-       payload: {id,edituser}
-
+        payload: {id,edituser}
     }
 }
 
@@ -169,7 +164,6 @@ export function setGoogleUser(payload){
     }
 }
 
-<<<<<<< HEAD
 export function emailExiste (email){
     return {
         type: EMAIL_EXISTE,
@@ -183,6 +177,3 @@ export function emailExisteSuccess (payload){
         payload
     };
 };
-=======
-
->>>>>>> Estilos

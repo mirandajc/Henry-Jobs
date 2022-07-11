@@ -9,6 +9,7 @@ import {MdAddAPhoto} from 'react-icons/all';
 import {countries} from '../Register_form/gistfile1.json';
 import { EditProfile } from "../../reducer/actions/actionPost";
 
+
 export default function InnModal(){
 //nombre, banner, fotoperfil, ubicacion, github, linkedin, mail,instancia, tecnologias, otros estudios, acercaDE, favoritos
 

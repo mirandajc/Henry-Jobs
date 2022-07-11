@@ -30,19 +30,12 @@ const initialState = {
 
 const fetchPostReducer = (state = initialState, action) => {
     switch (action.type) {
-<<<<<<< HEAD
             case EMAIL_EXISTE_SUCCESS:
                 return {
                     ...state,
                     existenciaMail: action.payload
                 };
 
-=======
-
-
-
-        
->>>>>>> Estilos
             case BUGG_NAV:
                 return{
                     ...state,
