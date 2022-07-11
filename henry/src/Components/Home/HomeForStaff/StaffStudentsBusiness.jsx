@@ -36,16 +36,19 @@ export default function StaffStudentsBusiness ({ id ,name, profileImage, lastnam
                 // Link al perfil con userName?
                 <div >
                     <div className="name">
-                        <div className="imgCont">
-                    <img src={profileImage} width={"25px"} height={"25px"} />
+
+                       <div className="imgCont">
+                            <img src={profileImage} width={"25px"} height={"25px"} />
                         </div>
-                    <div className="detail">
-                    <h3>{name} {userName}</h3>
-                    <p><MdLocationPin/> {city} {country}</p>
+                        <div className="detail">
+                            <h3>{name} {userName}</h3>
+                            <p><MdLocationPin/> {city} {country}</p>
+                        </div>
                     </div>
+                    <div className="emailCvContainer">
+                        <h4>{email}</h4>
+                        <h4>Curriculums enviados este mes: {curriculumCounter}</h4>
                     </div>
-                    <h4>{email}</h4>
-                    <h4>Curriculums enviados este mes: {curriculumCounter}</h4>
                     <h4><AiFillStar/> {stars}</h4>
                 </div>
                 
@@ -59,9 +62,11 @@ export default function StaffStudentsBusiness ({ id ,name, profileImage, lastnam
                     <h4>{email}</h4>
                 </div>
             }
-            <button onClick={() => handleDelete()}>Borrar Usuario</button>
-            { cartelMail && <span>Correo enviado con éxito!</span>}
-            <button onClick={() => handleAdvertencia(id)}>Enviar Advertencia</button>
+            <div className="buttonContainer">
+                <button onClick={() => handleDelete()}>Borrar Usuario</button>
+                { cartelMail && <span>Correo enviado con éxito!</span>}
+                <button onClick={() => handleAdvertencia(id)}>Enviar Advertencia</button>
+            </div>
         </div>
         </CardStudentsStaff>
     );
