@@ -6,6 +6,7 @@ import StudentCV from "./students-cv";
 import { CompleteProfile } from "../profileStyles/StudentComplete";
 import { profileID } from "../../../reducer/actions/actionPost";
 import { ContStudentCo } from "../profileStyles/studentProfile";
+import Loading from "../../Loading/Loading";
 
 
 
@@ -17,6 +18,7 @@ export default function StudentCompletePage() {
     const dispatch = useDispatch();
     const userProfile = useSelector((state) => state.fetchPostReducer.responseProfile)
     const [renderi, setRenderi] = useState(false);
+    const [load, setLoad] = useState(true);
 
     useEffect(() => {
         if(userProfile.name !== undefined) { 
@@ -35,12 +37,19 @@ export default function StudentCompletePage() {
         }
     },[userProfile])
 
+    useEffect(() => {
+        setTimeout(() => { setLoad(false) }, 2700);
+    }, [])
+
 
     return (
         
         <ContStudentCo>
         {
+            load ? <Loading/> :
+
             renderi
+
             ?
             <CompleteProfile>
                 <StudentsProfile 

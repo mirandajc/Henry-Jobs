@@ -16,6 +16,7 @@ min-height: 120vh;
 
 
 
+
 `
 
 export const CardCont2= styled.div`

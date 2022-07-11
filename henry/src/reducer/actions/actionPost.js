@@ -15,12 +15,13 @@ import {
     UPDATE_USER,
     UPDATE_USER_SUCCESS,
     BUGG_NAV,
-    GOOGLE_LOGIN,
     SET_PREMIUM,
     SET_GOOGLE_USER,
     EMAIL_EXISTE,
-    EMAIL_EXISTE_SUCCESS
- 
+    EMAIL_EXISTE_SUCCESS,
+    EDIT_PROFILE,
+    GOOGLE_LOGIN,
+
 } from "../../constants/constants";
 
 
@@ -141,9 +142,18 @@ export function loginWithGoogle(obj) {
 
 
 export function setPremium(payload){
+    
     return {
         type: SET_PREMIUM,
-        payload
+        payload : payload
+    }
+}
+
+
+export function EditProfile({id, edituser}) {
+    return {
+        type: EDIT_PROFILE,
+        payload: {id,edituser}
     }
 }
 

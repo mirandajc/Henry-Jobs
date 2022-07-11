@@ -31,7 +31,7 @@ export default function PremiumCard () {
              . Acceder a mayor visibilidad que usuarios comunes <br/>
              . Acceder a la ubicación compartida por los usuarios<br/>
             </p>
-            <Link to="/checkout1"><button>Premium</button></Link>
+            <Link to={`/checkout1/${userType.id}`}><button>Premium</button></Link>
           </div>
         </div>
         <div class="face face2">

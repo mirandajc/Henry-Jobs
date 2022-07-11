@@ -65,6 +65,16 @@ button{
     }
 }
 
+a{
+    width: 2em;
+    height: 2em;
+    text-decoration: none;
+   
+    color: black;
+    border-radius:50%;
+ 
+}
+
 
 
 `

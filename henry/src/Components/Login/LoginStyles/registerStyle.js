@@ -11,7 +11,7 @@ margin-top: 15em;
 border-radius: 10px;
 background-color: #212329;
 width:30%;
-height:50%;
+height:auto;
 
 display:flex;
 align-items: center;

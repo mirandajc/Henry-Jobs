@@ -42,8 +42,8 @@ export default function CardPublicationWorkTest2({ id, publicacionID, image, nam
 
     return (
         <ComponentCard>
-            <ComponentDatos>
-                <div className="Imagen-And-Name">
+            {/* <ComponentDatos> */}
+                {/* <div className="Imagen-And-Name">
                     <div className="ImgCont">
                         <img src={image} alt={`${name} Image`} />
                     </div>
@@ -75,35 +75,35 @@ export default function CardPublicationWorkTest2({ id, publicacionID, image, nam
                         </ButtonLight>
                         {
                             userType.id === id ? null :
-                                <button onClick={() => handleFollow()}>{/* <AiOutlinePlus className="plus" /> */}{foll.includes(id) ? <p>-</p> : <p>+</p>}</button>
+                                <button onClick={() => handleFollow()}>{foll.includes(id) ? <p>-</p> : <p>+</p>}</button>
                         }
 
 
                     </div>
                 </div>
-            </ComponentDatos>
+            </ComponentDatos> */}
 
             {
 
-                video !== null ?
-                    <Video>
-                        <ReactPlayer
-                            url={video}
-                            className='video'
-                            playing={false}
-                            width='100%'
-                            height='100%'
-                            volume={null}
-                        />
-                        <Date>
-                            <p>{title}</p>
-                            <p>{date}</p>
-                        </Date>
-                    </Video>
-                    : null
+                // video !== null ?
+                //     <Video>
+                //         <ReactPlayer
+                //             url={video}
+                //             className='video'
+                //             playing={false}
+                //             width='100%'
+                //             height='100%'
+                //             volume={null}
+                //         />
+                //         <Date>
+                //             <p>{title}</p>
+                //             <p>{date}</p>
+                //         </Date>
+                //     </Video>
+                //     : null
             }
-            {cartel && <span>Postulación enviada con éxito</span>}
-            <button onClick={handlePostulation}>Postularse</button>
+            {/* {cartel && <span>Postulación enviada con éxito</span>}
+            <button onClick={handlePostulation}>Postularse</button> */}
         </ComponentCard>
     )
 }

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPublicationStudents, traerFollowing } from "../../../reducer/actions/actionBusiness";
 import { CardContainer, CardCont2 } from "../bussinesStyles/bussines";
 import CardPublicationWorkTest from "../HomeForStudents/CardPublicationsTest";
+import Loading  from '../../Loading/Loading';
+import NoFollowsHome  from '../../Loading/NoFollowsHome';
 
 
 export default function HomeBusinessLogic({id}) {
@@ -10,6 +12,7 @@ export default function HomeBusinessLogic({id}) {
   const dispatch = useDispatch();
   const allPublications = useSelector((state) => state.fetchBusinessReducer.allPublications);
   const foll = useSelector((state) => state.fetchBusinessReducer.userFollows);
+  const [ load, setLoad ] = useState(true);
     
   useEffect(() => {
     dispatch(traerFollowing(id));
@@ -19,15 +22,27 @@ export default function HomeBusinessLogic({id}) {
       dispatch(getPublicationStudents(id));
   },[foll])
 
+  useEffect(() => {
+    setTimeout(() => {setLoad(false)}, 2000);     
+  },[])
+
+
+
   return (
     <CardContainer>
       
-      {allPublications.map((e) => {
+      {
+
+      load ? <Loading/> :
+
+      allPublications.length === 0 ? <NoFollowsHome/> :
+      
+      allPublications.map((e) => {
         return(
         <CardCont2>
 
           <CardPublicationWorkTest
-             image={e.posterUser.profileImage} // imagen de usuario
+             image={e.posterUser.profileImage.secure_url} // imagen de usuario
              name={e.posterUser.name}
              lastname={e.posterUser.lastName}
              date={e.date}
@@ -42,11 +57,13 @@ export default function HomeBusinessLogic({id}) {
              english={e.posterUser.languages}
              text={e.text}
              id={e.posterUser._id}
+             country={e.posterUser.country}
 
           
           />
         </CardCont2>
         )})}
+
     </CardContainer>
   );
 }

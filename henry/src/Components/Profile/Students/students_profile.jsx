@@ -3,7 +3,7 @@ import { StudentProf, ProfCont, Name, DevStar, Banner, ImageProf, P, Follow, Ubi
 import { Link } from 'react-router-dom';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { BsFillStarFill } from 'react-icons/bs'
-import { GiConsoleController, SiGmail } from 'react-icons/all';
+import {  SiGmail } from 'react-icons/all';
 import { HiLocationMarker } from 'react-icons/all';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { getPublicationsBusiness, postIdFollow } from "../../../reducer/actions/actionStudents";
@@ -49,7 +49,7 @@ export default function StudentsProfile({ id, userType, backFront, banner, count
 
                 {
                     id == TkIdF.id ? (<Edit>
-                        <Link to='/EditProfile'>
+                        <Link to={`/EditProfile/${id}`}>
                             <AiOutlineEdit className="edit" />
                         </Link>
                     </Edit>)

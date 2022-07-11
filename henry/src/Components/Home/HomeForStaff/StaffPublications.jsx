@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-
-
+import { StaffContainer, NameMail } from "./StaffStyles/staffPublication";
 
 export default function StaffPublications ({name,lastname, email, text, video, country, workModal, technologies}){
     
@@ -9,13 +8,15 @@ export default function StaffPublications ({name,lastname, email, text, video, c
     ////////////////// REUTILIZAR LAS CARDS Y ESTILOS DEL WORKWALL Y STUDENTSWALL ///////////////////
 
     return(
-        <div>
+        <StaffContainer>
             {
                 lastname ? 
                 
                 <div>
-                    <h1>{name + " " + lastname}</h1>
-                    <h3>{email}</h3>
+                    <NameMail>
+                        <h3>{name + " " + lastname}</h3>
+                        <p>{email}</p>
+                    </NameMail>
                     <p>{text}</p>
                     <img src={video}/>
                 </div>
@@ -23,14 +24,16 @@ export default function StaffPublications ({name,lastname, email, text, video, c
                 : 
                 
                 <div>
-                    <h1>{name}</h1>
-                    <h3>{email}</h3>
+                    <NameMail>
+                        <h3>{name}</h3>
+                        <p>{email}</p>
+                    </NameMail>
                     <p>{text}</p>
                     <p>{workModal}</p>
                     {technologies && technologies.map(e => <p>{e}</p>)}
                 </div>
             }
-        </div>
+        </StaffContainer>
     );
 };
 
