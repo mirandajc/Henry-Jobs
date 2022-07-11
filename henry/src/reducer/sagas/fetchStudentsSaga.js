@@ -21,7 +21,7 @@ import { getPublicationsBusinessSuccess, postIdFollowSuccess, getStudentsByEmail
 function* asyncGetPublicationsBussines(payload) {
     try {
         const response= yield call(()=>axios.get(URL_PEDIDO_POSTS)) 
-        yield put(getPublicationsBusinessSuccess(response.data, payload)) 
+        yield put(getPublicationsBusinessSuccess(response.data, payload)) // <== WorkWall 
     } catch (error) {
         console.log(error) 
     }
@@ -47,7 +47,7 @@ function* asyncGetStudentsByEmail (email) {
 
 function* asyncPostularse (payload) {
     try { 
-        const response = yield call(() => axios.put(URL_PEDIDO_POSTS + `/old/${payload[1]}`, payload[0]));
+        const response = yield call(() => axios.put(URL_PEDIDO_POSTS + `/old/${payload.payload[1]}`, payload.payload[0]));
         console.log(response.data);
     } catch (error) {
         console.log(error);

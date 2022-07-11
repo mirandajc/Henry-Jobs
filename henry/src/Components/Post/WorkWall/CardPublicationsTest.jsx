@@ -18,7 +18,8 @@ export default function CardPublicationWorkTest2({ id, publicacionID, image, nam
 
     useEffect(() => {
         dispatch(getPublicationsBusiness(userType.id));
-    }, [foll]);
+    }, []); // aca borre que escuchara a foll wey
+    
 
     const handleFollow = () => {
         dispatch(postIdFollow(id, { id: userType.id }));

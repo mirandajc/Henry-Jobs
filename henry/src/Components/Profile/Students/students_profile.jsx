@@ -23,11 +23,9 @@ export default function StudentsProfile({ id, userType, backFront, banner, count
     useEffect(() => {
         if (TkIdF.type === 1 || TkIdF.type === 2) {
             dispatch(getPublicationStudents())
-            console.log(foll)
         }
         if (TkIdF.type === 4 || TkIdF.type === 5) {
             dispatch(getPublicationsBusiness());
-            console.log(foll2)
         }
     }, [foll, foll2]);
 

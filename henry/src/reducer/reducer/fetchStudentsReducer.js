@@ -51,11 +51,18 @@ const fetchStudentsReducer = (state = initialState, action) => {
 
         case GET_MY_APPLICAT_SUCCESS:
             let id = action.id;
-            let respondido = []
+            let respondido = [];
+            console.log(action.payload)
             for (let i = 0; i < action.payload.length; i++) {
-                action.payload[i].applicants.filter(e => e.userId === id &&
-                respondido.push(action.payload[i]))
+                for(let j = 0; j < action.payload[i].applicants.length; j++){
+                    if(action.payload[i].applicants[j].userId === id){
+                        if(!respondido.includes(action.payload[i])){
+                            respondido.push(action.payload[i]);
+                        }
+                    }
+                }
             } 
+            console.log("soy respondido", respondido)
             return {
                 ...state,
                 myApp: respondido
@@ -71,7 +78,7 @@ const fetchStudentsReducer = (state = initialState, action) => {
         case GET_PUBLICATIONS_BUSINESS_SUCCESS:
             let all = action.payload.reverse();
             let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id) || action.id.includes(e.posterUser._id))
-            let response = fol1.reverse(); // usuarios que sigo incluido yo
+            let response = fol1;// usuarios que sigo incluido yo
             let responseBusiness = all.filter(e => e.posterUser.userTypes === 4 || e.posterUser.userTypes === 5);
 
             return {

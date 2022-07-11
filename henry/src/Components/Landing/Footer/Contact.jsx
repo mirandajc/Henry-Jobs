@@ -27,11 +27,11 @@ function Contact() {
       <form ref={form} onSubmit={sendEmail}>
         <div className='datos'>
           {/* <label>Nombre</label> */}
-          <input type="text" name="user_name" placeholder='Nombre'/>
+          <input type="text" name="user_name" placeholder='Nombre' />
           {/* <label >Email</label> */}
-          <input type="email" name="user_email" />
+          <input type="email" name="user_email" placeholder='Email' />
           {/* <label >Asunto</label> */}
-          <input type="text" name="asunto"/>
+          <input type="text" name="asunto" placeholder='Asunto' />
         </div>
           <div className='mensaje'>
             <span>

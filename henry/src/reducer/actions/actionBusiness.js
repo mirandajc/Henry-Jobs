@@ -20,7 +20,8 @@ import {
     SEND_NUDES,
     SEND_NUDE_SUCCESS,
     TRAER_FOLLOWING,
-    TRAER_FOLLOWING_SUCCESS
+    TRAER_FOLLOWING_SUCCESS,
+    BORRAR_PUBLICACIONES
 } from "../../constants/constants";
 
 export function getPublicationStudents (payload) {
@@ -153,7 +154,6 @@ export function getBusinessByEmailSuccess (payload) {
 };
 
 export function sendNudes (obj, idp) {
-    console.log('soy la axion',obj,idp)
     return {
         type: SEND_NUDES,
         payload: obj,
@@ -181,4 +181,11 @@ export function traerFollowingSuccess (payload) {
         payload
     }
 }
+
+export function borrarBusinessPub (payload) {
+    return {
+        type: BORRAR_PUBLICACIONES,
+        payload
+    };
+};
 

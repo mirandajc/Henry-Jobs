@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getAllStudents, setApplicant } from "../../reducer/actions/actionBusiness";
+import { borrarBusinessPub, getAllStudents, setApplicant } from "../../reducer/actions/actionBusiness";
 import { sendNudes } from "../../reducer/actions/actionBusiness";
 
 export default function PublicationCard(props) {
@@ -63,8 +63,18 @@ export default function PublicationCard(props) {
         dispatch(sendNudes(obj, idp));
     };
 
+    const borrarPublicacion = () => {
+        dispatch(borrarBusinessPub(props.idPublicacion));
+    };
+
     return (
         <div>
+            {
+            props.botonDelete ?
+            <button onClick={borrarPublicacion}>Borrar publicacion</button>
+            : 
+            null
+            }
             <div>{props.email}</div>
             <div>{props.date}</div>
             <div>{props.text}</div>

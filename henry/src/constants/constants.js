@@ -64,7 +64,11 @@ export const POST_ID_FOLLOW_BUSS = 'POST_ID_FOLLOW_BUSS';
 export const POST_ID_FOLLOW_BUSS_SUCCESS = 'POST_ID_FOLLOW_BUSS_SUCCESS';
 
 
+<<<<<<< HEAD
 export const URL_DEPLOY = 'http://henryjob.herokuapp.com/api/';
+=======
+export const URL_DEPLOY = 'http://henryjob.herokuapp.com/api';
+>>>>>>> Practice
 
 
 export const PROFILE_SUCCESS= 'PROFILE_SUCCESS';
@@ -107,6 +111,8 @@ export const TRAER_FOLLOWING = "TRAER_FOLLOWING";
 export const TRAER_FOLLOWING_SUCCESS = "TRAER_FOLLOWING_SUCCESS";
 export const TRAER_FOLLOWING_STUD = "TRAER_FOLLOWING_STUD";
 export const TRAER_FOLLOWING_STUD_SUCCESS = "TRAER_FOLLOWING_STUD_SUCCESS";
+export const BORRAR_PUBLICACIONES = "BORRAR_PUBLICACIONES";
+export const SEND_EMAIL = "SEND_EMAIL";
 
 export const EDIT_PROFILE= 'EDIT_PROFILE';
 export const PROFILE_EDIT_URL='http://henryjob.herokuapp.com/api/user/';

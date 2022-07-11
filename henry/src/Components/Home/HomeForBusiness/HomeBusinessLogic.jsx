@@ -20,16 +20,6 @@ export default function HomeBusinessLogic({id}) {
       dispatch(getPublicationStudents(id));
   },[foll])
 
-  useEffect(() => {
-      dispatch(getPublicationStudents(id));
-      if(allPublications.length > 2){
-        setPublic(true)
-      }
-  },[publi===true])
-
-
-console.log(allPublications)
-
   return (
     <CardContainer>
       
