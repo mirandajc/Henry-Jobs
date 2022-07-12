@@ -43,6 +43,14 @@ p{
     margin-right: 3rem;
 }
 
+button {
+    cursor: pointer;
+    &:active {
+        background-color: black;
+        color: white;
+    }
+}
+
 `
 
 

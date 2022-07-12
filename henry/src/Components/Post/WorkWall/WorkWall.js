@@ -6,6 +6,7 @@ export const Componente = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    height: 100%;
 `
 
 export const DivFiltros = styled.div`
