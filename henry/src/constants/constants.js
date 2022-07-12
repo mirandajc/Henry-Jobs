@@ -111,6 +111,6 @@ export const BORRAR_PUBLICACIONES = "BORRAR_PUBLICACIONES";
 export const SEND_EMAIL = "SEND_EMAIL";
 
 export const EDIT_PROFILE= 'EDIT_PROFILE';
-export const PROFILE_EDIT_URL='http://henryjob.herokuapp.com/api/user/';
+export const PROFILE_EDIT_URL='https://henryjob.herokuapp.com/api/user/';
 
 
