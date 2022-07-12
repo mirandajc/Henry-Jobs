@@ -150,10 +150,12 @@ export function setPremium(payload){
 }
 
 
-export function EditProfile({id, edituser}) {
-    return {
+export function EditProfile(payload){ // esto tenía {id, editUser} como parametros
+
+    return{
         type: EDIT_PROFILE,
-        payload: {id,edituser}
+       payload //acá tenía {id, editUser} tal cual
+
     }
 }
 

@@ -77,7 +77,8 @@ const fetchPostReducer = (state = initialState, action) => {
             case POST_REGISTER_MODAL_SUCCESS:
                 return {
                     ...state,
-                    response: action.payload
+                    response: action.payload,
+                    consola: console.log("action payload del reducer fetchPostReducer, registerModalSuccess", action.payload)
                 }
             
             case SET_USERTYPE:
