@@ -145,6 +145,11 @@ justify-content: center;
 flex-direction: column;
 
 
+a{
+  text-decoration: none;
+}
+
+
 `
 
 export const Tecnologias= styled.div`
