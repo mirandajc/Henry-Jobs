@@ -55,6 +55,9 @@ export default function PubliSettings(){
     const SubmitPublication = () => {
         //tomar datos de la publicacion y mandarlos al back
         // input, foto y video, + el id del user
+        if(input === ""){
+            return;
+        }
         if(type === 1 || type === 2){
             const obj = {
                 posterUser: usUserId,

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllStudents, setOrderStars, getPublicatWorkModal, getPublicatDevType, getPublicatEnglish, getPublicatTechnologies, getPublicatUbication, showFilter } from "../../../reducer/actions/actionBusiness";
+import { getAllStudents, setOrderStars, getPublicatWorkModal, getPublicatDevType, getPublicatEnglish, getPublicatTechnologies, getPublicatUbication, showFilter, setBusBusqueda } from "../../../reducer/actions/actionBusiness";
 import CardWallStudents from "./CardWallStudents";
 import { technologies, idiomas, DevType, workModal, allCountries } from "./select";
 import { BodyStudentsWallCard } from "../../Home/HomeStyles/HomePublicationCard.js"
@@ -8,6 +8,7 @@ import { DivFiltros } from "../WorkWall/WorkWall.js";
 import Loading from "../../Loading/Loading";
 import { useState } from "react";
 import NoSearchFounds from "../../Loading/NoSearchFounds";
+import { Busqueda } from "./inputBusqueda";
 
 
 
@@ -93,6 +94,16 @@ export default function StudentsWall() {
             dispatch(showFilter())
         }
     };
+    
+    const [ buscador, setBuscador ] = useState("");
+    
+    const handleChange = (value) => {
+        setBuscador(value);
+        dispatch(setBusBusqueda(buscador));
+        dispatch(showFilter());
+    };
+
+
 
     return (
         <BodyStudentsWallCard>
@@ -139,6 +150,7 @@ export default function StudentsWall() {
                 <button onClick={() => window.location.reload()}>BORRAR</button> {/* Luciano recomienda un reload, luciano es un gato */}
             </DivFiltros>
 
+            <Busqueda className="inputBusqueda" placeholder="BUSQUEDA POR NOMBRE" value ={buscador} onChange={(e) => handleChange(e.target.value)}/>
 
             {
 

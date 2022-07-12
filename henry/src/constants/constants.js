@@ -114,5 +114,6 @@ export const EMAIL_EXISTE_SUCCESS = "EMAIL_EXISTE_SUCCESS";
 
 export const EDIT_PROFILE= 'EDIT_PROFILE';
 export const PROFILE_EDIT_URL='http://henryjob.herokuapp.com/api/user/';
+export const SET_BUSBUSQUEDA='SET_BUSBUSQUEDA';
 
 

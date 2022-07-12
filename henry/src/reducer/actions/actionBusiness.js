@@ -21,7 +21,8 @@ import {
     SEND_NUDE_SUCCESS,
     TRAER_FOLLOWING,
     TRAER_FOLLOWING_SUCCESS,
-    BORRAR_PUBLICACIONES
+    BORRAR_PUBLICACIONES,
+    SET_BUSBUSQUEDA
 } from "../../constants/constants";
 
 export function getPublicationStudents (payload) {
@@ -185,6 +186,13 @@ export function traerFollowingSuccess (payload) {
 export function borrarBusinessPub (payload) {
     return {
         type: BORRAR_PUBLICACIONES,
+        payload
+    };
+};
+
+export function setBusBusqueda (payload) {
+    return {
+        type: SET_BUSBUSQUEDA,
         payload
     };
 };
