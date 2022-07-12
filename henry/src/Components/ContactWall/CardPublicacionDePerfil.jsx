@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { borrarBusinessPub, getAllStudents, setApplicant } from "../../reducer/actions/actionBusiness";
 import { sendNudes } from "../../reducer/actions/actionBusiness";
+import { CartaBusiness } from "./Applications/applicantsStyles/empresastyles";
 
 export default function PublicationCard(props) {
 
@@ -68,10 +69,10 @@ export default function PublicationCard(props) {
     };
 
     return (
-        <div>
+        <CartaBusiness >
             {
             props.botonDelete ?
-            <button onClick={borrarPublicacion}>Borrar publicacion</button>
+            <button className="borrar" onClick={borrarPublicacion}>Borrar publicacion</button>
             : 
             null
             }
@@ -113,6 +114,6 @@ export default function PublicationCard(props) {
                     : null
                 )}
             </div>
-        </div>
+        </CartaBusiness>
     );
 };
