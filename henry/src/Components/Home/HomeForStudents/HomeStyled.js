@@ -130,7 +130,7 @@ border-bottom: 0.2px solid #2a2d36 ;
 width:100%;
 mih-height: 5em;
 p{
-    margin-left: 3em;
+    padding:1em;
 
 }
 

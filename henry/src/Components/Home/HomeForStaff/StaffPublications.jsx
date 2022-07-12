@@ -17,7 +17,7 @@ export default function StaffPublications ({name,lastname, email, text, video, c
                         <h3>{name + " " + lastname}</h3>
                         <p>{email}</p>
                     </NameMail>
-                    <p>{text}</p>
+                    <p className="text">{text}</p>
                     <img src={video}/>
                 </div>
                 
@@ -28,8 +28,8 @@ export default function StaffPublications ({name,lastname, email, text, video, c
                         <h3>{name}</h3>
                         <p>{email}</p>
                     </NameMail>
-                    <p className="text">{text}</p>
-                    <p>{workModal}</p>
+                    <p  className="text">{text}</p>
+                    <p className="wm">{workModal}</p>
                     {technologies && technologies.map(e => <p>{e}</p>)}
                 </div>
             }

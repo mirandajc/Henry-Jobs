@@ -11,6 +11,7 @@ import {
   ButtonCont,
   Tech,
   TextP,
+  BannerCont
 } from "../../Home/HomeStyles/HomePublicationCard";
 import { Link } from "react-router-dom";
 import Star from "../../images/Star.png";
@@ -97,11 +98,17 @@ export default function CardWallStudents({
     }
   };
 
+
+  console.log(banner)
   return (
     <PublicationCard>
+        <BannerCont>
+              <img src={banner}/>
+            </BannerCont>
       <Cavecera>
         <NamePic>
           <div className="imageName">
+            
             <PictureCont>
               <img src={profileImage} alt={`${name} Image`} />
             </PictureCont>
@@ -158,7 +165,7 @@ export default function CardWallStudents({
         </NamePic>
       </Cavecera>
 
-      <TextP>
+      {/* <TextP>
         <p>
           lectrónicos, quedando esencialmente igual al original. Fue
           popularizado en los 60s con la creación de las hojas "Letraset", las
@@ -166,7 +173,7 @@ export default function CardWallStudents({
           software de autoedición, como por ejemplo Aldus PageMaker, el cual
           incluye versiones de Lorem Ipsum.
         </p>
-      </TextP>
+      </TextP> */}
 
       <Tech>
         {technologies.map((el) => (

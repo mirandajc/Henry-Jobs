@@ -9,7 +9,7 @@ import Loading from "../../Loading/Loading";
 import { useState } from "react";
 import NoSearchFounds from "../../Loading/NoSearchFounds";
 import { Busqueda } from "./inputBusqueda";
-
+import { StudentGrid } from "../../Home/HomeStyles/HomePublicationCard.js";
 
 
 export default function StudentsWall() {
@@ -109,6 +109,7 @@ export default function StudentsWall() {
     };
 
 
+    console.log(estudiantes)
 
     return (
         <BodyStudentsWallCard>
@@ -152,17 +153,19 @@ export default function StudentsWall() {
                     <option>ASCENDENTE</option>
                     <option>DESCENDENTE</option>
                 </select>
-                <button onClick={() => window.location.reload()}>BORRAR</button> {/* Luciano recomienda un reload, luciano es un gato */}
+                {/* <button onClick={() => window.location.reload()}>BORRAR</button> Luciano recomienda un reload, luciano es un gato */}
             </DivFiltros>
 
-            <Busqueda className="inputBusqueda" placeholder="BUSQUEDA POR NOMBRE" value ={buscador} onChange={(e) => handleChange(e.target.value)}/>
+            <Busqueda className="inputBusqueda" placeholder="🔎 Busca alumnos por nombre..." value ={buscador} onChange={(e) => handleChange(e.target.value)}/>
 
+            <StudentGrid>
             {
 
                 load ? <Loading /> :
 
                     estudiantes.render.length === 0 ? <NoSearchFounds/> :
 
+                        
                         estudiantes && estudiantes.render.map(e => {
                             return (
 
@@ -173,7 +176,7 @@ export default function StudentsWall() {
                                     technologies={e.technologies}
                                     otherstudies={e.otherStudies}
 
-                                    // banner={e.banner.secure_url}
+                                    banner={e.banner.secure_url}
                                     english={e.languages}
                                     backFront={e.backFront}
                                     workModality={e.workModality}
@@ -188,7 +191,7 @@ export default function StudentsWall() {
 
                             )
                         })}
-
+                    </StudentGrid>
         </BodyStudentsWallCard>
     );
 };
