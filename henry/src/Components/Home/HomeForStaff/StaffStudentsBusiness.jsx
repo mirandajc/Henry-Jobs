@@ -4,7 +4,7 @@ import { MdLocationPin } from 'react-icons/all'
 import { AiFillStar } from 'react-icons/ai'
 import { useDispatch } from "react-redux";
 import { sendEmail, userDelete } from "../../../reducer/actions/actionStaff";
-
+import {SiGmail} from 'react-icons/all';
 
 export default function StaffStudentsBusiness({ botAd, id, name, profileImage, lastname, userName, email, country, city, stars, curriculumCounter }) {
 
@@ -41,15 +41,20 @@ export default function StaffStudentsBusiness({ botAd, id, name, profileImage, l
                                     <img src={profileImage} width={"25px"} height={"25px"} />
                                 </div>
                                 <div className="detail">
-                                    <h3>{name} {userName}</h3>
+                                    <h3>{name} {lastname}</h3>
                                     <p><MdLocationPin /> {city} {country}</p>
                                 </div>
                             </div>
                             <div className="emailCvContainer">
-                                <h4>{email}</h4>
+
+                                <div className='mail'>
+                                <SiGmail className="colorMail"/>
+                                <p>{email}</p>
+                                </div>
+
                                 <h4>Curriculums enviados este mes: {curriculumCounter}</h4>
                             </div>
-                            <h4><AiFillStar /> {stars}</h4>
+                            <h4 className="star"><AiFillStar className="starColor"/> {stars}</h4>
                         </div>
 
                         :

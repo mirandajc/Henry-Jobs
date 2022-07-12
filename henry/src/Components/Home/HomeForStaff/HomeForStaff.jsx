@@ -3,9 +3,9 @@ import StaffStudentsBusiness from "./StaffStudentsBusiness";
 import StaffPublications from "./StaffPublications";
 import { getInfoForStaff, ordenarAlumnos, getStudentDetail, staffShowOrder } from "../../../reducer/actions/actionStaff";
 import { useDispatch, useSelector } from "react-redux";
-import { NavStaff, ContStafHome } from "./StaffStyles/staffStyles";
+import { NavStaff, ContStafHome, ContDivStaff, DivGrid } from "./StaffStyles/staffStyles";
 import { GridStudent } from "./StaffStyles/staffStudentCards";
-
+import Persent from "./persent";
 
 
 export default function HomeForStaff() {
@@ -67,8 +67,8 @@ export default function HomeForStaff() {
                 <button value={"EmpresasPub"} onClick={(e) => handleClick(e.target.value)}>Publicaciones de Empresas</button>
             </NavStaff>
             {renderizar === "Alumnos" ?
-                <div>
-                    <input value={buscador} onChange={(e) => handleChange(e.target.value)} />
+                <ContDivStaff>
+                    <input placeholder="🔎 Busca por nombre..." value={buscador} onChange={(e) => handleChange(e.target.value)} />
 
                     <select onChange={(e) => handleSelect(e)}>
                         <option>Orden</option>
@@ -78,9 +78,10 @@ export default function HomeForStaff() {
                         <option>Stars descendente</option>          {/* no cambiar contenido dentro del options */}
                     </select>
 
-                </div>
+                </ContDivStaff>
 
                 : null}
+                <DivGrid>
 
             {
                 renderizar === "Alumnos" ? alumnos.renderizar.map(e => <StaffStudentsBusiness
@@ -97,7 +98,9 @@ export default function HomeForStaff() {
                     botAd={true}
                 />) :
 
-                    renderizar === "Empresas" ? empresas.map(e => <StaffStudentsBusiness
+                    renderizar === "Empresas" ? empresas.map(e => 
+                    
+                    <StaffStudentsBusiness
                         name={e.name}
                         profileImage={e.profileImage.secure_url}
                         userName={e.userName}
@@ -106,7 +109,9 @@ export default function HomeForStaff() {
                         city={e.city}
                         id={e._id}
                         botAd={false}
-                    />) :
+                    />
+                    
+                    ) :
 
                         renderizar === "AlumnosPub" ? alumnosPub.map(e => <StaffPublications
                             name={e.posterUser.name}
@@ -126,7 +131,12 @@ export default function HomeForStaff() {
                             />) :
 
                                 <div> Bienvenido al panel de control de staff, apreta un boton para visualizar el contenido </div>
+                            
+                                
+                             
             }
+
+        </DivGrid>
 
         </ContStafHome>
     )
