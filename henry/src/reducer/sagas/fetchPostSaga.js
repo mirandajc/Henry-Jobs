@@ -146,8 +146,12 @@ function* asyncEditProfile(payload){
 function* asyncSendEmailContact (payload) {
     try {
         // MANDAR MAIL DICIENDO QUE LA EMPRESA SE QUIERE CONTACTAR
-        const email = payload.payload[0];
-        const nombre = payload.payload[1];
+        const id = payload.payload[0];
+        const email = payload.payload[1];
+
+        console.log(id, email)
+        const response = yield call(()=> axios.put(URL_DEPLOY + `/contact/${id}`, {email: email}));
+        console.log(response.data)
     } catch (error) {
         console.log(error);
     }
