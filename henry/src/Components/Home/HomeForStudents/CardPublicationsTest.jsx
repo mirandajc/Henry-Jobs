@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import {Link} from 'react-router-dom';
-import {  ComponentCard, Profile, InnerText, Tags, Video, Footer } from './HomeStyled';
+import {  ComponentCard, Profile, InnerText, Tags, Video, Footer, Burron } from './HomeStyled';
 import ReactPlayer from "react-player";
 import { postIdFollow } from "../../../reducer/actions/actionStudents";
 import { useDispatch } from "react-redux";
@@ -128,8 +128,8 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
                     url={video}
                     className='video'
                     playing={false}
-                    width='100%'
-                    height='100%'
+                    width={'100%'}
+                    height={'100%'}
                     volume={null}
                     />
                 </Video>
@@ -142,14 +142,14 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
 
                 userType.type === 4 || userType.type === 5? null:
                 
-                <div>
+                <Burron>
                 {
                 cartel && 
                 <span>Postulación enviada con éxito</span>
 
                 }
             <button onClick={handlePostulation}>Postularse</button>
-            </div>
+            </Burron>
 }
             <Footer>
 

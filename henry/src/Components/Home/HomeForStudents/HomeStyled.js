@@ -88,6 +88,9 @@ h3{
     justify-content: center;
     flex-direction: column;
     
+    a{
+        text-decoration: none;
+    }
    
     p{
         
@@ -169,7 +172,7 @@ export const Video= styled.div`
 border-bottom: 0.2px solid #2a2d36 ;
 border-top: 0.2px solid #2a2d36 ;
 
-min-height: 20em;
+min-height: 10em;
 width: 100%;
 
 `
@@ -180,5 +183,16 @@ border-top: .2px solid #ffff0094;
 width:100%;
 height: 1em;
 
+
+`
+
+export const Burron= styled.div`
+
+
+height: 3em;
+width: 100%;
+display: flex; 
+align-items: center;
+justify-content: center;
 
 `
