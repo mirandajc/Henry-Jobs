@@ -1,6 +1,6 @@
 import React, {useState}from "react";
 import { BoomCardContainer,GridContBoom } from "../LandingStyles/booms";
-import Loading from "../../Loading/Loading";
+import Loading2 from '../../Loading/Loading2';
 
 export default function Booms(){
     const[loading, setLoading]= useState(true);
@@ -10,7 +10,7 @@ export default function Booms(){
         <BoomCardContainer>
             
             <GridContBoom>
-            {    loading === true?(<Loading setLoading={setLoading}/>):
+            {    loading === true?(<Loading2 setLoading={setLoading}/>):
              <div class="powr-instagram-feed" id="6e4716dc_1655908803"></div>
             }
             </GridContBoom>
