@@ -84,9 +84,17 @@ export default function CardWallStudents({
 
   const [ cartelito, setCartelito ] = useState(false);
 
+  const [ setear, setSetear ] = useState(false);
+
   const contactar = (id) => {
-    dispatch(enviarMailContactar([id, userType.email]));
-    setCartelito(true);
+    if( setear){
+      dispatch(enviarMailContactar([id, userType.email]));
+      setCartelito(true);
+      setSetear(false);
+    }
+    else{
+      setSetear(true);
+    }
   };
 
   return (
@@ -138,9 +146,11 @@ export default function CardWallStudents({
           </div>
           <div>
             <h5>{email}</h5>
+            { setear ? <div>¿Seguro?</div> : null }
+
             {
               userType.type === 4 || userType.type === 5 ?
-              <button classname="botonMail" onClick={() => contactar(id)}>Contactar</button>
+              <button classname="botonMail" onClick={() => contactar(id)}>{ setear ? "Si" : "Contactar"}</button>
               : null
             }
             { cartelito && <span>{"Correo enviado con éxito"}</span> }

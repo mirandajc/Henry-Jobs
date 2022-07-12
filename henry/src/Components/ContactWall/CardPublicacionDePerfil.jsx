@@ -71,6 +71,7 @@ export default function PublicationCard(props) {
     };
 
     let fecha = props.date.slice(0, 10);
+
     return (
         props ? 
         <CartaBusiness >
