@@ -99,7 +99,12 @@ export default function StudentsWall() {
     
     const handleChange = (value) => {
         setBuscador(value);
-        dispatch(setBusBusqueda(buscador));
+        if(value === ""){
+            dispatch(setBusBusqueda(""));
+        }
+        else{
+            dispatch(setBusBusqueda(value));
+        }
         dispatch(showFilter());
     };
 
