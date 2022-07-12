@@ -3,8 +3,10 @@ import { useSelector, useDispatch} from "react-redux"
 import { getPublicationEnglish, getPublicationsBusiness, getPublicationsDevType, getPublicationsTechnologies, getPublicationUbication, getWorkModality, ShowFilter } from "../../../reducer/actions/actionStudents";
 import NavWall from "./navBarWall";
 import {idiomas, allCountries, DevType, technologies, workModal} from "../StudentsWall/select"
-import CardPublicationWorkTest2 from "./CardPublicationsTest";
 import {Componente, DivFiltros} from "./WorkWall.js"
+import CardPublicationWorkTest from "../../Home/HomeForStudents/CardPublicationsTest";
+
+
 
 //Este componente va a renderizar las publicaciones de empresas y reclutadores
 
@@ -20,6 +22,15 @@ export default function WorkWall(){
             dispatch(getPublicationsBusiness('123123123123'))
         }
     }, [])
+
+
+
+
+
+    
+
+
+
 
 
     const techSelection = (e) => {
@@ -78,6 +89,8 @@ export default function WorkWall(){
     }
 
 
+    console.log(business)
+
     return(
 
        
@@ -129,7 +142,7 @@ export default function WorkWall(){
                 business.map((e)=>
                 (
                     
-                    <CardPublicationWorkTest2
+                    <CardPublicationWorkTest
                         image={e.posterUser.profileImage.secure_url}
                         name={e.posterUser.name}
                         date={e.date}
@@ -138,13 +151,15 @@ export default function WorkWall(){
                         video={e.imgVideo}
                         technologies={e.technologies}
                         backFront={e.backFront}
-                        ubication={e.country}
+                        country={e.posterUser.country}
                         workModality={e.workModality}
                         english={e.languages}
                         username={e.userName}
                         id={e.posterUser._id}
                         publicacionID={e._id}
-
+                        text={e.text}
+                        userTypes={e.posterUser.userTypes}
+                       
 
                     />
                 ))

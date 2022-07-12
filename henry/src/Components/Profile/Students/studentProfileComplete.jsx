@@ -53,7 +53,7 @@ export default function StudentCompletePage() {
                 name={userProfile.name}
                 profileImage={userProfile.profileImage.secure_url}
                 stars={userProfile.stars}
-                userType={userProfile.userType}
+                userTypes={userProfile.userType}
                 id={userProfile._id}
                 followers={userProfile.followers}
                 following={userProfile.following}
@@ -65,6 +65,7 @@ export default function StudentCompletePage() {
                             otherStudies={userProfile.otherStudies}
                             id={id}
                             acercaDe={userProfile.acercaDe}
+                            userTypes={userProfile.userType}
                         />
                         </CompleteProfile>
 
