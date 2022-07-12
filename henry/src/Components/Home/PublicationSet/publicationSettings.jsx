@@ -218,7 +218,7 @@ export default function PubliSettings(){
 
 
         
-        { cartelPub && <span>Tu publicacion es una porquería</span> }
+        { cartelPub && <span>Tu publicacion ha sido realizada con éxito!</span> }
             </SettingsCont>
     )
 }
