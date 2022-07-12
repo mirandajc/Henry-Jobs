@@ -1,10 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { CV, CvCont, Instancia, Acerca, Publicaciones, Tecnologias, OtrosStudy } from '../profileStyles/studentCV';
 import MostrarMas from "./showMore";
-import Carrousell from "./Carrousell";
-import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { useJwt } from "react-jwt";
+
 
 
 export default function StudentCV({ otherStudies, technologies,userTypes, id , acercaDe}) {
@@ -57,20 +55,15 @@ export default function StudentCV({ otherStudies, technologies,userTypes, id , a
             </CvCont>
 
             <Acerca>
-                <h3>Acerca De: FALTAAAA</h3>
-                <MostrarMas />
+                
                 {
-                    acercaDe !== undefined && acercaDe.length > 258? (
+                    acercaDe?
                 <div className="text">
                 <h3>Acerca De:</h3>
                <MostrarMas acerca={acercaDe}/>
                </div>
-                    )
-                :
-                <div className="text">
-                    <h3>Acerca De:</h3>
-                    <p>{acercaDe}</p>
-                </div>
+                    
+                : null
                 }
                 
             </Acerca>

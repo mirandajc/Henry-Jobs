@@ -24,10 +24,28 @@ p{
 }
 `
 
+export const BannerCont= styled.div`
+
+overflow: hidden;
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content: center;
+// position: absolute;
+
+img{
+    width:100%;
+}
+
+
+
+`
+
 export const PublicationCard= styled.div`
     display: flex;
     background-color: #1A1B1E;
-    width: 50%;
+    width: 85%;
     min-height:20em;
     height: 15rem;
     border-radius: 1rem;
@@ -36,11 +54,21 @@ export const PublicationCard= styled.div`
     align-content: space-around;
     justify-content: space-between;
     margin: 2rem;
+    overflow: hidden;
+  
 p{
     margin-left: 3rem;
     font-size: 11px;
     text-align: justify;
     margin-right: 3rem;
+}
+
+button {
+    cursor: pointer;
+    &:active {
+        background-color: black;
+        color: white;
+    }
 }
 
 `
@@ -51,7 +79,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 flex-direction: row;
-margin-top: 1em;
+// margin-top: 1em;
 border-bottom: 0.5px solid hsl(228deg 11% 9%);
 
 
@@ -67,6 +95,15 @@ p{
     font-size: 0.7em;
     margin-right: 0.5em;
     margin-top: -5em;
+}
+
+div{
+
+    // .botonMail{
+    //     border:1px solid red;
+    //     // position: absolute;
+    //     // margin-top: -13em;
+    // }
 }
 
 
@@ -86,8 +123,8 @@ width: 100%;
 display: flex;
 flex-direction: row;
 justify-content: space-between;
-margin: 0.5rem;
 
+margin-left: 1em;
 
 
 .imageName{
@@ -111,8 +148,8 @@ margin: 0.5rem;
 .nombre{
     display:flex;
     align-items:center;
-    justify-contenr: center;
-    
+    justify-contenr: space-around;
+   padding:.5em;
     width:100%;
     .plus{
        
@@ -136,6 +173,9 @@ margin: 0.5rem;
 
 
 }
+
+
+
 p{
     display: flex;
     margin: 0;
@@ -168,7 +208,6 @@ height: 3em;
 border-radius: 50%;
 overflow: hidden;
 border: 1px solid yellow;
-margin-right: 1em;
 
 img{
     width:100%;
@@ -386,7 +425,8 @@ export const Tech= styled.div`
 
 width: 100%;
 height: 3em;
-// margin-bottom: .5em;
+margin-top: .5em;
+margin-bottom: .5em;
 display: flex;
 align-items:center;
 justify-content: flex-start;
@@ -394,19 +434,18 @@ overflow: hidden;
 
 div{
     height:1.5em;
-    width: 10%;
+    width: 15%;
    
-    margin-right: 1em;
-    margin-left: 1em;
+    
     display: flex;
     align-items:center;
-    justify-content: center;
+    justify-content: space-around;
     overflow:hidden;
     background-color: #5c5f66;
     border-radius: 20px;
     color:#1A1B1E;
     p{
-        
+        font-size:.5em;
         width: auto;
     }
 }
@@ -416,5 +455,15 @@ div{
 export const TextP= styled.div`
 
 border-bottom: 0.5px solid hsl(228deg 11% 9%);
+
+`
+
+export const StudentGrid= styled.div`
+
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(3, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
 
 `

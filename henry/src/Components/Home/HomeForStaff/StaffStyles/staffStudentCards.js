@@ -12,7 +12,7 @@ margin-top: 5em;
 margin-bottom: 5em;
 
 .cont{
-    width:30%;
+    width:80%;
     height: auto;
     border-top: 2px solid yellow;
     border-radius: 10px;
@@ -76,6 +76,14 @@ margin-bottom: 5em;
     align-items: center;
     margin-bottom: 1em;
     justify-content: space-around;
+
+    button{
+        &:active{
+            background-color: black;
+            color: yellow;
+            border: 1px solid yellow;
+        }
+    }
 }
 
 .emailCvContainer {
@@ -84,6 +92,57 @@ margin-bottom: 5em;
     flex-direction: column;
     align-items: 1em;
 }
+
+.star{
+    border: 1px solid yellow;
+    border-radius: 20px;
+    width: 20%;
+    margin-left: 1em;
+    background-color: black;
+    padding: .5em;
+    display: flex;
+    align-items: center;
+
+    .starColor{
+        color: yellow;
+    }
+    }
+
+
+    .mail{
+        margin-left: 2em;
+        width: 70%;
+        p{
+            font-size: .7em;
+        }
+       
+        display: flex;
+         align-items:center;
+
+
+         
+        .colorMail{
+            margin-right: 1em;
+            color: red;
+        }
+    }
+
+    .cv{
+      border: 1px solid yellow;
+    border-radius: 20px;
+    width: 60%;
+    margin-left: 1em;
+    background-color: black;
+    padding: .5em;
+    display: flex;
+    align-items: center;
+      
+  }
+
+`
+
+export const PersentCont= styled.div`
+
 
 `
 

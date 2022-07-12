@@ -95,9 +95,6 @@ export default function WorkWall(){
         }
     }
 
-
-    console.log(business)
-
     return(
 
        

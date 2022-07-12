@@ -11,6 +11,11 @@ width: 40%;
 height: auto;
 margin-bottom: 4em;
 
+.elCartel {
+    display: flex;
+    justify-content: center;
+    color: yellow;
+}
 
 
 box-shadow: 4px 6px 5px 0px rgb(193 196 25 / 75%);

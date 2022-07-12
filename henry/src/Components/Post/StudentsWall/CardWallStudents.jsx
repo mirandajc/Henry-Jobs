@@ -10,24 +10,45 @@ import {
   ButonGrey,
   ButtonCont,
   Tech,
-  TextP
+  TextP,
+  BannerCont
 } from "../../Home/HomeStyles/HomePublicationCard";
 import { Link } from "react-router-dom";
-import Star from '../../images/Star.png';
+import Star from "../../images/Star.png";
 import Ubicacion from "../../images/ubicacion.png";
 import { useDispatch, useSelector } from "react-redux";
-import { getPublicationsBusiness, postIdFollow, traerFollowingStud } from "../../../reducer/actions/actionStudents";
-import { getPublicationStudents, postIdFollowBuss, traerFollowing } from "../../../reducer/actions/actionBusiness";
-import { profileID } from "../../../reducer/actions/actionPost";
-import { AiOutlinePlus } from 'react-icons/ai';
+import {
+  getPublicationsBusiness,
+  postIdFollow,
+  traerFollowingStud,
+} from "../../../reducer/actions/actionStudents";
+import {
+  getPublicationStudents,
+  postIdFollowBuss,
+  traerFollowing,
+} from "../../../reducer/actions/actionBusiness";
+import { enviarMailContactar, profileID } from "../../../reducer/actions/actionPost";
+import { AiOutlinePlus } from "react-icons/ai";
 
-
-
-
-export default function CardWallStudents({ name, lastname, email, technologies, otherstudies, banner, english, backFront, workModality, ubication, city, profileImage, userName, stars, id }) {
-
+export default function CardWallStudents({
+  name,
+  lastname,
+  email,
+  technologies,
+  otherstudies,
+  banner,
+  english,
+  backFront,
+  workModality,
+  ubication,
+  city,
+  profileImage,
+  userName,
+  stars,
+  id,
+}) {
   const dispatch = useDispatch();
-  const tal = localStorage.getItem('TK')
+  const tal = localStorage.getItem("TK");
   const userType = JSON.parse(tal);
   const foll = useSelector((state) => state.fetchStudentsReducer.userFollows);
   const foll2 = useSelector((state) => state.fetchBusinessReducer.userFollows);
@@ -39,22 +60,19 @@ export default function CardWallStudents({ name, lastname, email, technologies, 
     if (userType.type === 4 || userType.type === 5) {
       dispatch(traerFollowingStud(userType.id));
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (userType.type === 4 || userType.type === 5) {
       dispatch(traerFollowingStud(userType.id));
     }
-  }, [foll2])
+  }, [foll2]);
 
   useEffect(() => {
     if (userType.type === 1 || userType.type === 2) {
       dispatch(traerFollowing(userType.id));
     }
-  }, [foll])
-
-
-
+  }, [foll]);
 
   const handleFollow = () => {
     if (userType.type === 1 || userType.type === 2) {
@@ -63,14 +81,26 @@ export default function CardWallStudents({ name, lastname, email, technologies, 
     if (userType.type === 4 || userType.type === 5) {
       dispatch(postIdFollowBuss(id, { id: userType.id }));
     }
-  }
+  };
+
+  const [ cartelito, setCartelito ] = useState(false);
+
+  const contactar = (id) => {
+    dispatch(enviarMailContactar([id, userType.email]));
+    setCartelito(true);
+  };
 
 
+  console.log(banner)
   return (
     <PublicationCard>
+        <BannerCont>
+              <img src={banner}/>
+            </BannerCont>
       <Cavecera>
         <NamePic>
           <div className="imageName">
+            
             <PictureCont>
               <img src={profileImage} alt={`${name} Image`} />
             </PictureCont>
@@ -78,69 +108,88 @@ export default function CardWallStudents({ name, lastname, email, technologies, 
               <div className="nombre">
                 <Link to={`/profile/${id}`}>
                   <h3>{name + " " + lastname}</h3>
-                  </Link>
+                </Link>
 
-                  {
-                userType.type !== 3 ?
+                {userType.type !== 3 ? (
                   <div className="plus">
-                    {
-                      id === userType.id ? null :
-                        <button onClick={() => handleFollow()}>{/* <AiOutlinePlus className="plusd"/> */}
-                          {
-                            userType.type === 1 || userType.type === 2 ?
-                              foll.includes(id) ? <p>-</p> : <p>+</p>
-                              : foll2.includes(id) ? <p>-</p> : <p>+</p>
-                          }
-
-                        </button>
-                    }
+                    {id === userType.id ? null : (
+                      <button onClick={() => handleFollow()}>
+                        {/* <AiOutlinePlus className="plusd"/> */}
+                        {userType.type === 1 || userType.type === 2 ? (
+                          foll.includes(id) ? (
+                            <p>-</p>
+                          ) : (
+                            <p>+</p>
+                          )
+                        ) : foll2.includes(id) ? (
+                          <p>-</p>
+                        ) : (
+                          <p>+</p>
+                        )}
+                      </button>
+                    )}
                   </div>
-                  : null
-              }
-                
+                ) : null}
               </div>
               <div className="ubicacion">
-                <img src={Ubicacion} alt='icon-ubicacion' className="imagenUbicacion" />
-                <p>{ubication}, {city}</p>
+                <img
+                  src={Ubicacion}
+                  alt="icon-ubicacion"
+                  className="imagenUbicacion"
+                />
+                <p>
+                  {ubication}, {city}
+                </p>
               </div>
             </div>
           </div>
           <div>
             <h5>{email}</h5>
+            {
+              userType.type === 4 || userType.type === 5 ?
+              <button className="botonMail" onClick={() => contactar(email)}>Contactar</button>
+              : null
+            }
+            { cartelito && <span>{"Correo enviado con éxito"}</span> }
           </div>
         </NamePic>
       </Cavecera>
 
-      <TextP>
-      <p>
-        lectrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.
-      </p>
-      </TextP>
-
-       <Tech>
-        {
-          technologies.map(el=> (<div><p>{el}</p></div>))
-        }
-      </Tech>       
+      {/* <TextP>
+        <p>
+          lectrónicos, quedando esencialmente igual al original. Fue
+          popularizado en los 60s con la creación de las hojas "Letraset", las
+          cuales contenian pasajes de Lorem Ipsum, y más recientemente con
+          software de autoedición, como por ejemplo Aldus PageMaker, el cual
+          incluye versiones de Lorem Ipsum.
+        </p>
+      </TextP> */}
 
       <Tech>
-        {
-          backFront?
-        <div><p>{backFront}</p></div>
-        :null
-        }
-        {
-          english?
-        <div><p>{english}</p></div>
-        :null
-        }
-        {
-          stars?
-        <div><p>{stars}</p></div>
-        :null
-        }
+        {technologies.map((el) => (
+          <div>
+            <p>{el}</p>
+          </div>
+        ))}
       </Tech>
 
+      <Tech>
+        {backFront ? (
+          <div>
+            <p>{backFront}</p>
+          </div>
+        ) : null}
+        {english ? (
+          <div>
+            <p>{english}</p>
+          </div>
+        ) : null}
+        {stars ? (
+          <div>
+            <p>{stars}</p>
+          </div>
+        ) : null}
+      </Tech>
     </PublicationCard>
   );
-};
+}

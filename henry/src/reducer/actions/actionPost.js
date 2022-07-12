@@ -20,7 +20,9 @@ import {
     EMAIL_EXISTE,
     EMAIL_EXISTE_SUCCESS,
     EDIT_PROFILE,
+    ACTUALIZAR_ESTADO,
     GOOGLE_LOGIN,
+    SEND_EMAIL_CONTACT,
 
 } from "../../constants/constants";
 
@@ -176,6 +178,19 @@ export function emailExiste (email){
 export function emailExisteSuccess (payload){
     return {
         type: EMAIL_EXISTE_SUCCESS,
+        payload
+    };
+};
+
+export function actualizarEstado () {
+    return {
+        type: ACTUALIZAR_ESTADO
+    }
+};
+
+export function enviarMailContactar (payload) {
+    return {
+        type: SEND_EMAIL_CONTACT,
         payload
     };
 };

@@ -4,11 +4,10 @@ import { SettingsCont, SettingHead, Public, PvSettings } from "../HomeStyles/Pub
 import {BsImage} from 'react-icons/bs';
 import {FiVideo} from 'react-icons/fi';
 import { PublicationBussines, DivInput, DivSettings, TechDiv } from "./SetCont/styleBussinesPost";
-import { profileID } from "../../../reducer/actions/actionPost";
+import { actualizarEstado, profileID } from "../../../reducer/actions/actionPost";
 import {  getPublicationsBusiness, postPublication } from "../../../reducer/actions/actionStudents";
 import { technologies } from "../../Post/StudentsWall/select"
 import { getPublicationStudents } from "../../../reducer/actions/actionBusiness";
-
 
 
 
@@ -92,6 +91,9 @@ export default function PubliSettings(){
             });
         }
         setCartelPub(true)
+        setTimeout(() => {
+            setCartelPub(false);
+        }, 5000);
     };
 
 
@@ -217,8 +219,8 @@ export default function PubliSettings(){
 
 
 
+        { cartelPub && <span className="elCartel">Tu publicación ha sido realizada con éxito!</span> }
         
-        { cartelPub && <span>Tu publicacion es una porquería</span> }
             </SettingsCont>
     )
 }
