@@ -10,6 +10,7 @@ import { Card, ContenedorAbout } from "./about";
 import {SiLinkedin } from 'react-icons/si'
 import {FaGithub } from 'react-icons/fa'
 import cambio from "../images/cambio.png"
+import './about.css';
 export default function AboutAs() {
     return(
         <ContenedorAbout>
@@ -20,11 +21,11 @@ export default function AboutAs() {
                     <h1>Jocelyn Miranda</h1>
                     <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
                     <div className='icon'> 
-                    <a href="https://www.linkedin.com/in/jocelynmiranda/">
-                        <SiLinkedin/>
+                    <a target="_blank"  href="https://www.linkedin.com/in/jocelynmiranda/">
+                        <SiLinkedin className="linkedin"/>
                     </a>
-                    <a href="https://github.com/mirandajc">
-                        <FaGithub/>
+                    <a target="_blank"  href="https://github.com/mirandajc">
+                        <FaGithub className="git"/>
                     </a>
                     </div>
                 </span>
@@ -38,11 +39,11 @@ export default function AboutAs() {
                     <h1>Rene Cadena</h1>
                     <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
                     <div className='icon'> 
-                    <a href="https://www.linkedin.com/in/jocelynmiranda/">
-                        <SiLinkedin/>
+                    <a target="_blank"  href="https://www.linkedin.com/in/jocelynmiranda/">
+                        <SiLinkedin className="linkedin"/>
                     </a>
-                    <a href="https://github.com/mirandajc">
-                        <FaGithub/>
+                    <a target="_blank"  href="https://github.com/mirandajc">
+                        <FaGithub className="git"/>
                     </a>
                     </div>
                 </span>
@@ -53,11 +54,11 @@ export default function AboutAs() {
                     <h1>Tomas Aguerri</h1>
                     <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
                     <div className='icon'>
-                    <a href="https://www.linkedin.com/in/tom%C3%A1s-arregui-bellino-a503a019a/">
-                        <SiLinkedin/>
+                    <a target="_blank"  href="https://www.linkedin.com/in/tom%C3%A1s-arregui-bellino-a503a019a/">
+                        <SiLinkedin className="linkedin"/>
                     </a>
-                    <a href="www.github.com/noisyBrain">
-                        <FaGithub/>
+                    <a target="_blank"  href="www.github.com/noisyBrain">
+                        <FaGithub className="git"/>
                     </a>
                     </div>
                 </span>
@@ -68,11 +69,11 @@ export default function AboutAs() {
                     <h1>Gabriel Cavasso</h1>
                     <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
                     <div className='icon'> 
-                    <a href="https://www.linkedin.com/in/gabriel-cavasso-30234622a/">
-                        <SiLinkedin/>
+                    <a target="_blank"  href="https://www.linkedin.com/in/gabriel-cavasso-30234622a/">
+                        <SiLinkedin className="linkedin"/>
                     </a>
-                    <a href="https://github.com/sholugs">
-                        <FaGithub/>
+                    <a target="_blank"  href="https://github.com/sholugs">
+                        <FaGithub className="git"/>
                     </a>
                     </div>
                 </span>
@@ -83,11 +84,11 @@ export default function AboutAs() {
                     <h1>Nahuel Cempellin</h1>
                     <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
                     <div className='icon'> 
-                    <a href="https://www.linkedin.com/in/nahuel-felipe-cempellin">
-                        <SiLinkedin/>
+                    <a target="_blank"  href="https://www.linkedin.com/in/nahuel-felipe-cempellin">
+                        <SiLinkedin className="linkedin"/>
                     </a>
-                    <a href="https://github.com/mirandajc">
-                        <FaGithub/>
+                    <a target="_blank"  href="https://github.com/mirandajc">
+                        <FaGithub className="git"/>
                     </a>
                     </div>
                 </span>
@@ -98,11 +99,11 @@ export default function AboutAs() {
                     <h1>Luciano Dorregaray</h1>
                     <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
                     <div className='icon'> 
-                    <a href="https://www.linkedin.com/in/jocelynmiranda/">
-                        <SiLinkedin/>
+                    <a target="_blank"  href="https://www.linkedin.com/in/jocelynmiranda/">
+                        <SiLinkedin className="linkedin"/>
                     </a>
-                    <a href="https://github.com/mirandajc">
-                        <FaGithub/>
+                    <a target="_blank"  href="https://github.com/mirandajc">
+                        <FaGithub className="git"/>
                     </a>
                     </div>
                 </span>
@@ -113,11 +114,11 @@ export default function AboutAs() {
                     <h1>Laura Surimi</h1>
                     <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
                     <div className='icon'> 
-                    <a href="https://www.linkedin.com/in/jocelynmiranda/">
-                        <SiLinkedin/>
+                    <a target="_blank"  href="https://www.linkedin.com/in/jocelynmiranda/">
+                        <SiLinkedin className="linkedin"/>
                     </a>
-                    <a href="https://github.com/mirandajc">
-                        <FaGithub/>
+                    <a target="_blank"  href="https://github.com/mirandajc">
+                        <FaGithub className="git"/>
                     </a>
                     </div>
                 </span>
