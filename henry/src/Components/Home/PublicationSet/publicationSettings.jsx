@@ -5,7 +5,7 @@ import {BsImage} from 'react-icons/bs';
 import {FiVideo} from 'react-icons/fi';
 import { PublicationBussines, DivInput, DivSettings, TechDiv } from "./SetCont/styleBussinesPost";
 import { profileID } from "../../../reducer/actions/actionPost";
-import {  postPublication } from "../../../reducer/actions/actionStudents";
+import {  getPublicationsBusiness, postPublication } from "../../../reducer/actions/actionStudents";
 import { technologies } from "../../Post/StudentsWall/select"
 import { getPublicationStudents } from "../../../reducer/actions/actionBusiness";
 
@@ -24,9 +24,7 @@ export default function PubliSettings(){
     const type = usUser.type;
 
     useEffect(()=>{
-
         dispatch(profileID(usUserId))
-
     },[])
     useEffect(()=>{
         if(userData.name !== undefined){
@@ -37,8 +35,9 @@ export default function PubliSettings(){
     /////////////////////////////////// INPUTS DE PUBLICACION ////////////////////////////////
 
     const [ input, setInput ] = useState("");
-    const [ foto, setFoto ] = useState("");
     const [ video, setVideo ] = useState("");
+
+    const [ cartelPub, setCartelPub ] = useState(false);
 
     const [ tags, setTags ] = useState({
         workModality:"",
@@ -56,22 +55,24 @@ export default function PubliSettings(){
     const SubmitPublication = () => {
         //tomar datos de la publicacion y mandarlos al back
         // input, foto y video, + el id del user
+        if(input === ""){
+            return;
+        }
         if(type === 1 || type === 2){
             const obj = {
                 posterUser: usUserId,
                 text: input,
-                imgVideo: video || foto,
+                imgVideo: video,
             };      
             dispatch(postPublication(obj));   
             setInput("");
-            setFoto("");
             setVideo("");
         }
         else{
             const obj = {
                 posterUser: usUserId,
                 text: input,
-                imgVideo: video || foto,
+                imgVideo: video,
                 workModality: tags.workModality,
                 languages: tags.languages,
                 technologies: tags.technologies,
@@ -79,10 +80,8 @@ export default function PubliSettings(){
             };
 
             dispatch(postPublication(obj));
-            dispatch(getPublicationStudents(usUserId));
-
+            
             setInput("");
-            setFoto("");
             setVideo("");
             setTags({
                 ...tags,
@@ -92,6 +91,14 @@ export default function PubliSettings(){
                 backFront:"",
             });
         }
+        setCartelPub(true)
+    };
+
+
+    const [ inputVideo, setInputVideo ] = useState(false);
+
+    const activarInput = () => {
+        setInputVideo(!inputVideo);
     };
 
     return(
@@ -115,14 +122,11 @@ export default function PubliSettings(){
                     </SettingHead>
         
                     <PvSettings>
-                        <div>
-                        <BsImage className="foto"/>
-                        <p>Foto</p>
-                        </div>
         
                         <div>
                         <FiVideo className="video"/>
-                        <p>Video</p>
+                        <button onClick={activarInput}>Video</button>
+                        { inputVideo && <input value={video} onChange={(e) => setVideo(e.target.value)} placeholder={"insertar URL"} />}
                         </div>
     
         
@@ -209,6 +213,12 @@ export default function PubliSettings(){
 
                 </PublicationBussines>
         }
+
+
+
+
+        
+        { cartelPub && <span>Tu publicacion es una porquería</span> }
             </SettingsCont>
     )
 }

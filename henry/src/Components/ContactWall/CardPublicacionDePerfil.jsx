@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { borrarBusinessPub, getAllStudents, setApplicant } from "../../reducer/actions/actionBusiness";
 import { sendNudes } from "../../reducer/actions/actionBusiness";
+import { CartaBusiness } from "./Applications/applicantsStyles/empresastyles";
 
 export default function PublicationCard(props) {
 
@@ -67,31 +68,34 @@ export default function PublicationCard(props) {
         dispatch(borrarBusinessPub(props.idPublicacion));
     };
 
+    let fecha = props.date.slice(0, 10);
     return (
-        <div>
+        <CartaBusiness >
             {
             props.botonDelete ?
-            <button onClick={borrarPublicacion}>Borrar publicacion</button>
+            <button className="borrar" onClick={borrarPublicacion}>BORRAR PUBLICACIÓN</button>
             : 
             null
             }
             <div>{props.email}</div>
-            <div>{props.date}</div>
+            <div>{fecha}</div>
             <div>{props.text}</div>
 
             <div>
                 <h1>POSTULANTES:</h1>
             </div>
 
-            <div>
+            <div className="contenedorAlumnos">
 
                 {props.applicants.map(e => e.showBusiness === true ?
                     shown ?
-                        <div>
-                            {e.name}
+                        <div className="Alumno">
+                           <p className="nombre">{e.name}</p>
                             <br></br>
-                            {stepActualizado ? stepActualizado : e.step}
-                            <Link to={`/profile/${e.userId}`}><button>Ver Perfil</button></Link>
+                            {stepActualizado ? stepActualizado : <span className={e.step === "pendiente" ? "pend" : e.step === "rechazado" ?
+                                "rech" : e.step === "aceptado" ? "acep" : null    
+                            }>{e.step}</span>}
+                            <Link to={`/profile/${e.userId}`}><button className="botoncito">Ver Perfil</button></Link>
                             {e.step === "pendiente" ?
                                 showStep ?
                                     <div>
@@ -113,6 +117,6 @@ export default function PublicationCard(props) {
                     : null
                 )}
             </div>
-        </div>
+        </CartaBusiness>
     );
 };

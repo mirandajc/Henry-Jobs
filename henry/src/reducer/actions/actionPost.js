@@ -16,10 +16,12 @@ import {
     UPDATE_USER_SUCCESS,
     BUGG_NAV,
     SET_PREMIUM,
+    SET_GOOGLE_USER,
+    EMAIL_EXISTE,
+    EMAIL_EXISTE_SUCCESS,
     EDIT_PROFILE,
     GOOGLE_LOGIN,
-    SET_GOOGLE_USER
- 
+
 } from "../../constants/constants";
 
 
@@ -148,13 +150,11 @@ export function setPremium(payload){
 }
 
 
-export function EditProfile({id, edituser}){
-   
-
+export function EditProfile(payload){ // esto tenía {id, editUser} como parametros
 
     return{
         type: EDIT_PROFILE,
-       payload: {id,edituser}
+       payload //acá tenía {id, editUser} tal cual
 
     }
 }
@@ -166,4 +166,16 @@ export function setGoogleUser(payload){
     }
 }
 
+export function emailExiste (email){
+    return {
+        type: EMAIL_EXISTE,
+        payload: email
+    };
+};
 
+export function emailExisteSuccess (payload){
+    return {
+        type: EMAIL_EXISTE_SUCCESS,
+        payload
+    };
+};

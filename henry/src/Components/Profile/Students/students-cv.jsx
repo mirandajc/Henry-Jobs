@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useJwt } from "react-jwt";
 
 
-export default function StudentCV({ otherStudies, technologies, id , acercaDe}) {
+export default function StudentCV({ otherStudies, technologies,userTypes, id , acercaDe}) {
 
     const tal = localStorage.getItem('TK')
     const userType = JSON.parse(tal);
@@ -21,8 +21,8 @@ export default function StudentCV({ otherStudies, technologies, id , acercaDe}) 
 
             <CvCont>
 
-                {
-                    technologies !== null ?
+                { 
+                    technologies.length?
                         <Tecnologias>
                             <h3>Tecnologias:</h3>
                             <ul>
@@ -38,7 +38,9 @@ export default function StudentCV({ otherStudies, technologies, id , acercaDe}) 
                         </Tecnologias>
                         : null
                 }
-                <OtrosStudy>
+              { 
+              otherStudies.length?
+               <OtrosStudy>
                     <h3>Otros estudios:</h3>
                     <ul>
 
@@ -51,6 +53,7 @@ export default function StudentCV({ otherStudies, technologies, id , acercaDe}) 
 
                     </ul>
                 </OtrosStudy>
+                :null}
             </CvCont>
 
             <Acerca>
@@ -72,7 +75,7 @@ export default function StudentCV({ otherStudies, technologies, id , acercaDe}) 
                 
             </Acerca>
             <Publicaciones>
-                <h3>Publicaciones:  FALTAAA</h3>
+                <h3>Publicaciones:</h3>
                 {
                     userType.type === 1 || userType.type === 2 ?
                         <Link to={`/myapplications/${id}`}><h3>Ver mis postulaciones</h3></Link>
@@ -81,7 +84,7 @@ export default function StudentCV({ otherStudies, technologies, id , acercaDe}) 
                             <Link to={`/mypublications/${id}`}><h3>Ver todas las publicaciones</h3></Link>
                             : null
                 }
-                <Carrousell id={id} />
+               
             </Publicaciones>
         </CV>
     )

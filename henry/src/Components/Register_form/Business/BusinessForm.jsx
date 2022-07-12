@@ -16,8 +16,9 @@ export default function BusinessForm ({sumarFase}) {
 
     useEffect(() => {
         if(mandarAccion.length >= 1){
-            console.log("final de registro", objetoGlobal, respuesta.id)
-            dispatch(updateUser([objetoGlobal, respuesta.id]));
+            setTimeout(() => {
+                dispatch(updateUser([objetoGlobal, respuesta.id]));
+            }, 2000);
 
             return sumarFase();
         }

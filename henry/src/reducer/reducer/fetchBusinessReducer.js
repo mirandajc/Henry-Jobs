@@ -1,6 +1,6 @@
 import { 
     GET_PUBLICATION_STUDENTS_SUCCESS,GET_PUBLICAT_TECHNOLOGIES, GET_PUBLICAT_ENGLISH, SEND_NUDE_SUCCESS,
-    GET_PUBLICAT_UBICATION, GET_PUBLICAT_DEVTYPE,GET_BUSINESS_BY_EMAIL_SUCCESS,
+    GET_PUBLICAT_UBICATION, GET_PUBLICAT_DEVTYPE,GET_BUSINESS_BY_EMAIL_SUCCESS,SET_BUSBUSQUEDA,
     GET_ALL_STUDENTS_SUCCESS,SHOW_FILTER,GET_PUBLICAT_WORKMODALITY,SET_STARS_ORDER,POST_ID_FOLLOW_BUSS_SUCCESS,GET_MY_PUBLICATIONS_SUCCESS, TRAER_FOLLOWING_SUCCESS
 } from "../../constants/constants";
 
@@ -19,7 +19,8 @@ const initialState = {
       ubication:"",
       devType:"",
       workModal:"",
-      stars:""
+      stars:"",
+      busqueda:"",
   }
 };
 
@@ -54,7 +55,11 @@ const fetchBusinessReducer = (state = initialState, action) => {
         };
 
     case GET_PUBLICATION_STUDENTS_SUCCESS:
-        let fol1 = action.payload.filter(e => state.userFollows.includes(e.posterUser._id) || action.id.includes(e.posterUser._id))
+        console.log(action.payload)
+        let arr= action.payload.filter(el=> el !== null);
+        console.log(arr)
+        let fol1 =  arr.filter(e => state.userFollows.includes(e.posterUser._id) || action.id.includes(e.posterUser._id)) 
+        console.log(fol1)
         let response = fol1.reverse();
         return { 
             ...state, 
@@ -76,12 +81,18 @@ const fetchBusinessReducer = (state = initialState, action) => {
             
         }
 
-    case SEND_NUDE_SUCCESS:
-        return {
-            ...state
-        }
-
+        
+        case SEND_NUDE_SUCCESS:
+            return {
+                ...state
+            }
+            
     ////////////////////////////////////////////////////////////////////////// CASOS DE FILTRADO //////
+    case SET_BUSBUSQUEDA:
+        return {
+            ...state,
+            filtros: {...state.filtros, busqueda: action.payload}
+        };
 
     case GET_PUBLICAT_TECHNOLOGIES:
         return {
@@ -136,6 +147,20 @@ const fetchBusinessReducer = (state = initialState, action) => {
         }
         if(state.filtros.workModal !== ""){
             alumnosFiltrados = alumnosFiltrados.filter(e => e.workModality === state.filtros.workModal);
+        }
+        if(state.filtros.busqueda !== ""){
+            console.log("entre", state.filtros.busqueda);
+            alumnosFiltrados = alumnosFiltrados.filter(e => {
+                let nombre = (e.name + " " + e.lastName).toLocaleLowerCase();
+                let busqueda = state.filtros.busqueda.split('');
+                let nombreBuscado = state.filtros.busqueda.toLocaleLowerCase();
+                
+                if(nombre.slice(0,busqueda.length) === nombreBuscado){
+                    return e;
+                } else {
+                    return;
+                }
+            });
         }
         if(state.filtros.stars !== ""){
             if(state.filtros.stars === "ASCENDENTE"){

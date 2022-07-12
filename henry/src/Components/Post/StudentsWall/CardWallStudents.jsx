@@ -8,7 +8,9 @@ import {
   DetailPost,
   ContenedorCard,
   ButonGrey,
-  ButtonCont
+  ButtonCont,
+  Tech,
+  TextP
 } from "../../Home/HomeStyles/HomePublicationCard";
 import { Link } from "react-router-dom";
 import Star from '../../images/Star.png';
@@ -76,64 +78,9 @@ export default function CardWallStudents({ name, lastname, email, technologies, 
               <div className="nombre">
                 <Link to={`/profile/${id}`}>
                   <h3>{name + " " + lastname}</h3>
-                </Link>
-              </div>
-              <div className="ubicacion">
-                <img src={Ubicacion} alt='icon-ubicacion' className="imagenUbicacion" />
-                <p>{ubication}, {city}</p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h5>{email}</h5>
-          </div>
-        </NamePic>
-      </Cavecera>
-      <p>
-        lectrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.
-      </p>
-      <InnerPost>
-        {technologies && backFront ? (
-          <DetailPost>
-            <div className="contenedorPost">
-              {technologies.map(tec => {
-                return (
+                  </Link>
 
-                  <span>
-                    <p>{tec}</p>
-                  </span>
-
-                )
-              }
-              )}
-              {otherstudies.map(studie => {
-                return (
-                  <span>
-                    <p>{studie}</p>
-                  </span>
-                )
-              }
-              )}
-
-            </div>
-
-            <ButtonCont>
-              <ButonGrey>
-                <p>{backFront}</p>
-              </ButonGrey>
-              <ButonGrey>
-                <p>{stars}</p>
-
-                <img src={Star} alt='start' />
-              </ButonGrey>
-              <ButonGrey>
-                <p> {workModality}</p>
-              </ButonGrey>
-              <ButonGrey>
-                <p>{english}</p>
-
-              </ButonGrey>
-              {
+                  {
                 userType.type !== 3 ?
                   <div className="plus">
                     {
@@ -150,13 +97,50 @@ export default function CardWallStudents({ name, lastname, email, technologies, 
                   </div>
                   : null
               }
-            </ButtonCont>
+                
+              </div>
+              <div className="ubicacion">
+                <img src={Ubicacion} alt='icon-ubicacion' className="imagenUbicacion" />
+                <p>{ubication}, {city}</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h5>{email}</h5>
+          </div>
+        </NamePic>
+      </Cavecera>
 
-          </DetailPost>
-        ) : (
-          " "
-        )}
-      </InnerPost>
+      <TextP>
+      <p>
+        lectrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.
+      </p>
+      </TextP>
+
+       <Tech>
+        {
+          technologies.map(el=> (<div><p>{el}</p></div>))
+        }
+      </Tech>       
+
+      <Tech>
+        {
+          backFront?
+        <div><p>{backFront}</p></div>
+        :null
+        }
+        {
+          english?
+        <div><p>{english}</p></div>
+        :null
+        }
+        {
+          stars?
+        <div><p>{stars}</p></div>
+        :null
+        }
+      </Tech>
+
     </PublicationCard>
   );
 };

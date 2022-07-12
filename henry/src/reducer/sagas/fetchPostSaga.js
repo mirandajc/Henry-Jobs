@@ -2,6 +2,7 @@ import { take, call, all, put, takeEvery, takeLatest } from 'redux-saga/effects'
 import axios from 'axios';
 
 import {
+    emailExisteSuccess,
     postRegisterModalSuccess,
     postUser,
     postUserSuccess,
@@ -17,6 +18,7 @@ import {
     URL_DEPLOY,
     UPDATE_USER,
     SET_PREMIUM,
+    EMAIL_EXISTE,
     EDIT_PROFILE,
     PROFILE_EDIT_URL,
     GOOGLE_LOGIN,
@@ -114,18 +116,27 @@ function* asyncSetPremium (payload){
     }
 };
 
+function* asyncEmailExiste (payload) {
+    try {
+        console.log("antes de lo asinc", payload.payload)
+        const response = yield call(() => axios.get(URL_DEPLOY + `/mail?email=${payload.payload}`));
+        console.log("respuesta de email", response.data)
+        yield put(emailExisteSuccess(response.data));
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 function* asyncEditProfile(payload){
     //AGREGAR OBJ DE PERFIL
-    console.log(payload.payload.id)
-    console.log(payload.payload.edituser)
-    
+    console.log("log de la ruta con el id y el payload -> ", PROFILE_EDIT_URL+ `${payload.payload.id}`, payload.payload.editUser)
 
-   
     try{
-        const response= yield call(()=> axios.put(PROFILE_EDIT_URL+ `${payload.payload.id}`, payload.payload.edituser))
-        console.log(response)
-    }catch(error){
-        console.log(error)
+        const response = yield call(() => axios.put(PROFILE_EDIT_URL+ `${payload.payload.id}`, payload.payload.editUser))
+        console.log("esta es la response -> ", response)
+        console.log("esta es la response.data -> ", response.data)
+    } catch(error){
+        console.log("catch de editProfile -> ", error)
     }
 }
 
@@ -138,5 +149,6 @@ export function* watchFetchPostSaga(){
     yield takeEvery(UPDATE_USER, asyncUpdateUser)
     yield takeEvery(GOOGLE_LOGIN, asyncLoginWithGoogle)
     yield takeEvery(SET_PREMIUM, asyncSetPremium)
+    yield takeEvery(EMAIL_EXISTE, asyncEmailExiste)
     yield takeEvery(EDIT_PROFILE, asyncEditProfile)
 }

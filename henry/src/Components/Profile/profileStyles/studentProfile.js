@@ -302,7 +302,7 @@ justify-content: center;
 }
 
 .edit{
-    color: yellow;
+    color: black;
     font-size: 1em;
 }
 

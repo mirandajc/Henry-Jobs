@@ -13,7 +13,7 @@ export const ContenedorStudents = styled.div`
 
 
 export const ComponentCard= styled.div`
-border-top: 1px solid yellow;
+border-top: 3px solid yellow;
 display: flex;
 align-items: center;
 justify-content: space-around;
@@ -22,7 +22,7 @@ background-color: #1A1B1E;
 width: 50%;
 min-height: 5em;
 border-radius: 1rem;
-
+margin-top: 5em;
 margin-bottom: 5em;
 
 
@@ -45,7 +45,7 @@ display: flex;
  flex-direction: row; 
 
 .Date{
-    color: hsl(228deg 4% 28%);
+    color:#8e929a;
     font-size: 0.7em;
     margin-right: 1em;
 }
@@ -88,6 +88,9 @@ h3{
     justify-content: center;
     flex-direction: column;
     
+    a{
+        text-decoration: none;
+    }
    
     p{
         
@@ -95,17 +98,20 @@ h3{
     }
 
     .ubic{
-        
+        color:#8e929a;
         font-size: 0.7em;
         
     }
 
     .ub{
         margin-top: -2em;
-        margin-left: -1em;
+        
         display: flex;
          align-items:center;
-         justify-content: center;
+         justify-content: flex-start;
+         p{
+            color:#8e929a;
+         }
          &:hover{
             text-decoration: underline;
             cursor:pointer;
@@ -166,10 +172,27 @@ export const Video= styled.div`
 border-bottom: 0.2px solid #2a2d36 ;
 border-top: 0.2px solid #2a2d36 ;
 
-min-height: 20em;
+min-height: 10em;
 width: 100%;
 
+`
 
 
+export const Footer= styled.div`
+border-top: .2px solid #ffff0094;
+width:100%;
+height: 1em;
+
+
+`
+
+export const Burron= styled.div`
+
+
+height: 3em;
+width: 100%;
+display: flex; 
+align-items: center;
+justify-content: center;
 
 `

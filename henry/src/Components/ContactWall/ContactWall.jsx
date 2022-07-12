@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { getMyPublications } from "../../reducer/actions/actionBusiness";
 import PublicationCard from "./CardPublicacionDePerfil";
 import { Publicaciones } from "./ApplicantMokedFiles";
+import { EmpresaContenedor } from "./Applications/applicantsStyles/empresastyles";
 
 
 export default function ContactWall() {
@@ -41,7 +42,7 @@ export default function ContactWall() {
   // ESTE COMPONENTE RENDERIZA TODAS LAS PUBLICACIONES PARA VER POSTULANTES
 
   return (
-    <div>
+    <EmpresaContenedor>
       {
         publicactions && publicactions.map(e => 
           <PublicationCard 
@@ -54,6 +55,6 @@ export default function ContactWall() {
           idPublicacion={e._id} 
           />)
         }
-    </div>
+    </EmpresaContenedor>
   );
 };

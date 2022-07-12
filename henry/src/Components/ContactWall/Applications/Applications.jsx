@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getMyApplicat} from '../../../reducer/actions/actionStudents'
+import { Contenedor, Card } from "./applicantsStyles/Tarjeta";
 
 
 
@@ -21,34 +22,33 @@ export default function Applications() {
 
     return (
 
-        <div>
-            {/* {
-                posteos.map(e => <div>
-                    {e.text}
-                </div>)
-            } */}
+        <Contenedor>
             {
+                posteos.length === 0 ? <h1 className="NoPost">Todavía no te has postulado!! accede al WorkWall para ver publicaciones laborales</h1>  :
                 posteos.map(e =>
-                    <div>
-                        <div>{e.posterUser.name}</div>
+                    <Card>
+                        
+                        <div className="nombre">{e.posterUser.name}</div>
+                        <div className="email">{e.posterUser.email}</div>
                         <div>{e.workModality}</div>
-                        <div>{e.posterUser.email}</div>
                         <div>{e.text}</div>
                         <div>{console.log(e.applicants)}</div>
 
                         {
                             e.applicants.map(a => a.userId === id &&
                                 <div>
-                                <h1>{a.step}</h1>
+                                <h1 className={a.step === "pendiente" ? "pend" : a.step === "rechazado" ?
+                                "rech" : a.step === "aceptado" ? "acep" : null    
+                            }>{a.step}</h1>
                                 </div>
                             )
                         }
 
-                    </div>
+                    </Card>
                 )
             }
 
 
-        </div>
+        </Contenedor>
     );
 };
