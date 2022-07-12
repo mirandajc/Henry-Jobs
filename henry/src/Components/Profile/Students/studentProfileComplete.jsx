@@ -42,6 +42,8 @@ export default function StudentCompletePage() {
     }, [])
 
 
+    console.log(userProfile)
+
     return (
         
         <ContStudentCo>

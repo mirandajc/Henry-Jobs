@@ -11,6 +11,7 @@ import {
   ButtonCont,
   Tech,
   TextP,
+  BannerCont
 } from "../../Home/HomeStyles/HomePublicationCard";
 import { Link } from "react-router-dom";
 import Star from "../../images/Star.png";
@@ -86,11 +87,17 @@ export default function CardWallStudents({
     dispatch(enviarMailContactar([email, userType.name]));
   };
 
+
+  console.log(banner)
   return (
     <PublicationCard>
+        <BannerCont>
+              <img src={banner}/>
+            </BannerCont>
       <Cavecera>
         <NamePic>
           <div className="imageName">
+            
             <PictureCont>
               <img src={profileImage} alt={`${name} Image`} />
             </PictureCont>
@@ -137,14 +144,14 @@ export default function CardWallStudents({
             <h5>{email}</h5>
             {
               userType.type === 4 || userType.type === 5 ?
-              <button classname="botonMail" onClick={() => contactar(email)}>Contactar</button>
+              <button className="botonMail" onClick={() => contactar(email)}>Contactar</button>
               : null
             }
           </div>
         </NamePic>
       </Cavecera>
 
-      <TextP>
+      {/* <TextP>
         <p>
           lectrónicos, quedando esencialmente igual al original. Fue
           popularizado en los 60s con la creación de las hojas "Letraset", las
@@ -152,7 +159,7 @@ export default function CardWallStudents({
           software de autoedición, como por ejemplo Aldus PageMaker, el cual
           incluye versiones de Lorem Ipsum.
         </p>
-      </TextP>
+      </TextP> */}
 
       <Tech>
         {technologies.map((el) => (
