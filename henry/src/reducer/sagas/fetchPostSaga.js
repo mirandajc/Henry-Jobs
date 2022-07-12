@@ -131,10 +131,7 @@ function* asyncEmailExiste (payload) {
 function* asyncEditProfile(payload){
     //AGREGAR OBJ DE PERFIL
     console.log(payload.payload.id)
-    console.log(payload.payload.edituser)
-    
-
-   
+    console.log(payload.payload.edituser)  
     try{
         const response= yield call(()=> axios.put(PROFILE_EDIT_URL+ `${payload.payload.id}`, payload.payload.edituser))
         console.log(response)
@@ -147,10 +144,8 @@ function* asyncSendEmailContact (payload) {
     try {
         // MANDAR MAIL DICIENDO QUE LA EMPRESA SE QUIERE CONTACTAR
         const id = payload.payload[0];
-        const email = payload.payload[1];
-
-        console.log(id, email)
-        const response = yield call(()=> axios.put(URL_DEPLOY + `/contact/${id}`, {email: email}));
+        const email = payload.payload[1]; 
+        const response = yield call(()=> axios.get(URL_DEPLOY + `/contact/${id}`, { email: email}));
         console.log(response.data)
     } catch (error) {
         console.log(error);
