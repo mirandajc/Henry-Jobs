@@ -5,21 +5,21 @@ import { getMyPublications } from "../../reducer/actions/actionBusiness";
 import PublicationCard from "./CardPublicacionDePerfil";
 import { Publicaciones } from "./ApplicantMokedFiles";
 import { EmpresaContenedor } from "./Applications/applicantsStyles/empresastyles";
-
+import NoSearchFounds from "../Loading/NoSearchFounds"
 
 export default function ContactWall() {
 
   const tal = localStorage.getItem('TK')
   const userType = JSON.parse(tal);
 
-
+  const actualizar = useSelector(state => state.fetchPostReducer.Change);
   const dispatch = useDispatch();
   const { id } = useParams();
   const publicactions = useSelector(state => state.fetchBusinessReducer.myPublications);
-  
+
   useEffect(() => {
     dispatch(getMyPublications(id));
-  }, [publicactions]);
+  }, [actualizar]);
  
   const [ deletear, setDeletear] = useState();
 
@@ -40,11 +40,13 @@ export default function ContactWall() {
   
 
   // ESTE COMPONENTE RENDERIZA TODAS LAS PUBLICACIONES PARA VER POSTULANTES
-
   return (
     <EmpresaContenedor>
       {
-        publicactions && publicactions.map(e => 
+        publicactions === null || publicactions === undefined || publicactions.length === 0 ? 
+        <NoSearchFounds/>
+        :
+        publicactions.map(e => 
           <PublicationCard 
           botonDelete={deletear}
           posterUser={e.posterUser._id}

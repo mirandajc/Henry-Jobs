@@ -22,6 +22,7 @@ import {
     EDIT_PROFILE,
     PROFILE_EDIT_URL,
     GOOGLE_LOGIN,
+    SEND_EMAIL_CONTACT
     
 } from '../../constants/constants';
 
@@ -140,7 +141,17 @@ function* asyncEditProfile(payload){
     }catch(error){
         console.log(error)
     }
-}
+};
+
+function* asyncSendEmailContact (payload) {
+    try {
+        // MANDAR MAIL DICIENDO QUE LA EMPRESA SE QUIERE CONTACTAR
+        const email = payload.payload[0];
+        const nombre = payload.payload[1];
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 
 
@@ -153,4 +164,5 @@ export function* watchFetchPostSaga(){
     yield takeEvery(SET_PREMIUM, asyncSetPremium)
     yield takeEvery(EMAIL_EXISTE, asyncEmailExiste)
     yield takeEvery(EDIT_PROFILE, asyncEditProfile)
+    yield takeEvery(SEND_EMAIL_CONTACT, asyncSendEmailContact)
 }
