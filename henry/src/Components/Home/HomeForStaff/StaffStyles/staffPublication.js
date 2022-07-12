@@ -1,12 +1,19 @@
 import styled from "styled-components";
 
 export const StaffContainer = styled.div`
-    width: 50%;
+    width: 90%;
     border-top: 3px solid yellow;
     border-radius: 10px;
     margin-top: 5em;
     margin-bottom: 5em;
     background-color: hsl(228deg 9% 11%);
+    margin-left: 1em;
+
+
+    .text{
+        text-align:justify;
+        margin-left: 1em;
+    }
 `
 
 export const NameMail = styled.div`
