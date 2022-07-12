@@ -31,6 +31,7 @@ import Paypal3 from "./Components/Paypal/Paypal3";
 import ContactWall from "./Components/ContactWall/ContactWall";
 import Applications from "./Components/ContactWall/Applications/Applications";
 import EditModal from "./Components/Profile/editModal";
+import El404 from "./Components/Loading/404";
 
 
 
@@ -71,6 +72,7 @@ function App() {
       <Route path="/checkout2" element={<Paypal2 />} />
       <Route path="/checkout3" element={<Paypal3 />} />
       <Route path="/EditProfile/:id" element={<EditModal />} />
+      <Route path="/*" element={<El404 />} />
     </Routes>
     <Footer/>
       </PayPalScriptProvider>

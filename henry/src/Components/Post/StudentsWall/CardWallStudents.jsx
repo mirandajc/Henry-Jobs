@@ -83,8 +83,11 @@ export default function CardWallStudents({
     }
   };
 
-  const contactar = (email) => {
-    dispatch(enviarMailContactar([email, userType.name]));
+  const [ cartelito, setCartelito ] = useState(false);
+
+  const contactar = (id) => {
+    dispatch(enviarMailContactar([id, userType.email]));
+    setCartelito(true);
   };
 
 
@@ -147,6 +150,7 @@ export default function CardWallStudents({
               <button className="botonMail" onClick={() => contactar(email)}>Contactar</button>
               : null
             }
+            { cartelito && <span>{"Correo enviado con éxito"}</span> }
           </div>
         </NamePic>
       </Cavecera>
