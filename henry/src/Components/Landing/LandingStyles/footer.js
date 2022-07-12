@@ -113,6 +113,33 @@ textarea{
 `
 
 export const FAQ = styled.div`
-width: 100%;
-    height: 100vh;  
+    // width: 100%;
+    // height: 100vh;  
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+width:100%;
+min-height: 100vh;
+margin-right: 25%;
+background: none;
+
+h1{
+    font-size: 37px;
+    font-weight: bolder;
+    color:white;
+}
+`
+
+export const Conteiner = styled.div`
+    display: flex;
+
+.contenedorImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    width: 75%;
+}
 `
