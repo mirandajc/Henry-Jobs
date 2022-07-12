@@ -121,13 +121,7 @@ export default function StudentsWall() {
                     })}
                 </select>
 
-                <select onChange={(e) => selectModal(e)}>
-                    <option>MODALIDAD</option> {/* si cambias lo que hay dentro de options,
-                                                 cambialo en la funcion tambien, dentro del if */}
-                    {workModal.map(e => {
-                        return <option>{e}</option>
-                    })}
-                </select>
+
 
                 <select onChange={(e) => selectPais(e)}>
                     <option>PAIS</option> {/* si cambias lo que hay dentro de options,
