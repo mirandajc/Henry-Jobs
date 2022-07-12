@@ -11,6 +11,7 @@ import {
   ButtonCont,
   Tech,
   TextP,
+  BannerCont
 } from "../../Home/HomeStyles/HomePublicationCard";
 import { Link } from "react-router-dom";
 import Star from "../../images/Star.png";
@@ -84,16 +85,30 @@ export default function CardWallStudents({
 
   const [ cartelito, setCartelito ] = useState(false);
 
+  const [ setear, setSetear ] = useState(false);
+
   const contactar = (id) => {
-    dispatch(enviarMailContactar([id, userType.email]));
-    setCartelito(true);
+    if( setear){
+      dispatch(enviarMailContactar([id, userType.email]));
+      setCartelito(true);
+      setSetear(false);
+    }
+    else{
+      setSetear(true);
+    }
   };
 
+
+  console.log(banner)
   return (
     <PublicationCard>
+        <BannerCont>
+              <img src={banner}/>
+            </BannerCont>
       <Cavecera>
         <NamePic>
           <div className="imageName">
+            
             <PictureCont>
               <img src={profileImage} alt={`${name} Image`} />
             </PictureCont>
@@ -138,9 +153,11 @@ export default function CardWallStudents({
           </div>
           <div>
             <h5>{email}</h5>
+            { setear ? <div>¿Seguro?</div> : null }
+
             {
               userType.type === 4 || userType.type === 5 ?
-              <button classname="botonMail" onClick={() => contactar(id)}>Contactar</button>
+              <button classname="botonMail" onClick={() => contactar(id)}>{ setear ? "Si" : "Contactar"}</button>
               : null
             }
             { cartelito && <span>{"Correo enviado con éxito"}</span> }
@@ -148,7 +165,7 @@ export default function CardWallStudents({
         </NamePic>
       </Cavecera>
 
-      <TextP>
+      {/* <TextP>
         <p>
           lectrónicos, quedando esencialmente igual al original. Fue
           popularizado en los 60s con la creación de las hojas "Letraset", las
@@ -156,7 +173,7 @@ export default function CardWallStudents({
           software de autoedición, como por ejemplo Aldus PageMaker, el cual
           incluye versiones de Lorem Ipsum.
         </p>
-      </TextP>
+      </TextP> */}
 
       <Tech>
         {technologies.map((el) => (

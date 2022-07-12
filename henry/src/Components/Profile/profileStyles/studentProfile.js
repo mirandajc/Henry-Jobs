@@ -8,6 +8,33 @@ min-height: 100vh;
 
 `
 
+export const Calificacion = styled.div`
+div.valoracion {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  div.valoracion input {
+    position: absolute;
+    top: -100px;
+  }
+  
+  div.valoracion label {
+    float: right;
+    color: #333;
+    width: 23px;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  
+  div.valoracion label:hover,
+  div.valoracion label:hover ~ label,
+  div.valoracion input:checked ~ label {
+    color: #dd4;
+  }
+`
+
 
 export const StudentProf= styled.div`
 

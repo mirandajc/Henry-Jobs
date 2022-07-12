@@ -52,7 +52,7 @@ export default function StaffStudentsBusiness({ botAd, id, name, profileImage, l
                                 <p>{email}</p>
                                 </div>
 
-                                <h4>Curriculums enviados este mes: {curriculumCounter}</h4>
+                                <h4 className="cv">Curriculums:{curriculumCounter}</h4>
                             </div>
                             <h4 className="star"><AiFillStar className="starColor"/> {stars}</h4>
                         </div>
@@ -60,11 +60,16 @@ export default function StaffStudentsBusiness({ botAd, id, name, profileImage, l
                         :
 
                         // Link al perfil con userName?
-                        <div>
-                            <img src={profileImage} width={"25px"} height={"25px"} />
-                            <h2>{name}</h2>
-                            <h3>{city} {country}</h3>
-                            <h4>{email}</h4>
+                        
+                        <div className="name">
+
+                            <div className="imgCont">
+                                <img src={profileImage} width={"25px"} height={"25px"} />
+                            </div>
+                            <div className="detail">
+                                <h3>{name}</h3>
+                                <p><MdLocationPin /> {city} {country}</p>
+                            </div>
                         </div>
                 }
                 <div className="buttonContainer">

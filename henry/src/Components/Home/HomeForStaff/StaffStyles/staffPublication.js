@@ -11,9 +11,24 @@ export const StaffContainer = styled.div`
 
 
     .text{
-        text-align:justify;
+       padding: 1em;
         margin-left: 1em;
     }
+
+
+
+    .wm{
+        margin-left: 1em;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        width: 6em;
+        border-radius: 20px;
+        border: 1px solid yellow;
+        background-color: black;
+        color:yellow;
+    }
+    
 `
 
 export const NameMail = styled.div`
