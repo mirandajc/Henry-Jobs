@@ -23,6 +23,7 @@ import {
     ACTUALIZAR_ESTADO,
     GOOGLE_LOGIN,
     SEND_EMAIL_CONTACT,
+    ACTUALIZAR_HOME_BUSINESS,
 
 } from "../../constants/constants";
 
@@ -192,3 +193,9 @@ export function enviarMailContactar (payload) {
         payload
     };
 };
+
+export function actualizarHomeBusiness () {
+    return{
+        type: ACTUALIZAR_HOME_BUSINESS
+    }
+}
