@@ -19,9 +19,9 @@ export default function StudentCompletePage() {
     const userProfile = useSelector((state) => state.fetchPostReducer.responseProfile)
     const [renderi, setRenderi] = useState(false);
     const [load, setLoad] = useState(true);
+    const rei = useSelector((state) => state.fetchPostReducer.reiniciarP)
 
     useEffect(() => {
-        console.log('me ejecuto')
         if(userProfile.name !== undefined) { 
             setRenderi(true)
         } 
@@ -30,6 +30,12 @@ export default function StudentCompletePage() {
         }
         
     }, [id])
+
+    useEffect(() => {  
+        setTimeout(() => {
+            dispatch(profileID(id))
+        }, 2000); 
+    }, [rei])
 
 
     useEffect(() => {

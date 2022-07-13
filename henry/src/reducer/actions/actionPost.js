@@ -27,7 +27,9 @@ import {
     NEW_GET_INFO_USER,
     NEW_GET_INFO_USER_SUCCESS,
     POST_USER_FAILURE,
-    VACIAR_ESTADO
+    VACIAR_ESTADO,
+    REINICIAR_PERFIL,
+    REINICIAR_HOME_PRINCIPE
 
 } from "../../constants/constants";
 
@@ -230,5 +232,17 @@ export function postUserFailure (payload){
 export function vaciarEstado (){
     return {
         type: VACIAR_ESTADO,
+    };
+};
+
+export function reiniciarPerfil (){
+    return {
+        type: REINICIAR_PERFIL
+    };
+};
+
+export function reinciarHomePrincipe (){
+    return {
+        type: REINICIAR_HOME_PRINCIPE
     };
 };

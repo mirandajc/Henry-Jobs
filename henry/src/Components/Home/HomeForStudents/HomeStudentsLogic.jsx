@@ -15,10 +15,19 @@ export default function HomeStudentsLogic({ id }) {
     const foll = useSelector((state) => state.fetchStudentsReducer.userFollows);
     const dispatch = useDispatch();
     const [load, setLoad] = useState(true);
+    const respuestita = useSelector((state) => state.fetchPostReducer.principe)
 
     useEffect(() => {
+        console.log('e')
         dispatch(getPublicationsBusiness(id));
     }, [foll]);
+
+    useEffect(() => {
+        setTimeout(() => {
+            dispatch(getPublicationsBusiness(id));
+            console.log('e')
+        }, 3000);
+    }, [respuestita]);
 
     useEffect(() => {
         setTimeout(() => { setLoad(false) }, 2000);

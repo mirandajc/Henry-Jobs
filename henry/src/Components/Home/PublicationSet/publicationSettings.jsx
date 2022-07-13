@@ -8,7 +8,7 @@ import { actualizarEstado, actualizarHomeBusiness, profileID } from "../../../re
 import {  getPublicationsBusiness, postPublication } from "../../../reducer/actions/actionStudents";
 import { technologies } from "../../Post/StudentsWall/select"
 import { getPublicationStudents } from "../../../reducer/actions/actionBusiness";
-
+import { reinciarHomePrincipe } from '../../../reducer/actions/actionPost'
 
 
 export default function PubliSettings(){
@@ -91,6 +91,7 @@ export default function PubliSettings(){
             });
         }
         dispatch(actualizarHomeBusiness());
+        dispatch(reinciarHomePrincipe());
         setCartelPub(true)
         setTimeout(() => {
             setCartelPub(false);
