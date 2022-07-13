@@ -75,7 +75,7 @@ export default function InnModal() {
     e.preventDefault()
     if (!profileImage) return
     try {
-        const response = await axios.post(`https://henryjob.herokuapp.com/api/upload/`, {
+        const response = await axios.post(`http://localhost:3001/api/upload/`, {
             banner: bannerImage 
         });
         setObjeto({
