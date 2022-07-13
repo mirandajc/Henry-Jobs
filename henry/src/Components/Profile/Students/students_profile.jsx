@@ -7,7 +7,7 @@ import {  SiGmail } from 'react-icons/all';
 import { HiLocationMarker } from 'react-icons/all';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { getPublicationsBusiness, postIdFollow } from "../../../reducer/actions/actionStudents";
-import { getPublicationStudents, postIdFollowBuss } from "../../../reducer/actions/actionBusiness";
+import { getPublicationStudents, postIdFollowBuss, puntuar } from "../../../reducer/actions/actionBusiness";
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -44,7 +44,14 @@ export default function StudentsProfile({ id, backFront, banner, country, curric
     const handleStar = (e, id) => {
         const studentId = id;
         const value = e.target.value;
+        const miId = TkIdF.id;
+        
+        let obj = {
+            userId: miId,
+            numero: value
+        };
 
+        dispatch(puntuar([obj, studentId]))
         console.log(value, id);
     };
 

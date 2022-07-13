@@ -14,7 +14,8 @@ import {
 import {
     GET_ALL_STUDENTS,GET_BUSINESS_BY_EMAIL,SEND_NUDES,
     GET_PUBLICATION_STUDENTS, URL_PEDIDO,GET_MY_PUBLICATIONS, URL_PEDIDO_POSTS,SET_APPLICANT,POST_ID_FOLLOW_BUSS,
-    TRAER_FOLLOWING, BORRAR_PUBLICACIONES
+    TRAER_FOLLOWING, BORRAR_PUBLICACIONES,
+    PUNTUAR
 } from '../../constants/constants';
 
 
@@ -92,6 +93,16 @@ function* asyncBorrarPublicacion (payload) {
     };
 };
 
+function* asyncPuntuar (payload) {
+    try {
+        console.log(payload);
+        const response = yield call(() => axios.put(URL_PEDIDO + `/user/star/${payload.payload[1]}`, payload.payload[0]));
+        console.log(response.data);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
 
 export function* watchFetchBusinessSaga(){
@@ -99,9 +110,10 @@ export function* watchFetchBusinessSaga(){
     yield takeLatest(GET_ALL_STUDENTS, asyncGetAllStudents)
     yield takeEvery(POST_ID_FOLLOW_BUSS ,asyncPostIdFollowBuss)
     yield takeEvery(GET_MY_PUBLICATIONS, asyncGetMyPublications)
-    /* yield takeEvery(SET_APPLICANT, asyncSetApplicant) */
+    // yield takeEvery(SET_APPLICANT, asyncSetApplicant)
     yield takeLatest(GET_BUSINESS_BY_EMAIL, asyncGetBusinessByEmail)
     yield takeEvery(SEND_NUDES, asyncSendNudes)
     yield takeEvery(TRAER_FOLLOWING, asyncTraerFollowing)
     yield takeEvery(BORRAR_PUBLICACIONES, asyncBorrarPublicacion)
+    yield takeEvery(PUNTUAR, asyncPuntuar)
 }

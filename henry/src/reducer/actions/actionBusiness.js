@@ -22,7 +22,8 @@ import {
     TRAER_FOLLOWING,
     TRAER_FOLLOWING_SUCCESS,
     BORRAR_PUBLICACIONES,
-    SET_BUSBUSQUEDA
+    SET_BUSBUSQUEDA,
+    PUNTUAR
 } from "../../constants/constants";
 
 export function getPublicationStudents (payload) {
@@ -193,6 +194,13 @@ export function borrarBusinessPub (payload) {
 export function setBusBusqueda (payload) {
     return {
         type: SET_BUSBUSQUEDA,
+        payload
+    };
+};
+
+export function puntuar (payload) {
+    return {
+        type: PUNTUAR,
         payload
     };
 };
