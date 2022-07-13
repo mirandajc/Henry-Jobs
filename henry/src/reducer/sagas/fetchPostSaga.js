@@ -129,13 +129,8 @@ function* asyncEmailExiste (payload) {
 };
 
 function* asyncEditProfile(payload){
-    //AGREGAR OBJ DE PERFIL
-    console.log("log de la ruta con el id y el payload -> ", PROFILE_EDIT_URL+ `${payload.payload.id}`, payload.payload.editUser)
-
     try{
-        const response = yield call(() => axios.put(PROFILE_EDIT_URL+ `${payload.payload.id}`, payload.payload.editUser))
-        console.log("esta es la response -> ", response)
-        console.log("esta es la response.data -> ", response.data)
+        const response = yield call(() => axios.put('http://localhost:3001/api/user/'+ `${payload.payload.id}`, payload.payload.editUser))
     } catch(error){
         console.log("catch de editProfile -> ", error)
     }
