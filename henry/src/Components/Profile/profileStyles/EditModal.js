@@ -308,7 +308,57 @@ align-items: center;
 justify-content: center;
 flex-direction: column;
 
+select{
+    width: 100%;
+    padding: 1em;
+    background-color: yellow;
+    border-radius: 10px;
+    option{
+        background-color: yellow;
+    }
+}
 
+.buttClose{
+    width:auto;
+    height:1em;
+    padding: .5em;
+    border: 1px solid yelow;
+    border-radius: 20px;
+    background-color: black;
+    color: yellow;
+
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+   
+
+    p{
+        margin-left: .5em;
+        margin-right: .5em;
+    }
+    button{
+        color:yellow;
+        background-color: black;
+        border:none;
+        width:1em;
+        height:1em;
+        border-radius:50%;
+    }
+
+    .contB{
+        border: 1px solid white;
+    }
+}
+
+.st{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    button{
+        padding: 1.3em;
+        margin-top:-1em;
+    }
+}
 
 `
 
@@ -325,4 +375,26 @@ input{
     border-radius: 10px:
     border: 1px solid yellow;
 }
+`
+
+export const Eng= styled.div`
+
+width: 100%;
+display:flex;
+align-items:center;
+justify-content: center;
+flex-direction: column;
+
+select{
+    width: 50%;
+    padding: 1em;
+    background-color: yellow;
+    border-radius: 10px;
+    option{
+        background-color: yellow;
+    }
+}
+
+
+
 `

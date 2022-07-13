@@ -109,7 +109,10 @@ export default function LoginPage(){
                     </Link>
                 </div>
                 
-
+                <div className="second">
+                    <p>Or signIn with</p>
+                        <App />
+                </div>
 
              
                 </div>
@@ -118,10 +121,7 @@ export default function LoginPage(){
             </div>
 
           
-                <div className="second">
-                    <p>Or signIn with</p>
-                        <App />
-                </div>
+                
             
         </ConteinLogin>
     )

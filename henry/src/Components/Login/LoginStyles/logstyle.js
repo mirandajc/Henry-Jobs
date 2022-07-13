@@ -19,7 +19,7 @@ margin-top: 15em;
 border-radius: 10px;
 background-color: #212329;
 width:30%;
-height:40%;
+height:60%;
 
 .incorrecto {
     color: red;
@@ -167,13 +167,15 @@ height:40%;
 
 
 .second{
-    position: fixed;
-    top: 75%;
-    right: 45%;
+    
+    // top: 75%;
+    // right: 45%;
     display:flex;
      align-items:center;
      justify-content: center;
      flex-direction column;
+     margin-bottom: 2em;
+    
 }
 
 
