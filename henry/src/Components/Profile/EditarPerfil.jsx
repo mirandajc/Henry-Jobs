@@ -10,6 +10,7 @@ import { MdOutlineInsertPhoto } from "react-icons/all";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { SiGmail } from "react-icons/all";
 import { MdAddAPhoto } from "react-icons/all";
+import { ContenedorMaximo } from "./Students/editperfill";
 
 export default function InnModal() {
     const [fileInputState, setFileInputState] = useState("")
@@ -187,7 +188,7 @@ const borrarEstudio = (value) => {
   };
 
   ////////////////////////////////////////// SUBMIT //////////////////////////////////////////////////////////
-
+  
   const handleSubmit = () => {
     console.log(objeto);
     dispatch(EditProfile({ id, objeto }));
@@ -195,18 +196,61 @@ const borrarEstudio = (value) => {
   };
 
   return (
-      <div>
-        <h1>EDITAR PERFIL: </h1>
-    {/* //////////////////////////////////////////////////NAME////////////////////////////////////////////////////// */}
+      <ContenedorMaximo>
+            <h1>EDITAR PERFIL: </h1>
 
-        <div>
+            <Fotos>
+                <div className="cont">
+                  <h3>Foto de perfil:</h3>
+                  <div className="inner">
+                    <Foto1>
+                      <MdAddAPhoto className="ph" />
+                    </Foto1>
+                    {previewSource ? (
+                      <img src={previewSource} />
+                    ) : (
+                      <MdOutlineInsertPhoto className="puto" />
+                    )}
+                    <input type="file" name="profileImage" value={fileInputState} onChange={handleFileInputChange} />
+                  </div>
+                    <button type="submit" onClick={handleSubmitProfileImage}>add photo</button>
+          
+                  {/* <textarea value={input} onChange={(e)=>handlePicture(e)} placeholder="url perfil"/> */}
+                </div>
+          
+                <div className="cont">
+                  <h3>Foto del Banner:</h3>
+                  <Foto2>
+                    <MdAddAPhoto className="ph" />
+                  </Foto2>
+                  <div className="inner">
+                    {previewSourceBanner ? (
+                      <img src={previewSourceBanner} />
+                    ) : (
+                      <MdOutlineInsertPhoto className="puto" />
+                    )}
+                    <input type="file" value={fileInputStateBanner} name="banner" onChange={handleFileInputChangeBanner} />
+                  </div>
+                    <button type="submit" onClick={handleSubmitBanner}>add photo</button>
+                  {/* <textarea value={inputd} onInput={(e)=>handleBanner(e)} placeholder="Send nudes"/> */}
+                </div>
+          
+                <div>
+                  <button type="submit" onClick={handleSubmit}>Guardar</button>
+                </div>
+              </Fotos>
+    {/* //////////////////////////////////////////////////NAME////////////////////////////////////////////////////// */}
+    
+    <div>
             <h3>Nombre</h3>
             <input value={objeto.name} onChange={(e) => setObjeto({...objeto, name: e.target.value})} />
             <h3>Apellido</h3>
             <input value={objeto.lastName} onChange={(e) => setObjeto({...objeto, lastName: e.target.value})}/>
-        <div>
+    </div>
 
     {/* ////////////////////////////////////////////// COUNTRY & CITY //////////////////////////////////////////// */}
+    <div>
+        <div>
 
         <h3>¿De dónde eres?</h3>
         <div className="lado">
@@ -221,7 +265,7 @@ const borrarEstudio = (value) => {
         </div>
 
         {allCities && (
-          <div className="lado">
+            <div className="lado">
             <h3>Provincia/Estado:</h3>
             <select onClick={(e) => citySelect(e)}>
               <option>Selecciona una provincia/estado</option>
@@ -231,8 +275,10 @@ const borrarEstudio = (value) => {
             </select>
           </div>
         )}
+
       </div>
 
+    </div>
     {/* //////////////////////////////////////////////////////// TECH ////////////////////////////////////////////// */}
 
       <div>
@@ -250,14 +296,15 @@ const borrarEstudio = (value) => {
           type="text"
           onChange={(e) => handleChangeTech(e)}
           value={objeto.technologies}
-        >
+          >
           <option>Seleccionar Tecnologías</option>
           {technologies.map((e) => (
-            <option key={e} value={e}>
+              <option key={e} value={e}>
               {e}
             </option>
           ))}
         </select>
+    </div>
 
     {/* ///////////////////////////////////////////////// INGLÉS ////////////////////////////////////////////////////////// */}
 
@@ -303,50 +350,6 @@ const borrarEstudio = (value) => {
         <button onClick={handleSubmit}>GUARDAR CAMBIOS</button>
     </div>
 
-
-    <Fotos>
-        <div className="cont">
-          <h3>Foto de perfil:</h3>
-          <div className="inner">
-            <Foto1>
-              <MdAddAPhoto className="ph" />
-            </Foto1>
-            {previewSource ? (
-              <img src={previewSource} />
-            ) : (
-              <MdOutlineInsertPhoto className="puto" />
-            )}
-            <input type="file" name="profileImage" value={fileInputState} onChange={handleFileInputChange} />
-          </div>
-            <button type="submit" onClick={handleSubmitProfileImage}>add photo</button>
-
-          {/* <textarea value={input} onChange={(e)=>handlePicture(e)} placeholder="url perfil"/> */}
-        </div>
-
-        <div className="cont">
-          <h3>Foto del Banner:</h3>
-          <Foto2>
-            <MdAddAPhoto className="ph" />
-          </Foto2>
-          <div className="inner">
-            {previewSourceBanner ? (
-              <img src={previewSourceBanner} />
-            ) : (
-              <MdOutlineInsertPhoto className="puto" />
-            )}
-            <input type="file" value={fileInputStateBanner} name="banner" onChange={handleFileInputChangeBanner} />
-          </div>
-            <button type="submit" onClick={handleSubmitBanner}>add photo</button>
-          {/* <textarea value={inputd} onInput={(e)=>handleBanner(e)} placeholder="Send nudes"/> */}
-        </div>
-
-        <div>
-          <button type="submit" onClick={handleSubmit}>Guardar</button>
-        </div>
-      </Fotos>
-
-        </div>
-      </div>
-    </div>
+    </ContenedorMaximo>
   );
 };
