@@ -121,7 +121,7 @@ export default function StudentsProfile({ id, backFront, banner, country, curric
 
 
                 <Redes>
-                    <div>
+                    <div >
                         <BsGithub className="gh" />
                     </div>
                     <div>

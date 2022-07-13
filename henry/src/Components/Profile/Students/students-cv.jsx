@@ -56,15 +56,14 @@ export default function StudentCV({ otherStudies, technologies,userTypes, id , a
 
             <Acerca>
                 
-                {
-                    acercaDe?
+               
                 <div className="text">
                 <h3>Acerca De:</h3>
-               <MostrarMas acerca={acercaDe}/>
+                     <p>{acercaDe}</p>
                </div>
                     
-                : null
-                }
+                
+                
                 
             </Acerca>
             <Publicaciones>
