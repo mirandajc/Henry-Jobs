@@ -11,7 +11,7 @@ import { getPublicationStudents, postIdFollowBuss } from "../../../reducer/actio
 import { useDispatch, useSelector } from "react-redux";
 
 
-export default function StudentsProfile({ id, userType, backFront, banner, country, curriculumCounter, allStars, email, lastName, name, profileImage, followers, following, userTypes }) {
+export default function StudentsProfile({ id, backFront, banner, country, curriculumCounter, allStars, email, lastName, name, profileImage, followers, following, userTypes }) {
 
     const dispatch = useDispatch();
     const TkId = localStorage.getItem('TK');
@@ -77,20 +77,20 @@ export default function StudentsProfile({ id, userType, backFront, banner, count
                 
                 }
                 {
-                    TkIdF.type === 4 || TkIdF.type === 5 && id !== TkIdF.id && userTypes !== 4 && userTypes !== 5 ? 
+                    (TkIdF.type === 4 || TkIdF.type === 5) && id !== TkIdF.id && userTypes !== 4 && userTypes !== 5 ? 
 
                 <Calificacion >
                     <div class="valoracion" >
                         <input onClick={(e) => handleStar(e, id)} id="radio1" type="radio" name="estrellas" value="5"/>
-                        <label for="radio1">★</label>
+                        <label htmlFor="radio1">★</label>
                         <input onClick={(e) => handleStar(e, id)} id="radio2" type="radio" name="estrellas" value="4"/>
-                        <label for="radio2">★</label>
+                        <label htmlFor="radio2">★</label>
                         <input onClick={(e) => handleStar(e, id)} id="radio3" type="radio" name="estrellas" value="3"/>
-                        <label for="radio3">★</label>
+                        <label htmlFor="radio3">★</label>
                         <input onClick={(e) => handleStar(e, id)} id="radio4" type="radio" name="estrellas" value="2"/>
-                        <label for="radio4">★</label>
+                        <label htmlFor="radio4">★</label>
                         <input onClick={(e) => handleStar(e, id)} id="radio5" type="radio" name="estrellas" value="1"/>
-                        <label for="radio5">★</label>
+                        <label htmlFor="radio5">★</label>
                     </div>
                 </Calificacion>
 
@@ -125,17 +125,17 @@ export default function StudentsProfile({ id, userType, backFront, banner, count
                     </div>
                 </Redes>
 
-{   userTypes === 4 || userTypes ===5? null:
+                {console.log(userTypes)}
+{   userTypes === 1 || userTypes === 2 ? 
                 <DevStar>
                     <p className="Si">{backFront}</p>
                     <p className="Si" id="cent"><BsFillStarFill className="star" />{allStars}</p>
-                    {userTypes = 1 ? (<p id="cent">PG</p>) : userTypes = 2 ? (<p id="cent">Graduado</p>)
-                        : null}
-
                 </DevStar>
-
+                    : null
 }
 
+                        {/* {userTypes === 1 ? (<p id="cent">PG</p>) : userTypes === 2 ? (<p id="cent">Graduado</p>)
+                            : null} */}
 
                 {
                     id == TkIdF.id ?
