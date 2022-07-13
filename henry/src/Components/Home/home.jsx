@@ -7,7 +7,6 @@ import { getInfoUser } from "../../reducer/actions/actionPost";
 import UserForm from "../Register_form/completeForm";
 import PubliSettings from "./PublicationSet/publicationSettings";
 import { ContSetting, HomeCont } from "./PublicationSet/SetCont/styleContsHome";
-import CarruPremiumBusiness from "./carruPremiumBusiness";
 
 
 export default function Home() {
@@ -66,13 +65,6 @@ export default function Home() {
                 
             }
 
-            {
-
-                userT === 0 || userT === 3 || userT === '' ? null  :
-
-                <CarruPremiumBusiness/>
-
-            }
 
         </HomeCont>
 
