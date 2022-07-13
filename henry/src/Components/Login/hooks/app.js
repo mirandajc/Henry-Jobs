@@ -3,7 +3,7 @@ import { useScript } from "../hooks/useScript";
 import jwt_deocde from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import { loginWithGoogle, setGoogleUser } from "../../../reducer/actions/actionPost";
-
+import { Goo } from "./goobutton";
 const App = () => {
   const dispatch = useDispatch();
 
@@ -54,21 +54,10 @@ const App = () => {
   });
 
   return (
-    <div>
-      {!USER && <div ref={googlebuttonref}></div>}
-      {USER && (
-        <div>
-          {console.log(USER)}
-          {/* <button
-            onClick={() => {
-                dispatch(setGoogleUser(false));
-            }}
-          >
-            Logout
-          </button> */}
-        </div>
-      )}
-    </div>
+    <Goo>
+      {!USER && <div className='goosi' ref={googlebuttonref}></div>}
+      
+    </Goo>
   );
 };
 

@@ -4,7 +4,7 @@ import { technologies } from "../Post/StudentsWall/select";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { EditProfile, newGetInfoUser } from "../../reducer/actions/actionPost";
-import { InnerModal, EditCloseButton, Fotos, NameLast, RedesEdit, Cont2, SelectorCou, Foto1, Foto2, TecOther, AboutAs } from "./profileStyles/EditModal";
+import { InnerModal, EditCloseButton, Fotos, NameLast, RedesEdit, Cont2, SelectorCou, Foto1, Foto2, TecOther, AboutAs, Eng } from "./profileStyles/EditModal";
 
 import { MdOutlineInsertPhoto } from "react-icons/all";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
@@ -196,16 +196,21 @@ const borrarEstudio = (value) => {
   };
 
   return (
-      <ContenedorMaximo>
-            <h1>EDITAR PERFIL: </h1>
+      <InnerModal>
+        <EditCloseButton>
+        <Link to={`/profile/${id}`}>
+          <button>X</button>
+        </Link>
+      </EditCloseButton>
+           
 
             <Fotos>
                 <div className="cont">
                   <h3>Foto de perfil:</h3>
                   <div className="inner">
-                    <Foto1>
+                    {/* <Foto1>
                       <MdAddAPhoto className="ph" />
-                    </Foto1>
+                    </Foto1> */}
                     {previewSource ? (
                       <img src={previewSource} />
                     ) : (
@@ -220,9 +225,9 @@ const borrarEstudio = (value) => {
           
                 <div className="cont">
                   <h3>Foto del Banner:</h3>
-                  <Foto2>
+                  {/* <Foto2>
                     <MdAddAPhoto className="ph" />
-                  </Foto2>
+                  </Foto2> */}
                   <div className="inner">
                     {previewSourceBanner ? (
                       <img src={previewSourceBanner} />
@@ -235,26 +240,33 @@ const borrarEstudio = (value) => {
                   {/* <textarea value={inputd} onInput={(e)=>handleBanner(e)} placeholder="Send nudes"/> */}
                 </div>
           
-                <div>
+                {/* <div>
                   <button type="submit" onClick={handleSubmit}>Guardar</button>
-                </div>
+                </div> */}
               </Fotos>
     {/* //////////////////////////////////////////////////NAME////////////////////////////////////////////////////// */}
     
-    <div>
-            <h3>Nombre</h3>
+    <Cont2>
+    <h2>Editar perfil:</h2>
+      <NameLast>
+              <div>
+            <label>Nombre</label>
             <input value={objeto.name} onChange={(e) => setObjeto({...objeto, name: e.target.value})} />
-            <h3>Apellido</h3>
+            </div>
+
+            <div>
+            <label>Apellido</label>
             <input value={objeto.lastName} onChange={(e) => setObjeto({...objeto, lastName: e.target.value})}/>
-    </div>
+            </div>
+    </NameLast>
 
     {/* ////////////////////////////////////////////// COUNTRY & CITY //////////////////////////////////////////// */}
-    <div>
-        <div>
+    <SelectorCou>
+        
 
         <h3>¿De dónde eres?</h3>
         <div className="lado">
-          <h3>País:</h3>
+          
           <select onClick={(e) => countrySelect(e)}>
             <option>Selecciona un País</option>
             {countries &&
@@ -266,7 +278,7 @@ const borrarEstudio = (value) => {
 
         {allCities && (
             <div className="lado">
-            <h3>Provincia/Estado:</h3>
+            
             <select onClick={(e) => citySelect(e)}>
               <option>Selecciona una provincia/estado</option>
               {allCities.map((e) => {
@@ -276,20 +288,14 @@ const borrarEstudio = (value) => {
           </div>
         )}
 
-      </div>
+      
 
-    </div>
+    </SelectorCou>
     {/* //////////////////////////////////////////////////////// TECH ////////////////////////////////////////////// */}
 
-      <div>
+      <TecOther>
         <h3>Tecnologias:</h3>
-        {objeto.technologies &&
-          objeto.technologies.map((e) => (
-            <div key={e}>
-              <p>{e}</p>
-              <button onClick={() => onCloseTech(e)}>X</button>
-            </div>
-          ))}
+      
         <select
           name="technologies"
           placeholder="Tecnologias"
@@ -304,12 +310,21 @@ const borrarEstudio = (value) => {
             </option>
           ))}
         </select>
-    </div>
+          <div className="contB">
+        {objeto.technologies &&
+          objeto.technologies.map((e) => (
+            <div className="buttClose" key={e}>
+              <p>{e}</p>
+              <button  onClick={() => onCloseTech(e)}>X</button>
+            </div>
+          ))}
+          </div>
+    </TecOther>
 
     {/* ///////////////////////////////////////////////// INGLÉS ////////////////////////////////////////////////////////// */}
 
-        <div>
-            <h3>Seleccionar nivel de ingles</h3>
+        <Eng>
+            <h3>Seleccionar nivel de ingles:</h3>
             <select onChange={(e) => setObjeto({...objeto, languages: e.target.value})}>
                 <option value={"A0"}>A0</option>
                 <option value={"A1"}>A1</option>
@@ -319,37 +334,44 @@ const borrarEstudio = (value) => {
                 <option value={"C1"}>C1</option>
                 <option value={"C2"}>C2</option>
             </select>
-        </div>
+        </Eng>
 
     {/* //////////////////////////////////////////////////////// OTHER STUDIES //////////////////////////////////////////////// */}
 
-        <div>
-            <h3>Agregar otros estudios</h3>
-            {objeto.otherStudies && objeto.otherStudies.map(e => <div><p>{e}</p><button onClick={() => borrarEstudio(e)}>X</button></div>)}
-
+        <TecOther>
+          
+            <h3>Agregar otros estudios:</h3>
+            
+            
+            <div className="st">
             <input value={inputStudy} onChange={(e) => setInputStudy(e.target.value)} placeholder="ingresa tus estudios"/>
             <button onClick={agregarEstudio}>Agregar estudio</button>
-        </div>
+            </div>
+            <div className="contB">
+            {objeto.otherStudies && objeto.otherStudies.map(e => <div className="buttClose" ><p>{e}</p><button onClick={() => borrarEstudio(e)}>X</button></div>)}
+            </div>
+            
+        </TecOther>
 
     {/* //////////////////////////////////////////////////////// GITHUB, LINKEDIN, GMAIL ////////////////////////////////////////// */}
 
-    <div>
+    <RedesEdit>
         <input value={objeto.gmail}  onChange={(e) => setObjeto({...objeto, gmail: e.target.value})} placeholder="gmail"/>
         <input value={objeto.linkedin}  onChange={(e) => setObjeto({...objeto, linkedin: e.target.value})} placeholder="linkedin"/>
         <input value={objeto.github}  onChange={(e) => setObjeto({...objeto, github: e.target.value})} placeholder="github"/>
-    </div>
+    </RedesEdit>
 
     {/* /////////////////////////////////////////// ACERCA DE ////////////////////////////////////////////////////////////// */}
 
-    <div>
+    <AboutAs>
         <h3>Acerca de:</h3>
         <input type="text" onChange placeholder="acerca de" name="acercaDe"/>
-    </div>
+    </AboutAs>
 
     <div>
-        <button onClick={handleSubmit}>GUARDAR CAMBIOS</button>
+        <button onClick={handleSubmit}>Guardar</button>
     </div>
-
-    </ContenedorMaximo>
+    </Cont2>
+    </InnerModal>
   );
 };
