@@ -11,18 +11,17 @@ import { useJwt } from "react-jwt";
 
 export default function RecruiterForm ({sumarFase}) {
     const dispatch = useDispatch();
-    const logout = useSelector((state) => state.fetchPostReducer.response);
-    const { decodedToken, isExpided } = useJwt(logout);
-    const respuesta = decodedToken
+    const tal = localStorage.getItem('TK')
+    const userType = JSON.parse(tal);
     const ObjetoGlobal = useSelector(state => state.fetchPostReducer.upDateProfile);
     const Actualizacion = useSelector(state => state.fetchPostReducer.upDateProfile.country);
     const [ id, setId ] = useState("")
 
     useEffect(() => {
-        if(respuesta !== null){
-            setId(respuesta.id);
+        if(userType !== null){
+            setId(userType.id);
         }
-    }, [respuesta]);
+    }, [userType]);
 
     useEffect(() => {
         if(Actualizacion !== ""  || Actualizacion.length){

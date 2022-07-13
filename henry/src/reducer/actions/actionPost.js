@@ -25,7 +25,8 @@ import {
     SEND_EMAIL_CONTACT,
     ACTUALIZAR_HOME_BUSINESS,
     NEW_GET_INFO_USER,
-    NEW_GET_INFO_USER_SUCCESS
+    NEW_GET_INFO_USER_SUCCESS,
+    POST_USER_FAILURE
 
 } from "../../constants/constants";
 
@@ -213,6 +214,13 @@ export function newGetInfoUser (id){
 export function newGetInfoUserSuccess (payload){
     return {
         type: NEW_GET_INFO_USER_SUCCESS,
+        payload
+    };
+};
+
+export function postUserFailure (payload){
+    return {
+        type: POST_USER_FAILURE,
         payload
     };
 };
