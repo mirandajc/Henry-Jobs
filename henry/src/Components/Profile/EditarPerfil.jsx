@@ -1,0 +1,352 @@
+import React, { useEffect, useState } from "react";
+import { countries } from "../Register_form/gistfile1.json";
+import { technologies } from "../Post/StudentsWall/select";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { EditProfile, newGetInfoUser } from "../../reducer/actions/actionPost";
+import { InnerModal, EditCloseButton, Fotos, NameLast, RedesEdit, Cont2, SelectorCou, Foto1, Foto2, TecOther, AboutAs } from "./profileStyles/EditModal";
+
+import { MdOutlineInsertPhoto } from "react-icons/all";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
+import { SiGmail } from "react-icons/all";
+import { MdAddAPhoto } from "react-icons/all";
+
+export default function InnModal() {
+    const [fileInputState, setFileInputState] = useState("")
+    const [fileInputStateBanner, setFileInputStateBanner] = useState("")
+    const [previewSource, setPreviewSource] = useState("")
+    const [previewSourceBanner, setPreviewSourceBanner] = useState("")
+    const [selectedFile, setSelectedFile] = useState("")
+
+      // fileInputChange para el profileImage
+  function handleFileInputChange(e) {
+    const file = e.target.files[0]
+    previewFile(file)
+  };
+
+  // fileInputChange para el banner
+  function handleFileInputChangeBanner(e) {
+    const file = e.target.files[0]
+    previewFileBanner(file)
+  }
+  
+
+  // previewFile para profileImage
+  function previewFile(file) {
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onloadend = () => {
+      setPreviewSource(reader.result)
+    };
+  };
+
+  // previewFile para el banner
+  function previewFileBanner(file) {
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onloadend = () => {
+      setPreviewSourceBanner(reader.result)
+    };
+  };
+
+  // handle para subir profileImage
+  function handleSubmitProfileImage(e) {
+    e.preventDefault()
+    if (!previewSource) return
+    uploadImage(previewSource)
+    setObjeto({
+        ...objeto,
+        profileImage: {
+            secure_url: previewSource
+        }
+    })
+  }
+
+  // handle para subir banner
+  function handleSubmitBanner(e) {
+    e.preventDefault()
+    if (!previewSourceBanner) return
+    uploadBannerImage(previewSourceBanner)
+    setObjeto({
+        ...objeto,
+        banner: {
+            secure_url: previewSourceBanner
+        }
+    })
+  }
+
+  // upload de profileImage
+  async function uploadImage(base64EncodedImage) {
+    try {
+        const response = await fetch(`http://henryjob.herokuapp.com/api/user/${id}`, {
+            method: "PUT",
+            body: JSON.stringify({ profileImage: base64EncodedImage }),
+            headers: { "Content-type": "application/json" }
+        })
+    } catch (error) {
+        console.error(error)
+    };
+  }; 
+  
+  // upload de banner
+  async function uploadBannerImage(base64EncodedImage) {
+    try {
+        const response = await fetch(`http://henryjob.herokuapp.com/api/user/${id}`, {
+            method: "PUT",
+            body: JSON.stringify({ banner: base64EncodedImage }),
+            headers: { "Content-type": "application/json" }
+        })
+    } catch (error) {
+        console.error(error)
+    };
+  };
+
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [input, setInput] = useState("");
+  const infoUser = useSelector(state => state.fetchPostReducer.newInfo);
+  const [ objeto, setObjeto ] = useState({});
+
+  useEffect(() => {
+    dispatch(newGetInfoUser(id));
+  }, []);
+
+  useEffect(() => {
+    setObjeto(infoUser);
+  }, [infoUser]);
+
+
+  /////////////////////////////////////////// TECH ///////////////////////////////////////////////////////////////////
+
+  function handleChangeTech(e) {
+    e.preventDefault();
+    if (objeto.technologies.includes(e.target.value)) {
+      return;
+    } else {
+      setObjeto({
+        ...objeto,
+        technologies: [...objeto.technologies, e.target.value],
+      });
+    }
+  };
+
+  function onCloseTech(value) {
+    setObjeto({
+      ...objeto,
+      technologies: [...objeto.technologies.filter((el) => el !== value)],
+    });
+  };
+
+  /////////////////////////////////////////// TECH ///////////////////////////////////////////////////////////////////
+
+  ////////////////////////////////////////////////////COUNTRY//////////////////////////////////////////////////////////////////
+
+  const [country, setCountry] = useState({
+    country: "",
+    city: "",
+  });
+
+  const [allCities, setAllCities] = useState([]);
+
+  const countrySelect = (e) => {
+    // cada vez que se seleccione un pais, se selecciona un pais y la ciudad en blanco
+    // porque si no se limpia la ciudad el estado podria quedar "Argentina, Manchester"
+    let pais = e.target.value;
+    if (pais === "Selecciona un País") {
+      return setCountry({ ...country, country: "", city: "" });
+    } else if (pais === country.country) {
+      return;
+    } else {
+      setObjeto({ ...objeto, country: e.target.value, city: "" });
+      setCountry({ ...country, country: e.target.value, city: "" });
+      setAllCities(countries.find((el) => el.country === pais).states); // aca se guardan las provincias y estados
+    } // según el país seleccionado
+  };
+
+  const citySelect = (e) => {
+    if (e.target.value === "Selecciona una provincia/estado") {
+      setCountry({ ...country, city: "" });
+      return;
+    } else {
+      setCountry({ ...country, city: e.target.value });
+      setObjeto({ ...objeto, city: e.target.value });
+    }
+  };
+
+  ////////////////////////////////////////////////COUNTRY//////////////////////////////////////////////////////
+
+  const [ inputStudy, setInputStudy ] = useState("");
+
+  const agregarEstudio = () => {
+    setObjeto({...objeto, otherStudies:[objeto.otherStudies, inputStudy]});
+};
+
+const borrarEstudio = (value) => {
+      setObjeto({...objeto, otherStudies: objeto.otherStudies.filter(e => e !== value)});
+  };
+
+  ////////////////////////////////////////// SUBMIT //////////////////////////////////////////////////////////
+
+  const handleSubmit = () => {
+    console.log(objeto);
+    dispatch(EditProfile({ id, objeto }));
+    navigate(`/profile/${id}`);
+  };
+
+  return (
+      <div>
+        <h1>EDITAR PERFIL: </h1>
+    {/* //////////////////////////////////////////////////NAME////////////////////////////////////////////////////// */}
+
+        <div>
+            <h3>Nombre</h3>
+            <input value={objeto.name} onChange={(e) => setObjeto({...objeto, name: e.target.value})} />
+            <h3>Apellido</h3>
+            <input value={objeto.lastName} onChange={(e) => setObjeto({...objeto, lastName: e.target.value})}/>
+        <div>
+
+    {/* ////////////////////////////////////////////// COUNTRY & CITY //////////////////////////////////////////// */}
+
+        <h3>¿De dónde eres?</h3>
+        <div className="lado">
+          <h3>País:</h3>
+          <select onClick={(e) => countrySelect(e)}>
+            <option>Selecciona un País</option>
+            {countries &&
+              countries.map((e) => {
+                return <option>{e.country}</option>;
+              })}
+          </select>
+        </div>
+
+        {allCities && (
+          <div className="lado">
+            <h3>Provincia/Estado:</h3>
+            <select onClick={(e) => citySelect(e)}>
+              <option>Selecciona una provincia/estado</option>
+              {allCities.map((e) => {
+                return <option>{e}</option>;
+              })}
+            </select>
+          </div>
+        )}
+      </div>
+
+    {/* //////////////////////////////////////////////////////// TECH ////////////////////////////////////////////// */}
+
+      <div>
+        <h3>Tecnologias:</h3>
+        {objeto.technologies &&
+          objeto.technologies.map((e) => (
+            <div key={e}>
+              <p>{e}</p>
+              <button onClick={() => onCloseTech(e)}>X</button>
+            </div>
+          ))}
+        <select
+          name="technologies"
+          placeholder="Tecnologias"
+          type="text"
+          onChange={(e) => handleChangeTech(e)}
+          value={objeto.technologies}
+        >
+          <option>Seleccionar Tecnologías</option>
+          {technologies.map((e) => (
+            <option key={e} value={e}>
+              {e}
+            </option>
+          ))}
+        </select>
+
+    {/* ///////////////////////////////////////////////// INGLÉS ////////////////////////////////////////////////////////// */}
+
+        <div>
+            <h3>Seleccionar nivel de ingles</h3>
+            <select onChange={(e) => setObjeto({...objeto, languages: e.target.value})}>
+                <option value={"A0"}>A0</option>
+                <option value={"A1"}>A1</option>
+                <option value={"A2"}>A2</option>
+                <option value={"B1"}>B1</option>
+                <option value={"B2"}>B2</option>
+                <option value={"C1"}>C1</option>
+                <option value={"C2"}>C2</option>
+            </select>
+        </div>
+
+    {/* //////////////////////////////////////////////////////// OTHER STUDIES //////////////////////////////////////////////// */}
+
+        <div>
+            <h3>Agregar otros estudios</h3>
+            {objeto.otherStudies && objeto.otherStudies.map(e => <div><p>{e}</p><button onClick={() => borrarEstudio(e)}>X</button></div>)}
+
+            <input value={inputStudy} onChange={(e) => setInputStudy(e.target.value)} placeholder="ingresa tus estudios"/>
+            <button onClick={agregarEstudio}>Agregar estudio</button>
+        </div>
+
+    {/* //////////////////////////////////////////////////////// GITHUB, LINKEDIN, GMAIL ////////////////////////////////////////// */}
+
+    <div>
+        <input value={objeto.gmail}  onChange={(e) => setObjeto({...objeto, gmail: e.target.value})} placeholder="gmail"/>
+        <input value={objeto.linkedin}  onChange={(e) => setObjeto({...objeto, linkedin: e.target.value})} placeholder="linkedin"/>
+        <input value={objeto.github}  onChange={(e) => setObjeto({...objeto, github: e.target.value})} placeholder="github"/>
+    </div>
+
+    {/* /////////////////////////////////////////// ACERCA DE ////////////////////////////////////////////////////////////// */}
+
+    <div>
+        <h3>Acerca de:</h3>
+        <input type="text" onChange placeholder="acerca de" name="acercaDe"/>
+    </div>
+
+    <div>
+        <button onClick={handleSubmit}>GUARDAR CAMBIOS</button>
+    </div>
+
+
+    <Fotos>
+        <div className="cont">
+          <h3>Foto de perfil:</h3>
+          <div className="inner">
+            <Foto1>
+              <MdAddAPhoto className="ph" />
+            </Foto1>
+            {previewSource ? (
+              <img src={previewSource} />
+            ) : (
+              <MdOutlineInsertPhoto className="puto" />
+            )}
+            <input type="file" name="profileImage" value={fileInputState} onChange={handleFileInputChange} />
+          </div>
+            <button type="submit" onClick={handleSubmitProfileImage}>add photo</button>
+
+          {/* <textarea value={input} onChange={(e)=>handlePicture(e)} placeholder="url perfil"/> */}
+        </div>
+
+        <div className="cont">
+          <h3>Foto del Banner:</h3>
+          <Foto2>
+            <MdAddAPhoto className="ph" />
+          </Foto2>
+          <div className="inner">
+            {previewSourceBanner ? (
+              <img src={previewSourceBanner} />
+            ) : (
+              <MdOutlineInsertPhoto className="puto" />
+            )}
+            <input type="file" value={fileInputStateBanner} name="banner" onChange={handleFileInputChangeBanner} />
+          </div>
+            <button type="submit" onClick={handleSubmitBanner}>add photo</button>
+          {/* <textarea value={inputd} onInput={(e)=>handleBanner(e)} placeholder="Send nudes"/> */}
+        </div>
+
+        <div>
+          <button type="submit" onClick={handleSubmit}>Guardar</button>
+        </div>
+      </Fotos>
+
+        </div>
+      </div>
+    </div>
+  );
+};

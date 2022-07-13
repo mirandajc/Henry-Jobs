@@ -65,6 +65,8 @@ export const POST_ID_FOLLOW_BUSS_SUCCESS = 'POST_ID_FOLLOW_BUSS_SUCCESS';
 
 
 export const URL_DEPLOY = 'http://henryjob.herokuapp.com/api';
+export const NEW_GET_INFO_USER = 'NEW_GET_INFO_USER';
+export const NEW_GET_INFO_USER_SUCCESS = 'NEW_GET_INFO_USER_SUCCESS';
 
 
 export const PROFILE_SUCCESS= 'PROFILE_SUCCESS';

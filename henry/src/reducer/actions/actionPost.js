@@ -21,6 +21,8 @@ import {
     EMAIL_EXISTE_SUCCESS,
     EDIT_PROFILE,
     GOOGLE_LOGIN,
+    NEW_GET_INFO_USER,
+    NEW_GET_INFO_USER_SUCCESS
 
 } from "../../constants/constants";
 
@@ -176,6 +178,20 @@ export function emailExiste (email){
 export function emailExisteSuccess (payload){
     return {
         type: EMAIL_EXISTE_SUCCESS,
+        payload
+    };
+};
+
+export function newGetInfoUser (id){
+    return {
+        type: NEW_GET_INFO_USER,
+        payload: id
+    };
+};
+
+export function newGetInfoUserSuccess (payload){
+    return {
+        type: NEW_GET_INFO_USER_SUCCESS,
         payload
     };
 };
