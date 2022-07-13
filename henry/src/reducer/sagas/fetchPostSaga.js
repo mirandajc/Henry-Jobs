@@ -6,6 +6,7 @@ import {
     newGetInfoUserSuccess,
     postRegisterModalSuccess,
     postUser,
+    postUserFailure,
     postUserSuccess,
     profileSuccess,
     updateUserSuccess
@@ -33,11 +34,12 @@ function* asyncPostUser (user){
 
     try{
         const response = yield call(() => (axios.post(URL_POST, user.payload)));
+        yield put(postUserFailure(""));
         // const codedTK= response.data;
         // localStorage.setItem('codedTK',JSON.stringify(codedTK));
         yield put(postUserSuccess(response.data))
     }catch(error){
-        console.log(error)
+        yield put(postUserFailure(error.response.data));
     }finally{}
 
 }

@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
-
 export const LoginnCont= styled.div`
-
-
 margin-top: -20em;
 width:100%;
 height: 130vh;
@@ -18,13 +15,16 @@ background-color: rgb(134 138 138 / 19%);
 
 export const ConteinLogin = styled.div`
 
-
 margin-top: 15em;
 border-radius: 10px;
 background-color: #212329;
 width:30%;
-height:50%;
+height:40%;
 
+.incorrecto {
+    color: red;
+    margin-bottom: 1.3em;
+}
 
 .conteinter{
     
@@ -167,6 +167,9 @@ height:50%;
 
 
 .second{
+    position: fixed;
+    top: 75%;
+    right: 45%;
     display:flex;
      align-items:center;
      justify-content: center;

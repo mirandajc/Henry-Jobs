@@ -5,11 +5,11 @@ import { FormDiv, CountryForm ,EnglishLVL, OtherStudies,ButtonNext,ListStyles} f
 import { useDispatch, useSelector } from "react-redux";
 import { setBusinessInfo, updateUser } from "../../../reducer/actions/actionPost.js";
 import { useJwt } from "react-jwt";
+import { ContenedorMaximo } from "./estilosdeBusForm";
 
 export default function BusinessForm ({sumarFase}) {
-    const logout = useSelector((state) => state.fetchPostReducer.response);
-    const { decodedToken, isExpided } = useJwt(logout);
-    const respuesta = decodedToken
+    const tal = localStorage.getItem('TK')
+    const userType = JSON.parse(tal);
 
     const mandarAccion = useSelector(state => state.fetchPostReducer.upDateProfile.country);
     const objetoGlobal = useSelector(state => state.fetchPostReducer.upDateProfile);
@@ -17,7 +17,7 @@ export default function BusinessForm ({sumarFase}) {
     useEffect(() => {
         if(mandarAccion.length >= 1){
             setTimeout(() => {
-                dispatch(updateUser([objetoGlobal, respuesta.id]));
+                dispatch(updateUser([objetoGlobal, userType.id]));
             }, 2000);
 
             return sumarFase();
@@ -143,7 +143,7 @@ export default function BusinessForm ({sumarFase}) {
     };
 
     return(
-        <div>
+        <ContenedorMaximo>
 
             {/* <div>
                 <h1>Ingresa el nombre de tu empresa</h1>
@@ -151,23 +151,23 @@ export default function BusinessForm ({sumarFase}) {
                 <input type={"text"} value={name} placeholder="Ej: Soy Henry" onChange={(e) => handleName(e)}/>
             </div> */}
 
-            <div>
-                <h1>¿Cuántos años de antigüedad tiene tu empresa?</h1>
+            <div className="elOtroDiv">
+                <h3 className="titulo">¿Cuántos años de antigüedad tiene tu empresa?</h3>
                 { errorAge && <Error>{errorAge}</Error> }
-                <input type={"number"} value={age} onChange={(e) => handleAge(e)}/>
+                <input className="input" type={"number"} value={age} onChange={(e) => handleAge(e)}/>
             </div>
 
-            <div>
-                <h1>Ingresa el CUIT de tu empresa</h1>
+            <div className="elDiv">
+                <h3 className="titulo">Ingresa el CUIT de tu empresa</h3>
                 { errorCuit && <Error>{errorCuit}</Error> }
-                <input type={"text"} value={cuit} placeholder="00-00000000-0" onChange={(e) => handleCuit(e)}/>
+                <input className="input" type={"text"} value={cuit} placeholder="00-00000000-0" onChange={(e) => handleCuit(e)}/>
             </div>
             
             <CountryForm>
-                <h2>¿En que país se encuentra registrada?</h2>
+                <h3 className="titulo">¿En que país se encuentra registrada?</h3>
                 <div className="lado">
 
-                <h2>País:</h2> 
+                <h3 className="titulo">País:</h3> 
                 <select onClick={(e) => countrySelect(e)}>
                     <option>Selecciona un País</option>
                     {countries && countries.map(e => {
@@ -177,20 +177,19 @@ export default function BusinessForm ({sumarFase}) {
                 </div>
 
                 {allCities && <div className="lado">
-                    <h2>Provincia/Estado:</h2>
+                    <h3 className="titulo">Provincia/Estado:</h3>
                     <select onClick={(e) => citySelect(e)}>
-                        <option>Selecciona una provincia/estado</option>
+                        <option className="titulo">Selecciona una provincia/estado</option>
                         {allCities.map(e => {
                             return <option>{e}</option>
                         })}
                     </select>
                     </div>}
-
                         { errorCountry && <Error>{errorCountry} 😡</Error>}
 
             </CountryForm>
             
-            <button type="submit" value={"siguiente"} onClick={(e) => handleSubmit(e)}>Siguiente</button>
-        </div>
+            <button className="elBoton" type="submit" value={"siguiente"} onClick={(e) => handleSubmit(e)}>Siguiente</button>
+        </ContenedorMaximo>
     );
 };
