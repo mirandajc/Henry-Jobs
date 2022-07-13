@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export const CV= styled.div`
 
-margin-top: -19.5em;
+margin-top: -47em;
 width: 60%;
 height: auto;
 

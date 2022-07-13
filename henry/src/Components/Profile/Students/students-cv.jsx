@@ -20,7 +20,7 @@ export default function StudentCV({ otherStudies, technologies,userTypes, id , a
             <CvCont>
 
                 { 
-                    technologies.length?
+                    userTypes!== 4 || userTypes !==5 ?
                         <Tecnologias>
                             <h3>Tecnologias:</h3>
                             <ul>
@@ -37,7 +37,7 @@ export default function StudentCV({ otherStudies, technologies,userTypes, id , a
                         : null
                 }
               { 
-              otherStudies.length?
+              userTypes!== 4 || userTypes !==5 ?
                <OtrosStudy>
                     <h3>Otros estudios:</h3>
                     <ul>
