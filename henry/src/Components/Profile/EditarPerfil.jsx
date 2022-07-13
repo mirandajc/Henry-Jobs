@@ -4,7 +4,7 @@ import { countries } from "../Register_form/gistfile1.json";
 import { technologies } from "../Post/StudentsWall/select";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { EditProfile, newGetInfoUser } from "../../reducer/actions/actionPost";
+import { EditProfile, newGetInfoUser, reiniciarPerfil } from "../../reducer/actions/actionPost";
 import { InnerModal, EditCloseButton, Fotos, NameLast, RedesEdit, Cont2, SelectorCou, Foto1, Foto2, TecOther, AboutAs, Eng } from "./profileStyles/EditModal";
 
 import { MdOutlineInsertPhoto } from "react-icons/all";
@@ -178,7 +178,7 @@ const borrarEstudio = (value) => {
   ////////////////////////////////////////// SUBMIT //////////////////////////////////////////////////////////
   
   const handleSubmit = () => {
-    console.log(objeto);
+    dispatch(reiniciarPerfil())
     dispatch(EditProfile({ id, objeto }));
     navigate(`/profile/${id}`);
   };
