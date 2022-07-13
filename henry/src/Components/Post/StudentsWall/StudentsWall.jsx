@@ -16,7 +16,7 @@ export default function StudentsWall() {
 
     const estudiantes = useSelector(state => state.fetchBusinessReducer.studentsFiltered);
     const dispatch = useDispatch();
-    const [load, setLoad] = useState(false);
+    const [load, setLoad] = useState(true);
 
     useEffect(() => {
         dispatch(getAllStudents());

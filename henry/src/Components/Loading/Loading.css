@@ -1,6 +1,9 @@
 .imagenLoading{
-    width: 8rem;
-    height: auto;
+    width: 40rem;
+    height: 40rem;
+    transform: rotateY(180deg);
+    
+
 }
 .loading{
     width: 100%;

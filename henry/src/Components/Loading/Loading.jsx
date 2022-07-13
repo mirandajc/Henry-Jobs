@@ -1,12 +1,12 @@
 import React from "react";
-import loading from "../images/gifCohete.png";
+import Cohete from '../images/Cohete (1).gif'
 import './Loading.css'
 
 export default function Loading({setLoading}){
     return(
         <div>
              <div className="loading">
-                <img className="imagenLoading" src={loading} alt='Loading'/>
+                <img className="imagenLoading" src={Cohete} alt='Loading'/>
             </div>
         </div>
     )

@@ -3,7 +3,7 @@ import { StudentProf, ProfCont, Name, DevStar, Banner, ImageProf, P, Follow, Ubi
 import { Link } from 'react-router-dom';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { BsFillStarFill } from 'react-icons/bs'
-import {  SiGmail } from 'react-icons/all';
+import { SiGmail } from 'react-icons/all';
 import { HiLocationMarker } from 'react-icons/all';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { getPublicationsBusiness, postIdFollow } from "../../../reducer/actions/actionStudents";
@@ -45,7 +45,7 @@ export default function StudentsProfile({ id, backFront, banner, country, curric
         const studentId = id;
         const value = e.target.value;
         const miId = TkIdF.id;
-        
+
         let obj = {
             userId: miId,
             numero: value
@@ -81,30 +81,30 @@ export default function StudentsProfile({ id, backFront, banner, country, curric
                 </Name>
 
                 {
-                
+
                 }
                 {
-                    (TkIdF.type === 4 || TkIdF.type === 5) && id !== TkIdF.id && userTypes !== 4 && userTypes !== 5 && TkIdF.premium === true ? 
+                    (TkIdF.type === 4 || TkIdF.type === 5) && id !== TkIdF.id && userTypes !== 4 && userTypes !== 5 && TkIdF.premium === true ?
 
-                <Calificacion >
-                    <div class="valoracion" >
-                        <input onClick={(e) => handleStar(e, id)} id="radio1" type="radio" name="estrellas" value="5"/>
-                        <label htmlFor="radio1">★</label>
-                        <input onClick={(e) => handleStar(e, id)} id="radio2" type="radio" name="estrellas" value="4"/>
-                        <label htmlFor="radio2">★</label>
-                        <input onClick={(e) => handleStar(e, id)} id="radio3" type="radio" name="estrellas" value="3"/>
-                        <label htmlFor="radio3">★</label>
-                        <input onClick={(e) => handleStar(e, id)} id="radio4" type="radio" name="estrellas" value="2"/>
-                        <label htmlFor="radio4">★</label>
-                        <input onClick={(e) => handleStar(e, id)} id="radio5" type="radio" name="estrellas" value="1"/>
-                        <label htmlFor="radio5">★</label>
-                    </div>
-                </Calificacion>
+                        <Calificacion >
+                            <div class="valoracion" >
+                                <input onClick={(e) => handleStar(e, id)} id="radio1" type="radio" name="estrellas" value="5" />
+                                <label htmlFor="radio1">★</label>
+                                <input onClick={(e) => handleStar(e, id)} id="radio2" type="radio" name="estrellas" value="4" />
+                                <label htmlFor="radio2">★</label>
+                                <input onClick={(e) => handleStar(e, id)} id="radio3" type="radio" name="estrellas" value="3" />
+                                <label htmlFor="radio3">★</label>
+                                <input onClick={(e) => handleStar(e, id)} id="radio4" type="radio" name="estrellas" value="2" />
+                                <label htmlFor="radio4">★</label>
+                                <input onClick={(e) => handleStar(e, id)} id="radio5" type="radio" name="estrellas" value="1" />
+                                <label htmlFor="radio5">★</label>
+                            </div>
+                        </Calificacion>
 
-                    : null
+                        : null
                 }
-                    
-                    <Ubicacion>
+
+                <Ubicacion>
                     <HiLocationMarker className="location" />
                     <p>{country}</p>
                 </Ubicacion>
@@ -133,15 +133,15 @@ export default function StudentsProfile({ id, backFront, banner, country, curric
                 </Redes>
 
                 {console.log(userTypes)}
-{   userTypes === 1 || userTypes === 2 ? 
-                <DevStar>
-                    <p className="Si">{backFront}</p>
-                    <p className="Si" id="cent"><BsFillStarFill className="star" />{allStars}</p>
-                </DevStar>
+                {userTypes === 1 || userTypes === 2 ?
+                    <DevStar>
+                        <p className="Si">{backFront}</p>
+                        <p className="Si" id="cent"><BsFillStarFill className="star" />{allStars}</p>
+                    </DevStar>
                     : null
-}
+                }
 
-                        {/* {userTypes === 1 ? (<p id="cent">PG</p>) : userTypes === 2 ? (<p id="cent">Graduado</p>)
+                {/* {userTypes === 1 ? (<p id="cent">PG</p>) : userTypes === 2 ? (<p id="cent">Graduado</p>)
                             : null} */}
 
                 {
