@@ -18,12 +18,12 @@ justify-content: space-evenly;
 background-color: #ffeb3b;
 align-items: center;
 
-select{
+.s{
     height: 3rem;
     border: 1px solid #ffeb3b;
     background-color: #ffeb3b;
-    select-styles: none;
-    @import url(//db.onlinewebfonts.com/c/901497541657a2f24e42848bcf7fad52?family=Avenir+Heavy);
+    
+    @import url(db.onlinewebfonts.com/c/901497541657a2f24e42848bcf7fad52?family=Avenir+Heavy);
     font-family: Avenir;
     option{
         background: #ffeb3b;

@@ -115,14 +115,14 @@ export default function StudentsWall() {
         <BodyStudentsWallCard>
             <DivFiltros>
 
-                <select onChange={(e) => selectTech(e)}>
+                <select className='s' onChange={(e) => selectTech(e)}>
                     <option>TECNOLOGIAS</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}
                     {technologies.map(e => {
                         return <option>{e}</option>
                     })}</select>
 
-                <select onChange={(e) => selectDevType(e)}>
+                <select className='s'  onChange={(e) => selectDevType(e)}>
                     <option>DESARROLLADOR</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}
                     {DevType.map(e => {
@@ -130,7 +130,7 @@ export default function StudentsWall() {
                     })}
                 </select>
 
-                <select onChange={(e) => selectEnglish(e)}>
+                <select className='s'  onChange={(e) => selectEnglish(e)}>
                     <option>NIVEL DE INGLES</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}
                     {idiomas.map(e => {
@@ -140,7 +140,7 @@ export default function StudentsWall() {
 
 
 
-                <select onChange={(e) => selectPais(e)}>
+                <select className='s'  onChange={(e) => selectPais(e)}>
                     <option>PAIS</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}
                     {allCountries.map(e => {
@@ -148,7 +148,7 @@ export default function StudentsWall() {
                     })}
                 </select>
 
-                <select onChange={(e) => selectStars(e)}>
+                <select className='s'  onChange={(e) => selectStars(e)}>
                     <option>STARS</option> {/* si cambias lo que hay dentro de options, cambialo en la funcion tambien, dentro del if */}
                     <option>ASCENDENTE</option>
                     <option>DESCENDENTE</option>
