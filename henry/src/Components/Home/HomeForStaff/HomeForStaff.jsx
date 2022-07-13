@@ -93,7 +93,7 @@ export default function HomeForStaff() {
                     email={e.email}
                     country={e.country}
                     city={e.city}
-                    stars={e.stars}
+                    allStars={e.allStars}
                     curriculumCounter={e.curriculumCounter}
                     botAd={true}
                 />) :

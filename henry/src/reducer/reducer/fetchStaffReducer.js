@@ -73,16 +73,16 @@ const fetchStaffReducer = (state = initialState, action) => {
                 }
                 else if (state.staffStudentOrder.orden === "Stars ascendente") {
                     Todos = Todos.sort((a, b) => {
-                        if (a.stars < b.stars) return -1;
-                        if (b.stars < a.stars) return 1;
+                        if (a.allStars < b.allStars) return -1;
+                        if (b.allStars < a.allStars) return 1;
                         return 0;
                     })
                     e = 'stas'
                 }
                 else if (state.staffStudentOrder.orden === "Stars descendente") {
                     Todos = Todos.sort((a, b) => {
-                        if (a.stars < b.stars) return -1;
-                        if (b.stars < a.stars) return 1;
+                        if (a.allStars < b.allStars) return -1;
+                        if (b.allStars < a.allStars) return 1;
                         return 0;
                     })
                     e = 'destas'

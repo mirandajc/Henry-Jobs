@@ -184,7 +184,7 @@ export default function StudentsWall() {
                                     city={e.city}
                                     curriculumCounter={e.curriculumCounter}
                                     userName={e.userName}
-                                    stars={e.allStars}
+                                    allStars={e.allStars}
                                     id={e._id}
                                     profileImage={e.profileImage.secure_url}
                                 />

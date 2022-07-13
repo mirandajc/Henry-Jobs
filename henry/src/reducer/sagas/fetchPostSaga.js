@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import {
     emailExisteSuccess,
+    newGetInfoUserSuccess,
     postRegisterModalSuccess,
     postUser,
     postUserSuccess,
@@ -22,7 +23,8 @@ import {
     EDIT_PROFILE,
     PROFILE_EDIT_URL,
     GOOGLE_LOGIN,
-    SEND_EMAIL_CONTACT
+    SEND_EMAIL_CONTACT,
+    NEW_GET_INFO_USER
     
 } from '../../constants/constants';
 
@@ -129,10 +131,11 @@ function* asyncEmailExiste (payload) {
 };
 
 function* asyncEditProfile(payload){
+    //AGREGAR OBJ DE PERFIL
     try{
-        const response = yield call(() => axios.put('http://localhost:3001/api/user/'+ `${payload.payload.id}`, payload.payload.editUser))
+        const response = yield call(() => axios.put(PROFILE_EDIT_URL+ `${payload.payload.id}`, payload.payload.objeto))
     } catch(error){
-        console.log("catch de editProfile -> ", error)
+        console.log(error)
     }
 };
 
@@ -148,6 +151,17 @@ function* asyncSendEmailContact (payload) {
     }
 };
 
+function* asyncNewGetInfoUser(payload){
+    try {
+        const response = yield call(() => axios.get(PROFILE_EDIT_URL+ `${payload.payload}`));
+        console.log(response.data);
+        yield put(newGetInfoUserSuccess(response.data));
+    } catch (error) {
+        console.log(error);
+    }
+
+};
+
 
 
 export function* watchFetchPostSaga(){
@@ -160,4 +174,5 @@ export function* watchFetchPostSaga(){
     yield takeEvery(EMAIL_EXISTE, asyncEmailExiste)
     yield takeEvery(EDIT_PROFILE, asyncEditProfile)
     yield takeEvery(SEND_EMAIL_CONTACT, asyncSendEmailContact)
+    yield takeEvery(NEW_GET_INFO_USER, asyncNewGetInfoUser)
 }

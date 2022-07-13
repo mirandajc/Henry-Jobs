@@ -1,5 +1,6 @@
 import {
     BUGG_NAV,ACTUALIZAR_HOME_BUSINESS, POST_USER, POST_USER_SUCCESS,SET_LOGOUT,PROFILE_SUCCESS,ACTUALIZAR_ESTADO, SET_GOOGLE_USER, POST_REGISTER_MODAL_SUCCESS,SET_USERTYPE,SET_DEV_TYPE_AND_TECH, SET_LOCATION_ENG_STUDY, SET_RECRUITER_INFO,SET_BUSINESS_INFO,UPDATE_USER_SUCCESS, EMAIL_EXISTE_SUCCESS
+    , NEW_GET_INFO_USER_SUCCESS, 
 
 } from "../../constants/constants";
 
@@ -9,6 +10,7 @@ const initialState = {
     actualHome: false,
     userResponse:[],
     response:[],
+    newInfo:{},
     existenciaMail:"",
     responseProfile:[],
     log: false,
@@ -153,6 +155,12 @@ const fetchPostReducer = (state = initialState, action) => {
                 ...state,
                 Change: !state.Change
             };
+            case NEW_GET_INFO_USER_SUCCESS:
+                console.log("reducer", action.payload)
+                return {
+                    ...state,
+                    newInfo: action.payload
+                };
             
         default: 
         return {

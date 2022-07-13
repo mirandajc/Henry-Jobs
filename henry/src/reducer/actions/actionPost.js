@@ -24,6 +24,8 @@ import {
     GOOGLE_LOGIN,
     SEND_EMAIL_CONTACT,
     ACTUALIZAR_HOME_BUSINESS,
+    NEW_GET_INFO_USER,
+    NEW_GET_INFO_USER_SUCCESS
 
 } from "../../constants/constants";
 
@@ -201,3 +203,16 @@ export function actualizarHomeBusiness () {
         type: ACTUALIZAR_HOME_BUSINESS
     }
 }
+export function newGetInfoUser (id){
+    return {
+        type: NEW_GET_INFO_USER,
+        payload: id
+    };
+};
+
+export function newGetInfoUserSuccess (payload){
+    return {
+        type: NEW_GET_INFO_USER_SUCCESS,
+        payload
+    };
+};

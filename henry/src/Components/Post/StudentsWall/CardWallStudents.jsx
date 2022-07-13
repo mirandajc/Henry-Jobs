@@ -17,18 +17,11 @@ import { Link } from "react-router-dom";
 import Star from "../../images/Star.png";
 import Ubicacion from "../../images/ubicacion.png";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getPublicationsBusiness,
-  postIdFollow,
-  traerFollowingStud,
-} from "../../../reducer/actions/actionStudents";
-import {
-  getPublicationStudents,
-  postIdFollowBuss,
-  traerFollowing,
-} from "../../../reducer/actions/actionBusiness";
 import { enviarMailContactar, profileID } from "../../../reducer/actions/actionPost";
 import { AiOutlinePlus } from "react-icons/ai";
+import { getPublicationsBusiness, postIdFollow, traerFollowingStud } from "../../../reducer/actions/actionStudents";
+import { getPublicationStudents, postIdFollowBuss, traerFollowing } from "../../../reducer/actions/actionBusiness";
+
 
 export default function CardWallStudents({
   name,
@@ -180,6 +173,21 @@ export default function CardWallStudents({
             <p>{el}</p>
           </div>
         ))}
+        {
+          backFront?
+        <div><p>{backFront}</p></div>
+        :null
+        }
+        {
+          english?
+        <div><p>{english}</p></div>
+        :null
+        }
+        {
+          allStars?
+        <div><p>{allStars}</p></div>
+        :null
+        }
       </Tech>
 
       <Tech>

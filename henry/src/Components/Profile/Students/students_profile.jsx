@@ -11,7 +11,7 @@ import { getPublicationStudents, postIdFollowBuss } from "../../../reducer/actio
 import { useDispatch, useSelector } from "react-redux";
 
 
-export default function StudentsProfile({ id, userTypes, backFront, banner, country, curriculumCounter, allStars, email, lastName, name, profileImage, followers, following }) {
+export default function StudentsProfile({ id, userType, backFront, banner, country, curriculumCounter, allStars, email, lastName, name, profileImage, followers, following, userTypes }) {
 
     const dispatch = useDispatch();
     const TkId = localStorage.getItem('TK');
