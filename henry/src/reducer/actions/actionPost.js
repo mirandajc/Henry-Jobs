@@ -28,7 +28,8 @@ import {
     NEW_GET_INFO_USER_SUCCESS,
     POST_USER_FAILURE,
     VACIAR_ESTADO,
-    REINICIAR_PERFIL
+    REINICIAR_PERFIL,
+    REINICIAR_HOME_PRINCIPE
 
 } from "../../constants/constants";
 
@@ -237,5 +238,11 @@ export function vaciarEstado (){
 export function reiniciarPerfil (){
     return {
         type: REINICIAR_PERFIL
+    };
+};
+
+export function reinciarHomePrincipe (){
+    return {
+        type: REINICIAR_HOME_PRINCIPE
     };
 };

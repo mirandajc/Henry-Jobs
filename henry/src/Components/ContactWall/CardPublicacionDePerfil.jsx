@@ -15,9 +15,7 @@ export default function PublicationCard(props) {
         dispatch(getAllStudents());
     }, []);
 
-    // => Agregar el botón "POSTULARSE" 
-    // en las publicaciones de empresas y recruiter
-    // si sos estudiante.
+  
 
     const handlePost = (value) => {
         // dispatch(setApplicant(value));

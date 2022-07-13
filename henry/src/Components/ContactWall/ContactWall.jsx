@@ -6,6 +6,7 @@ import PublicationCard from "./CardPublicacionDePerfil";
 import { Publicaciones } from "./ApplicantMokedFiles";
 import { EmpresaContenedor } from "./Applications/applicantsStyles/empresastyles";
 import NoSearchFounds from "../Loading/NoSearchFounds"
+import Loading from "../Loading/Loading";
 
 export default function ContactWall() {
 
@@ -20,43 +21,50 @@ export default function ContactWall() {
   useEffect(() => {
     dispatch(getMyPublications(id));
   }, [actualizar]);
- 
-  const [ deletear, setDeletear] = useState();
 
-    // => Agregar el botón "POSTULARSE" 
-    // en las publicaciones de empresas y recruiter
-    // si sos estudiante.
+  const [deletear, setDeletear] = useState();
+  const [tim, setTime] = useState(true);
 
-    useEffect(() => {
-      if(userType !== null){
-        if(id !== userType.id){
-          setDeletear(false);
-        }
-        if(id === userType.id){
-          setDeletear(true);
-        }
+  useEffect(() => {
+    setTimeout(() => {
+      setTime(false)
+    }, 2000);
+  }, [])
+  // => Agregar el botón "POSTULARSE" 
+  // en las publicaciones de empresas y recruiter
+  // si sos estudiante.
+
+  useEffect(() => {
+    if (userType !== null) {
+      if (id !== userType.id) {
+        setDeletear(false);
       }
-    }, [tal]);
-  
+      if (id === userType.id) {
+        setDeletear(true);
+      }
+    }
+  }, [tal]);
+
 
   // ESTE COMPONENTE RENDERIZA TODAS LAS PUBLICACIONES PARA VER POSTULANTES
   return (
     <EmpresaContenedor>
       {
-        publicactions === null || publicactions === undefined || publicactions.length === 0 ? 
-        <NoSearchFounds/>
-        :
-        publicactions.map(e => 
-          <PublicationCard 
-          botonDelete={deletear}
-          posterUser={e.posterUser._id}
-          email={e.email}
-          text={e.text}
-          date={e.date}
-          applicants={e.applicants}
-          idPublicacion={e._id} 
-          />)
-        }
+        tim ? <Loading/> :
+        publicactions === null || publicactions === undefined || publicactions.length === 0 ?
+          <NoSearchFounds />
+          :
+          publicactions.map(e =>
+            <PublicationCard
+              botonDelete={deletear}
+              posterUser={e.posterUser._id}
+              email={e.email}
+              text={e.text}
+              date={e.date}
+              applicants={e.applicants}
+              idPublicacion={e._id}
+            />)
+      }
     </EmpresaContenedor>
   );
 };

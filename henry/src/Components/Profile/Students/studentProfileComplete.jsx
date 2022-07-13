@@ -22,7 +22,6 @@ export default function StudentCompletePage() {
     const rei = useSelector((state) => state.fetchPostReducer.reiniciarP)
 
     useEffect(() => {
-        console.log('me ejecuto')
         if(userProfile.name !== undefined) { 
             setRenderi(true)
         } 
