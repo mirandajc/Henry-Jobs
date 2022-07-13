@@ -33,14 +33,16 @@ function handleSumit(e){
     return(
         <>
             <div className="nav">
-                <SearchProyects>
+                {/* <SearchProyects>
                         <input type='search' name='search' value={name}  onChange={e=> handleChange(e)} placeholder="Buscar por nombre o autor"/>
                     
                     <button onClick={e=> handleSumit(e)}>
                     <img src={imagenSeach} />
                     </button>
                 </SearchProyects>
-            <button onClick={openModal} className="button">PUBLICAR</button>
+            <button onClick={openModal} className="button">PUBLICAR</button> */}
+
+            
             <StyleModal >
                 <Modal  
                 className="Modal"

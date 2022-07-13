@@ -17,10 +17,10 @@ export default function VertiNav(){
                 <img src={Proyectos} className='icon'/>
             </Link>
            </div>
-           <NavbarLineas/>
+           {/* <NavbarLineas/>
             <Link to='/ads' className="link">
                     <img src={Anuncio} className='icon'/>
-            </Link>
+            </Link> */}
            <NavbarLineas/>
             <Link to='/booms' className="link">
                     <img src={Booms} className='icon'/>

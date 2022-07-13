@@ -84,4 +84,23 @@ div{
   
 }
 
+.cont{
+    
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    span{
+        width: 100%;
+        border-radius: 10px;
+       
+        color: black;
+        background-color: yellow;
+
+        
+    }
+}
+
 `

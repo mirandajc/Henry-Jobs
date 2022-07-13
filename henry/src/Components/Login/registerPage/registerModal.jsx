@@ -187,31 +187,31 @@ export default function RegisterCard(){
                 </Link>
             </div>
             <h1>Registrate! 🚀</h1>
-            <div>
+            <div className="cont">
                 <input placeholder="Nombre de usuario" value={datos.username} onChange={(e) => validarUsername(e)}/>
                 <br />
                 {error.errorUsername && <span>{ error.errorUsername }</span>}
             </div>
-            <div>
+            <div className="cont">
                 <input placeholder="Nombre" value={datos.nombre} onChange={(e) => validarNombre(e)}/>
                 <br />
 
                 {error.errorNombre && <span>{ error.errorNombre }</span>}
             </div>
-            <div>
+            <div className="cont">
                 <input placeholder="Apellido" value={datos.apellido} onChange={(e) => validarApellido(e)}/>
                 <br />
 
                 {error.errorApellido && <span>{ error.errorApellido }</span>}
             </div>
-            <div>
+            <div className="cont">
                 <input placeholder="Mail" value={datos.email} onChange={(e) => validarEmail(e)}/>
                 <br />
                 {cartel !== "" ? <span>{cartel}</span> : null}
                 {error.errorEmail && <span>{ error.errorEmail }</span>}
                 <button onClick={() => verificarExistencia(datos.email)}>Verificar Email</button>
             </div>
-            <div>
+            <div className="cont">
                 <input placeholder="Contraseña" type='password' value={datos.contraseña} onChange={(e) => validarContraseña(e)}/>
                 <br />
                 {error.errorContraseña && <span>{ error.errorContraseña }</span>} 
