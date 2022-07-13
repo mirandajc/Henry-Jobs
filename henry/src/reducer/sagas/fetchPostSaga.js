@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import {
     emailExisteSuccess,
+    newGetInfoUserSuccess,
     postRegisterModalSuccess,
     postUser,
     postUserSuccess,
@@ -22,6 +23,7 @@ import {
     EDIT_PROFILE,
     PROFILE_EDIT_URL,
     GOOGLE_LOGIN,
+    NEW_GET_INFO_USER
     
 } from '../../constants/constants';
 
@@ -129,15 +131,24 @@ function* asyncEmailExiste (payload) {
 
 function* asyncEditProfile(payload){
     //AGREGAR OBJ DE PERFIL
-    console.log( 'soy id', payload.payload.id , payload.payload.editUser)
-
+    console.log('soy lo nuevo', payload.payload.objeto)
     try{
-        const response = yield call(() => axios.put(PROFILE_EDIT_URL+ `${payload.payload.id}`, payload.payload.editUser))
-        console.log(response.data)
+        const response = yield call(() => axios.put(URL_DEPLOY+ '/user/' + `${payload.payload.id}`, payload.payload.objeto))
     } catch(error){
-        console.log("catch de editProfile -> ", error)
+        console.log(error)
     }
 }
+
+function* asyncNewGetInfoUser(payload){
+    try {
+        const response = yield call(() => axios.get(PROFILE_EDIT_URL+ `${payload.payload}`));
+        console.log(response.data);
+        yield put(newGetInfoUserSuccess(response.data));
+    } catch (error) {
+        console.log(error);
+    }
+
+};
 
 
 
@@ -150,4 +161,5 @@ export function* watchFetchPostSaga(){
     yield takeEvery(SET_PREMIUM, asyncSetPremium)
     yield takeEvery(EMAIL_EXISTE, asyncEmailExiste)
     yield takeEvery(EDIT_PROFILE, asyncEditProfile)
+    yield takeEvery(NEW_GET_INFO_USER, asyncNewGetInfoUser)
 }

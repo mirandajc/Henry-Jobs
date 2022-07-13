@@ -88,7 +88,7 @@ export default function HomeForStaff(){
                 
                 <StaffStudentsBusiness name={e.name} 
                 // profileImage={e.profileImage.secure_url} 
-                lastname={e.lastName} id={e._id} userName={e.userName} email={e.email} country={e.country} city={e.city} stars={e.stars} curriculumCounter={e.curriculumCounter}/>
+                lastname={e.lastName} id={e._id} userName={e.userName} email={e.email} country={e.country} city={e.city} allStars={e.allStars} curriculumCounter={e.curriculumCounter}/>
                
                 ) :
                 renderizar === "Empresas" ? empresas.map(e => <StaffStudentsBusiness name={e.name} 

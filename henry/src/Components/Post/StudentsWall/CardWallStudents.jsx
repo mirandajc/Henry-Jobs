@@ -24,7 +24,7 @@ import { AiOutlinePlus } from 'react-icons/ai';
 
 
 
-export default function CardWallStudents({ name, lastname, email, technologies, otherstudies, banner, english, backFront, workModality, ubication, city, profileImage, userName, stars, id }) {
+export default function CardWallStudents({ name, lastname, email, technologies, otherstudies, banner, english, backFront, workModality, ubication, city, profileImage, userName, allStars, id }) {
 
   const dispatch = useDispatch();
   const tal = localStorage.getItem('TK')
@@ -135,8 +135,8 @@ export default function CardWallStudents({ name, lastname, email, technologies, 
         :null
         }
         {
-          stars?
-        <div><p>{stars}</p></div>
+          allStars?
+        <div><p>{allStars}</p></div>
         :null
         }
       </Tech>

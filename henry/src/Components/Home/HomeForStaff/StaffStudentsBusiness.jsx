@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { sendEmail, userDelete } from "../../../reducer/actions/actionStaff";
 
 
-export default function StaffStudentsBusiness ({ id ,name, profileImage, lastname, userName, email, country, city, stars, curriculumCounter}){
+export default function StaffStudentsBusiness ({ id ,name, profileImage, lastname, userName, email, country, city, allStars, curriculumCounter}){
 
     //////////////////////////////////// AGREGAR ESTILOS ////////////////////////////////////////
     // Estas son tarjetas que se van a renderizar juntas en la pantalla principal del staff
@@ -49,7 +49,7 @@ export default function StaffStudentsBusiness ({ id ,name, profileImage, lastnam
                         <h4>{email}</h4>
                         <h4>Curriculums enviados este mes: {curriculumCounter}</h4>
                     </div>
-                    <h4><AiFillStar/> {stars}</h4>
+                    <h4><AiFillStar/> {allStars}</h4>
                 </div>
                 
                 :

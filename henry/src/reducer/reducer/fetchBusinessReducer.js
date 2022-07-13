@@ -165,16 +165,16 @@ const fetchBusinessReducer = (state = initialState, action) => {
         if(state.filtros.stars !== ""){
             if(state.filtros.stars === "ASCENDENTE"){
                 alumnosFiltrados = alumnosFiltrados.sort((a,b) => {
-                    if(a.stars < b.stars) return -1;
-                    if(b.stars < a.stars) return 1;
+                    if(a.allStars < b.allStars) return -1;
+                    if(b.allStars < a.allStars) return 1;
                     return 0;
                 })
                 b = '1'
             }
             if(state.filtros.stars === "DESCENDENTE"){
                 alumnosFiltrados = alumnosFiltrados.sort((a,b) => {
-                    if(a.stars < b.stars) return -1;
-                    if(b.stars < a.stars) return 1;
+                    if(a.allStars < b.allStars) return -1;
+                    if(b.allStars < a.allStars) return 1;
                     return 0;
                 })
                 b = '2'

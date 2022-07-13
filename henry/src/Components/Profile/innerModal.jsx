@@ -6,11 +6,15 @@ import { MdOutlineInsertPhoto } from "react-icons/all";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { SiGmail } from "react-icons/all";
 import { MdAddAPhoto } from "react-icons/all";
-import { countries } from "../Register_form/gistfile1.json";
+
 import { EditProfile } from "../../reducer/actions/actionPost";
 
 
-export default function InnModal(){
+import { countries } from "../Register_form/gistfile1.json";
+import { technologies } from "../Post/StudentsWall/select";
+
+
+export default function InnModall(){
 //nombre, banner, fotoperfil, ubicacion, github, linkedin, mail,instancia, tecnologias, otros estudios, acercaDE, favoritos
 
   const { id } = useParams();
@@ -18,7 +22,6 @@ export default function InnModal(){
   const navigate = useNavigate();
   const [input, setInput] = useState("");
 //   const [inputd, setInputd] = useState(""); no tenía uso
-  const [allCities, setAllCities] = useState([]);
 
   // upload image
   const [fileInputState, setFileInputState] = useState("")
@@ -115,22 +118,63 @@ export default function InnModal(){
   const [editUser, setEditUser] = useState({
     name: "",
     lastName: "",
-    linkedin: "",
-    github: "",
-    gmail: "",
+    technologies: [],
+    country: "",
+    city:"",
     email: "",
+    languages: "",
+    otherStudies: [],
+    
+    // linkedin: "",
+    // github: "",
+    // gmail: "",
+    
     profileImage: {
         secure_url: ""
     },
-    technologies: "",
-    country: "",
-    languages: "",
-    otherStudies: [],
     banner: {
         secure_url: ""
     },
   });
 
+////////////////////////////////////////////////////COUNTRY//////////////////////////////////////////////////////////////////
+
+const [ country, setCountry ] = useState({
+    country: "",
+    city: ""
+});
+
+const [ allCities, setAllCities ] = useState([]); 
+
+const countrySelect = (e) => { 
+    // cada vez que se seleccione un pais, se selecciona un pais y la ciudad en blanco
+    // porque si no se limpia la ciudad el estado podria quedar "Argentina, Manchester"
+    let pais = e.target.value
+    if(pais === "Selecciona un País"){
+        return setCountry({...country, country: "", city:""});
+    }
+    else if(pais === country.country){
+        return;
+    }
+    else{
+        setEditUser({...editUser, country: e.target.value, city: ""});
+        setCountry({...country, country: e.target.value, city:""});
+        setAllCities(countries.find(el => el.country === pais).states) // aca se guardan las provincias y estados                                         
+    }                                                                  // según el país seleccionado
+};
+
+const citySelect = (e) => {
+    if(e.target.value === "Selecciona una provincia/estado"){
+        setCountry({...country, city: ""});
+        return;
+    }
+    else{
+        setCountry({...country, city: e.target.value});
+        setEditUser({...editUser, city: e.target.value});
+    }
+};
+
+////////////////////////////////////////////////COUNTRY//////////////////////////////////////////////////////
 
   function handleChange(e) {
     e.preventDefault();
@@ -140,13 +184,28 @@ export default function InnModal(){
     });
   };
 
+  ///////////////////////////////////////////////TECH////////////////////////////////////////////////
   function handleChangeTech(e) {
     e.preventDefault();
-    setEditUser({
-      ...editUser,
-      [e.target.name]: e.target.value
-    });
+    if(editUser.technologies.includes(e.target.value)){
+        return
+    }
+    else{
+        setEditUser({
+          ...editUser,
+          technologies:[...editUser.technologies, e.target.value]
+        });
+    }
   };
+
+  function onCloseTech(value) {
+    setEditUser({
+            ...editUser,
+            technologies:[...editUser.technologies.filter(el => el !== value)]
+          });
+  };
+  ///////////////////////////////////////////////TECH////////////////////////////////////////////////
+
 
   function handleLn(e) {
     setEditUser({
@@ -193,6 +252,7 @@ export default function InnModal(){
   };
 
   function handleSubmit() {
+    console.log(editUser);
       dispatch(EditProfile({ id, editUser }));
       navigate(`/profile/${id}`);
       alert("Cambios guardados!");
@@ -271,25 +331,29 @@ export default function InnModal(){
           </div>
         </NameLast>
 
-        <SelectorCou>
-          <h3>Ubicacion:</h3>
-          <div>
-            <select onChange={(e) => handleSelect(e)}>
-              <option>Selecciona un País</option>
-              {countries &&
-                countries.map((e) => {
-                  return <option>{e.country}</option>;
-                })}
-            </select>
-          </div>
-          <div>
-            <select>
-              <option>Selecciona una provincia/estado</option>
-              {allCities.map((e) => {
-                return <option>{e}</option>;
-              })}
-            </select>
-          </div>
+        <SelectorCou> 
+        <h3>¿De dónde eres?</h3>
+                <div className="lado">
+
+                <h3>País:</h3> 
+                <select onClick={(e) => countrySelect(e)}>
+                    <option>Selecciona un País</option>
+                    {countries && countries.map(e => {
+                        return <option>{e.country}</option>
+                    })}
+                </select>
+                </div>
+
+                {allCities && <div className="lado">
+                    <h3>Provincia/Estado:</h3>
+                    <select onClick={(e) => citySelect(e)}>
+                        <option>Selecciona una provincia/estado</option>
+                        {allCities.map(e => {
+                            return <option>{e}</option>
+                        })}
+                    </select>
+                    </div>}
+
         </SelectorCou>
         <RedesEdit>
           <div>
@@ -326,12 +390,16 @@ export default function InnModal(){
 
         <TecOther>
           <h3>Tecnologias:</h3>
-          <input 
+          { editUser.technologies && editUser.technologies.map(e => <div key={e}><p>{e}</p><button onClick={() => onCloseTech(e) }>X</button></div>)}
+          <select 
             name="technologies"
             placeholder="Tecnologias" 
             type='text'
             onChange={(e) => handleChangeTech(e)}
-            value={editUser.technologies} />
+            value={editUser.technologies}>
+                <option>Seleccionar Tecnologías</option>
+                {technologies.map(e => <option key={e} value={e}>{e}</option>)}
+            </select>
         </TecOther>
 
         <TecOther>
