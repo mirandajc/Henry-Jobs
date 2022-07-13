@@ -80,7 +80,7 @@ export default function LoginPage(){
     //   },[]);
     
 
-   
+   const errores = useSelector(state => state.fetchPostReducer.errores);
 
 
     return(
@@ -101,7 +101,7 @@ export default function LoginPage(){
                 <div>
                     <input type='password' placeholder="Contraseña" value={user.password} onChange={(e)=>setUser({...user, password:e.target.value})}/>
                 </div>
-
+                { errores && <span className="incorrecto">Email o contraseña incorrectos</span>}
                 <div className="BTN">
                     <button onClick={handlerLogin}>Ingresar</button>
                     <Link to = '/register'>
@@ -111,10 +111,6 @@ export default function LoginPage(){
                 
 
 
-                <div className="second">
-                    <p>Or signIn with</p>
-                        <App />
-                </div>
              
                 </div>
                 <div>
@@ -122,6 +118,10 @@ export default function LoginPage(){
             </div>
 
           
+                <div className="second">
+                    <p>Or signIn with</p>
+                        <App />
+                </div>
             
         </ConteinLogin>
     )
