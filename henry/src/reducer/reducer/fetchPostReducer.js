@@ -1,6 +1,7 @@
 import {
     BUGG_NAV,ACTUALIZAR_HOME_BUSINESS, POST_USER, POST_USER_SUCCESS,SET_LOGOUT,PROFILE_SUCCESS,ACTUALIZAR_ESTADO, SET_GOOGLE_USER, POST_REGISTER_MODAL_SUCCESS,SET_USERTYPE,SET_DEV_TYPE_AND_TECH, SET_LOCATION_ENG_STUDY, SET_RECRUITER_INFO,SET_BUSINESS_INFO,UPDATE_USER_SUCCESS, EMAIL_EXISTE_SUCCESS
-    , NEW_GET_INFO_USER_SUCCESS, POST_USER_FAILURE
+    , NEW_GET_INFO_USER_SUCCESS, POST_USER_FAILURE,VACIAR_ESTADO
+
 
 } from "../../constants/constants";
 
@@ -82,6 +83,12 @@ const fetchPostReducer = (state = initialState, action) => {
                     ...state,
                     response: undefined
 
+                }
+
+            case VACIAR_ESTADO:
+                return {
+                    ...state,
+                    response: ""
                 }
 
             case POST_USER_FAILURE:

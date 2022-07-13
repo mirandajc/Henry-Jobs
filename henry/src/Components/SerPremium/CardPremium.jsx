@@ -24,7 +24,7 @@ export default function PremiumCard () {
             <h1 >HenryJobs plan premium!</h1>
             <h3>
             - Accede a HenryJobs premium <br/><br/>
-             para aparecer en el carrusel de empresas recomendadas! <br/>
+             para poder utilizar la herramienta de HenryStar! <br/>
             </h3>
             <Link to={`/checkout1/${userType.id}`}><button>Premium</button></Link>
          

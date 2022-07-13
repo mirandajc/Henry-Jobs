@@ -84,7 +84,7 @@ export default function StudentsProfile({ id, backFront, banner, country, curric
                 
                 }
                 {
-                    (TkIdF.type === 4 || TkIdF.type === 5) && id !== TkIdF.id && userTypes !== 4 && userTypes !== 5 ? 
+                    (TkIdF.type === 4 || TkIdF.type === 5) && id !== TkIdF.id && userTypes !== 4 && userTypes !== 5 && TkIdF.premium === true ? 
 
                 <Calificacion >
                     <div class="valoracion" >

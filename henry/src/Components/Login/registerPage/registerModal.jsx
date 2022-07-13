@@ -3,7 +3,7 @@ import { CardRegister } from "../LoginStyles/registerStyle";
 import {Link, useNavigate} from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { emailExiste, postRegisterModal } from "../../../reducer/actions/actionPost";
-
+import { vaciarEstado } from "../../../reducer/actions/actionPost.js"
 
 export default function RegisterCard(){
     // Falta hacer validacion del campo de EMAIl
@@ -95,6 +95,10 @@ export default function RegisterCard(){
                 setCartel("Email disponible");
             }
         }
+
+        return () => {
+            setCartel("");
+        }
     }, [respuestaDeMail]);
 
     //////////////////////// VALIDACION DE CONTRASEÑAS /////////////////////////////
@@ -137,7 +141,7 @@ export default function RegisterCard(){
             else{
                 //mandar el objeto
                 const correo = /[^@ \t\r\n]+@soyhenry\.com/  
-
+                setCartel("");
                 if(correo.test(datos.email)){
                     let USER = {
                         userName: datos.username,
@@ -147,10 +151,11 @@ export default function RegisterCard(){
                         password: "722HJ227",
                         userTypes: 3
                     };
-
+                    
+                    setCartel("");
                     console.log("|||||HENRY_STAFF|||||", USER);
                     dispatch(postRegisterModal(USER));
-                    navigate("/login");
+                
                 }
                 else {
                     let USER = {
@@ -162,10 +167,13 @@ export default function RegisterCard(){
                         profileImage:{secure_url:"https://res.cloudinary.com/noisybrain-cloud/image/upload/v1657222048/HenryJobs/profileImage_iptpub.jpg"},
                         banner:{secure_url:"https://res.cloudinary.com/noisybrain-cloud/image/upload/v1657222059/HenryJobs/banner_pogdok.jpg"}
                     };
+                    setCartel("");
                     console.log("enviando usuario", USER)
                     dispatch(postRegisterModal(USER));
-                    navigate("/login");
+                    dispatch(vaciarEstado());
                 }
+                setCartel("");
+                navigate("/login");
             }
         }
     };
@@ -199,7 +207,7 @@ export default function RegisterCard(){
             <div>
                 <input placeholder="Mail" value={datos.email} onChange={(e) => validarEmail(e)}/>
                 <br />
-                {cartel && <span>{cartel}</span>}
+                {cartel !== "" ? <span>{cartel}</span> : null}
                 {error.errorEmail && <span>{ error.errorEmail }</span>}
                 <button onClick={() => verificarExistencia(datos.email)}>Verificar Email</button>
             </div>

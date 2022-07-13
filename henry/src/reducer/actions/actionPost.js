@@ -26,7 +26,8 @@ import {
     ACTUALIZAR_HOME_BUSINESS,
     NEW_GET_INFO_USER,
     NEW_GET_INFO_USER_SUCCESS,
-    POST_USER_FAILURE
+    POST_USER_FAILURE,
+    VACIAR_ESTADO
 
 } from "../../constants/constants";
 
@@ -148,6 +149,7 @@ export function loginWithGoogle(obj) {
 
 
 export function setPremium(payload){
+    console.log("action Post", payload);
     
     return {
         type: SET_PREMIUM,
@@ -222,5 +224,11 @@ export function postUserFailure (payload){
     return {
         type: POST_USER_FAILURE,
         payload
+    };
+};
+
+export function vaciarEstado (){
+    return {
+        type: VACIAR_ESTADO,
     };
 };

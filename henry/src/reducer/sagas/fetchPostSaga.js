@@ -25,7 +25,7 @@ import {
     PROFILE_EDIT_URL,
     GOOGLE_LOGIN,
     SEND_EMAIL_CONTACT,
-    NEW_GET_INFO_USER
+    NEW_GET_INFO_USER,
     
 } from '../../constants/constants';
 
@@ -112,8 +112,9 @@ function* asyncLoginWithGoogle (payload){
 }
 
 function* asyncSetPremium (payload){
+    console.log(payload);
     try {
-        const response = yield call(() => axios.put(URL_DEPLOY + `/user/${payload.payload}`, payload.payload))
+        const response = yield call(() => axios.put(URL_DEPLOY + `/user/${payload.payload}`, {premium: true}))
         console.log(response)
         yield put(updateUserSuccess(response.data))
     } catch (error) {
