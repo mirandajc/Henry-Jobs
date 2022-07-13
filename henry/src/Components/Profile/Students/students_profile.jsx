@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { StudentProf, ProfCont, Name, DevStar, Banner, ImageProf, P, Follow, Ubicacion, Redes, Edit } from "../profileStyles/studentProfile";
+import { StudentProf, ProfCont, Name, DevStar, Banner, ImageProf, P, Follow, Ubicacion, Redes, Edit, Calificacion } from "../profileStyles/studentProfile";
 import { Link } from 'react-router-dom';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { BsFillStarFill } from 'react-icons/bs'
@@ -41,7 +41,12 @@ export default function StudentsProfile({ id, userTypes, backFront, banner, coun
         }
     }
 
-    console.log(userTypes)
+    const handleStar = (e, id) => {
+        const studentId = id;
+        const value = e.target.value;
+
+        console.log(value, id);
+    };
 
     return (
         <StudentProf>
@@ -68,7 +73,31 @@ export default function StudentsProfile({ id, userTypes, backFront, banner, coun
                     <h2>{name + ' ' + lastName}</h2>
                 </Name>
 
-                <Ubicacion>
+                {
+                
+                }
+                {
+                    TkIdF.type === 4 || TkIdF.type === 5 && id !== TkIdF.id && userTypes !== 4 && userTypes !== 5 ? 
+
+                <Calificacion >
+                    <div class="valoracion" >
+                        <input onClick={(e) => handleStar(e, id)} id="radio1" type="radio" name="estrellas" value="5"/>
+                        <label for="radio1">★</label>
+                        <input onClick={(e) => handleStar(e, id)} id="radio2" type="radio" name="estrellas" value="4"/>
+                        <label for="radio2">★</label>
+                        <input onClick={(e) => handleStar(e, id)} id="radio3" type="radio" name="estrellas" value="3"/>
+                        <label for="radio3">★</label>
+                        <input onClick={(e) => handleStar(e, id)} id="radio4" type="radio" name="estrellas" value="2"/>
+                        <label for="radio4">★</label>
+                        <input onClick={(e) => handleStar(e, id)} id="radio5" type="radio" name="estrellas" value="1"/>
+                        <label for="radio5">★</label>
+                    </div>
+                </Calificacion>
+
+                    : null
+                }
+                    
+                    <Ubicacion>
                     <HiLocationMarker className="location" />
                     <p>{country}</p>
                 </Ubicacion>

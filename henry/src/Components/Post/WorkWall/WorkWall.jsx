@@ -30,16 +30,6 @@ export default function WorkWall(){
         setTimeout(() => { setLoad(false) }, 1300);
     }, [])
 
-
-
-
-
-    
-
-
-
-
-
     const techSelection = (e) => {
         if(e.target.value === "TECNOLOGIAS"){
             dispatch(getPublicationsTechnologies(""))
