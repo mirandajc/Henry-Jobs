@@ -6,7 +6,10 @@ import { MdOutlineInsertPhoto } from "react-icons/all";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { SiGmail } from "react-icons/all";
 import { MdAddAPhoto } from "react-icons/all";
+
 import { EditProfile } from "../../reducer/actions/actionPost";
+
+
 import { countries } from "../Register_form/gistfile1.json";
 import { technologies } from "../Post/StudentsWall/select";
 
