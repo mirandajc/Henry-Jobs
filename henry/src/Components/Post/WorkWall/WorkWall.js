@@ -12,15 +12,16 @@ export const Componente = styled.div`
 
 export const DivFiltros = styled.div`
 width: 100%;
+height: 4em;
 display: flex;
 justify-content: space-evenly;
-background: #ffeb3b;
+background-color: #ffeb3b;
 align-items: center;
 
 select{
     height: 3rem;
     border: 1px solid #ffeb3b;
-    background: none;
+    background-color: #ffeb3b;
     select-styles: none;
     @import url(//db.onlinewebfonts.com/c/901497541657a2f24e42848bcf7fad52?family=Avenir+Heavy);
     font-family: Avenir;
