@@ -168,7 +168,6 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
                             }
                         </Burron>
 
-                    
             }
 
 {
