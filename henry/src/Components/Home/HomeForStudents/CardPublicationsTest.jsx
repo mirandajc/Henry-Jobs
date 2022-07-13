@@ -8,6 +8,7 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import { postIdFollowBuss } from "../../../reducer/actions/actionBusiness";
 import { IoLocationSharp } from 'react-icons/all';
 import { postularse } from "../../../reducer/actions/actionStudents";
+import { ErrorDiv } from "./HomeStyled";
 
 
 
@@ -47,6 +48,9 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
             dispatch(postularse(obj, pubId))
             setCartel(true);
             setSetear(false)
+            setTimeout(()=>{
+                setCartel(false)
+            },4000)
         }
         else {
             setSetear(true)
@@ -139,9 +143,9 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
                     </Video>
                     : null
             }
-            {
-                !setear ? null : <div>¿Seguro que quieres postularte?</div>
-            }
+            
+
+           
 
             {
                 userTypes === 1 || userTypes === 2 ? null :
@@ -149,18 +153,29 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
                     userType.type === 4 || userType.type === 5 ? null :
 
                
+                   
 
                         <Burron>
-                            {
+                            
+                            <button onClick={handlePostulation}>{ !setear? 'Postularse' : 'Si'}</button>
+
+                            { 
+                            
                                 cartel &&
-                                <span>Postulación enviada con éxito</span>
+                                
+                                <span>Postulación enviada con éxito 🥳🥳</span>
 
                             }
-                            <button onClick={handlePostulation}>{ !setear? 'Postularse' : 'Si'}</button>
                         </Burron>
 
                     
             }
+
+{
+                        !setear ? null : <ErrorDiv>¿Seguro que quieres postularte? 🤔 🤔 </ErrorDiv>
+                    }
+
+
             <Footer>
 
             </Footer>

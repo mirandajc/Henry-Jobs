@@ -194,5 +194,34 @@ width: 100%;
 display: flex; 
 align-items: center;
 justify-content: center;
+flex-direction: column;
+
+
+span{
+    background-color: yellow;
+    border-radius: 10px;
+    padding: 1em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    color: black;
+    
+
+}
+
+`
+
+export const ErrorDiv=styled.div`
+
+
+border: 1px solid yelow;
+border-radius: 10px;
+
+padding: 1em;
+margin-bottom: 1em;
+
+background-color: yellow;
+color: black;
+
+
 
 `
