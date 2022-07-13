@@ -13,14 +13,27 @@ export default function HomeBusinessLogic({id}) {
   const allPublications = useSelector((state) => state.fetchBusinessReducer.allPublications);
   const foll = useSelector((state) => state.fetchBusinessReducer.userFollows);
   const [ load, setLoad ] = useState(true);
+  const ac = useSelector((state) => state.fetchPostReducer.actualHome)
     
   useEffect(() => {
     dispatch(traerFollowing(id));
   },[])
+ 
+  useEffect(() => {
+    console.log(ac);
+  },[ac])
 
   useEffect(() => {
+      console.log('me ejecute')
       dispatch(getPublicationStudents(id));
   },[foll])
+
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(getPublicationStudents(id));
+    }, 2000)
+    console.log('me ejecute')
+  },[ac])
 
   useEffect(() => {
     setTimeout(() => {setLoad(false)}, 2000);     

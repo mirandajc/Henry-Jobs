@@ -4,7 +4,7 @@ import { SettingsCont, SettingHead, Public, PvSettings } from "../HomeStyles/Pub
 import {BsImage} from 'react-icons/bs';
 import {FiVideo} from 'react-icons/fi';
 import { PublicationBussines, DivInput, DivSettings, TechDiv } from "./SetCont/styleBussinesPost";
-import { actualizarEstado, profileID } from "../../../reducer/actions/actionPost";
+import { actualizarEstado, actualizarHomeBusiness, profileID } from "../../../reducer/actions/actionPost";
 import {  getPublicationsBusiness, postPublication } from "../../../reducer/actions/actionStudents";
 import { technologies } from "../../Post/StudentsWall/select"
 import { getPublicationStudents } from "../../../reducer/actions/actionBusiness";
@@ -90,6 +90,7 @@ export default function PubliSettings(){
                 backFront:"",
             });
         }
+        dispatch(actualizarHomeBusiness());
         setCartelPub(true)
         setTimeout(() => {
             setCartelPub(false);
