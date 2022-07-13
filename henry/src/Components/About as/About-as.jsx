@@ -51,13 +51,13 @@ export default function AboutAs() {
             <div className="contenedor">
                 <img src={tomi} className='imagencasco' alt="tomas"/>
                 <span>
-                    <h1>Tomas Aguerri</h1>
-                    <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
+                    <h1>Tomás Arregui Bellino</h1>
+                    <p>Estudiante de la Licenciatura en Sistemas y apasionado por el arte de la programación. Amante de Linux y la customización. Me considero un Full-Stack Developer con preferencia por el Back-end! Me encanta tener la oportunidad de resolver nuevos desafíos cada vez que me siento delante de una computadora.</p>
                     <div className='icon'>
                     <a target="_blank"  href="https://www.linkedin.com/in/tom%C3%A1s-arregui-bellino-a503a019a/">
                         <SiLinkedin className="linkedin"/>
                     </a>
-                    <a target="_blank"  href="www.github.com/noisyBrain">
+                    <a target="_blank"  href="https://github.com/noisyBrain">
                         <FaGithub className="git"/>
                     </a>
                     </div>

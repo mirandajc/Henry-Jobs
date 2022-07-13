@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { countries } from "../Register_form/gistfile1.json";
 import { technologies } from "../Post/StudentsWall/select";
@@ -15,8 +16,8 @@ import { ContenedorMaximo } from "./Students/editperfill";
 export default function InnModal() {
     const [fileInputState, setFileInputState] = useState("")
     const [fileInputStateBanner, setFileInputStateBanner] = useState("")
-    const [previewSource, setPreviewSource] = useState("")
-    const [previewSourceBanner, setPreviewSourceBanner] = useState("")
+    const [profileImage, setProfileImage] = useState("")
+    const [bannerImage, setBannerImage] = useState("")
     const [selectedFile, setSelectedFile] = useState("")
 
       // fileInputChange para el profileImage
@@ -37,7 +38,7 @@ export default function InnModal() {
     const reader = new FileReader()
     reader.readAsDataURL(file)
     reader.onloadend = () => {
-      setPreviewSource(reader.result)
+      setProfileImage(reader.result) // setea profileImage con la imagen en base64 (el string esterno)
     };
   };
 
@@ -46,61 +47,48 @@ export default function InnModal() {
     const reader = new FileReader()
     reader.readAsDataURL(file)
     reader.onloadend = () => {
-      setPreviewSourceBanner(reader.result)
+      setBannerImage(reader.result)
     };
   };
 
   // handle para subir profileImage
-  function handleSubmitProfileImage(e) {
+  async function handleSubmitProfileImage(e) {
     e.preventDefault()
-    if (!previewSource) return
-    uploadImage(previewSource)
-    setObjeto({
-        ...objeto,
-        profileImage: {
-            secure_url: previewSource
-        }
-    })
-  }
-
-  // handle para subir banner
-  function handleSubmitBanner(e) {
-    e.preventDefault()
-    if (!previewSourceBanner) return
-    uploadBannerImage(previewSourceBanner)
-    setObjeto({
-        ...objeto,
-        banner: {
-            secure_url: previewSourceBanner
-        }
-    })
-  }
-
-  // upload de profileImage
-  async function uploadImage(base64EncodedImage) {
+    if (!profileImage) return
     try {
-        const response = await fetch(`http://henryjob.herokuapp.com/api/user/${id}`, {
-            method: "PUT",
-            body: JSON.stringify({ profileImage: base64EncodedImage }),
-            headers: { "Content-type": "application/json" }
+        const response = await axios.post(`http://localhost:3002/api/upload`, {
+            profileImage: profileImage 
+        });
+        setObjeto({
+            ...objeto,
+            profileImage: {
+                secure_url: response.data.secure_url
+            }
         })
     } catch (error) {
         console.error(error)
     };
-  }; 
+  }
+
+  // handle para subir banner -> LO COMENTO POR EL MOMENTO PARA PROBAR
+  async function handleSubmitBanner(e) {
+    e.preventDefault()
+    if (!profileImage) return
+    try {
+        const response = await axios.post(`https://henryjob.herokuapp.com/api/upload/`, {
+            banner: bannerImage 
+        });
+        setObjeto({
+            ...objeto,
+            banner: {
+                secure_url: response.data.secure_url
+            }
+        })
+    } catch (error) {
+        console.error(error)
+    };
+  }
   
-  // upload de banner
-  async function uploadBannerImage(base64EncodedImage) {
-    try {
-        const response = await fetch(`http://henryjob.herokuapp.com/api/user/${id}`, {
-            method: "PUT",
-            body: JSON.stringify({ banner: base64EncodedImage }),
-            headers: { "Content-type": "application/json" }
-        })
-    } catch (error) {
-        console.error(error)
-    };
-  };
 
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -211,8 +199,8 @@ const borrarEstudio = (value) => {
                     {/* <Foto1>
                       <MdAddAPhoto className="ph" />
                     </Foto1> */}
-                    {previewSource ? (
-                      <img src={previewSource} />
+                    {profileImage ? (
+                      <img src={profileImage} />
                     ) : (
                       <MdOutlineInsertPhoto className="puto" />
                     )}
@@ -229,8 +217,8 @@ const borrarEstudio = (value) => {
                     <MdAddAPhoto className="ph" />
                   </Foto2> */}
                   <div className="inner">
-                    {previewSourceBanner ? (
-                      <img src={previewSourceBanner} />
+                    {bannerImage ? (
+                      <img src={bannerImage} />
                     ) : (
                       <MdOutlineInsertPhoto className="puto" />
                     )}
