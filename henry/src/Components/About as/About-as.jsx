@@ -69,7 +69,7 @@ export default function AboutAs() {
                 <img src={gabi} className='imagencasco' alt="gabi"/>
                 <span>
                     <h1>Gabriel Cavasso</h1>
-                    <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
+                    <p>Buenas! Me llamo Gabriel y soy fullstack developer con preferencia por el backend. Me encontraba estudiando en la facultad la carrera de historia,  hasta que un día, junto con unos compañeros pensamos hacer una pagina de reseñas de libros, en ese momento creíamos que darle forma a una pagina web era relativamente sencillo.  La idea fue descartada, pero el gusto por la programación quedó. Meses después, en diciembre del 2021,  conocí henry y a parir de ahí fue cuando ese gusto se convirtió en pasión.</p>
                     <div className='icon'> 
                     <a target="_blank"  href="https://www.linkedin.com/in/gabriel-cavasso-30234622a/">
                         <SiLinkedin className="linkedin"/>
@@ -103,7 +103,7 @@ export default function AboutAs() {
                 <img src={lucho} className='imagencasco' alt="luciano"/>
                 <span>
                     <h1>Luciano Dorregaray</h1>
-                    <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
+                    <p>Mi nombre es Luciano Dorregaray, soy Fullstack Developer con orientación al Front-end, me considero una persona dedicada y comprometida con lo que hace, con deseos de aprender y mejorar mis habilidades cada día más. Comencé a estudiar programación ya que me gusta la tecnología, resolver problemas de forma lógica y crear, usando la programación como herramienta principal.</p>
                     <div className='icon'> 
                     <a target="_blank"  href="https://www.linkedin.com/in/jocelynmiranda/">
                         <SiLinkedin className="linkedin"/>
