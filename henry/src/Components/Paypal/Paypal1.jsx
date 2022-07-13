@@ -4,8 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import PremiumCard from "../SerPremium/CardPremium";
 import { useDispatch } from "react-redux";
 import { setPremium } from "../../reducer/actions/actionPost";
-
-
+import { PremiumCardasd } from "../SerPremium/premiumStyle/premium";
 
 export default function Paypal1() {
 
@@ -16,7 +15,7 @@ export default function Paypal1() {
 
 
   return (
-    <div>
+    <PremiumCardasd>
       <PremiumCard />
       <PayPalButtons
         createOrder={(data, actions) => {
@@ -53,6 +52,6 @@ export default function Paypal1() {
           alert(error)
         }}
       />
-  </div>
+  </PremiumCardasd>
   );
 }

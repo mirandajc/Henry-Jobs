@@ -11,7 +11,7 @@ import { getPublicationStudents, postIdFollowBuss } from "../../../reducer/actio
 import { useDispatch, useSelector } from "react-redux";
 
 
-export default function StudentsProfile({ id, userType, backFront, banner, country, curriculumCounter, stars, email, lastName, name, profileImage, followers, following, userTypes }) {
+export default function StudentsProfile({ id, userTypes, backFront, banner, country, curriculumCounter, stars, email, lastName, name, profileImage, followers, following }) {
 
     const dispatch = useDispatch();
     const TkId = localStorage.getItem('TK');
@@ -77,7 +77,7 @@ export default function StudentsProfile({ id, userType, backFront, banner, count
                 
                 }
                 {
-                    TkIdF.type === 4 || TkIdF.type === 5 && id !== TkIdF.id && userType !== 4 && userType !== 5 ? 
+                    TkIdF.type === 4 || TkIdF.type === 5 && id !== TkIdF.id && userTypes !== 4 && userTypes !== 5 ? 
 
                 <Calificacion >
                     <div class="valoracion" >
@@ -129,7 +129,7 @@ export default function StudentsProfile({ id, userType, backFront, banner, count
                 <DevStar>
                     <p className="Si">{backFront}</p>
                     <p className="Si" id="cent"><BsFillStarFill className="star" />{stars}</p>
-                    {userType = 1 ? (<p id="cent">PG</p>) : userType = 2 ? (<p id="cent">Graduado</p>)
+                    {userTypes = 1 ? (<p id="cent">PG</p>) : userTypes = 2 ? (<p id="cent">Graduado</p>)
                         : null}
 
                 </DevStar>
