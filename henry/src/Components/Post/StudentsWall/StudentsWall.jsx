@@ -16,14 +16,14 @@ export default function StudentsWall() {
 
     const estudiantes = useSelector(state => state.fetchBusinessReducer.studentsFiltered);
     const dispatch = useDispatch();
-    const [load, setLoad] = useState(true);
+    const [load, setLoad] = useState(false);
 
     useEffect(() => {
         dispatch(getAllStudents());
     }, []);
 
     useEffect(() => {
-        setTimeout(() => { setLoad(false) }, 1300);
+        setTimeout(() => { setLoad(false) }, 1500);
     }, [])
 
 
@@ -184,7 +184,7 @@ export default function StudentsWall() {
                                     city={e.city}
                                     curriculumCounter={e.curriculumCounter}
                                     userName={e.userName}
-                                    stars={e.stars}
+                                    stars={e.allStars}
                                     id={e._id}
                                     profileImage={e.profileImage.secure_url}
                                 />

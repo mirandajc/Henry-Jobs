@@ -7,7 +7,7 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { SiGmail } from "react-icons/all";
 import { MdAddAPhoto } from "react-icons/all";
 import { countries } from "../Register_form/gistfile1.json";
-import { actualizarHomeBusiness, EditProfile } from "../../reducer/actions/actionPost";
+import { EditProfile } from "../../reducer/actions/actionPost";
 
 
 export default function InnModal(){
@@ -193,7 +193,6 @@ export default function InnModal(){
   };
 
   function handleSubmit() {
-      dispatch(actualizarHomeBusiness());
       dispatch(EditProfile({ id, editUser }));
       navigate(`/profile/${id}`);
       alert("Cambios guardados!");

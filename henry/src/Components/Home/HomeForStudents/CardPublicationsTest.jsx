@@ -142,24 +142,25 @@ export default function CardPublicationWorkTest({ id, image, name, date, title, 
             {
                 !setear ? null : <div>¿Seguro que quieres postularte?</div>
             }
-
             {
                 userTypes === 1 || userTypes === 2 ? null :
 
                     userType.type === 4 || userType.type === 5 ? null :
 
-               
-
                         <Burron>
+                            <div>
                             {
                                 cartel &&
-                                <span>Postulación enviada con éxito</span>
-
+                                <div>
+                                    <span>Postulación enviada con éxito</span>
+                                    
+                                </div>
                             }
-                            <button onClick={handlePostulation}>{ !setear? 'Postularse' : 'Si'}</button>
+                            </div>
+                    
+                            <button onClick={handlePostulation}>{!setear ? 'Postularse' : 'Si'}</button>
                         </Burron>
 
-                    
             }
             <Footer>
 

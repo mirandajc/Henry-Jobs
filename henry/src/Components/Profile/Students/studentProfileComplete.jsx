@@ -19,7 +19,6 @@ export default function StudentCompletePage() {
     const userProfile = useSelector((state) => state.fetchPostReducer.responseProfile)
     const [renderi, setRenderi] = useState(false);
     const [load, setLoad] = useState(true);
-    const act = useSelector((state) => state.fetchPostReducer.actualHome)
 
     useEffect(() => {
         console.log('me ejecuto')
@@ -30,7 +29,7 @@ export default function StudentCompletePage() {
             dispatch(profileID(id));  
         }
         
-    }, [id,act])
+    }, [id])
 
 
     useEffect(() => {

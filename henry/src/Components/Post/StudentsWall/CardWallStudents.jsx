@@ -44,7 +44,7 @@ export default function CardWallStudents({
   city,
   profileImage,
   userName,
-  stars,
+  allStars,
   id,
 }) {
   const dispatch = useDispatch();
@@ -99,7 +99,6 @@ export default function CardWallStudents({
   };
 
 
-  console.log(banner)
   return (
     <PublicationCard>
         <BannerCont>
@@ -194,9 +193,9 @@ export default function CardWallStudents({
             <p>{english}</p>
           </div>
         ) : null}
-        {stars ? (
+        {allStars ? (
           <div>
-            <p>{stars}</p>
+            <p>{allStars}</p>
           </div>
         ) : null}
       </Tech>
