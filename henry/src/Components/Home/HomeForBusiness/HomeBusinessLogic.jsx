@@ -18,13 +18,8 @@ export default function HomeBusinessLogic({id}) {
   useEffect(() => {
     dispatch(traerFollowing(id));
   },[])
- 
-  useEffect(() => {
-    console.log(ac);
-  },[ac])
 
   useEffect(() => {
-      console.log('me ejecute')
       dispatch(getPublicationStudents(id));
   },[foll])
 
@@ -32,7 +27,6 @@ export default function HomeBusinessLogic({id}) {
     setTimeout(() => {
       dispatch(getPublicationStudents(id));
     }, 2000)
-    console.log('me ejecute')
   },[ac])
 
   useEffect(() => {
