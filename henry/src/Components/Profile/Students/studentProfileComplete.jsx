@@ -75,6 +75,9 @@ export default function StudentCompletePage() {
                 id={userProfile._id}
                 followers={userProfile.followers}
                 following={userProfile.following}
+                linkedin={userProfile.linkedin}
+                gmail={userProfile.gmail}
+                github={userProfile.github}
                 
                  />
                  {console.log(userProfile)}

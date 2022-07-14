@@ -37,7 +37,9 @@ export default function AboutAs() {
                 <img src={rene} className='imagencasco' alt="rene"/>
                 <span>
                     <h1>Rene Cadena</h1>
-                    <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
+                    <p>Mi nombre es René Cadena, en mis comienzos opte por la cocina, asi fue como termine siendo chef, 
+                    Siempre estuve interesado en la tecnologia, y por medio de mi hermano pude conocer este amplió mundo!
+                    Gracias a él fue como ingrese en Henry!, donde termine convirtiendome en un desarrollador Fullstack.</p>
                     <div className='icon'> 
                     <a target="_blank"  href="https://www.linkedin.com/in/jocelynmiranda/">
                         <SiLinkedin className="linkedin"/>
@@ -67,7 +69,7 @@ export default function AboutAs() {
                 <img src={gabi} className='imagencasco' alt="gabi"/>
                 <span>
                     <h1>Gabriel Cavasso</h1>
-                    <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
+                    <p>Buenas! Me llamo Gabriel y soy fullstack developer con preferencia por el backend. Me encontraba estudiando en la facultad la carrera de historia,  hasta que un día, junto con unos compañeros pensamos hacer una pagina de reseñas de libros, en ese momento creíamos que darle forma a una pagina web era relativamente sencillo.  La idea fue descartada, pero el gusto por la programación quedó. Meses después, en diciembre del 2021,  conocí henry y a parir de ahí fue cuando ese gusto se convirtió en pasión.</p>
                     <div className='icon'> 
                     <a target="_blank"  href="https://www.linkedin.com/in/gabriel-cavasso-30234622a/">
                         <SiLinkedin className="linkedin"/>
@@ -82,7 +84,11 @@ export default function AboutAs() {
                 <img src={nahuel} className='imagencasco' alt="nahuel"/>
                 <span>
                     <h1>Nahuel Cempellin</h1>
-                    <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
+                    <p>Hola! Soy Nahuel Felipe Cempellin. Soy Full-Stack developer.
+                    Me gusta mucho la tecnología, aprender cosas nuevas, e incorporar nuevas herramientas para poder aplicarlas a mis proyectos personales.
+                    Apasionado del frontend, y los estilos. Siempre inspirandome, y proponiendome retos
+                    que me ayuden a crecer.
+                    Me gusta mucho el empezar un proyecto desde un papel, y poder plasmarlo en la pc. </p>
                     <div className='icon'> 
                     <a target="_blank"  href="https://www.linkedin.com/in/nahuel-felipe-cempellin">
                         <SiLinkedin className="linkedin"/>
@@ -97,7 +103,7 @@ export default function AboutAs() {
                 <img src={lucho} className='imagencasco' alt="luciano"/>
                 <span>
                     <h1>Luciano Dorregaray</h1>
-                    <p>Lorem ipsum dolor sit amet. Quo debitis pariatur aut obcaecati iusto cum fuga saepe ab quae cumque id esse corporis qui Quis vero. Qui dolores deserunt eum doloremque dolor ad labore voluptate aut obcaecati ipsa!</p>
+                    <p>Mi nombre es Luciano Dorregaray, soy Fullstack Developer con orientación al Front-end, me considero una persona dedicada y comprometida con lo que hace, con deseos de aprender y mejorar mis habilidades cada día más. Comencé a estudiar programación ya que me gusta la tecnología, resolver problemas de forma lógica y crear, usando la programación como herramienta principal.</p>
                     <div className='icon'> 
                     <a target="_blank"  href="https://www.linkedin.com/in/jocelynmiranda/">
                         <SiLinkedin className="linkedin"/>

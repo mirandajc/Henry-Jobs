@@ -140,7 +140,7 @@ export const DevStar= styled.div`
 // border: 1px solid white;
 width:100%;
 display: flex;
-justify-content: space-evenly;
+justify-content: space-around;
 align-items: center;
 flex-direction: row;
 
@@ -153,14 +153,14 @@ p{
 
     .star{
         color: yellow;
-        margin-rigth: 1em;
+        margin-right: 1em;
     }
 
 
    
 }
 .Si{
-    border-right: 0.2px solid black;
+    // border-right: 0.2px solid black;
 }
 
 // #cent{
@@ -261,7 +261,7 @@ justify-content: space-evenly;
 border: 0.1px solid transparent;
 
 font-size: 1.5em;
-div{
+a{
     
     border-radius: 50%;
     
