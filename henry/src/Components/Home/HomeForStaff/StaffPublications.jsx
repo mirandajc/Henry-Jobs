@@ -18,7 +18,7 @@ export default function StaffPublications ({name,lastname, email, text, video, c
                         <p>{email}</p>
                     </NameMail>
                     <p className="text">{text}</p>
-                    <img src={video}/>
+                    {/* <img src={video}/> */}
                 </div>
                 
                 : 

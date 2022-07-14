@@ -3,7 +3,7 @@ import StaffStudentsBusiness from "./StaffStudentsBusiness";
 import StaffPublications from "./StaffPublications";
 import { getInfoForStaff, ordenarAlumnos, getStudentDetail, staffShowOrder } from "../../../reducer/actions/actionStaff";
 import { useDispatch, useSelector } from "react-redux";
-import { NavStaff, ContStafHome, ContDivStaff, DivGrid } from "./StaffStyles/staffStyles";
+import { NavStaff, ContStafHome, ContDivStaff, DivGrid, Staff } from "./StaffStyles/staffStyles";
 import { GridStudent } from "./StaffStyles/staffStudentCards";
 import Persent from "./persent";
 
@@ -130,7 +130,7 @@ export default function HomeForStaff() {
                                 workModal={e.workModality}
                             />) :
 
-                                <div> Bienvenido al panel de control de staff, apreta un boton para visualizar el contenido </div>
+                                <Staff>  Bienvenido al panel de control de staff, apreta un boton para visualizar el contenido 🚀 🚀 </Staff>
                             
                                 
                              

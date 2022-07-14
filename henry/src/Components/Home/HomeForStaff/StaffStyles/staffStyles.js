@@ -91,4 +91,17 @@ grid-template-rows: repeat(4, 1fr);
 grid-column-gap: 0px;
 grid-row-gap: 0px;
 
+
+`
+
+
+
+export const Staff= styled.div`
+    margin-left: 80%;
+    color: yellow;
+    font-size: 3em;
+    width: 100%;
+    padding: 1em;
+
+
 `

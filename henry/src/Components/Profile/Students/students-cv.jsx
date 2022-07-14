@@ -16,7 +16,7 @@ export default function StudentCV({ otherStudies, technologies,userTypes, id , a
 
 
         <CV>
-
+            {console.log(userTypes)}
             <CvCont>
 
                 { 

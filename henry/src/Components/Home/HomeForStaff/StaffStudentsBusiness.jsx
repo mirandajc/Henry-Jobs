@@ -20,8 +20,15 @@ export default function StaffStudentsBusiness({ botAd, id, name, profileImage, l
     // ¿ el staff a necesitar entrar al perfil del user para ver las publicaciones de solo ese user ?
 
     const handleDelete = () => {
-        dispatch(userDelete(id))
+        if(but){
+            dispatch(userDelete(id));
+            setBut(false);
+        } else {
+            setBut(true);
+        }
     };
+
+    const [ but , setBut ] = useState(false)
 
     const handleAdvertencia = (email) => {
         dispatch(sendEmail(email));
@@ -73,7 +80,8 @@ export default function StaffStudentsBusiness({ botAd, id, name, profileImage, l
                         </div>
                 }
                 <div className="buttonContainer">
-                    <button onClick={() => handleDelete()}>Borrar Usuario</button>
+                    {but ? <div>¿Seguro que quieres borrar?</div> : null}
+                    <button onClick={() => handleDelete()}>{but? 'Si': 'Borrar Usuario'}</button>
                     {cartelMail && <span>Correo enviado con éxito!</span>}
                     {
                         botAd ?
