@@ -115,6 +115,7 @@ export default function StudentsWall() {
         <BodyStudentsWallCard>
             <DivFiltros>
 
+                <div>
                 <select className='s' onChange={(e) => selectTech(e)}>
                     <option>TECNOLOGIAS</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}
@@ -122,6 +123,7 @@ export default function StudentsWall() {
                         return <option>{e}</option>
                     })}</select>
 
+                </div>
                 <select className='s'  onChange={(e) => selectDevType(e)}>
                     <option>DESARROLLADOR</option> {/* si cambias lo que hay dentro de options,
                                                  cambialo en la funcion tambien, dentro del if */}

@@ -11,7 +11,7 @@ import { getPublicationStudents, postIdFollowBuss, puntuar } from "../../../redu
 import { useDispatch, useSelector } from "react-redux";
 
 
-export default function StudentsProfile({ id, backFront, banner, country, curriculumCounter, allStars, email, lastName, name, profileImage, followers, following, userTypes }) {
+export default function StudentsProfile({gmail,github,linkedin, id, backFront, banner, country, curriculumCounter, allStars, email, lastName, name, profileImage, followers, following, userTypes }) {
 
     const dispatch = useDispatch();
     const TkId = localStorage.getItem('TK');
@@ -121,15 +121,17 @@ export default function StudentsProfile({ id, backFront, banner, country, curric
 
 
                 <Redes>
-                    <div >
+                    <a target='_blank' href={github}>
                         <BsGithub className="gh" />
-                    </div>
-                    <div>
+                    </a>
+                    
+                    <a target='_blank' href={linkedin}>
                         <BsLinkedin className="ln" />
-                    </div>
-                    <div>
-                        <SiGmail href={email} className="mail" />
-                    </div>
+                    </a>
+                    
+                    <a href={`mailto:${gmail}`} target='_blank'>
+                        <SiGmail  className="mail" />
+                    </a>
                 </Redes>
 
                 {console.log(userTypes)}
